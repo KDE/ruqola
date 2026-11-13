@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-10 03:04+0000\n"
+"POT-Creation-Date: 2026-11-13 03:39+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -9291,7 +9291,7 @@ msgctxt "@title:window"
 msgid "Show Read Receipts"
 msgstr "रसीदं पठन्तु"
 
-#: widgets/dialogs/showreadreceiptswidget.cpp:46
+#: widgets/dialogs/showreadreceiptswidget.cpp:47
 #, fuzzy, kde-format
 #| msgid "Read Receipts"
 msgctxt "@info:placeholder"
@@ -10164,7 +10164,7 @@ msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via TOTP"
 msgstr "TOTP मार्गेण द्वौ प्रमाणीकरणकारकौ सक्रियताम्"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:30
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:34
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10174,40 +10174,40 @@ msgstr ""
 "स्वस्य प्रमाणीकरण-अनुप्रयोगं उद्घाट्य कोडं प्रविशतु।\n"
 "भवान् स्वस्य एकं बैकअप कोड् अपि उपयोक्तुं शक्नोति ।"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:40
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:55
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:44
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:58
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter authentication code"
 msgstr "प्रमाणीकरणसङ्केतं प्रविष्टं कुर्वन्तु"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:44
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:59
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:48
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:62
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify"
 msgstr "सत्यापन"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:53
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:57
 #, kde-format
 msgctxt "@action:button"
 msgid "Regenerate Code"
 msgstr "संहिता पुनः उत्पन्नं कुर्वन्तु"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:70
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:90
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:74
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgid "Invalid two factor code."
 msgstr "अमान्यः द्वौ कारकसङ्केतः।"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:70
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:90
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:74
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgctxt "@title:window"
 msgid "Check Two Factor Code"
 msgstr "द्वौ कारकसङ्केतं पश्यन्तु"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:38
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:41
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10219,7 +10219,7 @@ msgstr ""
 " यदि भवान् QR कोडं स्कैन कर्तुं न शक्नोति तर्हि तस्य स्थाने भवान् कोडं मैन्युअल् रूपेण प्रविष्टुं "
 "शक्नोति:"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:82
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:85
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -10232,7 +10232,7 @@ msgstr ""
 "यदि भवान् स्वस्य प्रमाणक-अनुप्रयोगस्य प्रवेशं नष्टं करोति तर्हि भवान् एतेषु सङ्केतेषु एकस्य उपयोगं "
 "प्रवेशार्थं कर्तुं शक्नोति ।"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:84
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Backup Codes"

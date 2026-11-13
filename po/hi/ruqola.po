@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-10 03:04+0000\n"
+"POT-Creation-Date: 2026-11-13 03:39+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -9307,7 +9307,7 @@ msgctxt "@title:window"
 msgid "Show Read Receipts"
 msgstr "रसीदें पढ़ें"
 
-#: widgets/dialogs/showreadreceiptswidget.cpp:46
+#: widgets/dialogs/showreadreceiptswidget.cpp:47
 #, fuzzy, kde-format
 #| msgid "Read Receipts"
 msgctxt "@info:placeholder"
@@ -10180,7 +10180,7 @@ msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via TOTP"
 msgstr "TOTP के माध्यम से दो प्रमाणीकरण कारक सक्रिय करें"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:30
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:34
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10190,40 +10190,40 @@ msgstr ""
 "अपना प्रमाणीकरण ऐप खोलें और कोड दर्ज करें।\n"
 "आप अपने बैकअप कोड में से किसी एक का भी उपयोग कर सकते हैं।"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:40
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:55
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:44
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:58
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter authentication code"
 msgstr "प्रमाणीकरण कोड दर्ज करें"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:44
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:59
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:48
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:62
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify"
 msgstr "सत्यापित करें"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:53
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:57
 #, kde-format
 msgctxt "@action:button"
 msgid "Regenerate Code"
 msgstr "कोड पुनर्जीवित करें"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:70
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:90
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:74
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgid "Invalid two factor code."
 msgstr "अमान्य दो कारक कोड."
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:70
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:90
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:74
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgctxt "@title:window"
 msgid "Check Two Factor Code"
 msgstr "दो कारक कोड की जाँच करें"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:38
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:41
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10236,7 +10236,7 @@ msgstr ""
 "यदि आप क्यूआर कोड को स्कैन नहीं कर सकते हैं, तो आप इसके बजाय मैन्युअल रूप से कोड दर्ज कर "
 "सकते हैं:"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:82
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:85
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -10249,7 +10249,7 @@ msgstr ""
 "यदि आप अपने प्रमाणक ऐप तक पहुँच खो देते हैं, तो आप लॉग इन करने के लिए इनमें से किसी एक "
 "कोड का उपयोग कर सकते हैं।"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:84
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Backup Codes"

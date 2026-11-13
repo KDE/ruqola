@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-10 03:04+0000\n"
+"POT-Creation-Date: 2026-11-13 03:39+0000\n"
 "PO-Revision-Date: 2026-09-14 20:10+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -9200,7 +9200,7 @@ msgctxt "@title:window"
 msgid "Show Read Receipts"
 msgstr "Zobraziť potvrdenia o prečítaní"
 
-#: widgets/dialogs/showreadreceiptswidget.cpp:46
+#: widgets/dialogs/showreadreceiptswidget.cpp:47
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Read Receipts…"
@@ -10063,7 +10063,7 @@ msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via TOTP"
 msgstr "Aktivovať dvojfaktorovú autentifikáciu cez TOTP"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:30
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:34
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10073,40 +10073,40 @@ msgstr ""
 "Otvorte svoju autentifikačnú aplikáciu a zadajte kód.\n"
 "Môžete tiež použiť jeden zo svojich záložných kódov."
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:40
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:55
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:44
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:58
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter authentication code"
 msgstr "Zadajte autentifikačný kód"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:44
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:59
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:48
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:62
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify"
 msgstr "Verify"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:53
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:57
 #, kde-format
 msgctxt "@action:button"
 msgid "Regenerate Code"
 msgstr "Regenerate Code"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:70
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:90
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:74
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgid "Invalid two factor code."
 msgstr "Neplatný dvojfaktorový kód."
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:70
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:90
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:74
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgctxt "@title:window"
 msgid "Check Two Factor Code"
 msgstr "Check Two Factor Code"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:38
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:41
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10117,7 +10117,7 @@ msgstr ""
 "Naskenujte QR kód. Zobrazí sa 6-ciferný kód, ktorý musíte zadať nižšie.\n"
 " Ak nemôžete naskenovať QR kód, môžete namiesto toho zadať kód ručne:"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:82
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:85
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -10130,7 +10130,7 @@ msgstr ""
 "Ak stratíte prístup do svojej autentifikačnej aplikácie, môžete použiť jeden "
 "z týchto kódov na prihlásenie."
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:84
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Backup Codes"

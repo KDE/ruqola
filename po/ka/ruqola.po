@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-10 03:04+0000\n"
+"POT-Creation-Date: 2026-11-13 03:39+0000\n"
 "PO-Revision-Date: 2026-10-13 04:21+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -9183,7 +9183,7 @@ msgctxt "@title:window"
 msgid "Show Read Receipts"
 msgstr "წაკითხულობის ანგარიშების ჩვენება"
 
-#: widgets/dialogs/showreadreceiptswidget.cpp:46
+#: widgets/dialogs/showreadreceiptswidget.cpp:47
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Read Receipts…"
@@ -10042,7 +10042,7 @@ msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via TOTP"
 msgstr "2FA-ის TOTP-ზე ჩართვა"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:30
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:34
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10052,40 +10052,40 @@ msgstr ""
 "გახსენით თქვენი ავთენტიკაციის აპი და ეს კოდი შეიყვანეთ.\n"
 "ასევე შეგიძლიათ თქვენი ერთ-ერთი მარქაფის კოდიც გამოიყენოთ."
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:40
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:55
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:44
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:58
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter authentication code"
 msgstr "შეიყვანეთ ავთენტიკაციის კოდი"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:44
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:59
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:48
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:62
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify"
 msgstr "გადამოწმება"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:53
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:57
 #, kde-format
 msgctxt "@action:button"
 msgid "Regenerate Code"
 msgstr "კოდის თავიდან გენერაცია"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:70
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:90
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:74
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgid "Invalid two factor code."
 msgstr "არასწორი 2FA კოდი."
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:70
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:90
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:74
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgctxt "@title:window"
 msgid "Check Two Factor Code"
 msgstr "გადაამოწმეთ თქვენი 2FA კოდი"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:38
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:41
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10097,7 +10097,7 @@ msgstr ""
 "შეიყვანოთ.\n"
 " თუ QR კოდის სკანირება არ შეგიძლიათ, კოდი შეგიძლიათ, ხელითაც შეიყვანოთ:"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:82
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:85
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -10110,7 +10110,7 @@ msgstr ""
 "თუ დაკარგავთ თქვენს ავთენტიკატორის აპთან წვდომას, შესასვლელად ამ კოდებიდან "
 "ერთ-ერთის გამოყენება შეგეძლებათ."
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:84
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Backup Codes"

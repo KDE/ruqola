@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-10 03:04+0000\n"
+"POT-Creation-Date: 2026-11-13 03:39+0000\n"
 "PO-Revision-Date: 2026-11-07 19:33+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -9174,7 +9174,7 @@ msgctxt "@title:window"
 msgid "Show Read Receipts"
 msgstr "Okundu Makbuzlarını Göster"
 
-#: widgets/dialogs/showreadreceiptswidget.cpp:46
+#: widgets/dialogs/showreadreceiptswidget.cpp:47
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Read Receipts…"
@@ -10039,7 +10039,7 @@ msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via TOTP"
 msgstr "İki adımlı kimlik doğrulama katmanını TOTP ile etkinleştir"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:30
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:34
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10049,40 +10049,40 @@ msgstr ""
 "Kimlik doğrulama uygulamanızı açın ve kodu girin.\n"
 "İsterseniz yedek kodlarınızdan birini de kullanabilirsiniz."
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:40
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:55
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:44
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:58
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter authentication code"
 msgstr "Kimlik doğrulama kodunu gir…"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:44
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:59
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:48
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:62
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify"
 msgstr "Doğrula"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:53
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:57
 #, kde-format
 msgctxt "@action:button"
 msgid "Regenerate Code"
 msgstr "Kodu Yeniden Üret"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:70
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:90
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:74
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgid "Invalid two factor code."
 msgstr "Geçersiz iki adımlı kod."
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:70
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:90
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:74
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgctxt "@title:window"
 msgid "Check Two Factor Code"
 msgstr "İki adımlı kodu denetle"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:38
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:41
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10094,7 +10094,7 @@ msgstr ""
 "görüntüleyecektir.\n"
 "Kare kodu tarayamıyorsanız kodu elle girmeniz gerekebilir:"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:82
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:85
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -10107,7 +10107,7 @@ msgstr ""
 "Kimlik doğrulayıcı uygulamanıza erişiminizi kaybederseniz oturum açmak için "
 "bu kodlardan birini kullanabilirsiniz."
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:84
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Backup Codes"
