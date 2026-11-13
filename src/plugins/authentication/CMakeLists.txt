@@ -3,9 +3,8 @@
 add_subdirectory(password)
 add_subdirectory(personalaccesstoken)
 
-if(PLUGINS_AUTHENTICATION_BASED_ON_O2)
-    add_subdirectory(google)
-endif()
+# Port it
+#    add_subdirectory(google)
 
 #Experimental
 add_subdirectory(github)
