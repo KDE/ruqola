@@ -43,7 +43,7 @@
   <name xml:lang="sk">Ruqola</name>
   <name xml:lang="sl">Ruqola</name>
   <name xml:lang="sv">Ruqola </name>
-  <name xml:lang="tr">Roka</name>
+  <name xml:lang="tr">Ruqola</name>
   <name xml:lang="uk">Ruqola</name>
   <name xml:lang="zh-TW">Ruqola</name>
   <summary>Rocket Chat Client</summary>
@@ -112,7 +112,7 @@
     <p xml:lang="sk">Ruqola je klient pre Rocket.Chat.</p>
     <p xml:lang="sl">Ruqola je odjemalec za Rocket chat.</p>
     <p xml:lang="sv">Ruqola är en Rocket Chat klient.</p>
-    <p xml:lang="tr">Roka, Rocket.Chat için bir istemcidir.</p>
+    <p xml:lang="tr">Ruqola, Rocket.Chat için bir istemcidir.</p>
     <p xml:lang="uk">Ruqola — клієнт Rocket.Chat.</p>
     <p xml:lang="zh-TW">Ruqola 是一個 Rocket.Chat 的用戶端。</p>
     <p>
@@ -1087,7 +1087,7 @@
       <li xml:lang="sk">Pretiahnutie obrázka z Ruqola na webovú stránku alebo do miestneho priečinka</li>
       <li xml:lang="sl">Povlecite in spustite sliko iz ruqole na spletno mesto ali lokalno mapo</li>
       <li xml:lang="sv">Dra och släpp bild from ruqola till webbplats eller lokal katalog</li>
-      <li xml:lang="tr">Roka’dan web sitesine veya yerel klasöre görsel sürükleyip bırakın</li>
+      <li xml:lang="tr">Ruqola’dan web sitesine veya yerel klasöre görsel sürükleyip bırakın</li>
       <li xml:lang="uk">Перетягування і скидання зображення з ruqola на сайт або локальну теку</li>
       <li xml:lang="zh-TW">從 Ruqola 拖放影像到網站或本地資料夾中</li>
       <li>Store message in local database so we can search in offline</li>
@@ -1373,7 +1373,7 @@
       <caption xml:lang="sk">Chatovacia miestnosť v Ruqola</caption>
       <caption xml:lang="sl">Klepetalnica v Ruqoli</caption>
       <caption xml:lang="sv">Chattrum i Ruqola</caption>
-      <caption xml:lang="tr">Roka’da sohbet odası</caption>
+      <caption xml:lang="tr">Ruqola’da sohbet odası</caption>
       <caption xml:lang="uk">Кімната спілкування у Ruqola</caption>
       <caption xml:lang="zh-TW">Ruqola 中的聊天室</caption>
       <image type="source" width="840" height="669">https://cdn.kde.org/screenshots/ruqola/ruqola.png</image>
@@ -1392,6 +1392,14 @@
       <description>
         <ul>
           <li>Add RC 9.0.0 support.</li>
+          <li xml:lang="ca">Afegeix la implementació del RC 9.0.0.</li>
+          <li xml:lang="ca-valencia">Afig la implementació del RC 9.0.0.</li>
+          <li xml:lang="nl">Ondersteuning voor RC 9.0.0 toevoegen.</li>
+          <li xml:lang="pt-BR">Adicionar suporte ao RC 9.0.0.</li>
+          <li xml:lang="ru">Поддержка RC 9.0.0.</li>
+          <li xml:lang="sl">Doda podporo za RC 9.0.0</li>
+          <li xml:lang="tr">RC 9.0.0 desteği ekle</li>
+          <li xml:lang="uk">Додано підтримку RC 9.0.0</li>
           <li>Add category support.</li>
           <li xml:lang="ar">إضافة الفئات.</li>
           <li xml:lang="ca">Afegeix el suport de categories.</li>
@@ -2497,7 +2505,7 @@
           <li xml:lang="sk">Implementácia kontroly dostupnosti novej verzie Ruqola</li>
           <li xml:lang="sl">Izvedite preverjanje, ali obstaja nova različica Ruqole.</li>
           <li xml:lang="sv">Implementera verifiering av om en ny version av Ruqola finns</li>
-          <li xml:lang="tr">Yeni bir Roka sürümünün olup olmadığını doğrulamayı gerçekle</li>
+          <li xml:lang="tr">Yeni bir Ruqola sürümünün olup olmadığını doğrulamayı gerçekle</li>
           <li xml:lang="uk">Реалізовано перевірку наявності нової версії Ruqola</li>
           <li>Allow to search threads by unread/following</li>
           <li xml:lang="ar">اسمح بالبحث عن سلاسل المحادثات حسب عدم قراءتها/متابعتها</li>
