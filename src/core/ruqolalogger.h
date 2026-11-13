@@ -27,7 +27,6 @@ public:
     [[nodiscard]] QString databaseLogFilePath() const;
 
 private:
-    Q_DISABLE_COPY(RuqolaLogger)
     QFile mLoggerFile;
     QFile mRestApiLogFile;
     QFile mDatabaseLogFile;
