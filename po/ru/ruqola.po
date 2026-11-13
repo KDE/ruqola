@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-12 01:01+0000\n"
+"POT-Creation-Date: 2026-11-13 00:58+0000\n"
 "PO-Revision-Date: 2026-11-11 20:48+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -9840,7 +9840,7 @@ msgctxt "@title:window"
 msgid "Show Read Receipts"
 msgstr "Показ подтверждений прочтения"
 
-#: widgets/dialogs/showreadreceiptswidget.cpp:45
+#: widgets/dialogs/showreadreceiptswidget.cpp:46
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Read Receipts…"
@@ -10711,7 +10711,7 @@ msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via TOTP"
 msgstr "Активировать двухфакторную аутентификацию с помощью TOTP"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:33
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:34
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10721,40 +10721,40 @@ msgstr ""
 "Откройте своё приложение для аутентификации и введите код.\n"
 "Также возможно использовать один из резервных кодов."
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:43
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:55
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:44
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:58
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter authentication code"
 msgstr "Введите код аутентификации"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:47
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:59
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:48
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:62
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify"
 msgstr "Проверить"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:56
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:57
 #, kde-format
 msgctxt "@action:button"
 msgid "Regenerate Code"
 msgstr "Пересоздать код"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:73
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:90
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:74
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgid "Invalid two factor code."
 msgstr "Неверный двухфакторный код."
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:73
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:90
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:74
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgctxt "@title:window"
 msgid "Check Two Factor Code"
 msgstr "Проверка двухфакторного кода"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:38
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:41
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10767,7 +10767,7 @@ msgstr ""
 " Если нет возможности выполнить сканирование QR-кода, возможно ввести код "
 "вручную:"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:82
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:85
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -10780,7 +10780,7 @@ msgstr ""
 "В случае потери доступа к приложению для аутентификации будет возможно "
 "воспользоваться одним из этих кодов для входа."
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:84
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Backup Codes"

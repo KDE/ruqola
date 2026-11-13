@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-12 01:01+0000\n"
-"PO-Revision-Date: 2026-11-10 21:36+0300\n"
+"POT-Creation-Date: 2026-11-13 00:58+0000\n"
+"PO-Revision-Date: 2026-11-12 19:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: apps/main.cpp:60
 #, kde-format
 msgid "Copyright © 2020-2026 Ruqola authors"
-msgstr "© 2020–2026 Roka yazarları"
+msgstr "© 2020–2026 Ruqola yazarları"
 
 #: apps/main.cpp:64
 #, kde-format
@@ -2170,7 +2170,7 @@ msgstr "Çevrim dışı"
 #: core/notifications/notification.cpp:26
 #, kde-format
 msgid "Ruqola"
-msgstr "Roka"
+msgstr "Ruqola"
 
 #: core/notifications/notifierjob.cpp:33
 #, kde-format
@@ -8357,7 +8357,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
-msgstr "Roka’yı Yapılandır"
+msgstr "Ruqola’yı Yapılandır"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
@@ -8485,7 +8485,7 @@ msgid ""
 "you are in those activities. Furthermore, when you switch to an activity it "
 "should not be available in, it will automatically be hidden."
 msgstr ""
-"Bu hesabı bir etkinliğe sınırlarsanız yalnızca bu etkinlikteyken Roka’da "
+"Bu hesabı bir etkinliğe sınırlarsanız yalnızca bu etkinlikteyken Ruqola’da "
 "görüntülenecektir. Dahası, kullanılabilir olmadığı bir etkinliğe geçerseniz "
 "kendiliğinden gizlenir."
 
@@ -9705,7 +9705,7 @@ msgctxt "@title:window"
 msgid "Show Read Receipts"
 msgstr "Okundu Makbuzlarını Göster"
 
-#: widgets/dialogs/showreadreceiptswidget.cpp:45
+#: widgets/dialogs/showreadreceiptswidget.cpp:46
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Read Receipts…"
@@ -10573,7 +10573,7 @@ msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via TOTP"
 msgstr "İki adımlı kimlik doğrulama katmanını TOTP ile etkinleştir"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:33
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:34
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10583,40 +10583,40 @@ msgstr ""
 "Kimlik doğrulama uygulamanızı açın ve kodu girin.\n"
 "İsterseniz yedek kodlarınızdan birini de kullanabilirsiniz."
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:43
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:55
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:44
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:58
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter authentication code"
 msgstr "Kimlik doğrulama kodunu gir…"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:47
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:59
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:48
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:62
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify"
 msgstr "Doğrula"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:56
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:57
 #, kde-format
 msgctxt "@action:button"
 msgid "Regenerate Code"
 msgstr "Kodu Yeniden Üret"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:73
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:90
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:74
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgid "Invalid two factor code."
 msgstr "Geçersiz iki adımlı kod."
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:73
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:90
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:74
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgctxt "@title:window"
 msgid "Check Two Factor Code"
 msgstr "İki adımlı kodu denetle"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:38
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:41
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10624,11 +10624,11 @@ msgid ""
 "below.\n"
 " If you can't scan the QR code, you may enter code manually instead:"
 msgstr ""
-"Kare kodu tarayın. Aşağıya girmeniz gereken bir altı basamaklı kod "
+"Karekodu tarayın. Aşağıya girmeniz gereken bir altı basamaklı kod "
 "görüntüleyecektir.\n"
-"Kare kodu tarayamıyorsanız kodu elle girmeniz gerekebilir:"
+"Karekodu tarayamıyorsanız kodu elle girmeniz gerekebilir:"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:82
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:85
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -10641,7 +10641,7 @@ msgstr ""
 "Kimlik doğrulayıcı uygulamanıza erişiminizi kaybederseniz oturum açmak için "
 "bu kodlardan birini kullanabilirsiniz."
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:84
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Backup Codes"
@@ -12864,7 +12864,7 @@ msgid ""
 "Automated check list from ruqola:\n"
 msgstr ""
 "RC %1\n"
-"Roka’dan otomatikleştirilmiş kontrol listesi:\n"
+"Ruqola’dan otomatikleştirilmiş kontrol listesi:\n"
 
 #: widgets/serverchecks/threadreplycheck.cpp:16
 #, kde-format

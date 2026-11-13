@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-12 01:01+0000\n"
-"PO-Revision-Date: 2026-11-11 21:11+0400\n"
+"POT-Creation-Date: 2026-11-13 00:58+0000\n"
+"PO-Revision-Date: 2026-11-12 09:17+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -799,12 +799,12 @@ msgstr "أُغلق المقبس بشكل غير متوقع."
 #: core/mcpserver/common/toolbase.cpp:87
 #, kde-format
 msgid "Another confirmation is pending"
-msgstr ""
+msgstr "ثمة تأكيد آخر معلّق"
 
 #: core/mcpserver/common/toolbase.cpp:93
 #, kde-format
 msgid "MCP tool asks confirmation"
-msgstr ""
+msgstr "أداة MCP تطلب التأكيد"
 
 #: core/mcpserver/common/toolbase.cpp:94
 #, kde-format
@@ -812,11 +812,13 @@ msgid ""
 "Run \"%1\"?\n"
 "%2"
 msgstr ""
+"شغّل \"%1\"؟\n"
+"%2"
 
 #: core/mcpserver/common/toolbase.cpp:108
 #, kde-format
 msgid "Action refused by user"
-msgstr ""
+msgstr "رفض المستخدم الإجراء"
 
 #: core/mcpserver/common/toolbase.cpp:111
 #: core/videoconference/videoconferencenotificationjob.cpp:61
@@ -890,7 +892,7 @@ msgstr "المستخدم الحاليّ"
 #: core/mcpserver/common/toolutils.cpp:25
 #, kde-format
 msgid "Misc"
-msgstr ""
+msgstr "متفرقات"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:27
 #, kde-format
@@ -943,40 +945,35 @@ msgid "No room found with identifier \"%1\""
 msgstr "لم تُعثر على غرفة بالمعرّف \"%1\""
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:47
-#, fuzzy, kde-format
-#| msgid "No users found"
+#, kde-format
 msgid "No users with roles found"
-msgstr "لم يعثر على مستخدمين"
+msgstr "لم يُعثر على مستخدمين بأدوار"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:72
-#, fuzzy, kde-format
-#| msgid "Get Room Info"
+#, kde-format
 msgid "Get Room Roles"
-msgstr "جلب معلومات الغرفة"
+msgstr "جلب أدوار الغرفة"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:130
 #, kde-format
 msgid "Direct conversations have no room roles"
-msgstr ""
+msgstr "لا أدوار غرفة في المحادثات المباشرة"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:133
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:101
-#, fuzzy, kde-format
-#| msgid "Unknown state"
+#, kde-format
 msgid "Unknown room type"
-msgstr "حالة مجهولة"
+msgstr "نوع غرفة غير معروف"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:139
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Getting room roles failed: %1"
-msgstr "فشل التنزيل: %1"
+msgstr "فشل جلب أدوار الغرفة: %1"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:142
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start getting room roles"
-msgstr "من المستحيل تصدير البيانات."
+msgstr "تعذّر بدء جلب أدوار الغرفة"
 
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:26
 #, kde-format
@@ -1009,28 +1006,24 @@ msgid "List Accounts"
 msgstr "سرد الحسابات"
 
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:53
-#, fuzzy, kde-format
-#| msgid "List Rooms"
+#, kde-format
 msgid "List Room Members"
-msgstr "سرد الغرف"
+msgstr "سرد أعضاء الغرفة"
 
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:125
-#, fuzzy, kde-format
-#| msgid "No user found"
+#, kde-format
 msgid "No members found"
-msgstr "لم يعثر على أي مستخدم"
+msgstr "لم يُعثر على أعضاء"
 
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:137
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Listing members failed: %1"
-msgstr "فشل التنزيل: %1"
+msgstr "فشل سرد الأعضاء: %1"
 
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:140
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start listing members"
-msgstr "من المستحيل تصدير البيانات."
+msgstr "تعذّر بدء سرد الأعضاء"
 
 #: core/mcpserver/listrooms/listroomstool.cpp:27
 #, kde-format
@@ -1044,23 +1037,19 @@ msgid "No rooms found"
 msgstr "لم تُعثر على غرف"
 
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Mark as Read"
+#, kde-format
 msgid "Mark Room as Read"
-msgstr "علّم كمقروء"
+msgstr "تعليم الغرفة كمقروءة"
 
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:75
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Mark room as read failed: %1"
-msgstr "فشل التنزيل: %1"
+msgstr "فشل تعليم الغرفة كمقروءة: %1"
 
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:78
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start mark room as read job"
-msgstr "من المستحيل تصدير البيانات."
+msgstr "تعذّر بدء مهمة تعليم الغرفة كمقروءة"
 
 #: core/mcpserver/mcpservermanager.cpp:46
 #, kde-format
@@ -1068,43 +1057,35 @@ msgid "Manage information from Ruqola"
 msgstr "إدارة المعلومات من رُقولة"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Pin Message"
+#, kde-format
 msgid "Pin Message"
-msgstr "ثبّت الرّسالة"
+msgstr "تثبيت رسالة"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:52
 #: core/mcpserver/starmessage/starmessagetool.cpp:52
-#, fuzzy, kde-format
-#| msgid "Missing room identifier"
+#, kde-format
 msgid "Missing message identifier"
-msgstr "معرّف الغرفة مفقود"
+msgstr "معرّف الرسالة مفقود"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:70
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Pin message failed: %1"
-msgstr "فشل التنزيل: %1"
+msgstr "فشل تثبيت الرسالة: %1"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:73
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start pin message job"
-msgstr "من المستحيل تصدير البيانات."
+msgstr "تعذّر بدء مهمة تثبيت الرسالة"
 
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Search Messages"
+#, kde-format
 msgid "Search Messages"
-msgstr "ابحث في الرسائل"
+msgstr "بحث في الرسائل"
 
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:117
-#, fuzzy, kde-format
-#| msgid "No Message found"
+#, kde-format
 msgid "No messages found"
-msgstr "لم يُعثر على رسالة"
+msgstr "لم يُعثر على رسائل"
 
 #: core/mcpserver/searchrooms/searchroomstool.cpp:24
 #, kde-format
@@ -1132,38 +1113,34 @@ msgid "Invalid status"
 msgstr "حالة غير صالحة"
 
 #: core/mcpserver/starmessage/starmessagetool.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Search Message"
+#, kde-format
 msgid "Star Message"
-msgstr "ابحث في الرسائل"
+msgstr "تمييز رسالة بنجمة"
 
 #: core/mcpserver/starmessage/starmessagetool.cpp:67
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Star message failed: %1"
-msgstr "فشل التنزيل: %1"
+msgstr "فشل تمييز الرسالة بنجمة: %1"
 
 #: core/mcpserver/starmessage/starmessagetool.cpp:70
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start star message job"
-msgstr "من المستحيل تصدير البيانات."
+msgstr "تعذّر بدء مهمة تمييز الرسالة بنجمة"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:30
 #, kde-format
 msgid "Update Room Settings"
-msgstr ""
+msgstr "تحديث إعدادات الغرفة"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:68
 #, kde-format
 msgid "Settings of a direct room cannot be changed"
-msgstr ""
+msgstr "لا يمكن تغيير إعدادات غرفة مباشرة"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:79
 #, kde-format
 msgid "Room name cannot be empty"
-msgstr ""
+msgstr "لا يمكن أن يكون اسم الغرفة فارغًا"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:102
 #, kde-format
@@ -1171,17 +1148,17 @@ msgid ""
 "Nothing to change: give at least one of name, topic, description or "
 "announcement"
 msgstr ""
+"لا شيء للتغيير: أعطِ على الأقل واحدًا من الاسم أو الموضوع أو الوصف أو الإعلان"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:116
 #, kde-format
 msgid "Update room settings failed: %1"
-msgstr ""
+msgstr "فشل تحديث إعدادات الغرفة: %1"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:119
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start update room settings job"
-msgstr "من المستحيل تصدير البيانات."
+msgstr "تعذّر بدء مهمة تحديث إعدادات الغرفة"
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69
@@ -1489,10 +1466,9 @@ msgid "Uses"
 msgstr "الاستخدامات"
 
 #: core/model/admininvitemodel.cpp:41
-#, fuzzy, kde-format
-#| msgid "Max number of uses"
+#, kde-format
 msgid "Max uses"
-msgstr "الحد الأقصى لعدد الاستخدامات"
+msgstr "أقصى عدد للاستخدامات"
 
 #: core/model/admininvitemodel.cpp:43
 #, kde-format
@@ -1511,22 +1487,20 @@ msgid "Never"
 msgstr "البتة"
 
 #: core/model/admininvitemodel.cpp:119
-#, fuzzy, kde-format
-#| msgid "Expired"
+#, kde-format
 msgid "Expires today"
-msgstr "منتهي"
+msgstr "تنتهي اليوم"
 
 #: core/model/admininvitemodel.cpp:121
-#, fuzzy, kde-format
-#| msgid "Expire in %1 days"
+#, kde-format
 msgid "Expires in 1 day"
 msgid_plural "Expires in %1 days"
-msgstr[0] "تنتهي صلاحيته في %1 يوم"
-msgstr[1] "تنتهي صلاحيته في %1 يوم"
-msgstr[2] "تنتهي صلاحيته في %1 يوم"
-msgstr[3] "تنتهي صلاحيته في %1 يوم"
-msgstr[4] "تنتهي صلاحيته في %1 يوم"
-msgstr[5] "تنتهي صلاحيته في %1 يوم"
+msgstr[0] "تنتهي في %1 يوم"
+msgstr[1] "تنتهي في يوم واحد"
+msgstr[2] "تنتهي في يومين"
+msgstr[3] "تنتهي في %1 أيام"
+msgstr[4] "تنتهي في %1 يومًا"
+msgstr[5] "تنتهي في %1 يوم"
 
 #: core/model/admininvitemodel.cpp:123
 #, kde-format
@@ -2010,11 +1984,9 @@ msgid "On Hold Chats"
 msgstr "الدردشات المعلقة"
 
 #: core/model/roommodel.cpp:712
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Start Conversation"
+#, kde-format
 msgid "Conversations"
-msgstr "ابدأ المحادثة"
+msgstr "المحادثات"
 
 #: core/model/statusmodel.cpp:63
 #, kde-format
@@ -3170,10 +3142,8 @@ msgid "User is not in this room"
 msgstr "المستخدم غير موجود في هذه الغرفة"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:349
-#, fuzzy
-#| msgid "You are not in the room `%1`"
 msgid "You are not in the room"
-msgstr "لست في الغرفة `%1`"
+msgstr "أنت لست في الغرفة"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 msgid "User registration is disabled"
@@ -3322,12 +3292,12 @@ msgstr "اشتراك غير صالح"
 #: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:183
 #, kde-format
 msgid "You are not allowed to create a discussion"
-msgstr ""
+msgstr "غير مسموح لك بإنشاء نقاش"
 
 #: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:191
 #, kde-format
 msgid "You are not allowed to create a discussion."
-msgstr ""
+msgstr "غير مسموح لك بإنشاء نقاش."
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:65
 #, kde-format
@@ -4994,10 +4964,9 @@ msgid "How many failed attempts until block by IP"
 msgstr "كم عدد المحاولات الفاشلة حتى تحظر عنوان الإنترنت IP"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:134
-#, fuzzy, kde-format
-#| msgid "Time to unblock User (In Minutes)"
+#, kde-format
 msgid "Time to unblock IP (In Minutes)"
-msgstr "الوقت لإلغاء حظر المستخدم (بالدقائق)"
+msgstr "مدة إلغاء حظر عنوان IP (بالدقائق)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
 #, kde-format
@@ -5820,24 +5789,19 @@ msgid "Accepted Media Types"
 msgstr "أنواع الوسائط المقبولة"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Comma-separated list of media types. This setting has priority over the "
-#| "Blocked Media Types."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
 "Accepted Media Types."
 msgstr ""
 "قائمة أنواع الوسائط مفصولة بفواصل. لهذا الإعداد أولوية على أنواع الوسائط "
-"المحظورة."
+"المقبولة."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "Accepted Media Types"
+#, kde-format
 msgid "Blocked Media Types"
-msgstr "أنواع الوسائط المقبولة"
+msgstr "أنواع الوسائط المحظورة"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
@@ -6298,15 +6262,12 @@ msgid "Timeout (ms)"
 msgstr "المهلة (م.ث)"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:78
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "How many milliseconds wait for a search result before return an error"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "How many milliseconds wait for a connection to be established before return "
 "an error"
-msgstr "كم عدد المللي ثانية لانتظار نتيجة البحث قبل إرجاع خطأ"
+msgstr "عدد المللي ثانية للانتظار قبل إنشاء اتصال قبل إرجاع خطأ"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:79
 #, kde-format
@@ -6395,11 +6356,9 @@ msgid "Trace method filter"
 msgstr "تتبع مرشح الوظيفة"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:59
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Trace subscription calls"
+#, kde-format
 msgid "Trace subscription filter"
-msgstr "تتبع استدعاءات الاشتراك"
+msgstr "مرشح اشتراك التتبع"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
 #, kde-format
@@ -6866,7 +6825,7 @@ msgstr "سر تويتر"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
 #, kde-format
 msgid "Twitter Callback URL"
-msgstr ""
+msgstr "رابط رد نداء تويتر"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:109
 #, kde-format
@@ -6886,7 +6845,7 @@ msgstr "سر لينكد إن"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:123
 #, kde-format
 msgid "LinkedIn Callback URL"
-msgstr ""
+msgstr "رابط رد نداء لينكدإن"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:125
 #, kde-format
@@ -6921,7 +6880,7 @@ msgstr "سر ميتيور"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:150
 #, kde-format
 msgid "Meteor Callback URL"
-msgstr ""
+msgstr "رابط رد نداء ميتيور"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:153
 #, kde-format
@@ -6941,7 +6900,7 @@ msgstr "سر فيسبوك"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
 #, kde-format
 msgid "Facebook Callback URL"
-msgstr ""
+msgstr "رابط رد نداء فيسبوك"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:170
 #, kde-format
@@ -6961,7 +6920,7 @@ msgstr "سر غت هب"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:184
 #, kde-format
 msgid "Github Callback URL"
-msgstr ""
+msgstr "رابط رد نداء غيت‌هَب"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:187
 #, kde-format
@@ -6990,10 +6949,9 @@ msgid "Tokenpass Secret"
 msgstr "سر توكنباس"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:205
-#, fuzzy, kde-format
-#| msgid "Tokenpass Server URL"
+#, kde-format
 msgid "Tokenpass Callback URL"
-msgstr "خادم توكنباس"
+msgstr "رابط رد نداء Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:216
 #, kde-format
@@ -7008,7 +6966,7 @@ msgstr "سر غوغل"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:222
 #, kde-format
 msgid "Google Callback URL"
-msgstr ""
+msgstr "رابط رد نداء جوجل"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:19
 #, kde-format
@@ -7089,6 +7047,8 @@ msgid ""
 "When enabled, user passwords must adhere to the policies set forth. Note: "
 "this only applies to new passwords, not existing passwords."
 msgstr ""
+"عند التمكين، يجب أن تلتزم كلمات مرور المستخدمين بالسياسات المحددة. ملاحظة: "
+"ينطبق هذا على كلمات المرور الجديدة فقط، وليس على كلمات المرور الحالية."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:55
 #, kde-format
@@ -7228,42 +7188,34 @@ msgid "Limit by User: interval time"
 msgstr "حدّ حسب المستخدم: الوقت الفاصل"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Limit by User: requests allowed"
+#, kde-format
 msgid "Limit by Connection: requests allowed"
-msgstr "حدّ حسب المستخدم: الطلبات المسموحة"
+msgstr "التحديد حسب الاتصال: الطلبات المسموح بها"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:78
-#, fuzzy, kde-format
-#| msgid "Limit by User: interval time"
+#, kde-format
 msgid "Limit by Connection: interval time"
-msgstr "حدّ حسب المستخدم: الوقت الفاصل"
+msgstr "التحديد حسب الاتصال: الفترة الزمنية"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:85
-#, fuzzy, kde-format
-#| msgid "Limit by User: requests allowed"
+#, kde-format
 msgid "Limit by User per Method: requests allowed"
-msgstr "حدّ حسب المستخدم: الطلبات المسموحة"
+msgstr "التحديد حسب المستخدم لكل طريقة: الطلبات المسموح بها"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:89
-#, fuzzy, kde-format
-#| msgid "Limit by User: interval time"
+#, kde-format
 msgid "Limit by User per Method: interval time"
-msgstr "حدّ حسب المستخدم: الوقت الفاصل"
+msgstr "التحديد حسب المستخدم لكل طريقة: الفترة الزمنية"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:96
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Limit by Connection per Method"
+#, kde-format
 msgid "Limit by Connection per Method: requests allowed"
-msgstr "حدّ حسب الاتصال لكل طريقة"
+msgstr "التحديد حسب الاتصال لكل طريقة: الطلبات المسموح بها"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:102
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Limit by Connection per Method"
+#, kde-format
 msgid "Limit by Connection per Method: interval time"
-msgstr "حدّ حسب الاتصال لكل طريقة"
+msgstr "التحديد حسب الاتصال لكل طريقة: الفترة الزمنية"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:22
 #, kde-format
@@ -7557,16 +7509,13 @@ msgstr ""
 "يتسبب في حدوث مشاكل في المزامنة وسوء السلوك!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:44
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting stops the processing of livechat visitor sessions causing "
-#| "the statistics to stop working correctly!"
+#, kde-format
 msgid ""
 "This setting stops the processing of user sessions causing the statistics to "
 "stop working correctly!"
 msgstr ""
-"يوقف هذا الإعداد معالجة جلسات زوار الدردشة المباشرة مما يؤدي إلى توقف "
-"الإحصائيات عن العمل بشكل صحيح!"
+"يوقف هذا الإعداد معالجة جلسات المستخدمين مما يؤدي إلى توقف الإحصاءات عن "
+"العمل بشكل صحيح!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:49
 #, kde-format
@@ -8461,7 +8410,7 @@ msgstr "ملحقات النصوص"
 #, kde-format
 msgctxt "@option:check"
 msgid "Ask confirmation before running tools which modify data"
-msgstr ""
+msgstr "اطلب التأكيد قبل تشغيل الأدوات التي تعدّل البيانات"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
@@ -9837,7 +9786,7 @@ msgctxt "@title:window"
 msgid "Show Read Receipts"
 msgstr "أظهر إيصالات القراءة"
 
-#: widgets/dialogs/showreadreceiptswidget.cpp:45
+#: widgets/dialogs/showreadreceiptswidget.cpp:46
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Read Receipts…"
@@ -10701,7 +10650,7 @@ msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via TOTP"
 msgstr "فعّل الاستيثاق الثنائي عبر كلمة السر المستندة على الوقت"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:33
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:34
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10711,40 +10660,40 @@ msgstr ""
 "افتح تطبيق الاستيثاق الخاص بك وأدخل الرمز.\n"
 "يمكنك أيضًا استخدام أحد رموزك الاحتياطية."
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:43
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:55
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:44
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:58
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter authentication code"
 msgstr "أدخل شفرة الاستيثاق"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:47
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:59
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:48
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:62
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify"
 msgstr "تحقق"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:56
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:57
 #, kde-format
 msgctxt "@action:button"
 msgid "Regenerate Code"
 msgstr "أعد توليد الرمز"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:73
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:90
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:74
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgid "Invalid two factor code."
 msgstr "رمز الاستيثاق الثنائي غير صحيح"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:73
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:90
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:74
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgctxt "@title:window"
 msgid "Check Two Factor Code"
 msgstr "تحقق من رمز الاستيثاق الثنائي"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:38
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:41
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10757,7 +10706,7 @@ msgstr ""
 "إذا لم تتمكن من مسح رمز الاستجابة السريعة، يمكنك إدخال الرمز يدويًا بدلًا من "
 "ذلك:"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:82
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:85
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -10770,7 +10719,7 @@ msgstr ""
 "إذا فقدت الوصول إلى تطبيق الاستيثاق الخاص بك، فيمكنك استخدام أحد هذه الرموز "
 "للولوج."
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:84
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Backup Codes"

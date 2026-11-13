@@ -1,0 +1,704 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!-- Define an entity for your application if it is not part of KDE
+       CVS -->
+  <!ENTITY i18n-kapplication "<application
+>رقولة</application
+>">
+  <!ENTITY kappname "&i18n-kapplication;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Arabic "INCLUDE">
+]>
+
+<book id="ruqola" lang="&language;">
+
+<bookinfo id="ruqolainfo">
+
+<title
+>دليل &i18n-kapplication;</title>
+
+<authorgroup>
+<author
+><personname
+> <firstname
+>Laurent</firstname
+> <surname
+>Montel</surname
+> </personname
+> <email
+>montel@kde.org</email
+> </author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2018</year>
+<holder
+>لوران مونتال</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2026-10-07</date>
+<releaseinfo
+>2.9.0</releaseinfo>
+
+<abstract>
+<para
+>&i18n-kapplication; تطبيق عميل لـRocketChat. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>كيدي</keyword>
+<keyword
+>روكيت تشات</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>مقدمة</title>
+<para
+>&i18n-kapplication; عميل سطح مكتب لخوادم Rocket.Chat. يتيح لك الدردشة في القنوات والمجموعات الخاصة والمناقشات والفرق، وتبادل الرسائل المباشرة، ومشاركة الملفات، وإدارة الخادم، كل ذلك من تطبيق &kde; أصيل.</para>
+
+<para
+>يمكن وصل &i18n-kapplication; بعدة خوادم Rocket.Chat في الوقت نفسه ويتيح لك التبديل بينها بسرعة.</para>
+</chapter>
+
+<chapter id="getting-started">
+<title
+>البدء</title>
+
+<sect1 id="adding-server">
+<title
+>إضافة خادم</title>
+<para
+>عند تشغيل &i18n-kapplication; للمرة الأولى، يُطلب منك إضافة حساب خادم. يمكنك إضافة حسابات أخرى لاحقًا عبر <menuchoice
+><guimenu
+>ملف</guimenu
+><guimenuitem
+>أضف خادمًا…</guimenuitem
+></menuchoice
+>. أدخل &URL; الخادم واختر طريقة استيثاق.</para>
+
+<para
+>تبعًا لما يسمح به الخادم، تتوفر طرق الاستيثاق التالية:</para>
+<itemizedlist>
+<listitem
+><para
+>اسم المستخدم (أو البريد الإلكتروني) وكلمة السر</para
+></listitem>
+<listitem
+><para
+>رمز الوصول الشخصي</para
+></listitem>
+<listitem
+><para
+>مزودو OAuth مثل Google أو GitHub أو GitLab أو Facebook أو Twitter</para
+></listitem>
+</itemizedlist>
+
+<para
+>إذا كان الاستيثاق بعاملين مفعّلًا في حسابك، يطلب &i18n-kapplication; الرمز عند تسجيل الدخول. تُخزَّن كلمات السر في محفظة النظام.</para>
+
+<para
+>إذا سمح الخادم بذلك، يمكنك إنشاء حساب جديد عبر <menuchoice
+><guimenu
+>ملف</guimenu
+><guimenuitem
+>سجّل مستخدمًا جديدًا…</guimenuitem
+></menuchoice
+>.</para>
+</sect1>
+
+<sect1 id="multiple-servers">
+<title
+>استخدام عدة خوادم</title>
+<para
+>يظهر كل حساب مضبوط كتبويب. استخدم <menuchoice
+><guimenu
+>نافذة</guimenu
+><guimenuitem
+>الخادم التالي</guimenuitem
+></menuchoice
+> و<menuchoice
+><guimenu
+>نافذة</guimenu
+><guimenuitem
+>الخادم السابق</guimenuitem
+></menuchoice
+> للتبديل بينها. يمكن تفعيل الحسابات أو تعطيلها أو إعادة ترتيبها أو إزالتها في صفحة <guilabel
+>الحسابات</guilabel
+> من نافذة الإعدادات.</para>
+
+<para
+>يتيح لك <menuchoice
+><guimenu
+>أدوات</guimenu
+><guimenuitem
+>صدّر الحسابات</guimenuitem
+></menuchoice
+> و<menuchoice
+><guimenu
+>أدوات</guimenu
+><guimenuitem
+>استورد الحسابات</guimenuitem
+></menuchoice
+> نقل إعدادات حسابك إلى حاسوب آخر.</para>
+</sect1>
+</chapter>
+
+<chapter id="main-window">
+<title
+>النافذة الرئيسة</title>
+
+<sect1 id="room-list">
+<title
+>قائمة الغرف</title>
+<para
+>يسرد الجانب الأيسر من النافذة قنواتك والمجموعات الخاصة والرسائل المباشرة والمناقشات والفرق. يرشّح حقل بحث في الأعلى القائمة. يمكن تغيير حالتك (متصل، مشغول، بعيد، غير متصل، أو حالة مخصصة) من شريط الحالة أسفل النافذة.</para>
+
+<para
+>تغيّر قائمة <guimenu
+>عرض</guimenu
+> مظهر القائمة:</para>
+<itemizedlist>
+<listitem
+><para
+>عرض <guimenuitem
+>مضغوط</guimenuitem
+> أو <guimenuitem
+>متوسط</guimenuitem
+> أو <guimenuitem
+>ممتد</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+>الفرز <guimenuitem
+>حسب آخر رسالة</guimenuitem
+> أو <guimenuitem
+>أبجديًا</guimenuitem
+>، مع خيار <guimenuitem
+>غير المقروء في الأعلى</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>أظهر صورة الغرفة</guimenuitem
+> و<guimenuitem
+>أظهر الغرف المفضلة</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>علّم كل القنوات على أنها مقروءة</guimenuitem
+></para
+></listitem>
+</itemizedlist>
+
+<para
+><menuchoice
+><guimenu
+>قناة</guimenu
+><guimenuitem
+>انتقل إلى القناة التالية غير المقروءة</guimenuitem
+></menuchoice
+> ينقلك إلى الغرفة التالية التي تحتوي على رسائل غير مقروءة.</para>
+</sect1>
+
+<sect1 id="room-view">
+<title
+>عرض الغرفة</title>
+<para
+>يعرض الجانب الأيمن من النافذة رسائل الغرفة المحددة. يعرض الترويسة اسم الغرفة وموضوعها، ويحتوي على أزرار لتعليم الغرفة كمفضلة، وفتح معلومات الغرفة، وسرد مستخدميها، والبحث في الرسائل، وبدء مكالمة، وفتح قائمة الغرفة.</para>
+
+<para
+>تتيح قائمة الغرفة الوصول إلى:</para>
+<itemizedlist>
+<listitem
+><para
+>الرسائل المثبتة والمميزة والمذكور فيها، والسلاسل، والمناقشات، ومرفقات الملفات</para
+></listitem>
+<listitem
+><para
+>إضافة المستخدمين أو دعوتهم، وعرض المستخدمين المحظورين</para
+></listitem>
+<listitem
+><para
+>إعدادات الإشعارات لهذه الغرفة</para
+></listitem>
+<listitem
+><para
+>الترجمة الآلية للرسائل</para
+></listitem>
+<listitem
+><para
+>تصدير الرسائل أو تقليمها (بالأذون المطلوبة)</para
+></listitem>
+<listitem
+><para
+>التعمية من الطرف إلى الطرف، عندما يدعمها الخادم</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="messages">
+<title
+>الرسائل</title>
+
+<sect1 id="writing-messages">
+<title
+>كتابة الرسائل</title>
+<para
+>اكتب رسالتك في حقل النص أسفل الغرفة واضغط &Enter; لإرسالها. تدعم الرسائل تنسيق Markdown. كتابة <literal
+>@</literal
+> تكمل أسماء المستخدمين، و<literal
+>#</literal
+> تكمل أسماء القنوات، و<literal
+>:</literal
+> تكمل الرموز التعبيرية، و<literal
+>/</literal
+> تسرد أوامر الشرطة المائلة المتاحة على الخادم.</para>
+
+<para
+>تتيح لك الأزرار المجاورة لحقل النص:</para>
+<itemizedlist>
+<listitem
+><para
+>إدراج رمز تعبيري، بما في ذلك الرموز التعبيرية المخصصة للخادم</para
+></listitem>
+<listitem
+><para
+>إرفاق ملف واحد أو أكثر (يمكنك أيضًا سحبها وإفلاتها أو لصقها)</para
+></listitem>
+<listitem
+><para
+>تسجيل وإرسال رسالة صوتية أو رسالة فيديو</para
+></listitem>
+<listitem
+><para
+>استخدام الأدوات التي توفرها الملحقات، مثل أخذ لقطة شاشة</para
+></listitem>
+</itemizedlist>
+
+<para
+>يتوفر التدقيق الإملائي والتصحيح الآلي أثناء الكتابة، ويمكن ضبطهما في نافذة الإعدادات.</para>
+</sect1>
+
+<sect1 id="message-actions">
+<title
+>التفاعل مع الرسائل</title>
+<para
+>يُظهر تمرير المؤشر فوق رسالة أزرارًا لإضافة تفاعل، أو الرد في سلسلة، أو تمييز الرسالة. تقدم قائمتها السياقية المزيد من الإجراءات، حسب أذوناتك:</para>
+<itemizedlist>
+<listitem
+><para
+>تحرير الرسالة أو حذفها أو الاقتباس منها</para
+></listitem>
+<listitem
+><para
+>نسخ الرسالة أو النص المحدد أو رابط الرسالة</para
+></listitem>
+<listitem
+><para
+>الرد في سلسلة المشاركات، أو متابعتها أو إلغاء متابعتها، أو عرض السلسلة بالكامل</para
+></listitem>
+<listitem
+><para
+>ابدأ مناقشة أو محادثة خاصة من الرسالة</para
+></listitem>
+<listitem
+><para
+>تثبيت الرسالة أو وضع علامة نجمة عليها أو إعادة توجيهها أو الإبلاغ عنها</para
+></listitem>
+<listitem
+><para
+>علّم الرسالة كَغَير مقروءة</para
+></listitem>
+<listitem
+><para
+>ترجمة الرسالة، أو عرض النص الأصلي</para
+></listitem>
+<listitem
+><para
+>إظهار إشعارات القراءة، عند تفعيل هذه الميزة على الخادم</para
+></listitem>
+</itemizedlist>
+
+<para
+>تُعرض الصور ومقاطع الفيديو والمقاطع الصوتية بشكل مدمج في النص، ويمكن فتحها في عارض.ويمكن تمكين معاينة &URL; من خلال الإعدادات.</para>
+</sect1>
+
+<sect1 id="searching">
+<title
+>البحث</title>
+<para
+>استخدم زر البحث الموجود في رأس الغرفة للبحث في رسائلالغرفة الحالية. <menuchoice
+><guimenu
+>القناة</guimenu
+><guimenuitem
+>انضم إلى الغرفة…</guimenuitem
+></menuchoice
+>، و<guimenuitem
+>انضم إلى الفريق…</guimenuitem
+> و<guimenuitem
+>افتح محادثة خاصة…</guimenuitem
+> تبحث في دليل الخادم عن الغرف والفرق والمستخدمين.</para>
+</sect1>
+</chapter>
+
+<chapter id="rooms">
+<title
+>الغرف والمناقشات والفرق</title>
+<para
+>تتيح لك قائمة <guimenu
+>القناة</guimenu
+> إنشاء:</para>
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>أنشئ قناة جديدة…</guimenuitem
+>: قناة عامة أو مجموعة خاصة، يمكن أن تكون للقراءة فقط أو للبث أو مشفرة (اختياري)</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>أنشئ رسائل مباشرة…</guimenuitem
+>: محادثة مع مستخدم واحد أوأكثر من مستخدم</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>أنشئ مناقشة…</guimenuitem
+>: محادثة فرعية مرتبطة بغرفة</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>أنشئ فريقًا…</guimenuitem
+>: مجموعة من المستخدمين لها قناتها الخاصة</para
+></listitem>
+</itemizedlist>
+
+<para
+>يعرض مربع حوار معلومات الغرفة الاسم والموضوع والإعلان والوصف والصورة الرمزية للغرفة. يمكن للمالكين تعديل هذه العناصر، وتغيير نوع الغرفة، وتعيين كلمة السر، وضبط الخيارات مثل وضع «للقراءة فقط» أو «حذف الرسائل القديمة». يمكن لمالكي الفرق إضافة قنوات الفريق وإزالتها وتحويلها.</para>
+</chapter>
+
+<chapter id="notifications">
+<title
+>الإشعارات</title>
+<para
+>&i18n-kapplication; يستخدم نظام الإشعارات على سطح المكتب لإعلامك بالرسائل والإشارات الجديدة، ويعرض عدد الرسائل غير المقروءة في قائمة الغرف وفيصينية النظام. يمكن ضبط إعدادات الإشعارات (تنبيهات سطح المكتب، الصوت، البريد الإلكتروني) لكل غرفة باستخدام <guimenuitem
+>اضبط الإشعارات…</guimenuitem
+> في قائمة الغرفة.</para>
+
+<para
+><menuchoice
+><guimenu
+>أدوات</guimenu
+><guimenuitem
+>اعرض سجل الإشعارات</guimenuitem
+></menuchoice
+> يعرض قائمة بالإشعارات التي تلقيتها خلال الجلسة.</para>
+</chapter>
+
+<chapter id="encryption">
+<title
+>تعمية بين الطرفيات</title>
+<para
+>عندما يقوم الخادم بتمكين هذه الميزة، يتيح &i18n-kapplication; تعمية Rocket.Chat من طرف إلى طرفللرسائل المباشرة والمجموعات الخاصة. مفاتيح التعمية الخاصة بكمحمية بكلمة سر يمكنك إدارتها في صفحة <guilabel
+>التعمية</guilabel
+> الموجودة ضمن <menuchoice
+><guimenu
+>ملف</guimenu
+><guimenuitem
+>حسابي…</guimenuitem
+></menuchoice
+>. تظهر الغرف المشفرة رمز قفل في رأس الصفحة. لاحظ أنه لا يمكن البحث في محتوى الرسائل المعماة.</para>
+</chapter>
+
+<chapter id="my-account">
+<title
+>حسابي</title>
+<para
+><menuchoice
+><guimenu
+>ملف</guimenu
+><guimenuitem
+>حسابي…</guimenuitem
+></menuchoice
+> يتيح لك إدارة تشكيلة Rocket.Chat الخاصة بك:</para>
+<itemizedlist>
+<listitem
+><para
+>التشكيلة: الاسم، اسم المستخدم، البريد الإلكتروني، الصورة الرمزية، رسالة الحالة وكلمة المرور</para
+></listitem>
+<listitem
+><para
+>التفضيلات التي يوفرها الخادم</para
+></listitem>
+<listitem
+><para
+>الاستيثاق بعاملين (البريد الإلكتروني أو TOTP)</para
+></listitem>
+<listitem
+><para
+>مفاتيح التعمية من الطرف إلى الطرف</para
+></listitem>
+<listitem
+><para
+>رموز الوصول الشخصية</para
+></listitem>
+<listitem
+><para
+>الأجهزة الداخلة إلى حسابك</para
+></listitem>
+<listitem
+><para
+>معاينات الميزات</para
+></listitem>
+</itemizedlist>
+</chapter>
+
+<chapter id="administration">
+<title
+>إدارة الخادم</title>
+<para
+>يمكن للمستخدمين الذين يملكون الأذونات المطلوبة إدارة الخادم من <menuchoice
+><guimenu
+>ملف</guimenu
+><guimenuitem
+>الإدارة</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+><guimenuitem
+>المدير…</guimenuitem
+> يتيح الوصول إلى معلومات الخادم، والغرف، والمستخدمين، والدعوات، والرموز التعبيرية المخصصة، والأصوات المخصصة، وحالات المستخدمين المخصصة، والأدوار، والأذونات، وتطبيقات OAuth، ووحدة تحكم الإشراف، وسجلات الخادم.</para>
+
+<para
+><guimenuitem
+>إعدادات الخادم…</guimenuitem
+> يتيح لك تغيير إعدادات الخادم، ومدخلات <guimenuitem
+>التطبيقات</guimenuitem
+> تتيح لك تصفح وإدارة تطبيقات سوق Rocket.Chat.</para>
+
+<para
+><menuchoice
+><guimenu
+>أدوات</guimenu
+><guimenuitem
+>قائمة فحص الخادم…</guimenuitem
+></menuchoice
+> يفحص إعدادات الخادم بحثًا عن المشكلات الشائعة.</para>
+</chapter>
+
+<chapter id="offline">
+<title
+>وضع عدم الاتّصال</title>
+<para
+>يستطيع &i18n-kapplication; حفظ الرسائل في قاعدة بيانات محلية (فعّل <guilabel
+>تمكين قاعدة البيانات المحلية</guilabel
+> في إعدادات <guilabel
+>عام</guilabel
+>)، بحيث تُعرض الغرف أسرع وتبقى مقروءة عند فقدان الاتصال. <menuchoice
+><guimenu
+>ملف</guimenu
+><guimenuitem
+>العمل دون اتصال</guimenuitem
+></menuchoice
+> يقطع الاتصال بالخادم عن قصد.</para>
+</chapter>
+
+<chapter id="configuration">
+<title
+>ضبط &i18n-kapplication;</title>
+<para
+><menuchoice
+><guimenu
+>إعدادات</guimenu
+><guimenuitem
+>اضبط &i18n-kapplication;…</guimenuitem
+></menuchoice
+> يفتح حوار الإعدادات، الذي يحتوي على الصفحات التالية:</para>
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>الحسابات</guilabel
+></term>
+<listitem
+><para
+>أضف حسابات الخوادم أو عدّلها أو فعّلها أو عطّلها أو أزلها.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>عامّ</guilabel
+></term>
+<listitem
+><para
+>أيقونة صينية النظام، والحالة عند بدء التشغيل، ومعاينات الصور و&URL;، وصور GIF المتحركة، وقاعدة البيانات المحلية، والتسجيل، وخيارات السلوك الأخرى.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>الخط</guilabel
+></term>
+<listitem
+><para
+>الخط المستخدم لعرض الرسائل.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>تدقيق الإملاء</guilabel
+> و<guilabel
+>التصحيح الآلي</guilabel
+></term>
+<listitem
+><para
+>قواعد اللغة والتصحيح المستخدمة أثناء الكتابة.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>الترجمة</guilabel
+></term>
+<listitem
+><para
+>محرك الترجمة المستخدم لترجمة الرسائل.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>الإتاحة</guilabel
+></term>
+<listitem
+><para
+>خيارات تحويل النص إلى كلام والكلام إلى نص، عند توفرها.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>الملحقات</guilabel
+></term>
+<listitem
+><para
+>فعّل الملحقات أو عطّلها، مثل مشاركة النص أو اختصارات الوِب أو لقطات الشاشة أو توليد النص بمحرك ذكاء اصطناعي.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>ملاحظات المستخدمين</guilabel
+></term>
+<listitem
+><para
+>اختر إحصاءات الاستخدام المجهولة التي تُرسل إلى المطورين.</para
+></listitem
+></varlistentry>
+</variablelist>
+<para
+>يمكن تغيير نظام الألوان من قائمة <guimenu
+>الإعدادات</guimenu
+>، وحجم خط الرسائل من قائمة <guimenu
+>عرض</guimenu
+>.</para>
+</chapter>
+
+<chapter id="tools">
+<title
+>أدوات</title>
+<para
+>توفّر قائمة <guimenu
+>أدوات</guimenu
+> مساعدات مفيدة غالبًا لاستكشاف الأخطاء وإصلاحها:</para>
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>أظهر سجل القناة</guimenuitem
+> و<guimenuitem
+>أظهر أخطاء الخادم</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>أظهر معلومات RocketChat</guimenuitem
+>: إصدار الخادم وقدراته</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>أعد محاولة الوصول إلى المحفظة</guimenuitem
+>، عندما تعذّرت قراءة كلمة السر من المحفظة</para
+></listitem>
+</itemizedlist>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>الحقوق والترخيص</title>
+
+<para
+>&i18n-kapplication;</para>
+<para
+>حقوق البرنامج 2018-2026 &Laurent.Montel; &Laurent.Montel.mail; </para>
+<para
+>حقوق ملكية التوثيق © لمؤلفه &Laurent.Montel; &Laurent.Montel.mail; </para>
+
+<para
+>الترجمة: زايد السعيدي <email
+>zayed.alsaidi@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->
