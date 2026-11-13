@@ -153,8 +153,6 @@ target_sources(
         messages/replies.cpp
         messages/messageencrypted.cpp
         messages/messageencrypted.h
-        model/accountschannelsmodel.cpp
-        model/accountschannelsmodel.h
         model/admincustomemojimodel.cpp
         model/admincustomemojimodel.h
         model/admincustomsoundmodel.cpp

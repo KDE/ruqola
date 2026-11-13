@@ -68,7 +68,6 @@ macro(add_ruqola_test _source)
     )
 endmacro()
 
-add_ruqola_test(accountschannelsmodeltest.cpp)
 add_ruqola_test(rocketchatmessagetest.cpp)
 add_ruqola_test(roommodeltest.cpp)
 add_ruqola_test(messagesmodeltest.cpp)
