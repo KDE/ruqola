@@ -205,21 +205,25 @@ void AccountsOverviewWidget::updateCurrentTab()
 
 void AccountsOverviewWidget::showNextView()
 {
-    goToView(mTabBar->currentIndex() + 1);
+    goToView(1);
 }
 
 void AccountsOverviewWidget::showPreviousView()
 {
-    goToView(mTabBar->currentIndex() - 1);
+    goToView(-1);
 }
 
-void AccountsOverviewWidget::goToView(int index)
+void AccountsOverviewWidget::goToView(int step)
 {
-    if (index >= 0 && index < mTabBar->count()) {
-        auto rocketChatAccount = mTabBar->tabData(index).value<RocketChatAccount *>();
-        if (rocketChatAccount) {
+    // Disabled accounts keep a hidden tab: skip them, otherwise they become current.
+    for (int index = mTabBar->currentIndex() + step; index >= 0 && index < mTabBar->count(); index += step) {
+        if (!mTabBar->isTabVisible(index)) {
+            continue;
+        }
+        if (auto rocketChatAccount = mTabBar->tabData(index).value<RocketChatAccount *>()) {
             mAccountManager->setCurrentAccount(rocketChatAccount->accountName());
         }
+        return;
     }
 }
 
