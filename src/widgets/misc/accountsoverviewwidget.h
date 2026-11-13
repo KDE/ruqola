@@ -26,7 +26,7 @@ public:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void updateCurrentTab();
-    LIBRUQOLAWIDGETS_NO_EXPORT void goToView(int index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void goToView(int step);
 
     QList<QMetaObject::Connection> mAccountConnections;
     QTabBar *const mTabBar;
