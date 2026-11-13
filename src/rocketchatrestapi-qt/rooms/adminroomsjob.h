@@ -56,3 +56,4 @@ private:
     AdminRoomsJobInfo mRoomsAdminInfo;
 };
 }
+Q_DECLARE_OPERATORS_FOR_FLAGS(RocketChatRestApi::AdminRoomsJob::AdminRoomSearchTypes)

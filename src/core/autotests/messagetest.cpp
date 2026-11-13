@@ -39,7 +39,7 @@ void MessageTest::shouldHaveDefaultValues()
     // 27/08/2026 => size 432 (removed the pointless virtual destructor)
     // 01/09/2026 => size 440 (store the local QDate)
     QCOMPARE(sizeof(Message), 440);
-    QCOMPARE(m.messageStates(), Message::MessageStates(Message::MessageState::Groupable | Message::MessageState::Translated));
+    QCOMPARE(m.messageStates(), Message::MessageState::Groupable | Message::MessageState::Translated);
 }
 
 // TODO add check for default value ???

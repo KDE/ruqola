@@ -337,9 +337,10 @@ private:
 
     SystemMessageTypeUtil::SystemMessageType mSystemMessageType = SystemMessageTypeUtil::SystemMessageType::Unknown;
     MessageType mMessageType = MessageType::NormalText;
-    MessageStates mMessageStates = MessageStates(MessageState::Groupable | MessageState::Translated);
+    MessageStates mMessageStates = {MessageState::Groupable, MessageState::Translated};
 
     int mNumberOfTextSearched = -1;
 };
+Q_DECLARE_OPERATORS_FOR_FLAGS(Message::MessageStates)
 Q_DECLARE_TYPEINFO(Message, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Message &t);

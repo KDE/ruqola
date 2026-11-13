@@ -471,5 +471,6 @@ private:
 
     RoomStates mRoomStates = RoomState::None;
 };
+Q_DECLARE_OPERATORS_FOR_FLAGS(Room::RoomStates)
 
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Room &t);

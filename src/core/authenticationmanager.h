@@ -102,5 +102,6 @@ private:
     LIBRUQOLACORE_NO_EXPORT void loadPlugin(AuthenticationManagerInfo *item);
     QList<AuthenticationManagerInfo> mPluginList;
 };
+Q_DECLARE_OPERATORS_FOR_FLAGS(AuthenticationManager::AuthMethodTypes)
 Q_DECLARE_METATYPE(AuthenticationManager::AuthMethodTypes)
 Q_DECLARE_METATYPE(AuthenticationManager::AuthMethodType)

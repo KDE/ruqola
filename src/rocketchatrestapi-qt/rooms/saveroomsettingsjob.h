@@ -94,6 +94,7 @@ private:
     SaveRoomSettingsInfo mSaveRoomSettingsInfo;
 };
 }
+Q_DECLARE_OPERATORS_FOR_FLAGS(RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingsChanged)
 Q_DECLARE_METATYPE(RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo, Q_RELOCATABLE_TYPE);
 LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo &t);

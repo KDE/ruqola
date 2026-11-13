@@ -56,3 +56,4 @@ private:
     QCheckBox *const mFederated;
     QFormLayout *const mMainLayout;
 };
+Q_DECLARE_OPERATORS_FOR_FLAGS(CreateNewChannelWidget::Features)

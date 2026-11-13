@@ -357,6 +357,8 @@ private:
     bool mMessageReadReceiptEnabled = false;
     bool mMessageReadReceiptStoreUsers = false;
 };
+Q_DECLARE_OPERATORS_FOR_FLAGS(RuqolaServerConfig::PasswordSettings::PasswordSettingChecks)
+Q_DECLARE_OPERATORS_FOR_FLAGS(RuqolaServerConfig::ServerConfigFeatureTypes)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig::ConfigWithDefaultValue &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig::PasswordSettings &t);

@@ -129,6 +129,8 @@ private:
     RoomTypeFilters mRoomTypeFilters = RoomTypeFilter::Unknown;
     MessageActionContexts mMessageActionContexts = MessageActionContext::Unknown;
 };
+Q_DECLARE_OPERATORS_FOR_FLAGS(ActionButton::RoomTypeFilters)
+Q_DECLARE_OPERATORS_FOR_FLAGS(ActionButton::MessageActionContexts)
 
 QT_DECL_METATYPE_EXTERN_TAGGED(ActionButton, Ruqola_ActionButton, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(ActionButton, Q_RELOCATABLE_TYPE);

@@ -37,3 +37,4 @@ protected:
 private:
     AdminRoomsFilterProxyModel::FilterRooms mFilters = FilterRoom::All;
 };
+Q_DECLARE_OPERATORS_FOR_FLAGS(AdminRoomsFilterProxyModel::FilterRooms)

@@ -62,5 +62,6 @@ private:
     UpdateOwnBasicInfo mUpdateOwnBasicInfo;
 };
 }
+Q_DECLARE_OPERATORS_FOR_FLAGS(RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoTypes)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo, Q_RELOCATABLE_TYPE);
 LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &t);
