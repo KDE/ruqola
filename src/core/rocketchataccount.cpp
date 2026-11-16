@@ -2255,23 +2255,32 @@ void RocketChatAccount::inputAutocomplete(const QByteArray &roomId,
                                           bool threadDialog)
 {
     if (hasAtLeastVersion(9, 0, 0)) {
-        auto job = new RocketChatRestApi::SpotlightJob(this);
-        const RocketChatRestApi::SpotlightJob::SpotlightJobInfo info{
-            .pattern = pattern,
-            .excludeUsernames = {exceptions},
-            .types = {},
-            .roomId = roomId,
-        };
-        job->setSpotlightInfo(info);
-        restApi()->initializeRestApiJob(job);
-        // TODO fix me connect(job, &RocketChatRestApi::SpotlightJob::spotlightDone, this, &RocketChatAccount::slotGetSupportedLanguagesDone);
-        if (!job->start()) {
-            qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << "Impossible to start SpotlightJob";
-        }
+        if (type == InputTextManager::CompletionForType::Channel || type == InputTextManager::CompletionForType::User) {
+            auto job = new RocketChatRestApi::SpotlightJob(this);
+            const RocketChatRestApi::SpotlightJob::SpotlightJobInfo info{
+                .pattern = pattern,
+                .excludeUsernames = {exceptions},
+                .types = (type == InputTextManager::CompletionForType::Channel) ? RocketChatRestApi::SpotlightJob::SpotlightJobType::Rooms
+                                                                                : RocketChatRestApi::SpotlightJob::SpotlightJobType::Users,
+                .roomId = roomId,
+            };
+            job->setSpotlightInfo(info);
+            restApi()->initializeRestApiJob(job);
 
-        qWarning() << " RocketChatAccount::inputAutocomplete not implemented in RC 9.0.0";
+            if (threadDialog) {
+                connect(job, &RocketChatRestApi::SpotlightJob::spotlightDone, this, [this](const QJsonObject &obj) {
+                    mInputThreadMessageTextManager->inputTextCompleter(obj);
+                });
+            } else {
+                connect(job, &RocketChatRestApi::SpotlightJob::spotlightDone, this, [this](const QJsonObject &obj) {
+                    mInputTextManager->inputTextCompleter(obj);
+                });
+            }
+            if (!job->start()) {
+                qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << "Impossible to start SpotlightJob";
+            }
+        }
     } else {
-        // TODO look at for restapi support.
         switch (type) {
         case InputTextManager::CompletionForType::Channel:
             ddp()->inputChannelAutocomplete(roomId, pattern, exceptions, threadDialog);
