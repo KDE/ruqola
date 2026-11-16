@@ -53,22 +53,24 @@ void ViewLogPlainTextEditor::saveTextAs(const QString &text, const QString &filt
     fdlg->setAcceptMode(QFileDialog::AcceptSave);
     if (fdlg->exec() == QDialog::Accepted) {
         const QString fileName = fdlg->selectedFiles().at(0);
-        if (!saveToFile(fileName, text)) {
+        QString errorString;
+        if (!saveToFile(fileName, text, errorString)) {
             KMessageBox::error(parent,
                                i18n("Could not write the file %1:\n"
                                     "\"%2\" is the detailed error description.",
                                     fileName,
-                                    QString::fromLocal8Bit(strerror(errno))),
+                                    errorString),
                                i18nc("@title:window", "Save File Error"));
         }
     }
     delete fdlg;
 }
 
-bool ViewLogPlainTextEditor::saveToFile(const QString &filename, const QString &text)
+bool ViewLogPlainTextEditor::saveToFile(const QString &filename, const QString &text, QString &errorString)
 {
     QFile file(filename);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        errorString = file.errorString();
         return false;
     }
     QTextStream out(&file);
@@ -113,19 +115,20 @@ void ViewLogPlainTextEdit::saveTextAs(const QString &text, const QString &filter
     fdlg->setAcceptMode(QFileDialog::AcceptSave);
     if (fdlg->exec() == QDialog::Accepted) {
         const QString fileName = fdlg->selectedFiles().at(0);
-        if (!saveToFile(fileName, text)) {
+        QString errorString;
+        if (!saveToFile(fileName, text, errorString)) {
             KMessageBox::error(parent,
                                i18n("Could not write the file %1:\n"
                                     "\"%2\" is the detailed error description.",
                                     fileName,
-                                    QString::fromLocal8Bit(strerror(errno))),
+                                    errorString),
                                i18nc("@title:window", "Save File Error"));
         }
     }
     delete fdlg;
 }
 
-bool ViewLogPlainTextEdit::saveToFile(const QString &filename, const QString &text)
+bool ViewLogPlainTextEdit::saveToFile(const QString &filename, const QString &text, QString &errorString)
 {
     QFile file(filename);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
