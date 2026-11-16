@@ -34,9 +34,9 @@ AdministratorCustomUserStatusCreateDialog::AdministratorCustomUserStatusCreateDi
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorCustomUserStatusCreateDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &AdministratorCustomUserStatusCreateDialog::accept);
-    mOkButton = button->button(QDialogButtonBox::Ok);
-    mOkButton->setEnabled(false);
-    connect(mCreateWidget, &AdministratorCustomUserStatusCreateWidget::updateOkButton, mOkButton, &QPushButton::setEnabled);
+    auto okButton = button->button(QDialogButtonBox::Ok);
+    okButton->setEnabled(false);
+    connect(mCreateWidget, &AdministratorCustomUserStatusCreateWidget::updateOkButton, okButton, &QPushButton::setEnabled);
     readConfig();
 }
 

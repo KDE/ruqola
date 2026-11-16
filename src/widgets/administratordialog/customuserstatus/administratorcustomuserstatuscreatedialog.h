@@ -9,7 +9,6 @@
 #include "administratorcustomuserstatuscreatewidget.h"
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-class QPushButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomUserStatusCreateDialog : public QDialog
 {
     Q_OBJECT
@@ -25,5 +24,4 @@ public:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     AdministratorCustomUserStatusCreateWidget *const mCreateWidget;
-    QPushButton *mOkButton = nullptr;
 };
