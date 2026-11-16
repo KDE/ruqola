@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "searchroomstool.h"
+#include "mcpserver/common/toolutils.h"
 #include "roominfo/roomsinfo.h"
 #include <KLocalizedString>
 #include <TextAutoGenerateTextMcpProtocolCore/McpProtocolServerToolCall>
@@ -29,6 +30,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool SearchRoomsTool::definition
             {u"pattern"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Text to search in room names (without #)"_s)},
             {u"count"_s, McpProtocolServerTool::schemaProperty(u"integer"_s, u"Maximum number of results (1-100); 25 if omitted"_s)}},
         {u"pattern"_s});
+    ToolUtils::addToolMeta(tool, ToolUtils::Rooms);
     return tool;
 }
 

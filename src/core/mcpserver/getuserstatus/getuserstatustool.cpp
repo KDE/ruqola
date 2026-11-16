@@ -33,7 +33,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool GetUserStatusTool::definiti
             {u"userName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"User name (without @)"_s)}},
         {u"userName"_s});
 
-    ToolUtils::addToolMeta(tool, ToolUtils::CurrentUser);
+    ToolUtils::addToolMeta(tool, ToolUtils::Users);
     return tool;
 }
 
