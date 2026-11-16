@@ -45,6 +45,5 @@ protected:
     LIBRUQOLACORE_NO_EXPORT void checkFullList() override;
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void clear();
     ModerationReportedUserInfos mModerationInfos;
 };

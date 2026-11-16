@@ -80,15 +80,6 @@ int ModerationReportedUserModel::total() const
     return mModerationInfos.count();
 }
 
-void ModerationReportedUserModel::clear()
-{
-    if (!mModerationInfos.isEmpty()) {
-        beginResetModel();
-        mModerationInfos.clear();
-        endResetModel();
-    }
-}
-
 void ModerationReportedUserModel::parseElements(const QJsonObject &obj)
 {
     beginResetModel();

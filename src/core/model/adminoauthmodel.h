@@ -44,6 +44,5 @@ public:
     void addMoreOauth(const OauthInfo &info);
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void clear();
     QList<OauthInfo> mAdminOauth;
 };

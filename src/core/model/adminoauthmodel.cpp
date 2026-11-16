@@ -59,15 +59,6 @@ const QList<OauthInfo> &AdminOauthModel::adminOauth() const
     return mAdminOauth;
 }
 
-void AdminOauthModel::clear()
-{
-    if (!mAdminOauth.isEmpty()) {
-        beginResetModel();
-        mAdminOauth.clear();
-        endResetModel();
-    }
-}
-
 void AdminOauthModel::setAdminOauth(QList<OauthInfo> newAdminInvites)
 {
     beginResetModel();
