@@ -2253,16 +2253,20 @@ void RocketChatAccount::inputAutocomplete(const QByteArray &roomId,
                                           InputTextManager::CompletionForType type,
                                           bool threadDialog)
 {
-    // TODO look at for restapi support.
-    switch (type) {
-    case InputTextManager::CompletionForType::Channel:
-        ddp()->inputChannelAutocomplete(roomId, pattern, exceptions, threadDialog);
-        break;
-    case InputTextManager::CompletionForType::User:
-        ddp()->inputUserAutocomplete(roomId, pattern, exceptions, threadDialog);
-        break;
-    default:
-        break;
+    if (hasAtLeastVersion(9, 0, 0)) {
+        qWarning() << " RocketChatAccount::inputAutocomplete not implemented in RC 9.0.0";
+    } else {
+        // TODO look at for restapi support.
+        switch (type) {
+        case InputTextManager::CompletionForType::Channel:
+            ddp()->inputChannelAutocomplete(roomId, pattern, exceptions, threadDialog);
+            break;
+        case InputTextManager::CompletionForType::User:
+            ddp()->inputUserAutocomplete(roomId, pattern, exceptions, threadDialog);
+            break;
+        default:
+            break;
+        }
     }
 }
 
