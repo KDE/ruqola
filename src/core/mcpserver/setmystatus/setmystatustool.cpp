@@ -31,6 +31,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool SetMyStatusTool::definition
             {u"status"_s, McpProtocolServerTool::schemaEnumProperty({u"online"_s, u"busy"_s, u"away"_s, u"offline"_s}, u"New presence status"_s)},
             {u"statusText"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Custom status text; cleared if omitted"_s)}},
         {u"status"_s});
+    ToolUtils::addToolMeta(tool, ToolUtils::CurrentUser);
     return tool;
 }
 
