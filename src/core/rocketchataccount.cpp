@@ -16,6 +16,7 @@
 #include "createchannelteaminfo.h"
 #include "memorymanager/memorymanager.h"
 #include "misc/methodcalljob.h"
+#include "misc/spotlightjob.h"
 #include "model/appscategoriesmodel.h"
 #include "model/roommodel.h"
 #include "notifications/notificationpreferences.h"
@@ -2254,6 +2255,20 @@ void RocketChatAccount::inputAutocomplete(const QByteArray &roomId,
                                           bool threadDialog)
 {
     if (hasAtLeastVersion(9, 0, 0)) {
+        auto job = new RocketChatRestApi::SpotlightJob(this);
+        const RocketChatRestApi::SpotlightJob::SpotlightJobInfo info{
+            .pattern = pattern,
+            .excludeUsernames = {exceptions},
+            .types = {},
+            .roomId = roomId,
+        };
+        job->setSpotlightInfo(info);
+        restApi()->initializeRestApiJob(job);
+        // TODO fix me connect(job, &RocketChatRestApi::SpotlightJob::spotlightDone, this, &RocketChatAccount::slotGetSupportedLanguagesDone);
+        if (!job->start()) {
+            qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << "Impossible to start SpotlightJob";
+        }
+
         qWarning() << " RocketChatAccount::inputAutocomplete not implemented in RC 9.0.0";
     } else {
         // TODO look at for restapi support.
@@ -2299,7 +2314,6 @@ void RocketChatAccount::muteUser(const QByteArray &rid, const QString &userName,
 
 void RocketChatAccount::blockUser(const QString &rid, bool block)
 {
-    // TODO use restapi
     if (rid.isEmpty()) {
         qCWarning(RUQOLA_LOG) << debugCategoryAccountName() << " void RocketChatAccount::blockUser EMPTY rid ! block " << block;
     } else {
