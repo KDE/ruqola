@@ -61,12 +61,12 @@ void ModerationReportedUserConsoleTreeWidget::setModerationRanges(const Administ
 
 void ModerationReportedUserConsoleTreeWidget::updateLabel()
 {
-    mLabelResultSearch->setText(mModel->total() == 0 ? i18n("No moderation message found") : displayShowMessage());
+    mLabelResultSearch->setText(mModel->total() == 0 ? i18n("No reported user found") : displayShowMessage());
 }
 
 QString ModerationReportedUserConsoleTreeWidget::displayShowMessage() const
 {
-    QString displayMessageStr = i18np("%1 moderation message (Total: %2)", "%1 moderation messages (Total: %2)", mModel->rowCount(), mModel->total());
+    QString displayMessageStr = i18np("%1 reported user (Total: %2)", "%1 reported users (Total: %2)", mModel->rowCount(), mModel->total());
     if (!mModel->hasFullList()) {
         displayMessageStr += clickableStr();
     }
