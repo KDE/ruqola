@@ -165,7 +165,6 @@ void ToolBase::searchDirectory(RocketChatAccount *account,
     RocketChatRestApi::QueryParameters parameters;
     parameters.setSorting({{u"name"_s, RocketChatRestApi::QueryParameters::SortOrder::Ascendant}});
     parameters.setCount(count);
-    parameters.setUseSyntaxRc70(account->hasAtLeastVersion(7, 0, 0));
     job->setQueryParameters(parameters);
     account->restApi()->initializeRestApiJob(job);
     QObject::connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, call, done);

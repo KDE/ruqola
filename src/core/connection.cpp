@@ -1016,7 +1016,6 @@ void Connection::getDiscussions(Utils::ListMessagesInfo &&info)
 void Connection::getThreadsList(Utils::ListMessagesInfo &&info)
 {
     auto job = new GetThreadsJob(this);
-    job->setUseSyntaxRc70(info.useSyntaxRc70);
     initializeRestApiJob(job);
     job->setRoomId(QString::fromLatin1(info.roomId));
     job->setSearchType(info.type);

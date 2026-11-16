@@ -49,9 +49,6 @@ public:
     void setFilter(const QString &filter);
     [[nodiscard]] QString filter() const;
 
-    [[nodiscard]] bool useSyntaxRc70() const;
-    void setUseSyntaxRc70(bool newUseSyntaxRc70);
-
 private:
     int mOffset = -1;
     int mCount = -1;
@@ -59,7 +56,6 @@ private:
     QMap<QString, QString> mCustom;
     QString mSearchString;
     QString mFilter;
-    bool mUseSyntaxRc70 = false;
 };
 
 } // namespace RocketChatRestApi

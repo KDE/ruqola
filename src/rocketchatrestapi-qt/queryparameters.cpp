@@ -20,16 +20,6 @@ QString QueryParameters::filter() const
     return mFilter;
 }
 
-bool QueryParameters::useSyntaxRc70() const
-{
-    return mUseSyntaxRc70;
-}
-
-void QueryParameters::setUseSyntaxRc70(bool newUseSyntaxRc70)
-{
-    mUseSyntaxRc70 = newUseSyntaxRc70;
-}
-
 void QueryParameters::setFilter(const QString &filter)
 {
     mFilter = filter;
@@ -97,31 +87,12 @@ void QueryParameters::generateQueryParameter(const QueryParameters &queryParamet
 
     const QMap<QString, QString> custom = queryParameters.custom();
     if (!custom.isEmpty()) {
-        if (queryParameters.useSyntaxRc70()) {
-            for (const auto &[key, value] : custom.asKeyValueRange()) {
-                urlQuery.addQueryItem(key, value);
-            }
-        } else {
-            QString str;
-            for (const auto &[key, value] : custom.asKeyValueRange()) {
-                if (!str.isEmpty()) {
-                    str += u',';
-                }
-                str += u'"' + key + u'"' + u':';
-                str += u'"' + value + u'"';
-            }
-            str = u"{%1}"_s.arg(str);
-
-            urlQuery.addQueryItem(u"query"_s, str);
+        for (const auto &[key, value] : custom.asKeyValueRange()) {
+            urlQuery.addQueryItem(key, value);
         }
     }
     if (!queryParameters.searchString().isEmpty()) {
-        if (queryParameters.useSyntaxRc70()) {
-            urlQuery.addQueryItem(u"name"_s, queryParameters.searchString());
-        } else {
-            const QString str = uR"({"name":{"$regex":"%1","$options":"i"}})"_s.arg(queryParameters.searchString());
-            urlQuery.addQueryItem(u"query"_s, str);
-        }
+        urlQuery.addQueryItem(u"name"_s, queryParameters.searchString());
     }
 
     const auto sorting = queryParameters.sorting();
@@ -171,7 +142,6 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::QueryParameters &t)
     d.space() << "searchString:" << t.searchString();
     d.space() << "custom:" << t.custom();
     d.space() << "sorting:" << t.sorting();
-    d.space() << "useSyntaxRc70:" << t.useSyntaxRc70();
     return d;
 }
 

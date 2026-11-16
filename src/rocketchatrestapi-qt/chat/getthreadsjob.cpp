@@ -79,11 +79,6 @@ void GetThreadsJob::setRoomId(const QString &roomId)
     mRoomId = roomId;
 }
 
-void GetThreadsJob::setUseSyntaxRc70(bool state)
-{
-    mUseSyntaxRc70 = state;
-}
-
 QNetworkRequest GetThreadsJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatGetThreadsList);
@@ -91,9 +86,6 @@ QNetworkRequest GetThreadsJob::request() const
     queryUrl.addQueryItem(u"rid"_s, mRoomId);
     switch (mSearchType) {
     case TheadSearchType::All:
-        if (!mUseSyntaxRc70) {
-            queryUrl.addQueryItem(u"type"_s, u"all"_s);
-        }
         break;
     case TheadSearchType::Following:
         queryUrl.addQueryItem(u"type"_s, u"following"_s);

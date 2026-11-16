@@ -1391,6 +1391,7 @@
     <release version="3.0.0" type="snapshot">
       <description>
         <ul>
+          <li>Minimum RC server support 7.0.</li>
           <li>Add RC 9.0.0 support.</li>
           <li xml:lang="ar">إضافة دعم الإصدار RC 9.0.0.</li>
           <li xml:lang="ca">Afegeix la implementació del RC 9.0.0.</li>

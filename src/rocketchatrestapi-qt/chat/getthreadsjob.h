@@ -38,7 +38,6 @@ public:
     [[nodiscard]] TheadSearchType searchType() const;
     void setSearchType(TheadSearchType newSearchType);
 
-    void setUseSyntaxRc70(bool state);
 Q_SIGNALS:
     void getThreadsDone(const QJsonObject &obj, const QString &roomId);
 
@@ -46,6 +45,5 @@ private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     TheadSearchType mSearchType = TheadSearchType::All;
     QString mRoomId;
-    bool mUseSyntaxRc70 = false;
 };
 }

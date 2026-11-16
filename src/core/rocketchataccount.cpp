@@ -1480,12 +1480,10 @@ void RocketChatAccount::loadMoreListMessages(const QByteArray &roomId)
                 break;
             case ListMessagesModel::ThreadsMessages:
                 // TODO allow to search by type
-                info.useSyntaxRc70 = hasAtLeastVersion(7, 0, 0);
                 // Update info.type = RocketChatRestApi::GetThreadsJob::TheadSearchType::All;
                 restApi()->getThreadsList(std::move(info));
                 break;
             case ListMessagesModel::UnreadThreadsMessages:
-                info.useSyntaxRc70 = hasAtLeastVersion(7, 0, 0);
                 info.type = RocketChatRestApi::GetThreadsJob::TheadSearchType::Unread;
                 restApi()->getThreadsList(std::move(info));
                 break;
@@ -2400,7 +2398,6 @@ void RocketChatAccount::threadsInRoom(const QByteArray &roomId, bool onlyUnread)
         info.roomId = roomId;
         info.offset = 0;
         info.count = 50;
-        info.useSyntaxRc70 = hasAtLeastVersion(7, 0, 0);
         info.type = onlyUnread ? RocketChatRestApi::GetThreadsJob::TheadSearchType::Unread : RocketChatRestApi::GetThreadsJob::TheadSearchType::All;
         restApi()->getThreadsList(std::move(info));
     }

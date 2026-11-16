@@ -23,7 +23,6 @@ struct LIBRUQOLACORE_EXPORT ListMessagesInfo {
     bool onlyUnread = false;
     int offset = 0;
     int count = 50;
-    bool useSyntaxRc70 = false;
     RocketChatRestApi::GetThreadsJob::TheadSearchType type = RocketChatRestApi::GetThreadsJob::TheadSearchType::All;
 };
 

@@ -43,7 +43,7 @@ void GetThreadsJobTest::shouldGenerateRequest()
     const QString roomId = u"bla"_s;
     job.setRoomId(roomId);
     QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.getThreadsList?rid=%1&type=all"_s.arg(roomId)));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.getThreadsList?rid=%1"_s.arg(roomId)));
 
     job.setSearchType(GetThreadsJob::TheadSearchType::Following);
     request = job.request();
@@ -55,7 +55,7 @@ void GetThreadsJobTest::shouldGenerateRequest()
 
     job.setSearchType(GetThreadsJob::TheadSearchType::All);
     request = job.request();
-    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.getThreadsList?rid=%1&type=all"_s.arg(roomId)));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/chat.getThreadsList?rid=%1"_s.arg(roomId)));
 }
 
 void GetThreadsJobTest::shouldNotStarting()
