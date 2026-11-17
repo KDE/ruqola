@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-13 00:58+0000\n"
+"POT-Creation-Date: 2026-11-17 01:07+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -853,7 +853,7 @@ msgstr "अस्वीकार"
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:47
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:88
-#: core/mcpserver/setmystatus/setmystatustool.cpp:45
+#: core/mcpserver/setmystatus/setmystatustool.cpp:46
 #: core/mcpserver/starmessage/starmessagetool.cpp:47
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:53
 #, fuzzy, kde-format
@@ -868,7 +868,7 @@ msgstr "खाता सूचना"
 msgid "Missing search pattern"
 msgstr "सेवकस्य URL अनुपस्थितम्।"
 
-#: core/mcpserver/common/toolbase.cpp:173
+#: core/mcpserver/common/toolbase.cpp:172
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:129
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
@@ -876,7 +876,7 @@ msgstr "सेवकस्य URL अनुपस्थितम्।"
 msgid "Search failed: %1"
 msgstr "चित्रं डाउनलोड् कुर्वन्तु"
 
-#: core/mcpserver/common/toolbase.cpp:176
+#: core/mcpserver/common/toolbase.cpp:175
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:132
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
@@ -936,9 +936,9 @@ msgstr "उपयोक्तृस्थिति सम्पादयतु"
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:44
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:43
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:84
-#: core/mcpserver/searchrooms/searchroomstool.cpp:39
+#: core/mcpserver/searchrooms/searchroomstool.cpp:41
 #: core/mcpserver/searchusers/searchuserstool.cpp:41
-#: core/mcpserver/setmystatus/setmystatustool.cpp:41
+#: core/mcpserver/setmystatus/setmystatustool.cpp:42
 #: core/mcpserver/starmessage/starmessagetool.cpp:43
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:49
 #, fuzzy, kde-format
@@ -1080,7 +1080,7 @@ msgid "List Rooms"
 msgstr "सम्पादन कक्ष"
 
 #: core/mcpserver/listrooms/listroomstool.cpp:64
-#: core/mcpserver/searchrooms/searchroomstool.cpp:46
+#: core/mcpserver/searchrooms/searchroomstool.cpp:48
 #, fuzzy, kde-format
 #| msgid "No room found"
 msgid "No rooms found"
@@ -1151,7 +1151,7 @@ msgstr "सन्देशान् अन्वेष्टुम्"
 msgid "No messages found"
 msgstr "कोऽपि सन्देशः न लब्धः"
 
-#: core/mcpserver/searchrooms/searchroomstool.cpp:24
+#: core/mcpserver/searchrooms/searchroomstool.cpp:25
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Rooms"
@@ -1178,7 +1178,7 @@ msgstr "कोऽपि उपयोक्ता न लब्धः"
 msgid "Set My Status"
 msgstr "उपयोक्तृस्थिति सम्पादयतु"
 
-#: core/mcpserver/setmystatus/setmystatustool.cpp:50
+#: core/mcpserver/setmystatus/setmystatustool.cpp:51
 #, fuzzy, kde-format
 #| msgid "Invalid user"
 msgid "Invalid status"
@@ -2291,7 +2291,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> टङ्कयन्ति..."
 
-#: core/rocketchataccount.cpp:794
+#: core/rocketchataccount.cpp:795
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -2300,23 +2300,23 @@ msgstr ""
 "REST: %1\n"
 "डीडीपी: %2"
 
-#: core/rocketchataccount.cpp:802 core/rocketchataccount.cpp:815
+#: core/rocketchataccount.cpp:803 core/rocketchataccount.cpp:816
 #, kde-format
 msgid "Not connected"
 msgstr "न संबद्धः"
 
-#: core/rocketchataccount.cpp:809
+#: core/rocketchataccount.cpp:810
 #, kde-format
 msgid "Not connected yet"
 msgstr "अद्यापि न सम्बद्धम्"
 
-#: core/rocketchataccount.cpp:3310
+#: core/rocketchataccount.cpp:3334
 #, fuzzy, kde-format
 #| msgid "Account Added"
 msgid "Room Added"
 msgstr "खाता योजितः"
 
-#: core/rocketchataccount.cpp:3311
+#: core/rocketchataccount.cpp:3335
 #, fuzzy, kde-format
 #| msgid "A new account was added."
 msgid "A new room was added in '%1'."
@@ -3558,19 +3558,19 @@ msgid_plural "%1 custom emojis (Total: %2)"
 msgstr[0] "%1 कस्टम् इमोजी (कुलम्: %2)"
 msgstr[1] "%1 कस्टम् इमोजिस् (कुलम्: %2)"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:158
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:156
 #, kde-format
 msgid "Do you want to remove this emoji?"
 msgstr "किं भवन्तः एतत् इमोजी अपसारयितुम् इच्छन्ति?"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:159
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:157
 #, kde-format
 msgctxt "@title"
 msgid "Remove Emoji"
 msgstr "इमोजी निकालें"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:329
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:328
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:172
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:52
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
@@ -3582,8 +3582,8 @@ msgctxt "@action"
 msgid "Add…"
 msgstr "संयोजयति…"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:188
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:332
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:186
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:331
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:175
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:54
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
@@ -3595,8 +3595,8 @@ msgctxt "@action"
 msgid "Modify…"
 msgstr "परिवर्तनं कुर्वन्तु..."
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:193
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:336
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:191
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:335
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:177
 #: widgets/administratordialog/invites/invitetreeview.cpp:36
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:58
@@ -3640,12 +3640,12 @@ msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "%1 इष्टध्वनिः (कुलः %2)"
 msgstr[1] "%1 कस्टम् ध्वनयः (कुलम्: %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:288
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:287
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr "किं भवन्तः एतत् शब्दं दूरीकर्तुं इच्छन्ति ?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:289
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:288
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
@@ -3745,13 +3745,13 @@ msgid "Remove Invite"
 msgstr "आमन्त्रणं निष्कासयतु"
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:36
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:92
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:94
 #, kde-format
 msgid "Save as &File"
 msgstr "&File इति रूपेण रक्षन्तु"
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:58
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:118
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:59
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:121
 #, kde-format
 msgid ""
 "Could not write the file %1:\n"
@@ -3760,8 +3760,8 @@ msgstr ""
 "%1 इति सञ्चिकां लिखितुं न शक्यते:\n"
 "\"%2\" इति विस्तृतदोषविवरणम् ।"
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:62
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:122
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:63
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:125
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File Error"
@@ -3877,13 +3877,11 @@ msgid "Search moderation message…"
 msgstr "अन्वेषणं संचालनसन्देशः..."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:67
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:64
 #, kde-format
 msgid "No moderation message found"
 msgstr "न संयमसन्देशः प्राप्तः"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:72
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:69
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
@@ -3965,6 +3963,21 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "सर्वे सन्देशाः विलोपयन्तु"
+
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:64
+#, fuzzy, kde-format
+#| msgid "No user found"
+msgid "No reported user found"
+msgstr "कोऽपि उपयोक्ता न लब्धः"
+
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:69
+#, fuzzy, kde-format
+#| msgid "%1 user (Total: %2)"
+#| msgid_plural "%1 users (Total: %2)"
+msgid "%1 reported user (Total: %2)"
+msgid_plural "%1 reported users (Total: %2)"
+msgstr[0] "%1 उपयोक्ता (कुलम्: %2)"
+msgstr[1] "%1 उपयोक्तारः (कुलम्: %2)"
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
 #, kde-format
@@ -4246,7 +4259,7 @@ msgstr "कोऽपि उपयोक्ता न लब्धः"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:137
 #: widgets/administratordialog/users/administratoruserswidget.cpp:365
-#: widgets/directory/directorywidget.cpp:209
+#: widgets/directory/directorywidget.cpp:208
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -4379,7 +4392,7 @@ msgid "No room found"
 msgstr "न स्थानं लब्धम्"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:84
-#: widgets/directory/directorywidget.cpp:206
+#: widgets/directory/directorywidget.cpp:205
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -10043,23 +10056,23 @@ msgctxt "@action"
 msgid "Open Private Message…"
 msgstr "निजीसन्देशं उद्घाटयतु..."
 
-#: widgets/directory/directorywidget.cpp:190
+#: widgets/directory/directorywidget.cpp:189
 #, kde-format
 msgid "No Room found"
 msgstr "No Room न लब्धम्"
 
-#: widgets/directory/directorywidget.cpp:192
+#: widgets/directory/directorywidget.cpp:191
 #: widgets/room/usersinroomwidget.cpp:179
 #, kde-format
 msgid "No User found"
 msgstr "कोऽपि उपयोक्ता न लब्धः"
 
-#: widgets/directory/directorywidget.cpp:194
+#: widgets/directory/directorywidget.cpp:193
 #, kde-format
 msgid "No Team found"
 msgstr "No Team न लब्धम्"
 
-#: widgets/directory/directorywidget.cpp:212
+#: widgets/directory/directorywidget.cpp:211
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
