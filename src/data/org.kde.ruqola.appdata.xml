@@ -1535,7 +1535,7 @@
           <li xml:lang="sk">Prepracované náhľady odkazov do podoby kompaktných kariet</li>
           <li xml:lang="sl">Preoblikuj predoglede povezav kot kompaktne kartice</li>
           <li xml:lang="sv">Konstruera om länkförhandsgranskningar som kompakta kort</li>
-          <li xml:lang="tr">Bağlantı önizlemelerini küçük kartlar olarak yeniden tasarla</li>
+          <li xml:lang="tr">Bağlantı ön izlemelerini küçük kartlar olarak yeniden tasarla</li>
           <li xml:lang="uk">Змінено дизайн попереднього перегляду посилань: тепер це компактні картки</li>
           <li>Fix DDP reconnection</li>
           <li xml:lang="ar">إصلاح إعادة الاتصال DDP</li>
@@ -2576,7 +2576,7 @@
           <li xml:lang="sk">Implementácia náhľadu príkazov</li>
           <li xml:lang="sl">Implementira predogled ukaza</li>
           <li xml:lang="sv">Implementera förhandsgranskning av kommandon</li>
-          <li xml:lang="tr">Komut önizlemeyi gerçekle</li>
+          <li xml:lang="tr">Komut ön izlemeyi gerçekle</li>
           <li xml:lang="uk">Реалізовано попередній перегляд команди</li>
           <li>Debug: explore translation from RC server</li>
           <li xml:lang="ar">التنقيح: استكشاف الترجمة من خادم روكت تشات</li>
@@ -3632,7 +3632,7 @@
           <li xml:lang="sk">Oprava náhľadu URL adresy</li>
           <li xml:lang="sl">Popravi predogled url</li>
           <li xml:lang="sv">Rätta webbadress för förhandsgranskning</li>
-          <li xml:lang="tr">Önizleme URL’sini düzelt</li>
+          <li xml:lang="tr">Ön izleme URL’sini düzelt</li>
           <li xml:lang="uk">Виправлено адресу попереднього перегляду</li>
         </ul>
       </description>
@@ -3698,7 +3698,7 @@
           <li xml:lang="sk">Implementácia náhľadu URL adries</li>
           <li xml:lang="sl">Implementira predogled Url</li>
           <li xml:lang="sv">Implementera förhandsgranskning av webbadresser</li>
-          <li xml:lang="tr">URL önizlemeyi gerçekle</li>
+          <li xml:lang="tr">URL ön izlemeyi gerçekle</li>
           <li xml:lang="uk">Реалізовано попередній перегляд адрес</li>
           <li>Fix markdown support (header + check mark)</li>
           <li xml:lang="ar">إصلاح ماركدون (الترويسة ومربع الاختيار)</li>
