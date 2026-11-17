@@ -904,6 +904,7 @@ target_link_libraries(
         KF6::KIOCore
         Qt::Multimedia
         KF6::ColorScheme
+        KF6::TextUtils
     PRIVATE
         Qt::Sql
         qt6keychain
@@ -915,10 +916,6 @@ endif()
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     target_link_libraries(libruqolacore PRIVATE KF6::TextAutoCorrectionCore)
-endif()
-
-if(HAVE_TEXT_UTILS)
-    target_link_libraries(libruqolacore PUBLIC KF6::TextUtils)
 endif()
 
 if(WIN32 OR APPLE)

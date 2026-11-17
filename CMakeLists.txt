@@ -319,12 +319,8 @@ set_package_properties(
         DESCRIPTION
             "Add utils text functions (ktextaddons)"
         TYPE
-            OPTIONAL
+            REQUIRED
 )
-
-if(TARGET KF6::TextUtils)
-    set(HAVE_TEXT_UTILS TRUE)
-endif()
 
 find_package(KF6TextCustomEditor ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(
