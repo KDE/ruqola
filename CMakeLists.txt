@@ -192,8 +192,7 @@ if(USE_UNITY_CMAKE_SUPPORT)
     set(COMPILE_WITH_UNITY_CMAKE_SUPPORT true)
 endif()
 
-set(KTEXTADDONS_MIN_VERSION "2.2.1")
-set(KTEXTADDONS_MIN_VERSION_MCP_PROTOCOL "2.3.0")
+set(KTEXTADDONS_MIN_VERSION "2.3.0")
 set(QT6KEYCHAIN_LIB_VERSION "0.15.0")
 
 find_package(
@@ -356,7 +355,7 @@ endif()
 
 option(OPTION_ADD_AUTOGENERATETEXT_MCP_PROTOCOL "Allow to build with mcp protocol server support (experimental)" ON)
 if(OPTION_ADD_AUTOGENERATETEXT_MCP_PROTOCOL)
-    find_package(KF6TextAutoGenerateTextMcpProtocolWidgets ${KTEXTADDONS_MIN_VERSION_MCP_PROTOCOL} CONFIG)
+    find_package(KF6TextAutoGenerateTextMcpProtocolWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
     set_package_properties(
         KF6TextAutoGenerateTextMcpProtocolWidgets
         PROPERTIES
