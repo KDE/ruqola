@@ -1394,6 +1394,12 @@
       <description>
         <ul>
           <li>Minimum RC server support 7.0.</li>
+          <li xml:lang="ca">Implementació mínima de servidor RC 7.0.</li>
+          <li xml:lang="ca-valencia">Implementació mínima de servidor RC 7.0.</li>
+          <li xml:lang="nl">Minimale RC-serverondersteuning 7.0.</li>
+          <li xml:lang="pt-BR">Suporte a servidor RC versão 7.0 ou superior.</li>
+          <li xml:lang="tr">En düşük RC sunucusu desteği artık 7.0</li>
+          <li xml:lang="uk">Мінімальна версія підтримуваного сервера RC — 7.0.</li>
           <li>Add RC 9.0.0 support.</li>
           <li xml:lang="ar">إضافة دعم الإصدار RC 9.0.0.</li>
           <li xml:lang="ca">Afegeix la implementació del RC 9.0.0.</li>
