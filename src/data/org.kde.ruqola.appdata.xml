@@ -1393,6 +1393,13 @@
     <binary>ruqola</binary>
   </provides>
   <launchable type="desktop-id">org.kde.ruqola.desktop</launchable>
+  <keywords>
+    <keyword>Rocket.Chat</keyword>
+    <keyword>chat</keyword>
+    <keyword>messaging</keyword>
+    <keyword>instant messaging</keyword>
+    <keyword>IM</keyword>
+  </keywords>
   <releases>
     <release version="3.0.0" type="snapshot">
       <description>
