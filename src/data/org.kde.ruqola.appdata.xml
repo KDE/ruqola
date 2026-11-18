@@ -1344,6 +1344,10 @@
   <url type="vcs-browser">https://invent.kde.org/network/ruqola</url>
   <url type="contribute">https://community.kde.org/Get_Involved/</url>
   <project_group>KDE</project_group>
+  <branding>
+    <color type="primary" scheme_preference="light">#d3f0dc</color>
+    <color type="primary" scheme_preference="dark">#1f4a2f</color>
+  </branding>
   <screenshots>
     <screenshot type="default">
       <caption>Chat room in Ruqola</caption>
