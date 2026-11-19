@@ -113,29 +113,34 @@ bool MessageAttachmentDelegateHelperActions::handleMouseEvent(const MessageAttac
                 Q_ASSERT(message);
                 // qDebug() << " message->roomId" << message->roomId();
                 qDebug() << " act->msg" << button.message << "button.text " << button.text;
-                auto job = new RocketChatRestApi::MethodCallJob(this);
-                QJsonArray params;
-                QJsonObject obj;
-                obj["msg"_L1] = button.message;
-                obj["rid"_L1] = QString::fromLatin1(message->roomId());
-                obj["_id"_L1] = u"foo"_s; // TODO fix me
-                // {\"_id\":\"ocq2cYp9Ekd4W2uEQ\",\"rid\":\"H7Q9djXQ4iShzD9T2jYJat6TN6C3TTSMjk\",\"msg\":\"/auto-reply status\"}
-                params.append(std::move(obj));
-                const QString methodName = u"sendMessage"_s;
-                const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info{
-                    .messageObj = mRocketChatAccount->ddp()->generateJsonObject(methodName, params),
-                    .methodName = methodName,
-                    .anonymous = false,
-                };
-                job->setMethodCallJobInfo(info);
-                // qDebug() << " info " << info;
-                mRocketChatAccount->restApi()->initializeRestApiJob(job);
-                connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [](const QJsonObject &replyObj) {
-                    qDebug() << " RocketChatRestApi::MethodCallJob::methodCallDone******************** sendmessage" << replyObj;
-                });
+                if (mRocketChatAccount->hasAtLeastVersion(9, 0, 0)) {
+                    // TODO use commands.run ?
+                    mRocketChatAccount->restApi()->sendMessage(message->roomId(), button.message);
+                } else {
+                    auto job = new RocketChatRestApi::MethodCallJob(this);
+                    QJsonArray params;
+                    QJsonObject obj;
+                    obj["msg"_L1] = button.message;
+                    obj["rid"_L1] = QString::fromLatin1(message->roomId());
+                    obj["_id"_L1] = u"foo"_s; // TODO fix me
+                    // {\"_id\":\"ocq2cYp9Ekd4W2uEQ\",\"rid\":\"H7Q9djXQ4iShzD9T2jYJat6TN6C3TTSMjk\",\"msg\":\"/auto-reply status\"}
+                    params.append(std::move(obj));
+                    const QString methodName = u"sendMessage"_s;
+                    const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info{
+                        .messageObj = mRocketChatAccount->ddp()->generateJsonObject(methodName, params),
+                        .methodName = methodName,
+                        .anonymous = false,
+                    };
+                    job->setMethodCallJobInfo(info);
+                    // qDebug() << " info " << info;
+                    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+                    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [](const QJsonObject &replyObj) {
+                        qDebug() << " RocketChatRestApi::MethodCallJob::methodCallDone******************** sendmessage" << replyObj;
+                    });
 
-                if (!job->start()) {
-                    qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start sendMessage job (from RocketChatRestApi::MethodCallJob)";
+                    if (!job->start()) {
+                        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start sendMessage job (from RocketChatRestApi::MethodCallJob)";
+                    }
                 }
                 return true;
             }
