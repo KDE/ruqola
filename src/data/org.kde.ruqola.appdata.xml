@@ -666,36 +666,6 @@
       <li xml:lang="tr">Yönetici olarak yapılandırma desteği (rol ekle/kaldır, kullanıcı ekle/kaldır, izin ekle/kaldır, odaları yapılandır vb.)</li>
       <li xml:lang="uk">Налаштовування параметрів адміністрування (додавання/вилучення ролей, додавання/вилучення користувачів, додавання/вилучення прав доступу, налаштовування кімнат тощо)</li>
       <li xml:lang="zh-TW">支援管理員設定（新增/移除角色、新增/移除使用者、新增/移除權限、配置聊天室等等）</li>
-      <li>Support OTR (in progress)</li>
-      <li xml:lang="ar">الرسائل المؤقت غير المسجلة (قيد التنفيذ)</li>
-      <li xml:lang="ca">Permet OTR (en curs)</li>
-      <li xml:lang="ca-valencia">Permet OTR (en curs)</li>
-      <li xml:lang="en-GB">Support OTR (in progress)</li>
-      <li xml:lang="eo">Subtenu OTR (en progreso)</li>
-      <li xml:lang="es">Soporte de incógnito (en progreso)</li>
-      <li xml:lang="eu">«OTR» euskarria (egiten ari da)</li>
-      <li xml:lang="fi">OTR-tuki (tekeillä)</li>
-      <li xml:lang="fr">Prise en charge de « OTR » (en cours)</li>
-      <li xml:lang="gl">Permitir confidencialidade (en progreso).</li>
-      <li xml:lang="he">תמיכה בסילוק תיעוד (בפיתוח)</li>
-      <li xml:lang="hi">OTR का समर्थन (प्रगति पर)</li>
-      <li xml:lang="hu">OTR támogatása (folyamatban)</li>
-      <li xml:lang="ia">Supporta OTR (in progresso)</li>
-      <li xml:lang="id">Dukungan OTR (dalam progres)</li>
-      <li xml:lang="it">Supporto OTR (in corso)</li>
-      <li xml:lang="ka">OTR-ის მხარდაჭერა (დასრულებული არაა)</li>
-      <li xml:lang="nl">Ondersteuning van OTR (werk-in-uitvoering)</li>
-      <li xml:lang="pl">Obsługa OTR (w trakcie)</li>
-      <li xml:lang="pt">Suporte para OTR (em curso)</li>
-      <li xml:lang="pt-BR">Suporte ao OTR (em progresso)</li>
-      <li xml:lang="ru">Поддержка OTR (в работе)</li>
-      <li xml:lang="sa">समर्थन ओटीआर (प्रगते) .</li>
-      <li xml:lang="sk">Podpora OTR (prebieha vývoj)</li>
-      <li xml:lang="sl">Podpora OTS (v razvoju)</li>
-      <li xml:lang="sv">Stöd OTR (pågår)</li>
-      <li xml:lang="tr">Kayıt Dışı (OTR) desteği (yapım aşamasında)</li>
-      <li xml:lang="uk">Підтримка OTR (в опрацюванні)</li>
-      <li xml:lang="zh-TW">支援 OTR（仍在開發中）</li>
       <li>support gif image</li>
       <li xml:lang="ar">صورة GIF</li>
       <li xml:lang="ca">Permet imatges GIF</li>
