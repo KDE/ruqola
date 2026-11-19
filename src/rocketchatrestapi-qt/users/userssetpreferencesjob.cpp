@@ -153,12 +153,10 @@ QJsonDocument UsersSetPreferencesJob::json() const
     }
     if (!mUsersSetPreferencesInfo.featuresPreview.isEmpty()) {
         QJsonArray array;
-        QMapIterator<QString, bool> i(mUsersSetPreferencesInfo.featuresPreview);
-        while (i.hasNext()) {
-            i.next();
+        for (auto it = mUsersSetPreferencesInfo.featuresPreview.cbegin(), end = mUsersSetPreferencesInfo.featuresPreview.cend(); it != end; ++it) {
             QJsonObject obj;
-            obj["name"_L1] = i.key();
-            obj["value"_L1] = i.value();
+            obj["name"_L1] = it.key();
+            obj["value"_L1] = it.value();
             array.append(std::move(obj));
         }
         dataObj["featuresPreview"_L1] = array;

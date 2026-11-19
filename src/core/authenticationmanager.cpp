@@ -33,12 +33,10 @@ void AuthenticationManager::initializePluginList()
 {
     const QList<KPluginMetaData> plugins = KPluginMetaData::findPlugins(u"ruqolaplugins/authentication"_s);
 
-    QListIterator<KPluginMetaData> i(plugins);
-    i.toBack();
     QSet<QString> unique;
     unique.reserve(plugins.count());
-    while (i.hasPrevious()) {
-        const KPluginMetaData data = i.previous();
+    for (auto it = plugins.crbegin(), end = plugins.crend(); it != end; ++it) {
+        const KPluginMetaData &data = *it;
         const QString fileName = QFileInfo(data.fileName()).baseName();
         // only load plugins once, even if found multiple times!
         if (unique.contains(fileName)) {

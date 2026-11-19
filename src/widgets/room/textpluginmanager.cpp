@@ -44,12 +44,10 @@ void TextPluginManager::initializePluginList()
     const TextAddonsWidgets::PluginUtil::PluginsStateList states =
         TextAddonsWidgets::PluginUtil::loadPluginSetting({}, configGroupName(), configPrefixSettingKey());
 
-    QListIterator<KPluginMetaData> i(plugins);
-    i.toBack();
     QSet<QString> unique;
-    while (i.hasPrevious()) {
+    for (auto it = plugins.crbegin(), end = plugins.crend(); it != end; ++it) {
         TextPluginManagerInfo info;
-        const KPluginMetaData data = i.previous();
+        const KPluginMetaData &data = *it;
 
         // 1) get plugin data => name/description etc.
         info.pluginData = TextAddonsWidgets::PluginUtil::createPluginMetaData(data);
