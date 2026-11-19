@@ -7,6 +7,8 @@
 
 #include <QString>
 
+class QJsonObject;
+
 namespace TextAutoGenerateTextMcpProtocolCore
 {
 class McpProtocolTool;
@@ -24,4 +26,6 @@ enum TitleType : uint8_t {
 void addToolMeta(TextAutoGenerateTextMcpProtocolCore::McpProtocolTool &tool, TitleType type);
 [[nodiscard]] QString groupFromType(TitleType type);
 [[nodiscard]] QString groupTitleFromType(TitleType type);
+// One-line summary of a message (id, date, author, flags) followed by its text
+[[nodiscard]] QString messageEntry(const QJsonObject &message, const QString &userId);
 }

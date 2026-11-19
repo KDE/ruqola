@@ -20,34 +20,6 @@ namespace
 constexpr int defaultSearchCount = 25;
 constexpr int maximumSearchCount = 100;
 
-[[nodiscard]] bool starredByUser(const QJsonObject &message, const QString &userId)
-{
-    const QJsonArray starred = message.value("starred"_L1).toArray();
-    return std::any_of(starred.cbegin(), starred.cend(), [&userId](const QJsonValue &value) {
-        return value.toObject().value("_id"_L1).toString() == userId;
-    });
-}
-
-[[nodiscard]] QString messageEntry(const QJsonObject &message, const QString &userId)
-{
-    const QString username = message.value("u"_L1).toObject().value("username"_L1).toString();
-    QString entry = u"id: %1, ts: %2, user: %3"_s.arg(message.value("_id"_L1).toString(), message.value("ts"_L1).toString(), username);
-    if (const QString threadId = message.value("tmid"_L1).toString(); !threadId.isEmpty()) {
-        entry += u", thread: %1"_s.arg(threadId);
-    }
-    if (message.value("pinned"_L1).toBool()) {
-        entry += u" [pinned]";
-    }
-    if (starredByUser(message, userId)) {
-        entry += u" [starred]";
-    }
-    if (message.value("t"_L1).toString() == "e2e"_L1) {
-        entry += u" [encrypted]";
-    } else {
-        entry += u"\n  text: %1"_s.arg(message.value("msg"_L1).toString());
-    }
-    return entry;
-}
 }
 
 SearchMessagesTool::SearchMessagesTool(AccountManager *accountManager)
@@ -62,7 +34,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool SearchMessagesTool::definit
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
         u"search_messages"_s,
         i18n("Search Messages"),
-        u"Search messages in a room; returns message identifiers usable with star_message and pin_message"_s,
+        u"Search messages in a room; returns message identifiers usable with get_message, star_message and pin_message"_s,
         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly,
         QMap<QString, QJsonObject>{
             {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)},
@@ -121,7 +93,7 @@ void SearchMessagesTool::doCall(TextAutoGenerateTextMcpProtocolCore::McpProtocol
         entries.reserve(messages.count() + 1);
         entries.append(u"found: %1 (offset: %2)"_s.arg(messages.count()).arg(offset));
         for (const QJsonValue &value : messages) {
-            entries.append(messageEntry(value.toObject(), userId));
+            entries.append(ToolUtils::messageEntry(value.toObject(), userId));
         }
         call->finishWithText(entries.join(u'\n'));
     });

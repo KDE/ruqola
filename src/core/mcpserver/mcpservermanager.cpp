@@ -6,6 +6,7 @@
 #include "mcpservermanager.h"
 #include "accountmanager.h"
 #include "listaccounts/listaccountstool.h"
+#include "mcpserver/getmessage/getmessagetool.h"
 #include "mcpserver/getmystatus/getmystatustool.h"
 #include "mcpserver/getroominfo/getroominfotool.h"
 #include "mcpserver/getroomroles/getroomrolestool.h"
@@ -57,6 +58,7 @@ McpServerManager::McpServerManager(AccountManager *accountManager, QObject *pare
     addTool(std::make_unique<SearchRoomsTool>(mAccountManager));
     addTool(std::make_unique<SearchUsersTool>(mAccountManager));
     addTool(std::make_unique<SearchMessagesTool>(mAccountManager));
+    addTool(std::make_unique<GetMessageTool>(mAccountManager));
     addTool(std::make_unique<ListRoomMembersTool>(mAccountManager));
     addTool(std::make_unique<StarMessageTool>(mAccountManager));
     addTool(std::make_unique<PinMessageTool>(mAccountManager));
