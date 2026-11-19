@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-18 01:10+0000\n"
-"PO-Revision-Date: 2026-11-11 20:48+0200\n"
+"PO-Revision-Date: 2026-11-18 07:57+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -3907,21 +3907,18 @@ msgid "Delete All Messages"
 msgstr "Удаление всех сообщений"
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:64
-#, fuzzy, kde-format
-#| msgid "No user found"
+#, kde-format
 msgid "No reported user found"
-msgstr "Пользователей не найдено"
+msgstr "Пользователей, на которых поступили жалобы, не найдено"
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:69
-#, fuzzy, kde-format
-#| msgid "%1 user (Total: %2)"
-#| msgid_plural "%1 users (Total: %2)"
+#, kde-format
 msgid "%1 reported user (Total: %2)"
 msgid_plural "%1 reported users (Total: %2)"
-msgstr[0] "%1 пользователь (всего: %2)"
-msgstr[1] "%1 пользователя (всего: %2)"
-msgstr[2] "%1 пользователей (всего: %2)"
-msgstr[3] "%1 пользователь (всего: %2)"
+msgstr[0] "%1 пользователь, на которого поступила жалоба (всего: %2)"
+msgstr[1] "%1 пользователя, на которых поступили жалобы (всего: %2)"
+msgstr[2] "%1 пользователей, на которых поступили жалобы (всего: %2)"
+msgstr[3] "%1 пользователь, на которого поступила жалоба (всего: %2)"
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
 #, kde-format
