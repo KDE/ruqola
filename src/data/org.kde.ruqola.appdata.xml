@@ -3741,7 +3741,7 @@
           <li xml:lang="sk">Oprava sťahovania zvukového/video súboru, keď nie je vo vyrovnávacej pamäti</li>
           <li xml:lang="sl">Popravi prenos zvočne/video datoteke, kadar ni v predpomnilniku</li>
           <li xml:lang="sv">Rätta nerladdning av ljud- och videofil när den inte är i cachen</li>
-          <li xml:lang="tr">Önbellekte olmadığında ses/video dosyasını indirmeyi düzelt</li>
+          <li xml:lang="tr">Ön bellekte olmadığında ses/video dosyasını indirmeyi düzelt</li>
           <li xml:lang="uk">Виправити отриманий файл звукових даних або відео, коли він не перебуває у кеші</li>
           <li>Fix list of authentication method</li>
           <li xml:lang="ar">إصلاح قائمة طريقة الاستيثاق</li>
