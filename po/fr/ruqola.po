@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 01:10+0000\n"
+"POT-Creation-Date: 2026-11-20 01:10+0000\n"
 "PO-Revision-Date: 2026-06-03 22:50+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -474,95 +474,95 @@ msgstr "Communications sortantes"
 msgid "View all rooms in the workspace"
 msgstr "Afficher tous les salons dans l'espace de travail"
 
-#: core/authenticationmanager.cpp:88
+#: core/authenticationmanager.cpp:86
 #, kde-format
 msgid "Connecting"
 msgstr "Connexion en cours"
 
-#: core/authenticationmanager.cpp:90
+#: core/authenticationmanager.cpp:88
 #, kde-format
 msgid "Verifying OTP code"
 msgstr ""
 
-#: core/authenticationmanager.cpp:92
+#: core/authenticationmanager.cpp:90
 #, kde-format
 msgid "Login failed: invalid username or password"
 msgstr "Connexion impossible : nom d'utilisateur ou mot de passe non valable."
 
-#: core/authenticationmanager.cpp:94
+#: core/authenticationmanager.cpp:92
 #, kde-format
 msgid "Logging in"
 msgstr "Connexion en cours"
 
-#: core/authenticationmanager.cpp:96
+#: core/authenticationmanager.cpp:94
 #, kde-format
 msgid "Logged in"
 msgstr "Connecté"
 
-#: core/authenticationmanager.cpp:98
+#: core/authenticationmanager.cpp:96
 #, kde-format
 msgid "Logged out"
 msgstr "Déconnecté"
 
-#: core/authenticationmanager.cpp:100
+#: core/authenticationmanager.cpp:98
 #, kde-format
 msgid "Failed to login due to plugin problem"
 msgstr "Échec de la connexion du à un problème de module externe"
 
-#: core/authenticationmanager.cpp:102
+#: core/authenticationmanager.cpp:100
 #, kde-format
 msgid "Login failed: generic error"
 msgstr "Échec de la connexion : erreur générique"
 
-#: core/authenticationmanager.cpp:104
+#: core/authenticationmanager.cpp:102
 #, kde-format
 msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 "Un mot de passe à usage unique est nécessaire pour terminer la procédure de "
 "connexion."
 
-#: core/authenticationmanager.cpp:106
+#: core/authenticationmanager.cpp:104
 #: widgets/loginwidget/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Échec de la connexion : code « OTP » non valable"
 
-#: core/authenticationmanager.cpp:108
+#: core/authenticationmanager.cpp:106
 #, kde-format
 msgid "Login failed: User is not activated."
 msgstr "Connexion impossible : l'utilisateur n'est pas activé."
 
-#: core/authenticationmanager.cpp:110
+#: core/authenticationmanager.cpp:108
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
 msgstr "La connexion a été temporairement bloquée par IP."
 
-#: core/authenticationmanager.cpp:112
+#: core/authenticationmanager.cpp:110
 #, kde-format
 msgid "Login has been temporarily blocked For User."
 msgstr "La connexion a été temporairement bloquée pour l'utilisateur."
 
-#: core/authenticationmanager.cpp:114
+#: core/authenticationmanager.cpp:112
 #, kde-format
 msgid "App user is not allowed to login."
 msgstr "L'utilisateur de l'application n'est pas autorisé à se connecter."
 
-#: core/authenticationmanager.cpp:116
+#: core/authenticationmanager.cpp:114
 #, kde-format
 msgid "Logout ongoing"
 msgstr "Déconnexion en cours"
 
-#: core/authenticationmanager.cpp:118
+#: core/authenticationmanager.cpp:116
 #, kde-format
 msgid "Logout cleanup ongoing"
 msgstr "Nettoyage de déconnexion en cours"
 
-#: core/authenticationmanager.cpp:120
+#: core/authenticationmanager.cpp:118
 #, kde-format
 msgid "Successfully logged out"
 msgstr "Déconnexion réussie"
 
-#: core/authenticationmanager.cpp:122
+#: core/authenticationmanager.cpp:120
 #, kde-format
 msgid "Unknown state"
 msgstr "État inconnu"
@@ -841,11 +841,12 @@ msgid "Reject"
 msgstr "Refuser"
 
 #: core/mcpserver/common/toolbase.cpp:149
+#: core/mcpserver/getmessage/getmessagetool.cpp:48
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:91
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:75
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:47
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:88
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:60
 #: core/mcpserver/setmystatus/setmystatustool.cpp:46
 #: core/mcpserver/starmessage/starmessagetool.cpp:47
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:53
@@ -855,14 +856,14 @@ msgid "Account is not logged in"
 msgstr "Informations sur le compte"
 
 #: core/mcpserver/common/toolbase.cpp:157
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:99
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:71
 #, fuzzy, kde-format
 #| msgid "Missing server url."
 msgid "Missing search pattern"
 msgstr "Absence de l'URL du serveur."
 
 #: core/mcpserver/common/toolbase.cpp:172
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:129
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:101
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Download Image"
@@ -870,13 +871,13 @@ msgid "Search failed: %1"
 msgstr "Télécharger une image"
 
 #: core/mcpserver/common/toolbase.cpp:175
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:132
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:104
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start search"
 msgstr "Impossible d'exporter des données."
 
-#: core/mcpserver/common/toolutils.cpp:17 core/model/directoryteamsmodel.cpp:95
+#: core/mcpserver/common/toolutils.cpp:30 core/model/directoryteamsmodel.cpp:95
 #: core/model/roommodel.cpp:696
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
@@ -884,37 +885,37 @@ msgstr "Impossible d'exporter des données."
 msgid "Rooms"
 msgstr "Salons"
 
-#: core/mcpserver/common/toolutils.cpp:19
+#: core/mcpserver/common/toolutils.cpp:32
 #: widgets/databasedialog/exploredatabasedialog.cpp:52
 #, kde-format
 msgid "Messages"
 msgstr "Messages"
 
-#: core/mcpserver/common/toolutils.cpp:21
+#: core/mcpserver/common/toolutils.cpp:34
 #: widgets/administratordialog/administratorwidget.cpp:69
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:255
 #, kde-format
 msgid "Users"
 msgstr "Utilisateurs"
 
-#: core/mcpserver/common/toolutils.cpp:23
+#: core/mcpserver/common/toolutils.cpp:36
 #, fuzzy, kde-format
 #| msgid "Current Password"
 msgid "Current User"
 msgstr "Mot de passe actuel"
 
-#: core/mcpserver/common/toolutils.cpp:25
+#: core/mcpserver/common/toolutils.cpp:38
 #, kde-format
 msgid "Misc"
 msgstr ""
 
-#: core/mcpserver/getmystatus/getmystatustool.cpp:27
+#: core/mcpserver/getmessage/getmessagetool.cpp:29
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit User Status"
-msgid "Get My Status"
-msgstr "Modifier l'état de l'utilisateur"
+#| msgid "Go to Message"
+msgid "Get Message"
+msgstr "Aller au message"
 
+#: core/mcpserver/getmessage/getmessagetool.cpp:44
 #: core/mcpserver/getmystatus/getmystatustool.cpp:41
 #: core/mcpserver/getroominfo/getroominfotool.cpp:43
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:87
@@ -926,7 +927,7 @@ msgstr "Modifier l'état de l'utilisateur"
 #: core/mcpserver/listrooms/listroomstool.cpp:40
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:44
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:43
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:84
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:56
 #: core/mcpserver/searchrooms/searchroomstool.cpp:41
 #: core/mcpserver/searchusers/searchuserstool.cpp:41
 #: core/mcpserver/setmystatus/setmystatustool.cpp:42
@@ -936,6 +937,40 @@ msgstr "Modifier l'état de l'utilisateur"
 #| msgid "No Attachment found"
 msgid "No account found"
 msgstr "Aucune pièce jointe trouvée"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:53
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
+#: core/mcpserver/starmessage/starmessagetool.cpp:52
+#, fuzzy, kde-format
+#| msgid "Missing server url."
+msgid "Missing message identifier"
+msgstr "Absence de l'URL du serveur."
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:65
+#, fuzzy, kde-format
+#| msgid "Message not found."
+msgid "Message not found"
+msgstr "Impossible de trouver un message."
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:91
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgid "Get message failed: %1"
+msgstr "Télécharger une image"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:94
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to get message"
+msgstr "Impossible d'exporter des données."
+
+#: core/mcpserver/getmystatus/getmystatustool.cpp:27
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Edit User Status"
+msgid "Get My Status"
+msgstr "Modifier l'état de l'utilisateur"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:28
 #, fuzzy, kde-format
@@ -947,7 +982,7 @@ msgstr "Aucun salon trouvé"
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:96
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:81
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:53
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:94
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:66
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:59
 #, kde-format
 msgid "Missing room identifier"
@@ -1097,7 +1132,7 @@ msgstr "Télécharger une image"
 msgid "Impossible to start mark room as read job"
 msgstr "Impossible d'exporter des données."
 
-#: core/mcpserver/mcpservermanager.cpp:46
+#: core/mcpserver/mcpservermanager.cpp:47
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""
@@ -1108,13 +1143,6 @@ msgstr ""
 #| msgid "Pin Message"
 msgid "Pin Message"
 msgstr "Agrafer un message"
-
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
-#: core/mcpserver/starmessage/starmessagetool.cpp:52
-#, fuzzy, kde-format
-#| msgid "Missing server url."
-msgid "Missing message identifier"
-msgstr "Absence de l'URL du serveur."
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:70
 #, fuzzy, kde-format
@@ -1129,14 +1157,14 @@ msgstr "Télécharger une image"
 msgid "Impossible to start pin message job"
 msgstr "Impossible d'exporter des données."
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:64
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:36
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
 msgid "Search Messages"
 msgstr "Chercher des messages"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:117
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:89
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "No messages found"
@@ -3442,7 +3470,7 @@ msgstr "L'état « Invisible » est désactivé"
 msgid "%1 is already in use."
 msgstr "%1 est déjà en cours d'utilisation."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:178
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:176
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Paramètres non valables"
@@ -14441,9 +14469,6 @@ msgstr "Ajouter un compte..."
 
 #~ msgid "Select All"
 #~ msgstr "Tout sélectionner"
-
-#~ msgid "Go to Message"
-#~ msgstr "Aller au message"
 
 #~ msgid "Add..."
 #~ msgstr "Ajouter..."

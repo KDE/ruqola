@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 01:10+0000\n"
+"POT-Creation-Date: 2026-11-20 01:10+0000\n"
 "PO-Revision-Date: 2025-03-15 10:38+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -479,93 +479,93 @@ msgstr "Silentigi Fokusitajn Konversaciojn"
 msgid "View all rooms in the workspace"
 msgstr ""
 
-#: core/authenticationmanager.cpp:88
+#: core/authenticationmanager.cpp:86
 #, kde-format
 msgid "Connecting"
 msgstr "Konektante"
 
-#: core/authenticationmanager.cpp:90
+#: core/authenticationmanager.cpp:88
 #, kde-format
 msgid "Verifying OTP code"
 msgstr ""
 
-#: core/authenticationmanager.cpp:92
+#: core/authenticationmanager.cpp:90
 #, kde-format
 msgid "Login failed: invalid username or password"
 msgstr "Ensaluto malsukcesis: nevalida uzantnomo aŭ pasvorto"
 
-#: core/authenticationmanager.cpp:94
+#: core/authenticationmanager.cpp:92
 #, kde-format
 msgid "Logging in"
 msgstr "Ensalutante"
 
-#: core/authenticationmanager.cpp:96
+#: core/authenticationmanager.cpp:94
 #, kde-format
 msgid "Logged in"
 msgstr "Ensalutinta"
 
-#: core/authenticationmanager.cpp:98
+#: core/authenticationmanager.cpp:96
 #, kde-format
 msgid "Logged out"
 msgstr "Elsalutita"
 
-#: core/authenticationmanager.cpp:100
+#: core/authenticationmanager.cpp:98
 #, kde-format
 msgid "Failed to login due to plugin problem"
 msgstr "Malsukcesis ensaluti pro kromproblemo"
 
-#: core/authenticationmanager.cpp:102
+#: core/authenticationmanager.cpp:100
 #, kde-format
 msgid "Login failed: generic error"
 msgstr "Ensaluto malsukcesis: ĝenerala eraro"
 
-#: core/authenticationmanager.cpp:104
+#: core/authenticationmanager.cpp:102
 #, kde-format
 msgid "A one-time password is required to complete the login procedure."
 msgstr "Unufoja pasvorto estas postulata por plenumi la ensaluta proceduro."
 
-#: core/authenticationmanager.cpp:106
+#: core/authenticationmanager.cpp:104
 #: widgets/loginwidget/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Ensaluto malsukcesis: Nevalida OTP-kodo."
 
-#: core/authenticationmanager.cpp:108
+#: core/authenticationmanager.cpp:106
 #, kde-format
 msgid "Login failed: User is not activated."
 msgstr "Ensaluto malsukcesis: Uzanto ne estas aktivigita."
 
-#: core/authenticationmanager.cpp:110
+#: core/authenticationmanager.cpp:108
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
 msgstr "Ensaluto estis provizore blokita Por IP."
 
-#: core/authenticationmanager.cpp:112
+#: core/authenticationmanager.cpp:110
 #, kde-format
 msgid "Login has been temporarily blocked For User."
 msgstr "Ensaluto estis provizore blokita Por Uzanto."
 
-#: core/authenticationmanager.cpp:114
+#: core/authenticationmanager.cpp:112
 #, kde-format
 msgid "App user is not allowed to login."
 msgstr "Uzanto de la aplikaĵo ne rajtas ensaluti."
 
-#: core/authenticationmanager.cpp:116
+#: core/authenticationmanager.cpp:114
 #, kde-format
 msgid "Logout ongoing"
 msgstr "Elsaluto daŭranta"
 
-#: core/authenticationmanager.cpp:118
+#: core/authenticationmanager.cpp:116
 #, kde-format
 msgid "Logout cleanup ongoing"
 msgstr "Elsaluta purigo daŭranta"
 
-#: core/authenticationmanager.cpp:120
+#: core/authenticationmanager.cpp:118
 #, kde-format
 msgid "Successfully logged out"
 msgstr "Sukcese elsalutis"
 
-#: core/authenticationmanager.cpp:122
+#: core/authenticationmanager.cpp:120
 #, kde-format
 msgid "Unknown state"
 msgstr "Nekonata stato"
@@ -844,11 +844,12 @@ msgid "Reject"
 msgstr "Malakcepti"
 
 #: core/mcpserver/common/toolbase.cpp:149
+#: core/mcpserver/getmessage/getmessagetool.cpp:48
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:91
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:75
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:47
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:88
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:60
 #: core/mcpserver/setmystatus/setmystatustool.cpp:46
 #: core/mcpserver/starmessage/starmessagetool.cpp:47
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:53
@@ -858,14 +859,14 @@ msgid "Account is not logged in"
 msgstr "Informoj pri konto"
 
 #: core/mcpserver/common/toolbase.cpp:157
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:99
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:71
 #, fuzzy, kde-format
 #| msgid "Invalid username"
 msgid "Missing search pattern"
 msgstr "Nevalida uzantnomo"
 
 #: core/mcpserver/common/toolbase.cpp:172
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:129
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:101
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Download Image"
@@ -873,13 +874,13 @@ msgid "Search failed: %1"
 msgstr "Elŝuti Bildon"
 
 #: core/mcpserver/common/toolbase.cpp:175
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:132
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:104
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start search"
 msgstr "Neeble eksporti datumojn."
 
-#: core/mcpserver/common/toolutils.cpp:17 core/model/directoryteamsmodel.cpp:95
+#: core/mcpserver/common/toolutils.cpp:30 core/model/directoryteamsmodel.cpp:95
 #: core/model/roommodel.cpp:696
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
@@ -887,7 +888,7 @@ msgstr "Neeble eksporti datumojn."
 msgid "Rooms"
 msgstr "Ĉambroj"
 
-#: core/mcpserver/common/toolutils.cpp:19
+#: core/mcpserver/common/toolutils.cpp:32
 #: widgets/databasedialog/exploredatabasedialog.cpp:52
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
@@ -895,31 +896,32 @@ msgstr "Ĉambroj"
 msgid "Messages"
 msgstr "Mesaĝoj"
 
-#: core/mcpserver/common/toolutils.cpp:21
+#: core/mcpserver/common/toolutils.cpp:34
 #: widgets/administratordialog/administratorwidget.cpp:69
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:255
 #, kde-format
 msgid "Users"
 msgstr "Uzantoj"
 
-#: core/mcpserver/common/toolutils.cpp:23
+#: core/mcpserver/common/toolutils.cpp:36
 #, fuzzy, kde-format
 #| msgid "Current Password"
 msgid "Current User"
 msgstr "Aktuala Pasvorto"
 
-#: core/mcpserver/common/toolutils.cpp:25
+#: core/mcpserver/common/toolutils.cpp:38
 #, kde-format
 msgid "Misc"
 msgstr ""
 
-#: core/mcpserver/getmystatus/getmystatustool.cpp:27
+#: core/mcpserver/getmessage/getmessagetool.cpp:29
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit User Status"
-msgid "Get My Status"
-msgstr "Redakti Statuson de Uzanto"
+#| msgctxt "@action"
+#| msgid "Go to Message"
+msgid "Get Message"
+msgstr "Iri al Mesaĝo"
 
+#: core/mcpserver/getmessage/getmessagetool.cpp:44
 #: core/mcpserver/getmystatus/getmystatustool.cpp:41
 #: core/mcpserver/getroominfo/getroominfotool.cpp:43
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:87
@@ -931,7 +933,7 @@ msgstr "Redakti Statuson de Uzanto"
 #: core/mcpserver/listrooms/listroomstool.cpp:40
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:44
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:43
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:84
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:56
 #: core/mcpserver/searchrooms/searchroomstool.cpp:41
 #: core/mcpserver/searchusers/searchuserstool.cpp:41
 #: core/mcpserver/setmystatus/setmystatustool.cpp:42
@@ -941,6 +943,40 @@ msgstr "Redakti Statuson de Uzanto"
 #| msgid "My Account"
 msgid "No account found"
 msgstr "Mia Konto"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:53
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
+#: core/mcpserver/starmessage/starmessagetool.cpp:52
+#, fuzzy, kde-format
+#| msgid "Invalid username"
+msgid "Missing message identifier"
+msgstr "Nevalida uzantnomo"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:65
+#, fuzzy, kde-format
+#| msgid "Message not found."
+msgid "Message not found"
+msgstr "Mesaĝo ne trovita."
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:91
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgid "Get message failed: %1"
+msgstr "Elŝuti Bildon"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:94
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to get message"
+msgstr "Neeble eksporti datumojn."
+
+#: core/mcpserver/getmystatus/getmystatustool.cpp:27
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Edit User Status"
+msgid "Get My Status"
+msgstr "Redakti Statuson de Uzanto"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:28
 #, fuzzy, kde-format
@@ -952,7 +988,7 @@ msgstr "Neniu Ĉambro trovita"
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:96
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:81
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:53
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:94
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:66
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:59
 #, kde-format
 msgid "Missing room identifier"
@@ -1102,7 +1138,7 @@ msgstr "Elŝuti Bildon"
 msgid "Impossible to start mark room as read job"
 msgstr "Neeble eksporti datumojn."
 
-#: core/mcpserver/mcpservermanager.cpp:46
+#: core/mcpserver/mcpservermanager.cpp:47
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""
@@ -1113,13 +1149,6 @@ msgstr ""
 #| msgid "Pin Message"
 msgid "Pin Message"
 msgstr "Pin Mesaĝo"
-
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
-#: core/mcpserver/starmessage/starmessagetool.cpp:52
-#, fuzzy, kde-format
-#| msgid "Invalid username"
-msgid "Missing message identifier"
-msgstr "Nevalida uzantnomo"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:70
 #, fuzzy, kde-format
@@ -1134,14 +1163,14 @@ msgstr "Elŝuti Bildon"
 msgid "Impossible to start pin message job"
 msgstr "Neeble eksporti datumojn."
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:64
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:36
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
 msgid "Search Messages"
 msgstr "Serĉi Mesaĝojn"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:117
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:89
 #, fuzzy, kde-format
 #| msgid "No Message found"
 msgid "No messages found"
@@ -3443,7 +3472,7 @@ msgstr "Nevidebla stato estas malŝaltita"
 msgid "%1 is already in use."
 msgstr "%1 jam estas uzata."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:178
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:176
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Nevalidaj parametroj"

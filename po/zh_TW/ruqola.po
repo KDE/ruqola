@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 01:10+0000\n"
+"POT-Creation-Date: 2026-11-20 01:10+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -477,93 +477,93 @@ msgstr "外傳通訊"
 msgid "View all rooms in the workspace"
 msgstr ""
 
-#: core/authenticationmanager.cpp:88
+#: core/authenticationmanager.cpp:86
 #, kde-format
 msgid "Connecting"
 msgstr "連線中"
 
-#: core/authenticationmanager.cpp:90
+#: core/authenticationmanager.cpp:88
 #, kde-format
 msgid "Verifying OTP code"
 msgstr ""
 
-#: core/authenticationmanager.cpp:92
+#: core/authenticationmanager.cpp:90
 #, kde-format
 msgid "Login failed: invalid username or password"
 msgstr "登入失敗：無效的使用者名稱或密碼"
 
-#: core/authenticationmanager.cpp:94
+#: core/authenticationmanager.cpp:92
 #, kde-format
 msgid "Logging in"
 msgstr "登入中"
 
-#: core/authenticationmanager.cpp:96
+#: core/authenticationmanager.cpp:94
 #, kde-format
 msgid "Logged in"
 msgstr "已登入"
 
-#: core/authenticationmanager.cpp:98
+#: core/authenticationmanager.cpp:96
 #, kde-format
 msgid "Logged out"
 msgstr "已登出"
 
-#: core/authenticationmanager.cpp:100
+#: core/authenticationmanager.cpp:98
 #, kde-format
 msgid "Failed to login due to plugin problem"
 msgstr "登入由於外掛程式問題而失敗"
 
-#: core/authenticationmanager.cpp:102
+#: core/authenticationmanager.cpp:100
 #, kde-format
 msgid "Login failed: generic error"
 msgstr "登入失敗：一般錯誤"
 
-#: core/authenticationmanager.cpp:104
+#: core/authenticationmanager.cpp:102
 #, kde-format
 msgid "A one-time password is required to complete the login procedure."
 msgstr "需要有一次性密碼才能完成登入程序。"
 
-#: core/authenticationmanager.cpp:106
+#: core/authenticationmanager.cpp:104
 #: widgets/loginwidget/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "登入失敗：無效的 OTP 一次性密碼。"
 
-#: core/authenticationmanager.cpp:108
+#: core/authenticationmanager.cpp:106
 #, kde-format
 msgid "Login failed: User is not activated."
 msgstr "登入失敗：使用者尚未啟用。"
 
-#: core/authenticationmanager.cpp:110
+#: core/authenticationmanager.cpp:108
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
 msgstr "已暫時封鎖此 IP 位址的登入。"
 
-#: core/authenticationmanager.cpp:112
+#: core/authenticationmanager.cpp:110
 #, kde-format
 msgid "Login has been temporarily blocked For User."
 msgstr "已暫時封鎖此使用者的登入。"
 
-#: core/authenticationmanager.cpp:114
+#: core/authenticationmanager.cpp:112
 #, kde-format
 msgid "App user is not allowed to login."
 msgstr "應用程式使用者不被允許登入。"
 
-#: core/authenticationmanager.cpp:116
+#: core/authenticationmanager.cpp:114
 #, kde-format
 msgid "Logout ongoing"
 msgstr "正在登出"
 
-#: core/authenticationmanager.cpp:118
+#: core/authenticationmanager.cpp:116
 #, kde-format
 msgid "Logout cleanup ongoing"
 msgstr "登出清理進行中"
 
-#: core/authenticationmanager.cpp:120
+#: core/authenticationmanager.cpp:118
 #, kde-format
 msgid "Successfully logged out"
 msgstr "成功登出"
 
-#: core/authenticationmanager.cpp:122
+#: core/authenticationmanager.cpp:120
 #, kde-format
 msgid "Unknown state"
 msgstr "未知狀態"
@@ -842,11 +842,12 @@ msgid "Reject"
 msgstr "拒絕"
 
 #: core/mcpserver/common/toolbase.cpp:149
+#: core/mcpserver/getmessage/getmessagetool.cpp:48
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:91
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:75
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:47
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:88
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:60
 #: core/mcpserver/setmystatus/setmystatustool.cpp:46
 #: core/mcpserver/starmessage/starmessagetool.cpp:47
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:53
@@ -856,14 +857,14 @@ msgid "Account is not logged in"
 msgstr "帳戶資訊"
 
 #: core/mcpserver/common/toolbase.cpp:157
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:99
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:71
 #, fuzzy, kde-format
 #| msgid "Enter username"
 msgid "Missing search pattern"
 msgstr "輸入使用者名稱"
 
 #: core/mcpserver/common/toolbase.cpp:172
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:129
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:101
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Download Image"
@@ -871,13 +872,13 @@ msgid "Search failed: %1"
 msgstr "下載影像"
 
 #: core/mcpserver/common/toolbase.cpp:175
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:132
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:104
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start search"
 msgstr "無法匯出資料。"
 
-#: core/mcpserver/common/toolutils.cpp:17 core/model/directoryteamsmodel.cpp:95
+#: core/mcpserver/common/toolutils.cpp:30 core/model/directoryteamsmodel.cpp:95
 #: core/model/roommodel.cpp:696
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
@@ -885,37 +886,37 @@ msgstr "無法匯出資料。"
 msgid "Rooms"
 msgstr "聊天室"
 
-#: core/mcpserver/common/toolutils.cpp:19
+#: core/mcpserver/common/toolutils.cpp:32
 #: widgets/databasedialog/exploredatabasedialog.cpp:52
 #, kde-format
 msgid "Messages"
 msgstr "訊息"
 
-#: core/mcpserver/common/toolutils.cpp:21
+#: core/mcpserver/common/toolutils.cpp:34
 #: widgets/administratordialog/administratorwidget.cpp:69
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:255
 #, kde-format
 msgid "Users"
 msgstr "使用者"
 
-#: core/mcpserver/common/toolutils.cpp:23
+#: core/mcpserver/common/toolutils.cpp:36
 #, fuzzy, kde-format
 #| msgid "Current Password"
 msgid "Current User"
 msgstr "目前密碼"
 
-#: core/mcpserver/common/toolutils.cpp:25
+#: core/mcpserver/common/toolutils.cpp:38
 #, kde-format
 msgid "Misc"
 msgstr ""
 
-#: core/mcpserver/getmystatus/getmystatustool.cpp:27
+#: core/mcpserver/getmessage/getmessagetool.cpp:29
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit User Status"
-msgid "Get My Status"
-msgstr "編輯使用者狀態"
+#| msgid "Go to Message"
+msgid "Get Message"
+msgstr "跳到訊息"
 
+#: core/mcpserver/getmessage/getmessagetool.cpp:44
 #: core/mcpserver/getmystatus/getmystatustool.cpp:41
 #: core/mcpserver/getroominfo/getroominfotool.cpp:43
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:87
@@ -927,7 +928,7 @@ msgstr "編輯使用者狀態"
 #: core/mcpserver/listrooms/listroomstool.cpp:40
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:44
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:43
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:84
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:56
 #: core/mcpserver/searchrooms/searchroomstool.cpp:41
 #: core/mcpserver/searchusers/searchuserstool.cpp:41
 #: core/mcpserver/setmystatus/setmystatustool.cpp:42
@@ -937,6 +938,40 @@ msgstr "編輯使用者狀態"
 #| msgid "No Attachment found"
 msgid "No account found"
 msgstr "未找到附件"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:53
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
+#: core/mcpserver/starmessage/starmessagetool.cpp:52
+#, fuzzy, kde-format
+#| msgid "Enter username"
+msgid "Missing message identifier"
+msgstr "輸入使用者名稱"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:65
+#, fuzzy, kde-format
+#| msgid "Message not found."
+msgid "Message not found"
+msgstr "找不到訊息。"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:91
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgid "Get message failed: %1"
+msgstr "下載影像"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:94
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to get message"
+msgstr "無法匯出資料。"
+
+#: core/mcpserver/getmystatus/getmystatustool.cpp:27
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Edit User Status"
+msgid "Get My Status"
+msgstr "編輯使用者狀態"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:28
 #, fuzzy, kde-format
@@ -948,7 +983,7 @@ msgstr "找不到聊天室"
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:96
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:81
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:53
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:94
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:66
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:59
 #, kde-format
 msgid "Missing room identifier"
@@ -1098,7 +1133,7 @@ msgstr "下載影像"
 msgid "Impossible to start mark room as read job"
 msgstr "無法匯出資料。"
 
-#: core/mcpserver/mcpservermanager.cpp:46
+#: core/mcpserver/mcpservermanager.cpp:47
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""
@@ -1109,13 +1144,6 @@ msgstr ""
 #| msgid "Pin Message"
 msgid "Pin Message"
 msgstr "置頂訊息"
-
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
-#: core/mcpserver/starmessage/starmessagetool.cpp:52
-#, fuzzy, kde-format
-#| msgid "Enter username"
-msgid "Missing message identifier"
-msgstr "輸入使用者名稱"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:70
 #, fuzzy, kde-format
@@ -1130,14 +1158,14 @@ msgstr "下載影像"
 msgid "Impossible to start pin message job"
 msgstr "無法匯出資料。"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:64
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:36
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
 msgid "Search Messages"
 msgstr "搜尋訊息"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:117
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:89
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "No messages found"
@@ -3389,7 +3417,7 @@ msgstr ""
 msgid "%1 is already in use."
 msgstr "%1 已被使用。"
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:178
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:176
 #, kde-format
 msgid "Invalid parameters"
 msgstr "無效的參數"
@@ -14021,9 +14049,6 @@ msgstr "新增帳戶…"
 
 #~ msgid "Select All"
 #~ msgstr "全部選取"
-
-#~ msgid "Go to Message"
-#~ msgstr "跳到訊息"
 
 #~ msgid "Modify..."
 #~ msgstr "變更…"

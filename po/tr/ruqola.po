@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 01:10+0000\n"
-"PO-Revision-Date: 2026-11-17 18:50+0300\n"
+"POT-Creation-Date: 2026-11-20 01:10+0000\n"
+"PO-Revision-Date: 2026-11-19 19:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -467,95 +467,95 @@ msgstr "Dışa Giden İletişim"
 msgid "View all rooms in the workspace"
 msgstr "Çalışma alanındaki tüm odaları görüntüle"
 
-#: core/authenticationmanager.cpp:88
+#: core/authenticationmanager.cpp:86
 #, kde-format
 msgid "Connecting"
 msgstr "Bağlanıyor"
 
-#: core/authenticationmanager.cpp:90
+#: core/authenticationmanager.cpp:88
 #, kde-format
 msgid "Verifying OTP code"
 msgstr "Tek kerelik parola kodu doğrulanıyor"
 
-#: core/authenticationmanager.cpp:92
+#: core/authenticationmanager.cpp:90
 #, kde-format
 msgid "Login failed: invalid username or password"
 msgstr "Oturum açma başarısız: Geçersiz kullanıcı adı veya parola"
 
-#: core/authenticationmanager.cpp:94
+#: core/authenticationmanager.cpp:92
 #, kde-format
 msgid "Logging in"
 msgstr "Oturum açılıyor"
 
-#: core/authenticationmanager.cpp:96
+#: core/authenticationmanager.cpp:94
 #, kde-format
 msgid "Logged in"
 msgstr "Oturum açıldı"
 
-#: core/authenticationmanager.cpp:98
+#: core/authenticationmanager.cpp:96
 #, kde-format
 msgid "Logged out"
 msgstr "Oturum kapatıldı"
 
-#: core/authenticationmanager.cpp:100
+#: core/authenticationmanager.cpp:98
 #, kde-format
 msgid "Failed to login due to plugin problem"
 msgstr "Eklenti sorunu dolayısıyla oturum açılamadı"
 
-#: core/authenticationmanager.cpp:102
+#: core/authenticationmanager.cpp:100
 #, kde-format
 msgid "Login failed: generic error"
 msgstr "Oturum açma başarısız: Genel hata"
 
-#: core/authenticationmanager.cpp:104
+#: core/authenticationmanager.cpp:102
 #, kde-format
 msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 "Oturum açma prosedürlerini tamamlamak için bir adet tek kerelik parola "
 "gerekiyor."
 
-#: core/authenticationmanager.cpp:106
+#: core/authenticationmanager.cpp:104
 #: widgets/loginwidget/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Oturum açma başarısız: Geçersiz tek kerelik parola."
 
-#: core/authenticationmanager.cpp:108
+#: core/authenticationmanager.cpp:106
 #, kde-format
 msgid "Login failed: User is not activated."
 msgstr "Oturum açma başarısız: Kullanıcı etkinleştirilmemiş."
 
-#: core/authenticationmanager.cpp:110
+#: core/authenticationmanager.cpp:108
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
 msgstr "Bu IP için oturum açma geçici olarak engellendi."
 
-#: core/authenticationmanager.cpp:112
+#: core/authenticationmanager.cpp:110
 #, kde-format
 msgid "Login has been temporarily blocked For User."
 msgstr "Bu kullanıcı için oturum açma geçici olarak engellendi."
 
-#: core/authenticationmanager.cpp:114
+#: core/authenticationmanager.cpp:112
 #, kde-format
 msgid "App user is not allowed to login."
 msgstr "Uygulama kullanıcısının oturum açmasına izin verilmiyor."
 
-#: core/authenticationmanager.cpp:116
+#: core/authenticationmanager.cpp:114
 #, kde-format
 msgid "Logout ongoing"
 msgstr "Oturumu kapatma sürüyor…"
 
-#: core/authenticationmanager.cpp:118
+#: core/authenticationmanager.cpp:116
 #, kde-format
 msgid "Logout cleanup ongoing"
 msgstr "Oturumu kapatma temizliği sürüyor…"
 
-#: core/authenticationmanager.cpp:120
+#: core/authenticationmanager.cpp:118
 #, kde-format
 msgid "Successfully logged out"
 msgstr "Oturum başarıyla kapatıldı."
 
-#: core/authenticationmanager.cpp:122
+#: core/authenticationmanager.cpp:120
 #, kde-format
 msgid "Unknown state"
 msgstr "Bilinmeyen durum"
@@ -835,11 +835,12 @@ msgid "Reject"
 msgstr "Reddet"
 
 #: core/mcpserver/common/toolbase.cpp:149
+#: core/mcpserver/getmessage/getmessagetool.cpp:48
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:91
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:75
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:47
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:88
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:60
 #: core/mcpserver/setmystatus/setmystatustool.cpp:46
 #: core/mcpserver/starmessage/starmessagetool.cpp:47
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:53
@@ -848,24 +849,24 @@ msgid "Account is not logged in"
 msgstr "Hesap oturum açmamış"
 
 #: core/mcpserver/common/toolbase.cpp:157
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:99
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:71
 #, kde-format
 msgid "Missing search pattern"
 msgstr "Eksik arama dizgisi"
 
 #: core/mcpserver/common/toolbase.cpp:172
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:129
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:101
 #, kde-format
 msgid "Search failed: %1"
 msgstr "Arama başarısız: %1"
 
 #: core/mcpserver/common/toolbase.cpp:175
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:132
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:104
 #, kde-format
 msgid "Impossible to start search"
 msgstr "Arama başlatılamıyor"
 
-#: core/mcpserver/common/toolutils.cpp:17 core/model/directoryteamsmodel.cpp:95
+#: core/mcpserver/common/toolutils.cpp:30 core/model/directoryteamsmodel.cpp:95
 #: core/model/roommodel.cpp:696
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
@@ -873,34 +874,37 @@ msgstr "Arama başlatılamıyor"
 msgid "Rooms"
 msgstr "Odalar"
 
-#: core/mcpserver/common/toolutils.cpp:19
+#: core/mcpserver/common/toolutils.cpp:32
 #: widgets/databasedialog/exploredatabasedialog.cpp:52
 #, kde-format
 msgid "Messages"
 msgstr "İletiler"
 
-#: core/mcpserver/common/toolutils.cpp:21
+#: core/mcpserver/common/toolutils.cpp:34
 #: widgets/administratordialog/administratorwidget.cpp:69
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:255
 #, kde-format
 msgid "Users"
 msgstr "Kullanıcılar"
 
-#: core/mcpserver/common/toolutils.cpp:23
+#: core/mcpserver/common/toolutils.cpp:36
 #, kde-format
 msgid "Current User"
 msgstr "Geçerli Kullanıcı"
 
-#: core/mcpserver/common/toolutils.cpp:25
+#: core/mcpserver/common/toolutils.cpp:38
 #, kde-format
 msgid "Misc"
 msgstr "Çeşitli"
 
-#: core/mcpserver/getmystatus/getmystatustool.cpp:27
-#, kde-format
-msgid "Get My Status"
-msgstr "Durumumu Al"
+#: core/mcpserver/getmessage/getmessagetool.cpp:29
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Go to Message"
+msgid "Get Message"
+msgstr "İletiye Git"
 
+#: core/mcpserver/getmessage/getmessagetool.cpp:44
 #: core/mcpserver/getmystatus/getmystatustool.cpp:41
 #: core/mcpserver/getroominfo/getroominfotool.cpp:43
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:87
@@ -912,7 +916,7 @@ msgstr "Durumumu Al"
 #: core/mcpserver/listrooms/listroomstool.cpp:40
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:44
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:43
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:84
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:56
 #: core/mcpserver/searchrooms/searchroomstool.cpp:41
 #: core/mcpserver/searchusers/searchuserstool.cpp:41
 #: core/mcpserver/setmystatus/setmystatustool.cpp:42
@@ -921,6 +925,36 @@ msgstr "Durumumu Al"
 #, kde-format
 msgid "No account found"
 msgstr "Bulunan hesap yok"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:53
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
+#: core/mcpserver/starmessage/starmessagetool.cpp:52
+#, kde-format
+msgid "Missing message identifier"
+msgstr "İleti tanımlayıcısı eksik"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:65
+#, fuzzy, kde-format
+#| msgid "Message not found."
+msgid "Message not found"
+msgstr "İleti bulunamadı."
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:91
+#, fuzzy, kde-format
+#| msgid "Star message failed: %1"
+msgid "Get message failed: %1"
+msgstr "İletiye yıldız koyulamadı: %1"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:94
+#, fuzzy, kde-format
+#| msgid "Impossible to start pin message job"
+msgid "Impossible to get message"
+msgstr "İletiyi sabitlemeye başlamak olanaksız"
+
+#: core/mcpserver/getmystatus/getmystatustool.cpp:27
+#, kde-format
+msgid "Get My Status"
+msgstr "Durumumu Al"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:28
 #, kde-format
@@ -931,7 +965,7 @@ msgstr "Oda Bilgisini Al"
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:96
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:81
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:53
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:94
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:66
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:59
 #, kde-format
 msgid "Missing room identifier"
@@ -1053,7 +1087,7 @@ msgstr "Oda, okundu olarak imlenemedi: %1"
 msgid "Impossible to start mark room as read job"
 msgstr "Odayı okundu olarak imlemeye başlamak olanaksız"
 
-#: core/mcpserver/mcpservermanager.cpp:46
+#: core/mcpserver/mcpservermanager.cpp:47
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "Ruqola’dan bilgiyi yönetin"
@@ -1062,12 +1096,6 @@ msgstr "Ruqola’dan bilgiyi yönetin"
 #, kde-format
 msgid "Pin Message"
 msgstr "İletiyi Sabitle"
-
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
-#: core/mcpserver/starmessage/starmessagetool.cpp:52
-#, kde-format
-msgid "Missing message identifier"
-msgstr "İleti tanımlayıcısı eksik"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:70
 #, kde-format
@@ -1079,12 +1107,12 @@ msgstr "İleti sabitlenemedi: %1"
 msgid "Impossible to start pin message job"
 msgstr "İletiyi sabitlemeye başlamak olanaksız"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:64
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:36
 #, kde-format
 msgid "Search Messages"
 msgstr "İletileri Ara"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:117
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:89
 #, kde-format
 msgid "No messages found"
 msgstr "Bulunan ileti yok"
@@ -3316,7 +3344,7 @@ msgstr "Görünmez durumu devre dışı"
 msgid "%1 is already in use."
 msgstr "%1, hâlihazırda kullanımda."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:178
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:176
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Geçersiz parametreler"
@@ -6035,12 +6063,12 @@ msgstr "Tüm kullanıcıları kanala ekleme sınırı"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The cache limit for outbound message handling."
-msgstr "Giden ileti işleme için önbellek sınırı."
+msgstr "Giden ileti işleme için ön bellek sınırı."
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:26
 #, kde-format
 msgid "The cache limit for outbound message handling."
-msgstr "Giden ileti işleme için önbellek sınırı."
+msgstr "Giden ileti işleme için ön bellek sınırı."
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:28
 #, kde-format
@@ -6615,7 +6643,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:194
 #, kde-format
 msgid "Embed Cache Expiration Days"
-msgstr "Gömülü Önbellek Son Kullanım Günleri"
+msgstr "Gömülü Ön Bellek Süresinin Dolacağı Günler"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:19
 #, kde-format
@@ -10168,7 +10196,7 @@ msgstr "<b>Hesap %1:</b> Yapılandırma dışa aktarıldı."
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
 #, kde-format
 msgid "<b>Account %1:</b> export cache done."
-msgstr "<b>Hesap %1:</b> Önbellek dışa aktarıldı."
+msgstr "<b>Hesap %1:</b> Ön bellek dışa aktarıldı."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
 #, kde-format

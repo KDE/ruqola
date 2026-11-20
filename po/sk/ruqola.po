@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 01:10+0000\n"
+"POT-Creation-Date: 2026-11-20 01:10+0000\n"
 "PO-Revision-Date: 2026-09-14 20:10+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -464,93 +464,93 @@ msgstr "Odchádzajúca komunikácia"
 msgid "View all rooms in the workspace"
 msgstr "Zobraziť všetky miestnosti v pracovnom priestore"
 
-#: core/authenticationmanager.cpp:88
+#: core/authenticationmanager.cpp:86
 #, kde-format
 msgid "Connecting"
 msgstr "Pripájam"
 
-#: core/authenticationmanager.cpp:90
+#: core/authenticationmanager.cpp:88
 #, kde-format
 msgid "Verifying OTP code"
 msgstr "Overuje sa kód OTP"
 
-#: core/authenticationmanager.cpp:92
+#: core/authenticationmanager.cpp:90
 #, kde-format
 msgid "Login failed: invalid username or password"
 msgstr "Prihlásenie zlyhalo: neplatné meno používateľa alebo heslo"
 
-#: core/authenticationmanager.cpp:94
+#: core/authenticationmanager.cpp:92
 #, kde-format
 msgid "Logging in"
 msgstr "Prihlásenie"
 
-#: core/authenticationmanager.cpp:96
+#: core/authenticationmanager.cpp:94
 #, kde-format
 msgid "Logged in"
 msgstr "Logged in"
 
-#: core/authenticationmanager.cpp:98
+#: core/authenticationmanager.cpp:96
 #, kde-format
 msgid "Logged out"
 msgstr "Logged out"
 
-#: core/authenticationmanager.cpp:100
+#: core/authenticationmanager.cpp:98
 #, kde-format
 msgid "Failed to login due to plugin problem"
 msgstr "Nepodarilo sa login kvôli plugin problem"
 
-#: core/authenticationmanager.cpp:102
+#: core/authenticationmanager.cpp:100
 #, kde-format
 msgid "Login failed: generic error"
 msgstr "Prihlásenie zlyhalo"
 
-#: core/authenticationmanager.cpp:104
+#: core/authenticationmanager.cpp:102
 #, kde-format
 msgid "A one-time password is required to complete the login procedure."
 msgstr "Na dokončenie procesu prihlásenia je potrebné jednorazové heslo."
 
-#: core/authenticationmanager.cpp:106
+#: core/authenticationmanager.cpp:104
 #: widgets/loginwidget/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Prihlásenie zlyhalo: neplatný kód OTP."
 
-#: core/authenticationmanager.cpp:108
+#: core/authenticationmanager.cpp:106
 #, kde-format
 msgid "Login failed: User is not activated."
 msgstr "Prihlásenie zlyhalo"
 
-#: core/authenticationmanager.cpp:110
+#: core/authenticationmanager.cpp:108
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
 msgstr "Prihlásenie bolo dočasne zablokované pre IP adresu."
 
-#: core/authenticationmanager.cpp:112
+#: core/authenticationmanager.cpp:110
 #, kde-format
 msgid "Login has been temporarily blocked For User."
 msgstr "Prihlásenie bolo dočasne zablokované pre používateľa."
 
-#: core/authenticationmanager.cpp:114
+#: core/authenticationmanager.cpp:112
 #, kde-format
 msgid "App user is not allowed to login."
 msgstr "Používateľ aplikácie sa nemôže prihlásiť."
 
-#: core/authenticationmanager.cpp:116
+#: core/authenticationmanager.cpp:114
 #, kde-format
 msgid "Logout ongoing"
 msgstr "Logout ongoing"
 
-#: core/authenticationmanager.cpp:118
+#: core/authenticationmanager.cpp:116
 #, kde-format
 msgid "Logout cleanup ongoing"
 msgstr "Logout cleanup ongoing"
 
-#: core/authenticationmanager.cpp:120
+#: core/authenticationmanager.cpp:118
 #, kde-format
 msgid "Successfully logged out"
 msgstr "Successfully logged out"
 
-#: core/authenticationmanager.cpp:122
+#: core/authenticationmanager.cpp:120
 #, kde-format
 msgid "Unknown state"
 msgstr "Unknown state"
@@ -796,12 +796,12 @@ msgstr "Soket bol neočakávane zatvorený."
 #: core/mcpserver/common/toolbase.cpp:87
 #, kde-format
 msgid "Another confirmation is pending"
-msgstr ""
+msgstr "Čaká sa na ďalšie potvrdenie"
 
 #: core/mcpserver/common/toolbase.cpp:93
 #, kde-format
 msgid "MCP tool asks confirmation"
-msgstr ""
+msgstr "Nástroj MCP žiada potvrdenie"
 
 #: core/mcpserver/common/toolbase.cpp:94
 #, kde-format
@@ -809,11 +809,13 @@ msgid ""
 "Run \"%1\"?\n"
 "%2"
 msgstr ""
+"Spustiť „%1“?\n"
+"%2"
 
 #: core/mcpserver/common/toolbase.cpp:108
 #, kde-format
 msgid "Action refused by user"
-msgstr ""
+msgstr "Akciu odmietol používateľ"
 
 #: core/mcpserver/common/toolbase.cpp:111
 #: core/videoconference/videoconferencenotificationjob.cpp:61
@@ -828,41 +830,38 @@ msgid "Reject"
 msgstr "Odmietnuť"
 
 #: core/mcpserver/common/toolbase.cpp:149
+#: core/mcpserver/getmessage/getmessagetool.cpp:48
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:91
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:75
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:47
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:88
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:60
 #: core/mcpserver/setmystatus/setmystatustool.cpp:46
 #: core/mcpserver/starmessage/starmessagetool.cpp:47
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:53
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Account is not logged in"
-msgstr "Informácie o účte"
+msgstr "Účet nie je prihlásený"
 
 #: core/mcpserver/common/toolbase.cpp:157
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:99
-#, fuzzy, kde-format
-#| msgid "Missing server url."
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:71
+#, kde-format
 msgid "Missing search pattern"
-msgstr "Missing server url."
+msgstr "Chýba vzor hľadania"
 
 #: core/mcpserver/common/toolbase.cpp:172
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:129
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:101
+#, kde-format
 msgid "Search failed: %1"
-msgstr "Sťahovanie zlyhalo: %1"
+msgstr "Hľadanie zlyhalo: %1"
 
 #: core/mcpserver/common/toolbase.cpp:175
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:132
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:104
+#, kde-format
 msgid "Impossible to start search"
-msgstr "Nie je možné exportovať dáta."
+msgstr "Nie je možné spustiť hľadanie"
 
-#: core/mcpserver/common/toolutils.cpp:17 core/model/directoryteamsmodel.cpp:95
+#: core/mcpserver/common/toolutils.cpp:30 core/model/directoryteamsmodel.cpp:95
 #: core/model/roommodel.cpp:696
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
@@ -870,37 +869,35 @@ msgstr "Nie je možné exportovať dáta."
 msgid "Rooms"
 msgstr "Rooms"
 
-#: core/mcpserver/common/toolutils.cpp:19
+#: core/mcpserver/common/toolutils.cpp:32
 #: widgets/databasedialog/exploredatabasedialog.cpp:52
 #, kde-format
 msgid "Messages"
 msgstr "Správy"
 
-#: core/mcpserver/common/toolutils.cpp:21
+#: core/mcpserver/common/toolutils.cpp:34
 #: widgets/administratordialog/administratorwidget.cpp:69
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:255
 #, kde-format
 msgid "Users"
 msgstr "Používatelia"
 
-#: core/mcpserver/common/toolutils.cpp:23
-#, fuzzy, kde-format
-#| msgid "Current Password"
+#: core/mcpserver/common/toolutils.cpp:36
+#, kde-format
 msgid "Current User"
-msgstr "Heslo:"
+msgstr "Aktuálny používateľ"
 
-#: core/mcpserver/common/toolutils.cpp:25
+#: core/mcpserver/common/toolutils.cpp:38
 #, kde-format
 msgid "Misc"
-msgstr ""
+msgstr "Rôzne"
 
-#: core/mcpserver/getmystatus/getmystatustool.cpp:27
+#: core/mcpserver/getmessage/getmessagetool.cpp:29
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit User Status"
-msgid "Get My Status"
-msgstr "Stav:"
+msgid "Get Message"
+msgstr "Správa"
 
+#: core/mcpserver/getmessage/getmessagetool.cpp:44
 #: core/mcpserver/getmystatus/getmystatustool.cpp:41
 #: core/mcpserver/getroominfo/getroominfotool.cpp:43
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:87
@@ -912,7 +909,7 @@ msgstr "Stav:"
 #: core/mcpserver/listrooms/listroomstool.cpp:40
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:44
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:43
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:84
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:56
 #: core/mcpserver/searchrooms/searchroomstool.cpp:41
 #: core/mcpserver/searchusers/searchuserstool.cpp:41
 #: core/mcpserver/setmystatus/setmystatustool.cpp:42
@@ -921,6 +918,36 @@ msgstr "Stav:"
 #, kde-format
 msgid "No account found"
 msgstr "Nenašiel sa žiadny účet"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:53
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
+#: core/mcpserver/starmessage/starmessagetool.cpp:52
+#, kde-format
+msgid "Missing message identifier"
+msgstr "Chýba identifikátor správy"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:65
+#, fuzzy, kde-format
+#| msgid "Message not found."
+msgid "Message not found"
+msgstr "Správa sa nenašla."
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:91
+#, fuzzy, kde-format
+#| msgid "Star message failed: %1"
+msgid "Get message failed: %1"
+msgstr "Označenie správy hviezdičkou zlyhalo: %1"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:94
+#, fuzzy, kde-format
+#| msgid "Impossible to start pin message job"
+msgid "Impossible to get message"
+msgstr "Nie je možné spustiť úlohu pripnutia správy"
+
+#: core/mcpserver/getmystatus/getmystatustool.cpp:27
+#, kde-format
+msgid "Get My Status"
+msgstr "Získať môj stav"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:28
 #, kde-format
@@ -931,7 +958,7 @@ msgstr "Získať informácie o miestnosti"
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:96
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:81
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:53
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:94
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:66
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:59
 #, kde-format
 msgid "Missing room identifier"
@@ -947,72 +974,60 @@ msgid "No room found with identifier \"%1\""
 msgstr "Nenašla sa žiadna miestnosť s identifikátorom „%1“"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:47
-#, fuzzy, kde-format
-#| msgid "No user found"
+#, kde-format
 msgid "No users with roles found"
-msgstr "Súkromné adresy"
+msgstr "Nenašli sa žiadni používatelia s rolami"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:72
-#, fuzzy, kde-format
-#| msgid "Get Room Info"
+#, kde-format
 msgid "Get Room Roles"
-msgstr "Získať informácie o miestnosti"
+msgstr "Získať roly miestnosti"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:130
 #, kde-format
 msgid "Direct conversations have no room roles"
-msgstr ""
+msgstr "Priame konverzácie nemajú roly miestnosti"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:133
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:101
-#, fuzzy, kde-format
-#| msgid "Unknown state"
+#, kde-format
 msgid "Unknown room type"
-msgstr "Unknown state"
+msgstr "Neznámy typ miestnosti"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:139
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Getting room roles failed: %1"
-msgstr "Sťahovanie zlyhalo: %1"
+msgstr "Získanie rolí miestnosti zlyhalo: %1"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:142
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start getting room roles"
-msgstr "Nie je možné exportovať dáta."
+msgstr "Nie je možné začať získavať roly miestnosti"
 
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:26
-#, fuzzy, kde-format
-#| msgid "Server Info"
+#, kde-format
 msgid "Get Server Info"
-msgstr "Informácie o serveri"
+msgstr "Získať informácie o serveri"
 
 #: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:28
-#, fuzzy, kde-format
-#| msgid "Privacy Summary"
+#, kde-format
 msgid "Get Unread Summary"
-msgstr "Prehľad súkromia"
+msgstr "Získať súhrn neprečítaných"
 
 #: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:79
-#, fuzzy, kde-format
-#| msgid "%1 Unread Message"
-#| msgid_plural "%1 Unread Messages"
+#, kde-format
 msgid "No unread messages"
-msgstr "%1 Unread Message"
+msgstr "Žiadne neprečítané správy"
 
 #: core/mcpserver/getuserstatus/getuserstatustool.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit User Status"
+#, kde-format
 msgid "Get User Status"
-msgstr "Stav:"
+msgstr "Získať stav používateľa"
 
 #: core/mcpserver/getuserstatus/getuserstatustool.cpp:52
-#, fuzzy, kde-format
-#| msgid "Missing server url."
+#, kde-format
 msgid "Missing user name"
-msgstr "Missing server url."
+msgstr "Chýba meno používateľa"
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:27
 #, kde-format
@@ -1020,28 +1035,24 @@ msgid "List Accounts"
 msgstr "Zoznam účtov"
 
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:53
-#, fuzzy, kde-format
-#| msgid "List Rooms"
+#, kde-format
 msgid "List Room Members"
-msgstr "Zoznam miestností"
+msgstr "Zoznam členov miestnosti"
 
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:125
-#, fuzzy, kde-format
-#| msgid "No user found"
+#, kde-format
 msgid "No members found"
-msgstr "Súkromné adresy"
+msgstr "Nenašli sa žiadni členovia"
 
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:137
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Listing members failed: %1"
-msgstr "Sťahovanie zlyhalo: %1"
+msgstr "Výpis členov zlyhal: %1"
 
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:140
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start listing members"
-msgstr "Nie je možné exportovať dáta."
+msgstr "Nie je možné začať výpis členov"
 
 #: core/mcpserver/listrooms/listroomstool.cpp:27
 #, kde-format
@@ -1055,147 +1066,121 @@ msgid "No rooms found"
 msgstr "Nenašli sa žiadne miestnosti"
 
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Mark as Read"
+#, kde-format
 msgid "Mark Room as Read"
-msgstr "Súkromné adresy"
+msgstr "Označiť miestnosť ako prečítanú"
 
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:75
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Mark room as read failed: %1"
-msgstr "Sťahovanie zlyhalo: %1"
+msgstr "Označenie miestnosti ako prečítanej zlyhalo: %1"
 
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:78
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start mark room as read job"
-msgstr "Nie je možné exportovať dáta."
+msgstr "Nie je možné spustiť úlohu označenia miestnosti ako prečítanej"
 
-#: core/mcpserver/mcpservermanager.cpp:46
+#: core/mcpserver/mcpservermanager.cpp:47
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "Spravovať informácie z Ruqola"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Pin Message"
+#, kde-format
 msgid "Pin Message"
 msgstr "Súkromné adresy"
 
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
-#: core/mcpserver/starmessage/starmessagetool.cpp:52
-#, fuzzy, kde-format
-#| msgid "Missing room identifier"
-msgid "Missing message identifier"
-msgstr "Chýba identifikátor miestnosti"
-
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:70
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Pin message failed: %1"
-msgstr "Sťahovanie zlyhalo: %1"
+msgstr "Pripnutie správy zlyhalo: %1"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:73
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start pin message job"
-msgstr "Nie je možné exportovať dáta."
+msgstr "Nie je možné spustiť úlohu pripnutia správy"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Search Messages"
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:36
+#, kde-format
 msgid "Search Messages"
 msgstr "Hľadať súbor..."
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:117
-#, fuzzy, kde-format
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:89
+#, kde-format
 msgid "No messages found"
-msgstr "Súkromné adresy"
+msgstr "Neboli nájdené žiadne správy"
 
 #: core/mcpserver/searchrooms/searchroomstool.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Search Rooms"
+#, kde-format
 msgid "Search Rooms"
 msgstr "Hľadať súbor..."
 
 #: core/mcpserver/searchusers/searchuserstool.cpp:25
-#, fuzzy, kde-format
+#, kde-format
 msgid "Search Users"
-msgstr "Hľadať súbor..."
+msgstr "Hľadať používateľov"
 
 #: core/mcpserver/searchusers/searchuserstool.cpp:48
-#, fuzzy, kde-format
-#| msgid "No user found"
+#, kde-format
 msgid "No users found"
-msgstr "Súkromné adresy"
+msgstr "Nenašli sa žiadni používatelia"
 
 #: core/mcpserver/setmystatus/setmystatustool.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit User Status"
+#, kde-format
 msgid "Set My Status"
-msgstr "Stav:"
+msgstr "Nastaviť môj stav"
 
 #: core/mcpserver/setmystatus/setmystatustool.cpp:51
-#, fuzzy, kde-format
-#| msgid "Invalid user"
+#, kde-format
 msgid "Invalid status"
-msgstr "Invalid user"
+msgstr "Neplatný stav"
 
 #: core/mcpserver/starmessage/starmessagetool.cpp:27
-#, fuzzy, kde-format
+#, kde-format
 msgid "Star Message"
-msgstr "Súkromné adresy"
+msgstr "Označiť správu hviezdičkou"
 
 #: core/mcpserver/starmessage/starmessagetool.cpp:67
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Star message failed: %1"
-msgstr "Sťahovanie zlyhalo: %1"
+msgstr "Označenie správy hviezdičkou zlyhalo: %1"
 
 #: core/mcpserver/starmessage/starmessagetool.cpp:70
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start star message job"
-msgstr "Nie je možné exportovať dáta."
+msgstr "Nie je možné spustiť úlohu označenia správy hviezdičkou"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:30
 #, kde-format
 msgid "Update Room Settings"
-msgstr ""
+msgstr "Aktualizovať nastavenia miestnosti"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:68
 #, kde-format
 msgid "Settings of a direct room cannot be changed"
-msgstr ""
+msgstr "Nastavenia priamej miestnosti nemožno meniť"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:79
 #, kde-format
 msgid "Room name cannot be empty"
-msgstr ""
+msgstr "Názov miestnosti nemôže byť prázdny"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:102
 #, kde-format
 msgid ""
 "Nothing to change: give at least one of name, topic, description or "
 "announcement"
-msgstr ""
+msgstr "Nie je čo meniť: zadajte aspoň názov, tému, popis alebo oznámenie"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:116
 #, kde-format
 msgid "Update room settings failed: %1"
-msgstr ""
+msgstr "Aktualizácia nastavení miestnosti zlyhala: %1"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:119
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start update room settings job"
-msgstr "Nie je možné exportovať dáta."
+msgstr "Nie je možné spustiť úlohu aktualizácie nastavení miestnosti"
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69
@@ -1503,10 +1488,9 @@ msgid "Uses"
 msgstr "Použitia"
 
 #: core/model/admininvitemodel.cpp:41
-#, fuzzy, kde-format
-#| msgid "Max number of uses"
+#, kde-format
 msgid "Max uses"
-msgstr "Max počet uses"
+msgstr "Max. počet použití"
 
 #: core/model/admininvitemodel.cpp:43
 #, kde-format
@@ -1525,18 +1509,16 @@ msgid "Never"
 msgstr "Nikdy"
 
 #: core/model/admininvitemodel.cpp:119
-#, fuzzy, kde-format
-#| msgid "Expired"
+#, kde-format
 msgid "Expires today"
-msgstr "Expirované"
+msgstr "Vyprší dnes"
 
 #: core/model/admininvitemodel.cpp:121
-#, fuzzy, kde-format
-#| msgid "Expire in %1 days"
+#, kde-format
 msgid "Expires in 1 day"
 msgid_plural "Expires in %1 days"
-msgstr[0] "Vyprší o %1 dní"
-msgstr[1] "Vyprší o %1 dní"
+msgstr[0] "Vyprší o %1 deň"
+msgstr[1] "Vyprší o %1 dni"
 msgstr[2] "Vyprší o %1 dní"
 
 #: core/model/admininvitemodel.cpp:123
@@ -1986,33 +1968,29 @@ msgid "Unknown"
 msgstr "Neznáme"
 
 #: core/model/roommodel.cpp:704
-#, fuzzy, kde-format
-#| msgid "Incoming Call"
+#, kde-format
 msgid "Incoming Calls"
-msgstr "Prichádzajúci hovor"
+msgstr "Prichádzajúce hovory"
 
 #: core/model/roommodel.cpp:706
-#, fuzzy, kde-format
-#| msgid "Incoming Call"
+#, kde-format
 msgid "Incoming Live Chats"
-msgstr "Prichádzajúci hovor"
+msgstr "Prichádzajúce živé chaty"
 
 #: core/model/roommodel.cpp:708
 #, kde-format
 msgid "Open Live chats"
-msgstr ""
+msgstr "Otvorené živé chaty"
 
 #: core/model/roommodel.cpp:710
 #, kde-format
 msgid "On Hold Chats"
-msgstr ""
+msgstr "Pozdržané chaty"
 
 #: core/model/roommodel.cpp:712
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Start Conversation"
+#, kde-format
 msgid "Conversations"
-msgstr "Konverzácia"
+msgstr "Conversations"
 
 #: core/model/statusmodel.cpp:63
 #, kde-format
@@ -3145,10 +3123,8 @@ msgid "User is not in this room"
 msgstr "Používateľ nie je v tejto miestnosti"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:349
-#, fuzzy
-#| msgid "You are not in the room `%1`"
 msgid "You are not in the room"
-msgstr "Nie ste v miestnosti `%1`"
+msgstr "Nie ste v miestnosti"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 msgid "User registration is disabled"
@@ -3300,12 +3276,12 @@ msgstr "Neplatné predplatné"
 #: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:183
 #, kde-format
 msgid "You are not allowed to create a discussion"
-msgstr ""
+msgstr "Nemáte povolenie vytvoriť diskusiu"
 
 #: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:191
 #, kde-format
 msgid "You are not allowed to create a discussion."
-msgstr ""
+msgstr "Nemáte povolenie vytvoriť diskusiu."
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:65
 #, kde-format
@@ -3381,7 +3357,7 @@ msgstr "Neviditeľný stav je deaktivovaný"
 msgid "%1 is already in use."
 msgstr "%1 sa už používa."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:178
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:176
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Neplatné argumenty"
@@ -3912,20 +3888,17 @@ msgid "Delete All Messages"
 msgstr "Zmazať všetky správy"
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:64
-#, fuzzy, kde-format
-#| msgid "No user found"
+#, kde-format
 msgid "No reported user found"
-msgstr "Súkromné adresy"
+msgstr "Nenašiel sa žiadny nahlásený používateľ"
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:69
-#, fuzzy, kde-format
-#| msgid "%1 user (Total: %2)"
-#| msgid_plural "%1 users (Total: %2)"
+#, kde-format
 msgid "%1 reported user (Total: %2)"
 msgid_plural "%1 reported users (Total: %2)"
-msgstr[0] "%1 user (Total: %2)"
-msgstr[1] "%1 users (Total: %2)"
-msgstr[2] "%1 users (Total: %2)"
+msgstr[0] "%1 nahlásený používateľ (celkom: %2)"
+msgstr[1] "%1 nahlásení používatelia (celkom: %2)"
+msgstr[2] "%1 nahlásených používateľov (celkom: %2)"
 
 #: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
 #, kde-format
@@ -4973,10 +4946,9 @@ msgid "How many failed attempts until block by IP"
 msgstr "Počet neúspešných pokusov pred blokovaním podľa IP adresy"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:134
-#, fuzzy, kde-format
-#| msgid "Time to unblock User (In Minutes)"
+#, kde-format
 msgid "Time to unblock IP (In Minutes)"
-msgstr "Čas na odblokovanie používateľa (v minútach)"
+msgstr "Čas na odblokovanie IP (v minútach)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
 #, kde-format
@@ -5803,24 +5775,19 @@ msgid "Accepted Media Types"
 msgstr "Accepted Media Types"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Comma-separated list of media types. This setting has priority over the "
-#| "Blocked Media Types."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
 "Accepted Media Types."
 msgstr ""
 "Zoznam typov médií oddelených čiarkou. Toto nastavenie má prednosť pred "
-"blokovanými typmi médií."
+"prijímanými typmi médií."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "Accepted Media Types"
+#, kde-format
 msgid "Blocked Media Types"
-msgstr "Accepted Media Types"
+msgstr "Blokované typy médií"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
@@ -6285,15 +6252,12 @@ msgid "Timeout (ms)"
 msgstr "Timeout (ms)"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:78
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "How many milliseconds wait for a search result before return an error"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "How many milliseconds wait for a connection to be established before return "
 "an error"
-msgstr "Počet milisekúnd čakania na výsledok vyhľadávania pred vrátením chyby"
+msgstr "Počet milisekúnd čakania na nadviazanie spojenia pred vrátením chyby"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:79
 #, kde-format
@@ -6383,11 +6347,9 @@ msgid "Trace method filter"
 msgstr "Trace method filter"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:59
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Trace subscription calls"
+#, kde-format
 msgid "Trace subscription filter"
-msgstr "Trace subscription calls"
+msgstr "Filter sledovania odberov"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
 #, kde-format
@@ -6856,7 +6818,7 @@ msgstr "Twitter Secret"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
 #, kde-format
 msgid "Twitter Callback URL"
-msgstr ""
+msgstr "URL spätného volania Twitter"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:109
 #, kde-format
@@ -6876,7 +6838,7 @@ msgstr "LinkedIn Secret"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:123
 #, kde-format
 msgid "LinkedIn Callback URL"
-msgstr ""
+msgstr "URL spätného volania LinkedIn"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:125
 #, kde-format
@@ -6911,7 +6873,7 @@ msgstr "Meteor Secret"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:150
 #, kde-format
 msgid "Meteor Callback URL"
-msgstr ""
+msgstr "URL spätného volania Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:153
 #, kde-format
@@ -6931,7 +6893,7 @@ msgstr "Facebook Secret"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
 #, kde-format
 msgid "Facebook Callback URL"
-msgstr ""
+msgstr "URL spätného volania Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:170
 #, kde-format
@@ -6951,7 +6913,7 @@ msgstr "Github Secret"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:184
 #, kde-format
 msgid "Github Callback URL"
-msgstr ""
+msgstr "URL spätného volania Github"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:187
 #, kde-format
@@ -6980,10 +6942,9 @@ msgid "Tokenpass Secret"
 msgstr "Tokenpass Secret"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:205
-#, fuzzy, kde-format
-#| msgid "Tokenpass Server URL"
+#, kde-format
 msgid "Tokenpass Callback URL"
-msgstr "Tokenpass Server URL"
+msgstr "URL spätného volania Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:216
 #, kde-format
@@ -6998,7 +6959,7 @@ msgstr "Tajný kľúč Google"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:222
 #, kde-format
 msgid "Google Callback URL"
-msgstr ""
+msgstr "URL spätného volania Google"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:19
 #, kde-format
@@ -7080,6 +7041,8 @@ msgid ""
 "When enabled, user passwords must adhere to the policies set forth. Note: "
 "this only applies to new passwords, not existing passwords."
 msgstr ""
+"Keď je zapnuté, heslá používateľov musia spĺňať stanovené pravidlá. "
+"Poznámka: platí iba pre nové heslá, nie pre existujúce."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:55
 #, kde-format
@@ -7223,42 +7186,34 @@ msgid "Limit by User: interval time"
 msgstr "Stav:"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Limit by User: requests allowed"
+#, kde-format
 msgid "Limit by Connection: requests allowed"
-msgstr "Limit podľa používateľa: povolené požiadavky"
+msgstr "Limit podľa pripojenia: povolené požiadavky"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:78
-#, fuzzy, kde-format
-#| msgid "Limit by User: interval time"
+#, kde-format
 msgid "Limit by Connection: interval time"
-msgstr "Stav:"
+msgstr "Limit podľa pripojenia: časový interval"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:85
-#, fuzzy, kde-format
-#| msgid "Limit by User: requests allowed"
+#, kde-format
 msgid "Limit by User per Method: requests allowed"
-msgstr "Limit podľa používateľa: povolené požiadavky"
+msgstr "Limit podľa používateľa a metódy: povolené požiadavky"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:89
-#, fuzzy, kde-format
-#| msgid "Limit by User: interval time"
+#, kde-format
 msgid "Limit by User per Method: interval time"
-msgstr "Stav:"
+msgstr "Limit podľa používateľa a metódy: časový interval"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:96
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Limit by Connection per Method"
+#, kde-format
 msgid "Limit by Connection per Method: requests allowed"
-msgstr "Stav:"
+msgstr "Limit podľa pripojenia a metódy: povolené požiadavky"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:102
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Limit by Connection per Method"
+#, kde-format
 msgid "Limit by Connection per Method: interval time"
-msgstr "Stav:"
+msgstr "Limit podľa pripojenia a metódy: časový interval"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:22
 #, kde-format
@@ -7556,16 +7511,13 @@ msgstr ""
 "the other instances, it may cause syncing problems and misbehavior!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:44
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting stops the processing of livechat visitor sessions causing "
-#| "the statistics to stop working correctly!"
+#, kde-format
 msgid ""
 "This setting stops the processing of user sessions causing the statistics to "
 "stop working correctly!"
 msgstr ""
-"Toto nastavenie stops the processing of livechat visitor sessions causing "
-"the statistics to stop working correctly!"
+"Toto nastavenie zastaví spracovanie používateľských sedení, takže štatistiky "
+"prestanú správne fungovať!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:49
 #, kde-format
@@ -8034,86 +7986,74 @@ msgid "Mark as Read"
 msgstr "Súkromné adresy"
 
 #: widgets/category/categoriesmenu.cpp:21
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Category"
-msgstr "Kategórie"
+msgstr "Kategória"
 
 #: widgets/category/categoriesmenu.cpp:62
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@action"
 msgid "No Category"
-msgstr "Kategórie"
+msgstr "Bez kategórie"
 
 #: widgets/category/categoriesmenu.cpp:90
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@action"
 msgid "Manage Categories…"
-msgstr "Kategórie"
+msgstr "Spravovať kategórie…"
 
 #: widgets/category/categorydialog.cpp:19
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Category"
-msgstr "Kategórie"
+msgstr "Pridať kategóriu"
 
 #: widgets/category/categorydialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Category"
-msgstr ""
+msgstr "Premenovať kategóriu"
 
 #: widgets/category/categorywidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgid "Category:"
-msgstr "Kategórie"
+msgstr "Kategória:"
 
 #: widgets/category/managecategoriesdialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@title:window"
 msgid "Manage Categories"
-msgstr "Kategórie"
+msgstr "Spravovať kategórie"
 
 #: widgets/category/managecategorieswidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Add Category…"
-msgstr "Kategórie"
+msgstr "Pridať kategóriu…"
 
 #: widgets/category/managecategorieswidget.cpp:80
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rename Category…"
-msgstr ""
+msgstr "Premenovať kategóriu…"
 
 #: widgets/category/managecategorieswidget.cpp:87
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove History"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove Category"
-msgstr "Odstrániť účet"
+msgstr "Odstrániť kategóriu"
 
 #: widgets/category/managecategorieswidget.cpp:173
-#, fuzzy, kde-format
-#| msgid "Do you want to remove this user \"%1\"?"
+#, kde-format
 msgid "Do you want to remove this category (%1)?"
-msgstr "Do chcete to remove this user \"%1\"?"
+msgstr "Chcete odstrániť túto kategóriu (%1)?"
 
 #: widgets/category/managecategorieswidget.cpp:174
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove History"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Category"
-msgstr "Odstrániť účet"
+msgstr "Odstrániť kategóriu"
 
 #: widgets/channellist/channellistview.cpp:141
 #, kde-format
@@ -8467,7 +8407,7 @@ msgstr "Text Plugins"
 #, kde-format
 msgctxt "@option:check"
 msgid "Ask confirmation before running tools which modify data"
-msgstr ""
+msgstr "Pýtať sa na potvrdenie pred spustením nástrojov, ktoré menia údaje"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
@@ -13994,10 +13934,6 @@ msgstr "Pridať účet…"
 #, fuzzy
 #~ msgid "Select All"
 #~ msgstr "Vybrať súbor..."
-
-#, fuzzy
-#~ msgid "Go to Message"
-#~ msgstr "Správa"
 
 #, fuzzy
 #~ msgid "Reply..."

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 01:10+0000\n"
+"POT-Creation-Date: 2026-11-20 01:10+0000\n"
 "PO-Revision-Date: 2026-11-07 22:58+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -470,96 +470,96 @@ msgstr "Comunicación saliente"
 msgid "View all rooms in the workspace"
 msgstr "Ver todas las salas en el espacio de trabajo"
 
-#: core/authenticationmanager.cpp:88
+#: core/authenticationmanager.cpp:86
 #, kde-format
 msgid "Connecting"
 msgstr "Conectando"
 
-#: core/authenticationmanager.cpp:90
+#: core/authenticationmanager.cpp:88
 #, kde-format
 msgid "Verifying OTP code"
 msgstr "Verificando código OTP"
 
-#: core/authenticationmanager.cpp:92
+#: core/authenticationmanager.cpp:90
 #, kde-format
 msgid "Login failed: invalid username or password"
 msgstr ""
 "El inicio de sesión ha fallado: nombre de usuario o contraseña erróneos"
 
-#: core/authenticationmanager.cpp:94
+#: core/authenticationmanager.cpp:92
 #, kde-format
 msgid "Logging in"
 msgstr "Iniciando sesión"
 
-#: core/authenticationmanager.cpp:96
+#: core/authenticationmanager.cpp:94
 #, kde-format
 msgid "Logged in"
 msgstr "Sesión iniciada"
 
-#: core/authenticationmanager.cpp:98
+#: core/authenticationmanager.cpp:96
 #, kde-format
 msgid "Logged out"
 msgstr "Sesión cerrada"
 
-#: core/authenticationmanager.cpp:100
+#: core/authenticationmanager.cpp:98
 #, kde-format
 msgid "Failed to login due to plugin problem"
 msgstr "Falló el inicio de sesión por problemas del complemento"
 
-#: core/authenticationmanager.cpp:102
+#: core/authenticationmanager.cpp:100
 #, kde-format
 msgid "Login failed: generic error"
 msgstr "El inicio de sesión ha fallado: error genérico"
 
-#: core/authenticationmanager.cpp:104
+#: core/authenticationmanager.cpp:102
 #, kde-format
 msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 "Una contaseña de un solo uso es necesaria para completar el proceso de "
 "acceso."
 
-#: core/authenticationmanager.cpp:106
+#: core/authenticationmanager.cpp:104
 #: widgets/loginwidget/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "El inicio de sesión ha fallado: código OTP inválido."
 
-#: core/authenticationmanager.cpp:108
+#: core/authenticationmanager.cpp:106
 #, kde-format
 msgid "Login failed: User is not activated."
 msgstr "Inicio de sesión fallido: El usuario no está activado."
 
-#: core/authenticationmanager.cpp:110
+#: core/authenticationmanager.cpp:108
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
 msgstr "El inicio ha sido bloqueado temporalmente para la IP."
 
-#: core/authenticationmanager.cpp:112
+#: core/authenticationmanager.cpp:110
 #, kde-format
 msgid "Login has been temporarily blocked For User."
 msgstr "El inicio ha sido bloqueado temporalmente para el usuario."
 
-#: core/authenticationmanager.cpp:114
+#: core/authenticationmanager.cpp:112
 #, kde-format
 msgid "App user is not allowed to login."
 msgstr "Al usuario de la aplicación no se le permite iniciar sesión."
 
-#: core/authenticationmanager.cpp:116
+#: core/authenticationmanager.cpp:114
 #, kde-format
 msgid "Logout ongoing"
 msgstr "Desconexión en curso"
 
-#: core/authenticationmanager.cpp:118
+#: core/authenticationmanager.cpp:116
 #, kde-format
 msgid "Logout cleanup ongoing"
 msgstr "Limpieza de la desconexión en curso"
 
-#: core/authenticationmanager.cpp:120
+#: core/authenticationmanager.cpp:118
 #, kde-format
 msgid "Successfully logged out"
 msgstr "Desconexión exitosa"
 
-#: core/authenticationmanager.cpp:122
+#: core/authenticationmanager.cpp:120
 #, kde-format
 msgid "Unknown state"
 msgstr "Estado desconocido"
@@ -839,11 +839,12 @@ msgid "Reject"
 msgstr "Rechazar"
 
 #: core/mcpserver/common/toolbase.cpp:149
+#: core/mcpserver/getmessage/getmessagetool.cpp:48
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:91
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:75
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:47
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:88
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:60
 #: core/mcpserver/setmystatus/setmystatustool.cpp:46
 #: core/mcpserver/starmessage/starmessagetool.cpp:47
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:53
@@ -852,24 +853,24 @@ msgid "Account is not logged in"
 msgstr "La cuenta no está conectada"
 
 #: core/mcpserver/common/toolbase.cpp:157
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:99
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:71
 #, kde-format
 msgid "Missing search pattern"
 msgstr "Patrón de búsqueda no encontrado"
 
 #: core/mcpserver/common/toolbase.cpp:172
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:129
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:101
 #, kde-format
 msgid "Search failed: %1"
 msgstr "Búsqueda fallida: %1"
 
 #: core/mcpserver/common/toolbase.cpp:175
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:132
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:104
 #, kde-format
 msgid "Impossible to start search"
 msgstr "No se pudo iniciar una búsqueda."
 
-#: core/mcpserver/common/toolutils.cpp:17 core/model/directoryteamsmodel.cpp:95
+#: core/mcpserver/common/toolutils.cpp:30 core/model/directoryteamsmodel.cpp:95
 #: core/model/roommodel.cpp:696
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
@@ -877,34 +878,37 @@ msgstr "No se pudo iniciar una búsqueda."
 msgid "Rooms"
 msgstr "Salas"
 
-#: core/mcpserver/common/toolutils.cpp:19
+#: core/mcpserver/common/toolutils.cpp:32
 #: widgets/databasedialog/exploredatabasedialog.cpp:52
 #, kde-format
 msgid "Messages"
 msgstr "Mensajes"
 
-#: core/mcpserver/common/toolutils.cpp:21
+#: core/mcpserver/common/toolutils.cpp:34
 #: widgets/administratordialog/administratorwidget.cpp:69
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:255
 #, kde-format
 msgid "Users"
 msgstr "Usuarios"
 
-#: core/mcpserver/common/toolutils.cpp:23
+#: core/mcpserver/common/toolutils.cpp:36
 #, kde-format
 msgid "Current User"
 msgstr "Usuario actual"
 
-#: core/mcpserver/common/toolutils.cpp:25
+#: core/mcpserver/common/toolutils.cpp:38
 #, kde-format
 msgid "Misc"
 msgstr "Misceláneo"
 
-#: core/mcpserver/getmystatus/getmystatustool.cpp:27
-#, kde-format
-msgid "Get My Status"
-msgstr "Recuperar mi estado"
+#: core/mcpserver/getmessage/getmessagetool.cpp:29
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Go to Message"
+msgid "Get Message"
+msgstr "Ir al mensaje"
 
+#: core/mcpserver/getmessage/getmessagetool.cpp:44
 #: core/mcpserver/getmystatus/getmystatustool.cpp:41
 #: core/mcpserver/getroominfo/getroominfotool.cpp:43
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:87
@@ -916,7 +920,7 @@ msgstr "Recuperar mi estado"
 #: core/mcpserver/listrooms/listroomstool.cpp:40
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:44
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:43
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:84
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:56
 #: core/mcpserver/searchrooms/searchroomstool.cpp:41
 #: core/mcpserver/searchusers/searchuserstool.cpp:41
 #: core/mcpserver/setmystatus/setmystatustool.cpp:42
@@ -925,6 +929,36 @@ msgstr "Recuperar mi estado"
 #, kde-format
 msgid "No account found"
 msgstr "No se encontró ninguna cuenta"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:53
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
+#: core/mcpserver/starmessage/starmessagetool.cpp:52
+#, kde-format
+msgid "Missing message identifier"
+msgstr "Identificador de mensaje no encontrado"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:65
+#, fuzzy, kde-format
+#| msgid "Message not found."
+msgid "Message not found"
+msgstr "Mensaje no encontrado."
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:91
+#, fuzzy, kde-format
+#| msgid "Star message failed: %1"
+msgid "Get message failed: %1"
+msgstr "Fallo al añadir estrella a mensaje: %1"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:94
+#, fuzzy, kde-format
+#| msgid "Impossible to start pin message job"
+msgid "Impossible to get message"
+msgstr "No se pudo fijar el mensaje"
+
+#: core/mcpserver/getmystatus/getmystatustool.cpp:27
+#, kde-format
+msgid "Get My Status"
+msgstr "Recuperar mi estado"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:28
 #, kde-format
@@ -935,7 +969,7 @@ msgstr "Recuperar información de sala"
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:96
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:81
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:53
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:94
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:66
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:59
 #, kde-format
 msgid "Missing room identifier"
@@ -1057,7 +1091,7 @@ msgstr "Falló marcar sala como leída: %1"
 msgid "Impossible to start mark room as read job"
 msgstr "No se pudo marcar sala como leída"
 
-#: core/mcpserver/mcpservermanager.cpp:46
+#: core/mcpserver/mcpservermanager.cpp:47
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "Administre información desde Ruqola"
@@ -1066,12 +1100,6 @@ msgstr "Administre información desde Ruqola"
 #, kde-format
 msgid "Pin Message"
 msgstr "Fijar mensaje"
-
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
-#: core/mcpserver/starmessage/starmessagetool.cpp:52
-#, kde-format
-msgid "Missing message identifier"
-msgstr "Identificador de mensaje no encontrado"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:70
 #, kde-format
@@ -1083,12 +1111,12 @@ msgstr "Fijación de mensaje fallida: %1"
 msgid "Impossible to start pin message job"
 msgstr "No se pudo fijar el mensaje"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:64
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:36
 #, kde-format
 msgid "Search Messages"
 msgstr "Buscar mensajes"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:117
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:89
 #, kde-format
 msgid "No messages found"
 msgstr "No se encontró ningún mensaje"
@@ -3341,7 +3369,7 @@ msgstr "El estado invisible está desactivado"
 msgid "%1 is already in use."
 msgstr "%1 ya está en uso."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:178
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:176
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Parámetros no válidos"

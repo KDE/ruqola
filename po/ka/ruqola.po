@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 01:10+0000\n"
+"POT-Creation-Date: 2026-11-20 01:10+0000\n"
 "PO-Revision-Date: 2026-11-09 04:48+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -467,93 +467,93 @@ msgstr "გამავალი კომუნიკაცია"
 msgid "View all rooms in the workspace"
 msgstr "სამუშაო სივრცეში არსებული ყველა ოთახის ნახვა"
 
-#: core/authenticationmanager.cpp:88
+#: core/authenticationmanager.cpp:86
 #, kde-format
 msgid "Connecting"
 msgstr "დაკავშირება"
 
-#: core/authenticationmanager.cpp:90
+#: core/authenticationmanager.cpp:88
 #, kde-format
 msgid "Verifying OTP code"
 msgstr "OTP კოდის გადამოწმება"
 
-#: core/authenticationmanager.cpp:92
+#: core/authenticationmanager.cpp:90
 #, kde-format
 msgid "Login failed: invalid username or password"
 msgstr "შესვლის შეცდომა: მომხმარებელი ან პაროლი არასწორია"
 
-#: core/authenticationmanager.cpp:94
+#: core/authenticationmanager.cpp:92
 #, kde-format
 msgid "Logging in"
 msgstr "შესვლა"
 
-#: core/authenticationmanager.cpp:96
+#: core/authenticationmanager.cpp:94
 #, kde-format
 msgid "Logged in"
 msgstr "შესული"
 
-#: core/authenticationmanager.cpp:98
+#: core/authenticationmanager.cpp:96
 #, kde-format
 msgid "Logged out"
 msgstr "გამოხვედით"
 
-#: core/authenticationmanager.cpp:100
+#: core/authenticationmanager.cpp:98
 #, kde-format
 msgid "Failed to login due to plugin problem"
 msgstr "პრობლემური დამატების გამო შესვლა შეუძლებელია"
 
-#: core/authenticationmanager.cpp:102
+#: core/authenticationmanager.cpp:100
 #, kde-format
 msgid "Login failed: generic error"
 msgstr "შესვლა ვერ მოხერხდა: ზოგადი შეცდომა"
 
-#: core/authenticationmanager.cpp:104
+#: core/authenticationmanager.cpp:102
 #, kde-format
 msgid "A one-time password is required to complete the login procedure."
 msgstr "შესვლის პროცედურის დასასრულებლად საჭიროა ერთჯერადი პაროლი."
 
-#: core/authenticationmanager.cpp:106
+#: core/authenticationmanager.cpp:104
 #: widgets/loginwidget/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "შესვლის შეცდომა: OTP კოდი არასწორია."
 
-#: core/authenticationmanager.cpp:108
+#: core/authenticationmanager.cpp:106
 #, kde-format
 msgid "Login failed: User is not activated."
 msgstr "შესვლის შეცდომა: მომხმარებელი გააქტიურებული არაა."
 
-#: core/authenticationmanager.cpp:110
+#: core/authenticationmanager.cpp:108
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
 msgstr "ამ IP-დან შემოსვლა დროებით დაბლოკილია."
 
-#: core/authenticationmanager.cpp:112
+#: core/authenticationmanager.cpp:110
 #, kde-format
 msgid "Login has been temporarily blocked For User."
 msgstr "ამ მომხმარებლით შემოსვლა დროებით დაბლოკილია."
 
-#: core/authenticationmanager.cpp:114
+#: core/authenticationmanager.cpp:112
 #, kde-format
 msgid "App user is not allowed to login."
 msgstr "აპის მომხმარებელს შესვლის უფლება არ აქვს."
 
-#: core/authenticationmanager.cpp:116
+#: core/authenticationmanager.cpp:114
 #, kde-format
 msgid "Logout ongoing"
 msgstr "მიმდინარეობს გასვლა"
 
-#: core/authenticationmanager.cpp:118
+#: core/authenticationmanager.cpp:116
 #, kde-format
 msgid "Logout cleanup ongoing"
 msgstr "მიმდინარეობს გასვლისწინა მოწმენდა"
 
-#: core/authenticationmanager.cpp:120
+#: core/authenticationmanager.cpp:118
 #, kde-format
 msgid "Successfully logged out"
 msgstr "წარმატებით გახვედით"
 
-#: core/authenticationmanager.cpp:122
+#: core/authenticationmanager.cpp:120
 #, kde-format
 msgid "Unknown state"
 msgstr "უცნობი მდგომარეობა"
@@ -833,11 +833,12 @@ msgid "Reject"
 msgstr "უარყოფა"
 
 #: core/mcpserver/common/toolbase.cpp:149
+#: core/mcpserver/getmessage/getmessagetool.cpp:48
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:91
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:75
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:47
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:88
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:60
 #: core/mcpserver/setmystatus/setmystatustool.cpp:46
 #: core/mcpserver/starmessage/starmessagetool.cpp:47
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:53
@@ -846,24 +847,24 @@ msgid "Account is not logged in"
 msgstr "ანგარიში სისტემაში შესული არაა"
 
 #: core/mcpserver/common/toolbase.cpp:157
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:99
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:71
 #, kde-format
 msgid "Missing search pattern"
 msgstr "აკლია საძიებო სტრიქონი"
 
 #: core/mcpserver/common/toolbase.cpp:172
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:129
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:101
 #, kde-format
 msgid "Search failed: %1"
 msgstr "ძებნა ჩავარდა: %1"
 
 #: core/mcpserver/common/toolbase.cpp:175
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:132
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:104
 #, kde-format
 msgid "Impossible to start search"
 msgstr "ძებნის დაწყება შეუძლებელია"
 
-#: core/mcpserver/common/toolutils.cpp:17 core/model/directoryteamsmodel.cpp:95
+#: core/mcpserver/common/toolutils.cpp:30 core/model/directoryteamsmodel.cpp:95
 #: core/model/roommodel.cpp:696
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
@@ -871,34 +872,37 @@ msgstr "ძებნის დაწყება შეუძლებელი�
 msgid "Rooms"
 msgstr "ოთახები"
 
-#: core/mcpserver/common/toolutils.cpp:19
+#: core/mcpserver/common/toolutils.cpp:32
 #: widgets/databasedialog/exploredatabasedialog.cpp:52
 #, kde-format
 msgid "Messages"
 msgstr "შეტყობინებები"
 
-#: core/mcpserver/common/toolutils.cpp:21
+#: core/mcpserver/common/toolutils.cpp:34
 #: widgets/administratordialog/administratorwidget.cpp:69
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:255
 #, kde-format
 msgid "Users"
 msgstr "მომხმარებლები"
 
-#: core/mcpserver/common/toolutils.cpp:23
+#: core/mcpserver/common/toolutils.cpp:36
 #, kde-format
 msgid "Current User"
 msgstr "მიმდინარე მომხმარებელი"
 
-#: core/mcpserver/common/toolutils.cpp:25
+#: core/mcpserver/common/toolutils.cpp:38
 #, kde-format
 msgid "Misc"
 msgstr "სხვადასხვა"
 
-#: core/mcpserver/getmystatus/getmystatustool.cpp:27
-#, kde-format
-msgid "Get My Status"
-msgstr "ჩემი სტატუსის მიღება"
+#: core/mcpserver/getmessage/getmessagetool.cpp:29
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Go to Message"
+msgid "Get Message"
+msgstr "შეტყობინებაზე გადასვლა"
 
+#: core/mcpserver/getmessage/getmessagetool.cpp:44
 #: core/mcpserver/getmystatus/getmystatustool.cpp:41
 #: core/mcpserver/getroominfo/getroominfotool.cpp:43
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:87
@@ -910,7 +914,7 @@ msgstr "ჩემი სტატუსის მიღება"
 #: core/mcpserver/listrooms/listroomstool.cpp:40
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:44
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:43
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:84
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:56
 #: core/mcpserver/searchrooms/searchroomstool.cpp:41
 #: core/mcpserver/searchusers/searchuserstool.cpp:41
 #: core/mcpserver/setmystatus/setmystatustool.cpp:42
@@ -919,6 +923,36 @@ msgstr "ჩემი სტატუსის მიღება"
 #, kde-format
 msgid "No account found"
 msgstr "ანგარიში ვერ ვიპოვე"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:53
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
+#: core/mcpserver/starmessage/starmessagetool.cpp:52
+#, kde-format
+msgid "Missing message identifier"
+msgstr "აკლია შეტყობინების იდენტიფიკატორი"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:65
+#, fuzzy, kde-format
+#| msgid "Message not found."
+msgid "Message not found"
+msgstr "შეტყობინება ვერ ვიპოვე."
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:91
+#, fuzzy, kde-format
+#| msgid "Star message failed: %1"
+msgid "Get message failed: %1"
+msgstr "შეტყობინებაზე ვარსკვლავის დაყენება ჩავარდა: %1"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:94
+#, fuzzy, kde-format
+#| msgid "Impossible to start pin message job"
+msgid "Impossible to get message"
+msgstr "შეტყობინების ამაგრების დავალების გაშვება შეუძლებელია"
+
+#: core/mcpserver/getmystatus/getmystatustool.cpp:27
+#, kde-format
+msgid "Get My Status"
+msgstr "ჩემი სტატუსის მიღება"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:28
 #, kde-format
@@ -929,7 +963,7 @@ msgstr "ინფორმაციის მიღება ოთახის 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:96
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:81
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:53
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:94
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:66
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:59
 #, kde-format
 msgid "Missing room identifier"
@@ -1051,7 +1085,7 @@ msgstr "ოთახის წაკითხულად დანიშვნ�
 msgid "Impossible to start mark room as read job"
 msgstr "ოთახის წაკითხულად მონიშვნის დავალების გაშვება შეუძლებელია"
 
-#: core/mcpserver/mcpservermanager.cpp:46
+#: core/mcpserver/mcpservermanager.cpp:47
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "Ruqola-დან მიღებული ინფორმაციის მართვა"
@@ -1060,12 +1094,6 @@ msgstr "Ruqola-დან მიღებული ინფორმაციი
 #, kde-format
 msgid "Pin Message"
 msgstr "შეტყობინების ამაგრება"
-
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
-#: core/mcpserver/starmessage/starmessagetool.cpp:52
-#, kde-format
-msgid "Missing message identifier"
-msgstr "აკლია შეტყობინების იდენტიფიკატორი"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:70
 #, kde-format
@@ -1077,12 +1105,12 @@ msgstr "შეტყობინების ამაგრება ჩავ�
 msgid "Impossible to start pin message job"
 msgstr "შეტყობინების ამაგრების დავალების გაშვება შეუძლებელია"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:64
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:36
 #, kde-format
 msgid "Search Messages"
 msgstr "შეტყობინებების ძებნა"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:117
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:89
 #, kde-format
 msgid "No messages found"
 msgstr "შეტყობინებების გარეშე"
@@ -3329,7 +3357,7 @@ msgstr "უხილავის სტატუსი გათიშული�
 msgid "%1 is already in use."
 msgstr "%1 უკვე გამოიყენება."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:178
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:176
 #, kde-format
 msgid "Invalid parameters"
 msgstr "არასწორი პარამეტრები"

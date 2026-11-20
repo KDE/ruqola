@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 01:10+0000\n"
+"POT-Creation-Date: 2026-11-20 01:10+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -483,93 +483,93 @@ msgstr "मूक केन्द्रित वार्तालाप"
 msgid "View all rooms in the workspace"
 msgstr ""
 
-#: core/authenticationmanager.cpp:88
+#: core/authenticationmanager.cpp:86
 #, kde-format
 msgid "Connecting"
 msgstr "संयोजयन्"
 
-#: core/authenticationmanager.cpp:90
+#: core/authenticationmanager.cpp:88
 #, kde-format
 msgid "Verifying OTP code"
 msgstr ""
 
-#: core/authenticationmanager.cpp:92
+#: core/authenticationmanager.cpp:90
 #, kde-format
 msgid "Login failed: invalid username or password"
 msgstr "प्रवेशः विफलः: अमान्यः उपयोक्तृनाम वा गुप्तशब्दः वा"
 
-#: core/authenticationmanager.cpp:94
+#: core/authenticationmanager.cpp:92
 #, kde-format
 msgid "Logging in"
 msgstr "प्रवेशः"
 
-#: core/authenticationmanager.cpp:96
+#: core/authenticationmanager.cpp:94
 #, kde-format
 msgid "Logged in"
 msgstr "प्रवेशं कृतवान्"
 
-#: core/authenticationmanager.cpp:98
+#: core/authenticationmanager.cpp:96
 #, kde-format
 msgid "Logged out"
 msgstr "लॉग आउट् कृतवान्"
 
-#: core/authenticationmanager.cpp:100
+#: core/authenticationmanager.cpp:98
 #, kde-format
 msgid "Failed to login due to plugin problem"
 msgstr "प्लगिन् समस्यायाः कारणेन प्रवेशं कर्तुं असफलम्"
 
-#: core/authenticationmanager.cpp:102
+#: core/authenticationmanager.cpp:100
 #, kde-format
 msgid "Login failed: generic error"
 msgstr "प्रवेशः विफलः: सामान्यदोषः"
 
-#: core/authenticationmanager.cpp:104
+#: core/authenticationmanager.cpp:102
 #, kde-format
 msgid "A one-time password is required to complete the login procedure."
 msgstr "प्रवेशप्रक्रियायाः पूर्णतायै एकवारं गुप्तशब्दः आवश्यकः भवति ।"
 
-#: core/authenticationmanager.cpp:106
+#: core/authenticationmanager.cpp:104
 #: widgets/loginwidget/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "प्रवेशः विफलः: अमान्यः OTP कोडः।"
 
-#: core/authenticationmanager.cpp:108
+#: core/authenticationmanager.cpp:106
 #, kde-format
 msgid "Login failed: User is not activated."
 msgstr "प्रवेशः विफलः : उपयोक्ता सक्रियः नास्ति ।"
 
-#: core/authenticationmanager.cpp:110
+#: core/authenticationmanager.cpp:108
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
 msgstr "प्रवेशः अस्थायीरूपेण अवरुद्धः अस्ति For IP."
 
-#: core/authenticationmanager.cpp:112
+#: core/authenticationmanager.cpp:110
 #, kde-format
 msgid "Login has been temporarily blocked For User."
 msgstr "प्रवेशः अस्थायीरूपेण अवरुद्धः अस्ति For User इति ।"
 
-#: core/authenticationmanager.cpp:114
+#: core/authenticationmanager.cpp:112
 #, kde-format
 msgid "App user is not allowed to login."
 msgstr "एप् उपयोक्तारः प्रवेशं कर्तुं न अर्हन्ति।"
 
-#: core/authenticationmanager.cpp:116
+#: core/authenticationmanager.cpp:114
 #, kde-format
 msgid "Logout ongoing"
 msgstr "लॉगआउट् प्रचलति"
 
-#: core/authenticationmanager.cpp:118
+#: core/authenticationmanager.cpp:116
 #, kde-format
 msgid "Logout cleanup ongoing"
 msgstr "लॉगआउट सफाई प्रचलति"
 
-#: core/authenticationmanager.cpp:120
+#: core/authenticationmanager.cpp:118
 #, kde-format
 msgid "Successfully logged out"
 msgstr "सफलतया लॉग आउट् कृतवान्"
 
-#: core/authenticationmanager.cpp:122
+#: core/authenticationmanager.cpp:120
 #, kde-format
 msgid "Unknown state"
 msgstr "अज्ञात अवस्था"
@@ -848,11 +848,12 @@ msgid "Reject"
 msgstr "अस्वीकार"
 
 #: core/mcpserver/common/toolbase.cpp:149
+#: core/mcpserver/getmessage/getmessagetool.cpp:48
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:91
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:75
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:47
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:88
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:60
 #: core/mcpserver/setmystatus/setmystatustool.cpp:46
 #: core/mcpserver/starmessage/starmessagetool.cpp:47
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:53
@@ -862,14 +863,14 @@ msgid "Account is not logged in"
 msgstr "खाता सूचना"
 
 #: core/mcpserver/common/toolbase.cpp:157
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:99
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:71
 #, fuzzy, kde-format
 #| msgid "Missing server url."
 msgid "Missing search pattern"
 msgstr "सेवकस्य URL अनुपस्थितम्।"
 
 #: core/mcpserver/common/toolbase.cpp:172
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:129
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:101
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Download Image"
@@ -877,13 +878,13 @@ msgid "Search failed: %1"
 msgstr "चित्रं डाउनलोड् कुर्वन्तु"
 
 #: core/mcpserver/common/toolbase.cpp:175
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:132
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:104
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start search"
 msgstr "दत्तांशस्य निर्यातं कर्तुं असम्भवम्।"
 
-#: core/mcpserver/common/toolutils.cpp:17 core/model/directoryteamsmodel.cpp:95
+#: core/mcpserver/common/toolutils.cpp:30 core/model/directoryteamsmodel.cpp:95
 #: core/model/roommodel.cpp:696
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
@@ -891,7 +892,7 @@ msgstr "दत्तांशस्य निर्यातं कर्तु�
 msgid "Rooms"
 msgstr "कक्ष्याः"
 
-#: core/mcpserver/common/toolutils.cpp:19
+#: core/mcpserver/common/toolutils.cpp:32
 #: widgets/databasedialog/exploredatabasedialog.cpp:52
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
@@ -899,31 +900,32 @@ msgstr "कक्ष्याः"
 msgid "Messages"
 msgstr "सन्देशाः"
 
-#: core/mcpserver/common/toolutils.cpp:21
+#: core/mcpserver/common/toolutils.cpp:34
 #: widgets/administratordialog/administratorwidget.cpp:69
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:255
 #, kde-format
 msgid "Users"
 msgstr "उपयोक्तारः"
 
-#: core/mcpserver/common/toolutils.cpp:23
+#: core/mcpserver/common/toolutils.cpp:36
 #, fuzzy, kde-format
 #| msgid "Current Password"
 msgid "Current User"
 msgstr "वर्तमान गुप्तशब्द"
 
-#: core/mcpserver/common/toolutils.cpp:25
+#: core/mcpserver/common/toolutils.cpp:38
 #, kde-format
 msgid "Misc"
 msgstr ""
 
-#: core/mcpserver/getmystatus/getmystatustool.cpp:27
+#: core/mcpserver/getmessage/getmessagetool.cpp:29
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit User Status"
-msgid "Get My Status"
-msgstr "उपयोक्तृस्थिति सम्पादयतु"
+#| msgctxt "@action"
+#| msgid "Go to Message"
+msgid "Get Message"
+msgstr "सन्देशं गच्छन्तु"
 
+#: core/mcpserver/getmessage/getmessagetool.cpp:44
 #: core/mcpserver/getmystatus/getmystatustool.cpp:41
 #: core/mcpserver/getroominfo/getroominfotool.cpp:43
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:87
@@ -935,7 +937,7 @@ msgstr "उपयोक्तृस्थिति सम्पादयतु"
 #: core/mcpserver/listrooms/listroomstool.cpp:40
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:44
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:43
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:84
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:56
 #: core/mcpserver/searchrooms/searchroomstool.cpp:41
 #: core/mcpserver/searchusers/searchuserstool.cpp:41
 #: core/mcpserver/setmystatus/setmystatustool.cpp:42
@@ -945,6 +947,40 @@ msgstr "उपयोक्तृस्थिति सम्पादयतु"
 #| msgid "My Account"
 msgid "No account found"
 msgstr "मम खाता"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:53
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
+#: core/mcpserver/starmessage/starmessagetool.cpp:52
+#, fuzzy, kde-format
+#| msgid "Missing server url."
+msgid "Missing message identifier"
+msgstr "सेवकस्य URL अनुपस्थितम्।"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:65
+#, fuzzy, kde-format
+#| msgid "Message not found."
+msgid "Message not found"
+msgstr "सन्देशः न लब्धः।"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:91
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgid "Get message failed: %1"
+msgstr "चित्रं डाउनलोड् कुर्वन्तु"
+
+#: core/mcpserver/getmessage/getmessagetool.cpp:94
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to get message"
+msgstr "दत्तांशस्य निर्यातं कर्तुं असम्भवम्।"
+
+#: core/mcpserver/getmystatus/getmystatustool.cpp:27
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Edit User Status"
+msgid "Get My Status"
+msgstr "उपयोक्तृस्थिति सम्पादयतु"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:28
 #, fuzzy, kde-format
@@ -956,7 +992,7 @@ msgstr "No Room न लब्धम्"
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:96
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:81
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:53
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:94
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:66
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:59
 #, kde-format
 msgid "Missing room identifier"
@@ -1106,7 +1142,7 @@ msgstr "चित्रं डाउनलोड् कुर्वन्तु"
 msgid "Impossible to start mark room as read job"
 msgstr "दत्तांशस्य निर्यातं कर्तुं असम्भवम्।"
 
-#: core/mcpserver/mcpservermanager.cpp:46
+#: core/mcpserver/mcpservermanager.cpp:47
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""
@@ -1117,13 +1153,6 @@ msgstr ""
 #| msgid "Pin Message"
 msgid "Pin Message"
 msgstr "पिन सन्देश"
-
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
-#: core/mcpserver/starmessage/starmessagetool.cpp:52
-#, fuzzy, kde-format
-#| msgid "Missing server url."
-msgid "Missing message identifier"
-msgstr "सेवकस्य URL अनुपस्थितम्।"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:70
 #, fuzzy, kde-format
@@ -1138,14 +1167,14 @@ msgstr "चित्रं डाउनलोड् कुर्वन्तु"
 msgid "Impossible to start pin message job"
 msgstr "दत्तांशस्य निर्यातं कर्तुं असम्भवम्।"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:64
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:36
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
 msgid "Search Messages"
 msgstr "सन्देशान् अन्वेष्टुम्"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:117
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:89
 #, fuzzy, kde-format
 #| msgid "No Message found"
 msgid "No messages found"
@@ -3431,7 +3460,7 @@ msgstr "अदृश्यस्थितिः निष्क्रियः �
 msgid "%1 is already in use."
 msgstr "%1 पूर्वमेव प्रयुक्तम् अस्ति ।"
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:178
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:176
 #, kde-format
 msgid "Invalid parameters"
 msgstr "अमान्य पैरामीटर्"
