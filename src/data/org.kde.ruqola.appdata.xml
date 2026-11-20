@@ -1375,21 +1375,26 @@
       <description>
         <ul>
           <li>Minimum RC server support 7.0.</li>
+          <li xml:lang="ar">الحد الأدنى لإصدار خادم RC هو 7.0.</li>
           <li xml:lang="ca">Implementació mínima de servidor RC 7.0.</li>
           <li xml:lang="ca-valencia">Implementació mínima de servidor RC 7.0.</li>
+          <li xml:lang="it">Supporto minimo per server RC 7.0.</li>
           <li xml:lang="nl">Minimale RC-serverondersteuning 7.0.</li>
           <li xml:lang="pt-BR">Suporte a servidor RC versão 7.0 ou superior.</li>
           <li xml:lang="ru">Минимальная поддерживаемая версия сервера RC — 7.0.</li>
+          <li xml:lang="sk">Minimálna podpora servera RC 7.0.</li>
           <li xml:lang="tr">En düşük RC sunucusu desteği artık 7.0</li>
           <li xml:lang="uk">Мінімальна версія підтримуваного сервера RC — 7.0.</li>
           <li>Add RC 9.0.0 support.</li>
           <li xml:lang="ar">إضافة دعم الإصدار RC 9.0.0.</li>
           <li xml:lang="ca">Afegeix la implementació del RC 9.0.0.</li>
           <li xml:lang="ca-valencia">Afig la implementació del RC 9.0.0.</li>
+          <li xml:lang="it">Aggiunge il supporto RC 9.0.0.</li>
           <li xml:lang="ka">დაემატა RC 9.0.0-ის მხარდაჭერა.</li>
           <li xml:lang="nl">Ondersteuning voor RC 9.0.0 toevoegen.</li>
           <li xml:lang="pt-BR">Adicionar suporte ao RC 9.0.0.</li>
           <li xml:lang="ru">Поддержка RC 9.0.0.</li>
+          <li xml:lang="sk">Pridaná podpora RC 9.0.0.</li>
           <li xml:lang="sl">Doda podporo za RC 9.0.0</li>
           <li xml:lang="tr">RC 9.0.0 desteği ekle</li>
           <li xml:lang="uk">Додано підтримку RC 9.0.0</li>
@@ -1404,6 +1409,7 @@
           <li xml:lang="nl">Ondersteuning voor categorieën toevoegen</li>
           <li xml:lang="pt-BR">Adicionar suporte à categoria.</li>
           <li xml:lang="ru">Поддержка категорий.</li>
+          <li xml:lang="sk">Pridaná podpora kategórií.</li>
           <li xml:lang="sl">Doda podporo kategoriji.</li>
           <li xml:lang="tr">Kategori desteği ekle</li>
           <li xml:lang="uk">Додано підтримку категорій.</li>
@@ -1418,6 +1424,7 @@
           <li xml:lang="nl">Ondersteuning voor RC 8.9.0 toevoegen.</li>
           <li xml:lang="pt-BR">Adicionar suporte ao RC 8.9.0.</li>
           <li xml:lang="ru">Поддержка RC 8.9.0.</li>
+          <li xml:lang="sk">Pridaná podpora RC 8.9.0.</li>
           <li xml:lang="sl">Doda podporo za RC 8.9.0.</li>
           <li xml:lang="tr">RC 8.9.0 desteği ekle</li>
           <li xml:lang="uk">Додано підтримку RC 8.9.0</li>
@@ -3208,7 +3215,7 @@
           <li xml:lang="sk">Odstránenie najstarších súborov z niektorých adresárov vyrovnávacej pamäte (file-upload a media), aby nerástli donekonečna</li>
           <li xml:lang="sl">Izbriše najstarejše datoteke iz nekaterih imenikov predpomnilnika (prenos datotek tja in mediji), da se ne bi večno povečevali</li>
           <li xml:lang="sv">Ta bort äldsta filer från vissa cachekataloger (filuppladdning och media) så att de inte växer för alltid</li>
-          <li xml:lang="tr">Sonsuza kadar büyümemesi için bazı önbellek dizinlerindeki (dosya yükleme ve ortam) en eski dosyaları sil</li>
+          <li xml:lang="tr">Sonsuza kadar büyümemesi için bazı ön bellek dizinlerindeki (dosya yükleme ve ortam) en eski dosyaları sil</li>
           <li xml:lang="uk">Вилучати найстаріші файли з каталогів кешу (отримання файлів і мультимедійних даних), щоб каталоги нескінченно не зростали у розмірі</li>
           <li>Clean market application model after 30 minutes (reduce memory footprint)</li>
           <li xml:lang="ar">نموذج تطبيق السوق النظيف بعد 30 دقيقة (تقليل مساحة الذاكرة)</li>
@@ -3739,7 +3746,7 @@
           <li xml:lang="sk">Ukladanie veľkosti správ do vyrovnávacej pamäte (optimalizácia)</li>
           <li xml:lang="sl">Velikost predpomnilnika sporočil (optimizacija)</li>
           <li xml:lang="sv">Meddelandestorlek i cache (optimering)</li>
-          <li xml:lang="tr">İleti boyutunu önbelleğe al (eniyileme)</li>
+          <li xml:lang="tr">İleti boyutunu ön belleğe al (eniyileme)</li>
           <li xml:lang="uk">Реалізовано кешування розміру повідомлень (оптимізація)</li>
           <li>Improve select room or user in message line edit (show icon, inform if user is in channel)</li>
           <li xml:lang="ar">تحسين تحديد الغرفة أو المستخدم في تحرير سطر الرسالة (إظهار الرمز، إبلاغ ما إذا كان المستخدم في القناة)</li>
@@ -3790,7 +3797,7 @@
           <li xml:lang="sk">Oprava sťahovania zvukového/video súboru, keď nie je vo vyrovnávacej pamäti</li>
           <li xml:lang="sl">Popravi prenos zvočne/video datoteke, kadar ni v predpomnilniku</li>
           <li xml:lang="sv">Rätta nerladdning av ljud- och videofil när den inte är i cachen</li>
-          <li xml:lang="tr">Önbellekte olmadığında ses/video dosyasını indirmeyi düzelt</li>
+          <li xml:lang="tr">Ön bellekte olmadığında ses/video dosyasını indirmeyi düzelt</li>
           <li xml:lang="uk">Виправити отриманий файл звукових даних або відео, коли він не перебуває у кеші</li>
           <li>Fix list of authentication method</li>
           <li xml:lang="ar">إصلاح قائمة طريقة الاستيثاق</li>
