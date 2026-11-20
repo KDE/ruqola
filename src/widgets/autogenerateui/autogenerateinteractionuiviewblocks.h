@@ -9,6 +9,7 @@
 #include "autogenerateui/blockelement/autogenerateinteractionuiviewblockbase.h"
 #include "libruqolawidgets_private_export.h"
 #include <QList>
+#include <QMap>
 class QJsonArray;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewBlocks : public QObject
 {

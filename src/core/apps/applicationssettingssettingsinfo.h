@@ -7,6 +7,7 @@
 
 #include "libruqolacore_export.h"
 #include <QJsonObject>
+#include <QMap>
 class QDebug;
 class LIBRUQOLACORE_EXPORT ApplicationsSettingsSettingsInfo
 {

@@ -11,6 +11,7 @@
 #include <QDesktopServices>
 #include <QOAuth2AuthorizationCodeFlow>
 #include <QOAuthHttpServerReplyHandler>
+#include <QSet>
 #include <QTimer>
 
 using namespace Qt::Literals::StringLiterals;

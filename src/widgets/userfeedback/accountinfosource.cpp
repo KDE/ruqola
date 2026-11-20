@@ -10,6 +10,7 @@
 #include "ruqola.h"
 #include <KLocalizedString>
 #include <QVariant>
+#include <QVariantMap>
 
 using namespace Qt::Literals::StringLiterals;
 AccountInfoSource::AccountInfoSource()

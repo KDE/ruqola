@@ -6,6 +6,7 @@
 #include "actionelementwidget.h"
 #include "colorsandmessageviewstyle.h"
 #include <QLabel>
+#include <QMap>
 #include <QVBoxLayout>
 
 ActionElementWidget::ActionElementWidget(QWidget *widget, const QByteArray &actionId, QWidget *parent)

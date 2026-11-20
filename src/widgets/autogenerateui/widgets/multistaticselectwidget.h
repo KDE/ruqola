@@ -8,6 +8,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include "multistaticselectlineeditmodel.h"
+#include <QMap>
 #include <QWidget>
 class MultiStaticSelectLineEdit;
 namespace TextAddonsWidgets

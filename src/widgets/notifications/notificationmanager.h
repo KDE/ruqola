@@ -7,6 +7,7 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include "notifications/notification.h"
+#include <QMap>
 class QMenu;
 class KActionCollection;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT NotificationManager : public QObject

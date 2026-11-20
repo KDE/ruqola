@@ -11,6 +11,7 @@
 #include "libruqolacore_export.h"
 #include "rocketchatmessage.h"
 #include <QAbstractSocket>
+#include <QHash>
 #include <QQueue>
 #include <QSslError>
 #include <utility>
