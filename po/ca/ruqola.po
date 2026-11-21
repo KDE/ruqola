@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-20 01:10+0000\n"
-"PO-Revision-Date: 2026-11-17 08:45+0100\n"
+"POT-Creation-Date: 2026-11-21 01:11+0000\n"
+"PO-Revision-Date: 2026-11-20 09:30+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -903,11 +903,9 @@ msgid "Misc"
 msgstr "Miscel·lània"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Go to Message"
+#, kde-format
 msgid "Get Message"
-msgstr "Ves al missatge"
+msgstr "Obté un missatge"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:44
 #: core/mcpserver/getmystatus/getmystatustool.cpp:41
@@ -939,22 +937,19 @@ msgid "Missing message identifier"
 msgstr "Falta l'identificador del missatge"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:65
-#, fuzzy, kde-format
-#| msgid "Message not found."
+#, kde-format
 msgid "Message not found"
-msgstr "No s'ha trobat el missatge."
+msgstr "No s'ha trobat el missatge"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:91
-#, fuzzy, kde-format
-#| msgid "Star message failed: %1"
+#, kde-format
 msgid "Get message failed: %1"
-msgstr "Ha fallat en posar una estrella al missatge: %1"
+msgstr "Ha fallat en obtenir un missatge: %1"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:94
-#, fuzzy, kde-format
-#| msgid "Impossible to start pin message job"
+#, kde-format
 msgid "Impossible to get message"
-msgstr "Impossible iniciar el treball de fixació del missatge"
+msgstr "Impossible obtenir un missatge"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:27
 #, kde-format
@@ -13197,12 +13192,12 @@ msgstr "Hora"
 msgid "Format"
 msgstr "Format"
 
-#: widgets/userfeedback/accountinfosource.cpp:24
+#: widgets/userfeedback/accountinfosource.cpp:25
 #, kde-format
 msgid "Account information"
 msgstr "Informació del compte"
 
-#: widgets/userfeedback/accountinfosource.cpp:29
+#: widgets/userfeedback/accountinfosource.cpp:30
 #, kde-format
 msgid "Return the number of account."
 msgstr "Retorna el nombre de comptes."

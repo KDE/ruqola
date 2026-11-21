@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-20 01:10+0000\n"
+"POT-Creation-Date: 2026-11-21 01:11+0000\n"
 "PO-Revision-Date: 2025-03-15 10:38+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -13449,12 +13449,12 @@ msgstr "Horzono"
 msgid "Format"
 msgstr "Alias-Formato"
 
-#: widgets/userfeedback/accountinfosource.cpp:24
+#: widgets/userfeedback/accountinfosource.cpp:25
 #, kde-format
 msgid "Account information"
 msgstr "Informoj pri konto"
 
-#: widgets/userfeedback/accountinfosource.cpp:29
+#: widgets/userfeedback/accountinfosource.cpp:30
 #, kde-format
 msgid "Return the number of account."
 msgstr "Redoni la nombron de konto."

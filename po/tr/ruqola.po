@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-20 01:10+0000\n"
-"PO-Revision-Date: 2026-11-19 19:43+0300\n"
+"POT-Creation-Date: 2026-11-21 01:11+0000\n"
+"PO-Revision-Date: 2026-11-20 17:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -898,11 +898,9 @@ msgid "Misc"
 msgstr "Çeşitli"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Go to Message"
+#, kde-format
 msgid "Get Message"
-msgstr "İletiye Git"
+msgstr "İletiyi Al"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:44
 #: core/mcpserver/getmystatus/getmystatustool.cpp:41
@@ -934,22 +932,19 @@ msgid "Missing message identifier"
 msgstr "İleti tanımlayıcısı eksik"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:65
-#, fuzzy, kde-format
-#| msgid "Message not found."
+#, kde-format
 msgid "Message not found"
-msgstr "İleti bulunamadı."
+msgstr "İleti bulunamadı"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:91
-#, fuzzy, kde-format
-#| msgid "Star message failed: %1"
+#, kde-format
 msgid "Get message failed: %1"
-msgstr "İletiye yıldız koyulamadı: %1"
+msgstr "İleti alınamadı: %1"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:94
-#, fuzzy, kde-format
-#| msgid "Impossible to start pin message job"
+#, kde-format
 msgid "Impossible to get message"
-msgstr "İletiyi sabitlemeye başlamak olanaksız"
+msgstr "İletiyi almak olanaksız"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:27
 #, kde-format
@@ -13122,12 +13117,12 @@ msgstr "Zaman"
 msgid "Format"
 msgstr "Biçim"
 
-#: widgets/userfeedback/accountinfosource.cpp:24
+#: widgets/userfeedback/accountinfosource.cpp:25
 #, kde-format
 msgid "Account information"
 msgstr "Hesap bilgisi"
 
-#: widgets/userfeedback/accountinfosource.cpp:29
+#: widgets/userfeedback/accountinfosource.cpp:30
 #, kde-format
 msgid "Return the number of account."
 msgstr "Hesabın numarasını döndür."

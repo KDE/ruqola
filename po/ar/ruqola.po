@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-20 01:10+0000\n"
+"POT-Creation-Date: 2026-11-21 01:11+0000\n"
 "PO-Revision-Date: 2026-11-19 16:35+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -13216,12 +13216,12 @@ msgstr "الوقت"
 msgid "Format"
 msgstr "التنسيق"
 
-#: widgets/userfeedback/accountinfosource.cpp:24
+#: widgets/userfeedback/accountinfosource.cpp:25
 #, kde-format
 msgid "Account information"
 msgstr "معلومات الحساب"
 
-#: widgets/userfeedback/accountinfosource.cpp:29
+#: widgets/userfeedback/accountinfosource.cpp:30
 #, kde-format
 msgid "Return the number of account."
 msgstr "أرجع عدد الحسابات."

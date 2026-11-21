@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-20 01:10+0000\n"
-"PO-Revision-Date: 2026-11-17 05:51-0300\n"
+"POT-Creation-Date: 2026-11-21 01:11+0000\n"
+"PO-Revision-Date: 2026-11-20 08:47-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@kde.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -899,10 +899,9 @@ msgid "Misc"
 msgstr "Diversos"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:29
-#, fuzzy, kde-format
-#| msgid "Go to Message"
+#, kde-format
 msgid "Get Message"
-msgstr "Ir para mensagem"
+msgstr "Obter mensagem"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:44
 #: core/mcpserver/getmystatus/getmystatustool.cpp:41
@@ -934,22 +933,19 @@ msgid "Missing message identifier"
 msgstr "Identificador de mensagem ausente"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:65
-#, fuzzy, kde-format
-#| msgid "Message not found."
+#, kde-format
 msgid "Message not found"
-msgstr "Mensagem não encontrada."
+msgstr "Mensagem não encontrada"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:91
-#, fuzzy, kde-format
-#| msgid "Star message failed: %1"
+#, kde-format
 msgid "Get message failed: %1"
-msgstr "Falha ao favoritar mensagem: %1"
+msgstr "Falha ao obter mensagem: %1"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:94
-#, fuzzy, kde-format
-#| msgid "Impossible to start pin message job"
+#, kde-format
 msgid "Impossible to get message"
-msgstr "Impossível iniciar a tarefa de fixar mensagem"
+msgstr "Impossível obter mensagem"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:27
 #, kde-format
@@ -13171,12 +13167,12 @@ msgstr "Hora"
 msgid "Format"
 msgstr "Formato"
 
-#: widgets/userfeedback/accountinfosource.cpp:24
+#: widgets/userfeedback/accountinfosource.cpp:25
 #, kde-format
 msgid "Account information"
 msgstr "Informações da conta"
 
-#: widgets/userfeedback/accountinfosource.cpp:29
+#: widgets/userfeedback/accountinfosource.cpp:30
 #, kde-format
 msgid "Return the number of account."
 msgstr "Retorna o número da conta."

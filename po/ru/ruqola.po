@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-20 01:10+0000\n"
-"PO-Revision-Date: 2026-11-18 07:57+0200\n"
+"POT-Creation-Date: 2026-11-21 01:11+0000\n"
+"PO-Revision-Date: 2026-11-20 07:36+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -904,10 +904,9 @@ msgid "Misc"
 msgstr "Разное"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:29
-#, fuzzy, kde-format
-#| msgid "Go to Message"
+#, kde-format
 msgid "Get Message"
-msgstr "Перейти к сообщению"
+msgstr "Получить сообщение"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:44
 #: core/mcpserver/getmystatus/getmystatustool.cpp:41
@@ -939,22 +938,19 @@ msgid "Missing message identifier"
 msgstr "Не указан идентификатор сообщения"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:65
-#, fuzzy, kde-format
-#| msgid "Message not found."
+#, kde-format
 msgid "Message not found"
-msgstr "Сообщение не найдено."
+msgstr "Сообщение не найдено"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:91
-#, fuzzy, kde-format
-#| msgid "Star message failed: %1"
+#, kde-format
 msgid "Get message failed: %1"
-msgstr "Не удалось отметить сообщение звёздочкой: %1"
+msgstr "Не удалось получить сообщение: %1"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:94
-#, fuzzy, kde-format
-#| msgid "Impossible to start pin message job"
+#, kde-format
 msgid "Impossible to get message"
-msgstr "Не удалось начать закрепление сообщения"
+msgstr "Невозможно получить сообщение"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:27
 #, kde-format
@@ -13277,12 +13273,12 @@ msgstr "Время"
 msgid "Format"
 msgstr "Формат"
 
-#: widgets/userfeedback/accountinfosource.cpp:24
+#: widgets/userfeedback/accountinfosource.cpp:25
 #, kde-format
 msgid "Account information"
 msgstr "Сведения об учётной записи"
 
-#: widgets/userfeedback/accountinfosource.cpp:29
+#: widgets/userfeedback/accountinfosource.cpp:30
 #, kde-format
 msgid "Return the number of account."
 msgstr "Вернуть номер учётной записи."
