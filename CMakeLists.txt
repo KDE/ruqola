@@ -370,6 +370,10 @@ endif()
 
 if(TARGET KF6::TextAutoGenerateTextMcpProtocolWidgets)
     set(HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL TRUE)
+    # KTextAddons >= 2.3.46 provides confirmation tool and its notification event
+    if(KF6TextAutoGenerateTextMcpProtocolCore_VERSION VERSION_GREATER_EQUAL "2.3.46")
+        set(HAVE_MCP_CONFIRMATION_TOOL TRUE)
+    endif()
 endif()
 
 find_package(KF6TextAddonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)

@@ -9,22 +9,25 @@
 #include "rocketchataccount.h"
 #include "ruqolaglobalconfig.h"
 #include <KLocalizedString>
+#include <TextAutoGenerateTextMcpProtocolCore/McpProtocolServerToolCall>
+#if !HAVE_MCP_CONFIRMATION_TOOL
 #include <KNotification>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QPointer>
 #include <QTimer>
-#include <TextAutoGenerateTextMcpProtocolCore/McpProtocolServerToolCall>
 #include <chrono>
 #include <memory>
 #include <utility>
 using namespace std::chrono_literals;
+#endif
 using namespace Qt::Literals::StringLiterals;
 namespace
 {
 constexpr int defaultSearchCount = 25;
 constexpr int maximumSearchCount = 100;
+#if !HAVE_MCP_CONFIRMATION_TOOL
 constexpr std::chrono::seconds confirmationTimeout = 60s;
 // Only one confirmation at a time: a client calling tools in a loop must not flood notifications
 bool confirmationPending = false;
@@ -66,16 +69,22 @@ constexpr qsizetype maximumArgumentLength = 80;
     }
     return lst.join(u'\n');
 }
+#endif
 }
 
 ToolBase::ToolBase(AccountManager *accountManager)
-    : TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool()
-    , mAccountManager(accountManager)
+    : mAccountManager(accountManager)
 {
 }
 
 ToolBase::~ToolBase() = default;
 
+#if HAVE_MCP_CONFIRMATION_TOOL
+bool ToolBase::askModify() const
+{
+    return RuqolaGlobalConfig::self()->askModify();
+}
+#else
 void ToolBase::call(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
 {
     const auto tool = definition();
@@ -130,6 +139,7 @@ void ToolBase::call(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCa
     });
     notification->sendEvent();
 }
+#endif
 
 RocketChatAccount *ToolBase::accountFromArguments(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call) const
 {
