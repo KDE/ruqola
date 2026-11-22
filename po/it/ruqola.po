@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-21 01:11+0000\n"
-"PO-Revision-Date: 2026-11-18 11:28+0100\n"
+"PO-Revision-Date: 2026-11-20 14:03+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -898,10 +898,9 @@ msgid "Misc"
 msgstr "Varie"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:29
-#, fuzzy, kde-format
-#| msgid "Go to Message"
+#, kde-format
 msgid "Get Message"
-msgstr "Vai al messaggio"
+msgstr "Ricevi messaggio"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:44
 #: core/mcpserver/getmystatus/getmystatustool.cpp:41
@@ -933,22 +932,19 @@ msgid "Missing message identifier"
 msgstr "Identificativo del messaggio mancante"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:65
-#, fuzzy, kde-format
-#| msgid "Message not found."
+#, kde-format
 msgid "Message not found"
-msgstr "Messaggio non trovato."
+msgstr "Messaggio non trovato"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:91
-#, fuzzy, kde-format
-#| msgid "Star message failed: %1"
+#, kde-format
 msgid "Get message failed: %1"
-msgstr "Aggiunta ai messaggi speciali non riuscita: %1"
+msgstr "Impossibile ricevere il messaggio: %1"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:94
-#, fuzzy, kde-format
-#| msgid "Impossible to start pin message job"
+#, kde-format
 msgid "Impossible to get message"
-msgstr "Impossibile avviare l'operazione di fissaggio del messaggio"
+msgstr "Impossibile ricevere il messaggio"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:27
 #, kde-format
