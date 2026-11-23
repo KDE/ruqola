@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-21 01:11+0000\n"
+"POT-Creation-Date: 2026-11-23 01:03+0000\n"
 "PO-Revision-Date: 2026-11-17 08:45+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -804,17 +804,17 @@ msgstr "Falta l'URL del servidor."
 msgid "Socket was unexpectedly closed."
 msgstr "El sòcol s'ha tancat inesperadament."
 
-#: core/mcpserver/common/toolbase.cpp:87
+#: core/mcpserver/common/toolbase.cpp:96
 #, kde-format
 msgid "Another confirmation is pending"
 msgstr "Hi ha pendent una altra confirmació"
 
-#: core/mcpserver/common/toolbase.cpp:93
+#: core/mcpserver/common/toolbase.cpp:102
 #, kde-format
 msgid "MCP tool asks confirmation"
 msgstr "L'eina MCP demana confirmació"
 
-#: core/mcpserver/common/toolbase.cpp:94
+#: core/mcpserver/common/toolbase.cpp:103
 #, kde-format
 msgid ""
 "Run \"%1\"?\n"
@@ -823,24 +823,24 @@ msgstr ""
 "Voleu executar «%1»?\n"
 "%2"
 
-#: core/mcpserver/common/toolbase.cpp:108
+#: core/mcpserver/common/toolbase.cpp:117
 #, kde-format
 msgid "Action refused by user"
 msgstr "Acció rebutjada per l'usuari"
 
-#: core/mcpserver/common/toolbase.cpp:111
+#: core/mcpserver/common/toolbase.cpp:120
 #: core/videoconference/videoconferencenotificationjob.cpp:61
 #, kde-format
 msgid "Accept"
 msgstr "Accepta"
 
-#: core/mcpserver/common/toolbase.cpp:119
+#: core/mcpserver/common/toolbase.cpp:128
 #: core/videoconference/videoconferencenotificationjob.cpp:67
 #, kde-format
 msgid "Reject"
 msgstr "Rebutja"
 
-#: core/mcpserver/common/toolbase.cpp:149
+#: core/mcpserver/common/toolbase.cpp:159
 #: core/mcpserver/getmessage/getmessagetool.cpp:48
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:91
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:75
@@ -854,19 +854,19 @@ msgstr "Rebutja"
 msgid "Account is not logged in"
 msgstr "El compte no ha iniciat la sessió"
 
-#: core/mcpserver/common/toolbase.cpp:157
+#: core/mcpserver/common/toolbase.cpp:167
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:71
 #, kde-format
 msgid "Missing search pattern"
 msgstr "Falta el patró de busca"
 
-#: core/mcpserver/common/toolbase.cpp:172
+#: core/mcpserver/common/toolbase.cpp:182
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:101
 #, kde-format
 msgid "Search failed: %1"
 msgstr "No s'ha pogut fer la busca: %1"
 
-#: core/mcpserver/common/toolbase.cpp:175
+#: core/mcpserver/common/toolbase.cpp:185
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:104
 #, kde-format
 msgid "Impossible to start search"
