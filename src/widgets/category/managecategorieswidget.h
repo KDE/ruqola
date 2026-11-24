@@ -36,6 +36,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void updateButtons();
     LIBRUQOLAWIDGETS_NO_EXPORT void addCategory(const Category &category);
     LIBRUQOLAWIDGETS_NO_EXPORT static void updateItem(QStandardItem *item, const Category &category);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool contains(const QString &name, const QByteArray &excludeName) const;
     QList<QByteArray> mRemovedCategoriesIdentifier;
     QListView *const mCategoriesListView;
     QStandardItemModel *const mCategoriesModel;

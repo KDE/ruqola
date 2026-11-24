@@ -105,6 +105,18 @@ void ManageCategoriesWidget::setCategories(const QList<Category> &categories)
     updateButtons();
 }
 
+bool ManageCategoriesWidget::contains(const QString &name, const QByteArray &excludeIdentifier) const
+{
+    const int rowCount = mCategoriesModel->rowCount();
+    for (int i = 0; i < rowCount; ++i) {
+        const Category category = mCategoriesModel->item(i)->data(CategoryRole).value<Category>();
+        if (category.identifier() != excludeIdentifier && category.name().compare(name, Qt::CaseInsensitive) == 0) {
+            return true;
+        }
+    }
+    return false;
+}
+
 QList<Category> ManageCategoriesWidget::categories() const
 {
     QList<Category> categories;
@@ -133,10 +145,15 @@ void ManageCategoriesWidget::slotAddCategory()
 {
     QPointer<CategoryDialog> dialog(new CategoryDialog(CategoryDialog::Mode::Add, this));
     if (dialog->exec()) {
-        Category category;
-        category.setIdentifier(QUuid::createUuid().toByteArray(QUuid::WithoutBraces));
-        category.setName(dialog->categoryName());
-        addCategory(category);
+        const QString categoryName = dialog->categoryName();
+        if (contains(categoryName, {})) {
+            KMessageBox::error(this, i18n("This name %1 already exists.", categoryName), i18nc("@title:window", "Category"));
+        } else {
+            Category category;
+            category.setIdentifier(QUuid::createUuid().toByteArray(QUuid::WithoutBraces));
+            category.setName(categoryName);
+            addCategory(category);
+        }
     }
     delete dialog;
 }
@@ -155,10 +172,16 @@ void ManageCategoriesWidget::slotModifyCategoryFromIndex(const QModelIndex &inde
     // copy => we keep identifier
     Category category = item->data(CategoryRole).value<Category>();
     QPointer<CategoryDialog> dialog(new CategoryDialog(CategoryDialog::Mode::Rename, this));
-    dialog->setCategoryName(category.name());
+    const QString originalName = category.name();
+    dialog->setCategoryName(originalName);
     if (dialog->exec()) {
-        category.setName(dialog->categoryName());
-        updateItem(item, category);
+        const QString categoryName = dialog->categoryName();
+        if (contains(categoryName, category.identifier())) {
+            KMessageBox::error(this, i18n("This name %1 already exists.", categoryName), i18nc("@title:window", "Category"));
+        } else {
+            category.setName(categoryName);
+            updateItem(item, category);
+        }
     }
     delete dialog;
 }
