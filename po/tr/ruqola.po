@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-23 01:03+0000\n"
-"PO-Revision-Date: 2026-11-20 17:07+0300\n"
+"PO-Revision-Date: 2026-11-23 18:16+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -716,7 +716,7 @@ msgstr "Yok"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:283
 #, kde-format
 msgid "Default"
-msgstr "Öntanımlı"
+msgstr "Varsayılan"
 
 #: core/customsound/customsoundsmanager.cpp:43
 #, kde-format
@@ -1599,7 +1599,7 @@ msgstr "Saltokunur"
 #: core/model/adminroomsmodel.cpp:44 core/model/directoryroomsmodel.cpp:129
 #, kde-format
 msgid "Default Room"
-msgstr "Öntanımlı Oda"
+msgstr "Varsayılan Oda"
 
 #: core/model/adminroomsmodel.cpp:47
 #, kde-format
@@ -2780,7 +2780,7 @@ msgstr "Kullanıcı, doğrudan odalara davet edilemiyor"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:270
 msgid "The channel default setting is the same as what it would be changed to."
-msgstr "Kanal öntanımlı ayarı, değiştirilmek istenen ayarla aynı."
+msgstr "Kanal varsayılan ayarı, değiştirilmek istenen ayarla aynı."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:271
 msgid "The bodyParam 'default' is required"
@@ -4167,7 +4167,7 @@ msgstr[1] "%1 kullanıcı (Toplam: %2)"
 #, kde-format
 msgctxt "@option:check"
 msgid "Default"
-msgstr "Öntanımlı"
+msgstr "Varsayılan"
 
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:20
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:24
@@ -4843,7 +4843,7 @@ msgstr "Yeni kullanıcıları elle onayla"
 #, kde-format
 msgctxt "@option:check"
 msgid "Use Default Blocked Domains List"
-msgstr "Öntanımlı engelli etki alanları listesi kullan"
+msgstr "Varsayılan engelli etki alanları listesi kullan"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:53
 #, kde-format
@@ -4943,7 +4943,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:184
 #, kde-format
 msgid "Default Username Prefix Suggestion"
-msgstr "Öntanımlı Kullanıcı Adı Öneki Önerisi"
+msgstr "Varsayılan Kullanıcı Adı Öneki Önerisi"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:187
 #, kde-format
@@ -4986,13 +4986,13 @@ msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "authentication services"
 msgstr ""
-"Kimlik doğrulama hizmetleriyle kayıt olurken öntanımlı kullanıcı rolleri "
+"Kimlik doğrulama hizmetleriyle kayıt olurken varsayılan kullanıcı rolleri "
 "(virgülle ayrılan) verilecektir."
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:210
 #, kde-format
 msgid "Default Roles for Authentication Services"
-msgstr "Kimlik Doğrulama Hizmetleri için Öntanımlı Roller"
+msgstr "Kimlik Doğrulama Hizmetleri için Varsayılan Roller"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:216
 #, kde-format
@@ -5000,13 +5000,13 @@ msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "manual registration (including via API)"
 msgstr ""
-"Elle kayıt olurken (API de içerilir) öntanımlı kullanıcı rolleri (virgülle "
+"Elle kayıt olurken (API de içerilir) varsayılan kullanıcı rolleri (virgülle "
 "ayrılan) verilecektir"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:217
 #, kde-format
 msgid "Default Roles for Users"
-msgstr "Kullanıcılar için Öntanımlı Roller"
+msgstr "Kullanıcılar için Varsayılan Roller"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -5437,7 +5437,7 @@ msgstr "Cepte çalmaya izin ver"
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:30
 #, kde-format
 msgid "Default Provider"
-msgstr "Öntanımlı Sağlayıcı"
+msgstr "Varsayılan Sağlayıcı"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:25
 #, kde-format
@@ -5603,13 +5603,13 @@ msgstr "Etkinleştirilmiş uçtan uca şifreleme"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable encryption for Direct Rooms by default"
-msgstr "Doğrudan Odalar için şifrelemeyi öntanımlı olarak etkinleştir"
+msgstr "Doğrudan Odalar için şifrelemeyi varsayılan olarak etkinleştir"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:19
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable encryption for Private Rooms by default"
-msgstr "Özel Odalar için şifrelemeyi öntanımlı olarak etkinleştir"
+msgstr "Özel Odalar için şifrelemeyi varsayılan olarak etkinleştir"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:20
 #, kde-format
@@ -5965,7 +5965,7 @@ msgid ""
 "sending emails"
 msgstr ""
 "Gösterge tablosunu gösterirken veya e-postalar gönderilirken kullanılacak "
-"öntanımlı zaman dilimini ayarlar"
+"varsayılan zaman dilimini ayarlar"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:115
 #, kde-format
@@ -5985,7 +5985,7 @@ msgstr "Kullanıcının geçerli zaman dilimi"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:119
 #, kde-format
 msgid "Default timezone for reporting"
-msgstr "Raporlama için öntanımlı zaman dilimi"
+msgstr "Raporlama için varsayılan zaman dilimi"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:122
 #, kde-format
@@ -6128,7 +6128,7 @@ msgstr "Gerçek ad kullan"
 #, kde-format
 msgctxt "@option:check"
 msgid "Use Full Name Initials to Generate Default Avatar"
-msgstr "Öntanımlı avatar oluşturmak için tam ad baş harflerini kullan"
+msgstr "Varsayılan avatar oluşturmak için tam ad baş harflerini kullan"
 
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:21
 #, kde-format
@@ -7327,7 +7327,7 @@ msgstr "İptal"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
-msgstr "Öntanımlı sunucu değerine geri yükle"
+msgstr "Varsayılan sunucu değerine geri yükle"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:21
 #, kde-format
@@ -8806,7 +8806,7 @@ msgstr "Buda"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Maximum message age in days (default: 30):"
-msgstr "Gün olarak en yüksek ileti yaşı (öntanımlı: 30):"
+msgstr "Gün olarak en yüksek ileti yaşı (varsayılan: 30):"
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:65
 #, kde-format
@@ -10970,12 +10970,12 @@ msgstr "Dosya İndirme İstendi"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:282
 #, kde-format
 msgid "Default (%1)"
-msgstr "Öntanımlı (%1)"
+msgstr "Varsayılan (%1)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:290
 #, kde-format
 msgid "Default (Every Mention/DM)"
-msgstr "Öntanımlı (Her Değinme/Dİ)"
+msgstr "Varsayılan (Her Değinme/Dİ)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:291
 #, kde-format
