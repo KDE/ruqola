@@ -666,6 +666,14 @@ if(HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL)
             mcpserver/updateroomsettings/updateroomsettingstool.cpp
             mcpserver/reactonmessage/reactonmessagetool.cpp
             mcpserver/reactonmessage/reactonmessagetool.h
+            mcpserver/createdirectmessage/createdirectmessagetool.h
+            mcpserver/createdirectmessage/createdirectmessagetool.cpp
+            mcpserver/createroom/createroomtool.h
+            mcpserver/createroom/createroomtool.cpp
+            mcpserver/createteam/createteamtool.h
+            mcpserver/createteam/createteamtool.cpp
+            mcpserver/creatediscussion/creatediscussiontool.h
+            mcpserver/creatediscussion/creatediscussiontool.cpp
     )
 endif()
 
