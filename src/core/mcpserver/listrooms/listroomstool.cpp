@@ -54,11 +54,11 @@ void ListRoomsTool::doCall(TextAutoGenerateTextMcpProtocolCore::McpProtocolServe
         if (room->archived()) {
             entry += u" [archived]";
         }
-        if (room->unread() > 0) {
-            entry += u" [unread: %1]"_s.arg(room->unread());
-        }
         if (room->readOnly()) {
             entry += u" [read only]";
+        }
+        if (room->unread() > 0) {
+            entry += u" [unread: %1]"_s.arg(room->unread());
         }
         entries.append(entry);
     }
