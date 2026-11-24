@@ -19,7 +19,6 @@ namespace
 {
 constexpr int defaultSearchCount = 25;
 constexpr int maximumSearchCount = 100;
-
 }
 
 SearchMessagesTool::SearchMessagesTool(AccountManager *accountManager)
