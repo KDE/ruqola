@@ -57,6 +57,9 @@ void ListRoomsTool::doCall(TextAutoGenerateTextMcpProtocolCore::McpProtocolServe
         if (room->unread() > 0) {
             entry += u" [unread: %1]"_s.arg(room->unread());
         }
+        if (room->readOnly()) {
+            entry += u" [read only]";
+        }
         entries.append(entry);
     }
 
