@@ -6,6 +6,10 @@
 #include "mcpservermanager.h"
 #include "accountmanager.h"
 #include "listaccounts/listaccountstool.h"
+#include "mcpserver/createdirectmessage/createdirectmessagetool.h"
+#include "mcpserver/creatediscussion/creatediscussiontool.h"
+#include "mcpserver/createroom/createroomtool.h"
+#include "mcpserver/createteam/createteamtool.h"
 #include "mcpserver/getmessage/getmessagetool.h"
 #include "mcpserver/getmystatus/getmystatustool.h"
 #include "mcpserver/getroominfo/getroominfotool.h"
@@ -67,6 +71,10 @@ McpServerManager::McpServerManager(AccountManager *accountManager, QObject *pare
     addTool(std::make_unique<GetRoomRolesTool>(mAccountManager));
     addTool(std::make_unique<UpdateRoomSettingsTool>(mAccountManager));
     addTool(std::make_unique<ReactOnMessageTool>(mAccountManager));
+    addTool(std::make_unique<CreateDirectMessageTool>(mAccountManager));
+    addTool(std::make_unique<CreateRoomTool>(mAccountManager));
+    addTool(std::make_unique<CreateTeamTool>(mAccountManager));
+    addTool(std::make_unique<CreateDiscussionTool>(mAccountManager));
     loadConfig();
 }
 

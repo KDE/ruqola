@@ -5,9 +5,10 @@
 */
 #pragma once
 
-#include <QString>
+#include <QStringList>
 
 class QJsonObject;
+class QJsonValue;
 
 namespace TextAutoGenerateTextMcpProtocolCore
 {
@@ -28,4 +29,6 @@ void addToolMeta(TextAutoGenerateTextMcpProtocolCore::McpProtocolTool &tool, Tit
 [[nodiscard]] QString groupTitleFromType(TitleType type);
 // One-line summary of a message (id, date, author, flags) followed by its text
 [[nodiscard]] QString messageEntry(const QJsonObject &message, const QString &userId);
+// User names from an array or a comma-separated string (leading '@' removed, empty entries skipped)
+[[nodiscard]] QStringList userNamesFromArgument(const QJsonValue &value);
 }

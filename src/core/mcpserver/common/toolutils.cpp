@@ -84,3 +84,28 @@ QString ToolUtils::messageEntry(const QJsonObject &message, const QString &userI
     }
     return entry;
 }
+
+QStringList ToolUtils::userNamesFromArgument(const QJsonValue &value)
+{
+    QStringList entries;
+    if (value.isArray()) {
+        const QJsonArray array = value.toArray();
+        for (const QJsonValue &entry : array) {
+            entries.append(entry.toString());
+        }
+    } else {
+        entries = value.toString().split(u',');
+    }
+    QStringList userNames;
+    userNames.reserve(entries.count());
+    for (const QString &entry : std::as_const(entries)) {
+        QString userName = entry.trimmed();
+        if (userName.startsWith(u'@')) {
+            userName.remove(0, 1);
+        }
+        if (!userName.isEmpty() && !userNames.contains(userName)) {
+            userNames.append(userName);
+        }
+    }
+    return userNames;
+}
