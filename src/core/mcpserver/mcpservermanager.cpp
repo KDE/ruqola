@@ -17,6 +17,7 @@
 #include "mcpserver/listrooms/listroomstool.h"
 #include "mcpserver/markroomasread/markroomasreadtool.h"
 #include "mcpserver/pinmessage/pinmessagetool.h"
+#include "mcpserver/reactonmessage/reactonmessagetool.h"
 #include "mcpserver/searchmessages/searchmessagestool.h"
 #include "mcpserver/searchrooms/searchroomstool.h"
 #include "mcpserver/searchusers/searchuserstool.h"
@@ -65,6 +66,7 @@ McpServerManager::McpServerManager(AccountManager *accountManager, QObject *pare
     addTool(std::make_unique<MarkRoomAsReadTool>(mAccountManager));
     addTool(std::make_unique<GetRoomRolesTool>(mAccountManager));
     addTool(std::make_unique<UpdateRoomSettingsTool>(mAccountManager));
+    addTool(std::make_unique<ReactOnMessageTool>(mAccountManager));
     loadConfig();
 }
 

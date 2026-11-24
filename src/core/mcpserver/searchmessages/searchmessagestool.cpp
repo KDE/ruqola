@@ -33,7 +33,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool SearchMessagesTool::definit
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
         u"message_search"_s,
         i18n("Search Messages"),
-        u"Search messages in a room; returns message identifiers usable with message_get, message_star and message_pin"_s,
+        u"Search messages in a room; returns message identifiers usable with message_get, message_star, message_pin and message_reacton"_s,
         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly,
         QMap<QString, QJsonObject>{
             {u"accountName"_s,
