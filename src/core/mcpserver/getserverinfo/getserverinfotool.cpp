@@ -22,12 +22,13 @@ GetServerInfoTool::~GetServerInfoTool() = default;
 TextAutoGenerateTextMcpProtocolCore::McpProtocolTool GetServerInfoTool::definition() const
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
-        u"get_server_info"_s,
+        u"misc_get_server_info"_s,
         i18n("Get Server Info"),
         u"Get information about the Rocket.Chat server of an account"_s,
         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly,
         QMap<QString, QJsonObject>{
-            {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)}});
+            {u"accountName"_s,
+             McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see currentuser_list_accounts); current account if omitted"_s)}});
 
     ToolUtils::addToolMeta(tool, ToolUtils::Misc);
     return tool;

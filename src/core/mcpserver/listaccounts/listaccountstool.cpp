@@ -23,7 +23,7 @@ ListAccountsTool::~ListAccountsTool() = default;
 TextAutoGenerateTextMcpProtocolCore::McpProtocolTool ListAccountsTool::definition() const
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool =
-        TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(u"list_accounts"_s,
+        TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(u"currentuser_list_accounts"_s,
                                                                                i18n("List Accounts"),
                                                                                u"List the accounts"_s,
                                                                                TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly);

@@ -22,12 +22,13 @@ SetMyStatusTool::~SetMyStatusTool() = default;
 TextAutoGenerateTextMcpProtocolCore::McpProtocolTool SetMyStatusTool::definition() const
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
-        u"set_my_status"_s,
+        u"currentuser_set_status"_s,
         i18n("Set My Status"),
         u"Set the presence status of the logged-in user of an account, with an optional status text"_s,
         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::Modify,
         QMap<QString, QJsonObject>{
-            {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)},
+            {u"accountName"_s,
+             McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see currentuser_list_accounts); current account if omitted"_s)},
             {u"status"_s, McpProtocolServerTool::schemaEnumProperty({u"online"_s, u"busy"_s, u"away"_s, u"offline"_s}, u"New presence status"_s)},
             {u"statusText"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Custom status text; cleared if omitted"_s)}},
         {u"status"_s});

@@ -23,12 +23,13 @@ PinMessageTool::~PinMessageTool() = default;
 TextAutoGenerateTextMcpProtocolCore::McpProtocolTool PinMessageTool::definition() const
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
-        u"pin_message"_s,
+        u"message_pin"_s,
         i18n("Pin Message"),
         u"Pin or unpin a message in its room"_s,
         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::Modify,
         QMap<QString, QJsonObject>{
-            {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)},
+            {u"accountName"_s,
+             McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see currentuser_list_accounts); current account if omitted"_s)},
             {u"messageId"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Message identifier"_s)},
             {u"pinned"_s, McpProtocolServerTool::schemaProperty(u"boolean"_s, u"true to pin the message, false to unpin it; true if omitted"_s)}},
         {u"messageId"_s});

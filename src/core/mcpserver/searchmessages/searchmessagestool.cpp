@@ -31,13 +31,14 @@ SearchMessagesTool::~SearchMessagesTool() = default;
 TextAutoGenerateTextMcpProtocolCore::McpProtocolTool SearchMessagesTool::definition() const
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
-        u"search_messages"_s,
+        u"message_search"_s,
         i18n("Search Messages"),
-        u"Search messages in a room; returns message identifiers usable with get_message, star_message and pin_message"_s,
+        u"Search messages in a room; returns message identifiers usable with message_get, message_star and message_pin"_s,
         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly,
         QMap<QString, QJsonObject>{
-            {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)},
-            {u"roomId"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Room identifier (see list_rooms or search_rooms)"_s)},
+            {u"accountName"_s,
+             McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see currentuser_list_accounts); current account if omitted"_s)},
+            {u"roomId"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Room identifier (see room_list or room_search)"_s)},
             {u"pattern"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Text to search for"_s)},
             {u"useRegularExpression"_s,
              McpProtocolServerTool::schemaProperty(u"boolean"_s, u"Interpret pattern as a case-insensitive regular expression; false if omitted"_s)},

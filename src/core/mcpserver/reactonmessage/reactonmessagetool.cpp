@@ -23,12 +23,13 @@ ReactOnMessageTool::~ReactOnMessageTool() = default;
 TextAutoGenerateTextMcpProtocolCore::McpProtocolTool ReactOnMessageTool::definition() const
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
-        u"star_message"_s,
+        u"message_star"_s,
         i18n("Star Message"),
         u"Star (mark as favorite) or unstar a message"_s,
         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::Modify,
         QMap<QString, QJsonObject>{
-            {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)},
+            {u"accountName"_s,
+             McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see currentuser_list_accounts); current account if omitted"_s)},
             {u"messageId"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Message identifier"_s)},
             {u"starred"_s, McpProtocolServerTool::schemaProperty(u"boolean"_s, u"true to star the message, false to unstar it; true if omitted"_s)}},
         {u"messageId"_s});

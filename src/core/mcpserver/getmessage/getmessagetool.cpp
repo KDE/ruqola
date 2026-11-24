@@ -25,12 +25,13 @@ GetMessageTool::~GetMessageTool() = default;
 TextAutoGenerateTextMcpProtocolCore::McpProtocolTool GetMessageTool::definition() const
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
-        u"get_message"_s,
+        u"message_get"_s,
         i18n("Get Message"),
-        u"Get a message from its identifier (see search_messages): author, date, room, thread, flags and text"_s,
+        u"Get a message from its identifier (see message_search): author, date, room, thread, flags and text"_s,
         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly,
         QMap<QString, QJsonObject>{
-            {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)},
+            {u"accountName"_s,
+             McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see currentuser_list_accounts); current account if omitted"_s)},
             {u"messageId"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Message identifier"_s)}},
         {u"messageId"_s});
     ToolUtils::addToolMeta(tool, ToolUtils::Messages);

@@ -23,12 +23,13 @@ GetMyStatusTool::~GetMyStatusTool() = default;
 TextAutoGenerateTextMcpProtocolCore::McpProtocolTool GetMyStatusTool::definition() const
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
-        u"get_my_status"_s,
+        u"currentuser_get_status"_s,
         i18n("Get My Status"),
         u"Get the current presence status of the logged-in user of an account"_s,
         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly,
         QMap<QString, QJsonObject>{
-            {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)}});
+            {u"accountName"_s,
+             McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see currentuser_list_accounts); current account if omitted"_s)}});
     ToolUtils::addToolMeta(tool, ToolUtils::CurrentUser);
 
     return tool;

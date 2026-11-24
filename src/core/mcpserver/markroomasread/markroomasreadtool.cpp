@@ -25,13 +25,14 @@ MarkRoomAsReadTool::~MarkRoomAsReadTool() = default;
 TextAutoGenerateTextMcpProtocolCore::McpProtocolTool MarkRoomAsReadTool::definition() const
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
-        u"mark_room_as_read"_s,
+        u"room_mark_as_read"_s,
         i18n("Mark Room as Read"),
         u"Mark all messages of a room as read, including unread threads"_s,
         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::Modify,
         QMap<QString, QJsonObject>{
-            {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)},
-            {u"roomId"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Room identifier (see list_rooms)"_s)}},
+            {u"accountName"_s,
+             McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see currentuser_list_accounts); current account if omitted"_s)},
+            {u"roomId"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Room identifier (see room_list)"_s)}},
         {u"roomId"_s});
     ToolUtils::addToolMeta(tool, ToolUtils::Rooms);
     return tool;

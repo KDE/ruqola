@@ -21,12 +21,13 @@ SearchUsersTool::~SearchUsersTool() = default;
 TextAutoGenerateTextMcpProtocolCore::McpProtocolTool SearchUsersTool::definition() const
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
-        u"search_users"_s,
+        u"user_search"_s,
         i18n("Search Users"),
         u"Search the users of the server directory by user name or name"_s,
         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly,
         QMap<QString, QJsonObject>{
-            {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)},
+            {u"accountName"_s,
+             McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see currentuser_list_accounts); current account if omitted"_s)},
             {u"pattern"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Text to search in user names and names (without @)"_s)},
             {u"count"_s, McpProtocolServerTool::schemaProperty(u"integer"_s, u"Maximum number of results (1-100); 25 if omitted"_s)}},
         {u"pattern"_s});

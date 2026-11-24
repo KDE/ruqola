@@ -26,13 +26,14 @@ UpdateRoomSettingsTool::~UpdateRoomSettingsTool() = default;
 TextAutoGenerateTextMcpProtocolCore::McpProtocolTool UpdateRoomSettingsTool::definition() const
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
-        u"update_room_settings"_s,
+        u"room_update_settings"_s,
         i18n("Update Room Settings"),
         u"Change the name, topic, description or announcement of a room. Only the given fields are changed; pass an empty string to clear a field"_s,
         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::Modify,
         QMap<QString, QJsonObject>{
-            {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)},
-            {u"roomId"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Room identifier (see list_rooms)"_s)},
+            {u"accountName"_s,
+             McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see currentuser_list_accounts); current account if omitted"_s)},
+            {u"roomId"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Room identifier (see room_list)"_s)},
             {u"name"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"New room name (cannot be empty)"_s)},
             {u"topic"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"New room topic"_s)},
             {u"description"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"New room description"_s)},

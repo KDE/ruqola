@@ -45,11 +45,11 @@ QString ToolUtils::groupFromType(TitleType type)
 {
     switch (type) {
     case Rooms:
-        return u"rooms"_s;
+        return u"room"_s;
     case Messages:
-        return u"messages"_s;
+        return u"message"_s;
     case Users:
-        return u"users"_s;
+        return u"user"_s;
     case CurrentUser:
         return u"currentuser"_s;
     case Misc:

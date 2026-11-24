@@ -49,13 +49,14 @@ ListRoomMembersTool::~ListRoomMembersTool() = default;
 TextAutoGenerateTextMcpProtocolCore::McpProtocolTool ListRoomMembersTool::definition() const
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
-        u"list_room_members"_s,
+        u"room_list_members"_s,
         i18n("List Room Members"),
         u"List the members of a room with their user name, name, identifier and presence status"_s,
         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly,
         QMap<QString, QJsonObject>{
-            {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)},
-            {u"roomId"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Room identifier (see list_rooms or search_rooms)"_s)},
+            {u"accountName"_s,
+             McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see currentuser_list_accounts); current account if omitted"_s)},
+            {u"roomId"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Room identifier (see room_list or room_search)"_s)},
             {u"filter"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Only return members whose user name or name contains this text"_s)},
             {u"count"_s, McpProtocolServerTool::schemaProperty(u"integer"_s, u"Maximum number of results (1-100); 50 if omitted"_s)},
             {u"offset"_s, McpProtocolServerTool::schemaProperty(u"integer"_s, u"Number of results to skip, for paging; 0 if omitted"_s)}},

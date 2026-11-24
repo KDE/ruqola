@@ -24,12 +24,13 @@ GetUnreadSummaryTool::~GetUnreadSummaryTool() = default;
 TextAutoGenerateTextMcpProtocolCore::McpProtocolTool GetUnreadSummaryTool::definition() const
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
-        u"get_unread_summary"_s,
+        u"currentuser_get_unread_summary"_s,
         i18n("Get Unread Summary"),
         u"Get a summary of the rooms with unread messages or mentions"_s,
         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly,
         QMap<QString, QJsonObject>{
-            {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)}});
+            {u"accountName"_s,
+             McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see currentuser_list_accounts); current account if omitted"_s)}});
     ToolUtils::addToolMeta(tool, ToolUtils::CurrentUser);
     return tool;
 }

@@ -68,13 +68,14 @@ GetRoomRolesTool::~GetRoomRolesTool() = default;
 TextAutoGenerateTextMcpProtocolCore::McpProtocolTool GetRoomRolesTool::definition() const
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
-        u"get_room_roles"_s,
+        u"room_get_roles"_s,
         i18n("Get Room Roles"),
         u"List the users who have a role (owner, moderator, leader) in a channel or private group"_s,
         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly,
         QMap<QString, QJsonObject>{
-            {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)},
-            {u"roomId"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Room identifier (see list_rooms or search_rooms)"_s)}},
+            {u"accountName"_s,
+             McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see currentuser_list_accounts); current account if omitted"_s)},
+            {u"roomId"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Room identifier (see room_list or room_search)"_s)}},
         {u"roomId"_s});
     ToolUtils::addToolMeta(tool, ToolUtils::Rooms);
     return tool;

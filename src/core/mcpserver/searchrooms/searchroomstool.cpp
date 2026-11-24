@@ -21,12 +21,13 @@ SearchRoomsTool::~SearchRoomsTool() = default;
 TextAutoGenerateTextMcpProtocolCore::McpProtocolTool SearchRoomsTool::definition() const
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
-        u"search_rooms"_s,
+        u"room_search"_s,
         i18n("Search Rooms"),
         u"Search the public rooms of the server directory by name, including rooms the user has not joined"_s,
         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly,
         QMap<QString, QJsonObject>{
-            {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)},
+            {u"accountName"_s,
+             McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see currentuser_list_accounts); current account if omitted"_s)},
             {u"pattern"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Text to search in room names (without #)"_s)},
             {u"count"_s, McpProtocolServerTool::schemaProperty(u"integer"_s, u"Maximum number of results (1-100); 25 if omitted"_s)}},
         {u"pattern"_s});

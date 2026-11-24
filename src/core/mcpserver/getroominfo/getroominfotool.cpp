@@ -24,13 +24,14 @@ GetRoomInfoTool::~GetRoomInfoTool() = default;
 TextAutoGenerateTextMcpProtocolCore::McpProtocolTool GetRoomInfoTool::definition() const
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
-        u"get_room_info"_s,
+        u"room_get_info"_s,
         i18n("Get Room Info"),
         u"Get information about a room"_s,
         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly,
         QMap<QString, QJsonObject>{
-            {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)},
-            {u"roomId"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Room identifier (see list_rooms)"_s)}},
+            {u"accountName"_s,
+             McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see currentuser_list_accounts); current account if omitted"_s)},
+            {u"roomId"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Room identifier (see room_list)"_s)}},
         {u"roomId"_s});
     ToolUtils::addToolMeta(tool, ToolUtils::Rooms);
     return tool;

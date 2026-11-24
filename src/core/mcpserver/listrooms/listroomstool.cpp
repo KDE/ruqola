@@ -23,12 +23,13 @@ ListRoomsTool::~ListRoomsTool() = default;
 TextAutoGenerateTextMcpProtocolCore::McpProtocolTool ListRoomsTool::definition() const
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
-        u"list_rooms"_s,
+        u"room_list"_s,
         i18n("List Rooms"),
         u"List the rooms"_s,
         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly,
         QMap<QString, QJsonObject>{
-            {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)}});
+            {u"accountName"_s,
+             McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see currentuser_list_accounts); current account if omitted"_s)}});
     ToolUtils::addToolMeta(tool, ToolUtils::Rooms);
     return tool;
 }
