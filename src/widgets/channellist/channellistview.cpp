@@ -164,7 +164,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
         }
     });
 
-    if (mCurrentRocketChatAccount->hasAtLeastVersion(8, 9, 0)) { // TODO we need to be sure that RC support it. Settings ?
+    if (mCurrentRocketChatAccount->hasAtLeastVersion(8, 9, 0) && mCurrentRocketChatAccount->ruqolaServerConfig()->hasEnterpriseSupport()) {
         menu.addSeparator();
         auto categoryMenu = new CategoriesMenu(mCurrentRocketChatAccount, &menu);
         categoryMenu->setCategories(mCurrentRocketChatAccount->ownUserPreferences().categories());
