@@ -664,6 +664,8 @@ if(HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL)
             mcpserver/getroomroles/getroomrolestool.cpp
             mcpserver/updateroomsettings/updateroomsettingstool.h
             mcpserver/updateroomsettings/updateroomsettingstool.cpp
+            mcpserver/reactonmessage/reactonmessagetool.cpp
+            mcpserver/reactonmessage/reactonmessagetool.h
     )
 endif()
 
