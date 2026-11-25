@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-13 03:39+0000\n"
-"PO-Revision-Date: 2026-10-09 08:52+0200\n"
+"PO-Revision-Date: 2026-11-24 21:00+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -137,7 +137,7 @@ msgstr "Waqar Ahmed"
 #: apps/main.cpp:78
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
-msgstr "Correcció d'errors (compilació, fallada de la xarxa,...)"
+msgstr "Correcció d'errors (compilació, fallada de la xarxa...)"
 
 #: apps/main.cpp:79
 #, kde-format
@@ -379,7 +379,7 @@ msgstr "Interactuar amb la IU"
 #: core/apps/appsmarketplaceinfo.cpp:694
 #, kde-format
 msgid "Store internal data in the database"
-msgstr "Emmagatzemar la dades internes a la base de dades"
+msgstr "Emmagatzemar les dades internes a la base de dades"
 
 #: core/apps/appsmarketplaceinfo.cpp:696
 #, kde-format
@@ -5410,7 +5410,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:66
 #, kde-format
 msgid "Json Web Token Secret"
-msgstr "Secret de testimonio web JSON"
+msgstr "Secret de testimoni web JSON"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:70
 #, kde-format
@@ -6131,7 +6131,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:108
 #, kde-format
 msgid "Message Erasure Type"
-msgstr "Tipus d'esborrat de missatges"
+msgstr "Tipus d'esborrament de missatges"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:112
 #, kde-format
@@ -6269,7 +6269,7 @@ msgstr "Dies de venciment de la memòria cau incrustada"
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow Save Media to Gallery"
-msgstr "Permet desar els fitxers multimèdia a la galleria"
+msgstr "Permet desar els fitxers multimèdia a la galeria"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:20
 #, kde-format
