@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-23 01:03+0000\n"
+"POT-Creation-Date: 2026-11-25 01:25+0000\n"
 "PO-Revision-Date: 2026-11-19 16:35+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -833,15 +833,20 @@ msgid "Reject"
 msgstr "ارفض"
 
 #: core/mcpserver/common/toolbase.cpp:159
-#: core/mcpserver/getmessage/getmessagetool.cpp:48
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:91
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:75
-#: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:47
+#: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:50
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:58
+#: core/mcpserver/createroom/createroomtool.cpp:55
+#: core/mcpserver/createteam/createteamtool.cpp:54
+#: core/mcpserver/getmessage/getmessagetool.cpp:49
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:92
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:76
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:49
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:48
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:49
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:60
-#: core/mcpserver/setmystatus/setmystatustool.cpp:46
-#: core/mcpserver/starmessage/starmessagetool.cpp:47
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:53
+#: core/mcpserver/setmystatus/setmystatustool.cpp:47
+#: core/mcpserver/starmessage/starmessagetool.cpp:48
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:54
 #, kde-format
 msgid "Account is not logged in"
 msgstr "الحساب غير مسجل الدخول"
@@ -895,6 +900,150 @@ msgstr "المستخدم الحاليّ"
 msgid "Misc"
 msgstr "متفرقات"
 
+#: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:28
+#, fuzzy, kde-format
+#| msgid "Create Direct Messages…"
+msgid "Create Direct Message"
+msgstr "أنشئ رسائل مباشرة…"
+
+#: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:46
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:54
+#: core/mcpserver/createroom/createroomtool.cpp:51
+#: core/mcpserver/createteam/createteamtool.cpp:50
+#: core/mcpserver/getmessage/getmessagetool.cpp:45
+#: core/mcpserver/getmystatus/getmystatustool.cpp:42
+#: core/mcpserver/getroominfo/getroominfotool.cpp:44
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:88
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:41
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:42
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
+#: core/mcpserver/listaccounts/listaccountstool.cpp:59
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:72
+#: core/mcpserver/listrooms/listroomstool.cpp:41
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:45
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:44
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:45
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:56
+#: core/mcpserver/searchrooms/searchroomstool.cpp:42
+#: core/mcpserver/searchusers/searchuserstool.cpp:42
+#: core/mcpserver/setmystatus/setmystatustool.cpp:43
+#: core/mcpserver/starmessage/starmessagetool.cpp:44
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:50
+#, kde-format
+msgid "No account found"
+msgstr "لم يُعثر على حساب"
+
+#: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:55
+#, fuzzy, kde-format
+#| msgid "Missing user name"
+msgid "Missing user names"
+msgstr "اسم المستخدم مفقود"
+
+#: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:70
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create Direct Messages - %1"
+msgid "Create direct message failed: %1"
+msgstr "أنشئ رسائل مباشرة - %1"
+
+#: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:73
+#, fuzzy, kde-format
+#| msgid "Impossible to start star message job"
+msgid "Impossible to start create direct message job"
+msgstr "تعذّر بدء مهمة تمييز الرسالة بنجمة"
+
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:30
+#, fuzzy, kde-format
+#| msgid "Create Discussion…"
+msgid "Create Discussion"
+msgstr "أنشئ مناقشة…"
+
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:64
+#, fuzzy, kde-format
+#| msgid "Missing room identifier"
+msgid "Missing parent room identifier"
+msgstr "معرّف الغرفة مفقود"
+
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:69
+#: core/mcpserver/getroominfo/getroominfotool.cpp:54
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:102
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:87
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:59
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:65
+#, kde-format
+msgid "No room found with identifier \"%1\""
+msgstr "لم تُعثر على غرفة بالمعرّف \"%1\""
+
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:74
+#, fuzzy, kde-format
+#| msgid "Missing user name"
+msgid "Missing discussion name"
+msgstr "اسم المستخدم مفقود"
+
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:108
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create Discussion - %1"
+msgid "Create discussion failed: %1"
+msgstr "إنشاء مناقشة - %1"
+
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:111
+#, fuzzy, kde-format
+#| msgid "Impossible to start update room settings job"
+msgid "Impossible to start create discussion job"
+msgstr "تعذّر بدء مهمة تحديث إعدادات الغرفة"
+
+#: core/mcpserver/createroom/createroomtool.cpp:29
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Create Room"
+msgid "Create Room"
+msgstr "أنشئ غرفة"
+
+#: core/mcpserver/createroom/createroomtool.cpp:63
+#, fuzzy, kde-format
+#| msgid "Missing user name"
+msgid "Missing room name"
+msgstr "اسم المستخدم مفقود"
+
+#: core/mcpserver/createroom/createroomtool.cpp:79
+#, fuzzy, kde-format
+#| msgid "Search failed: %1"
+msgid "Create room failed: %1"
+msgstr "فشل البحث: %1"
+
+#: core/mcpserver/createroom/createroomtool.cpp:92
+#: core/mcpserver/createroom/createroomtool.cpp:103
+#, fuzzy, kde-format
+#| msgid "Impossible to start update room settings job"
+msgid "Impossible to start create room job"
+msgstr "تعذّر بدء مهمة تحديث إعدادات الغرفة"
+
+#: core/mcpserver/createteam/createteamtool.cpp:28
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create Team"
+msgid "Create Team"
+msgstr "أنشئ فريقًا"
+
+#: core/mcpserver/createteam/createteamtool.cpp:62
+#, fuzzy, kde-format
+#| msgid "Missing user name"
+msgid "Missing team name"
+msgstr "اسم المستخدم مفقود"
+
+#: core/mcpserver/createteam/createteamtool.cpp:84
+#, fuzzy, kde-format
+#| msgid "Star message failed: %1"
+msgid "Create team failed: %1"
+msgstr "فشل تمييز الرسالة بنجمة: %1"
+
+#: core/mcpserver/createteam/createteamtool.cpp:87
+#, fuzzy, kde-format
+#| msgid "Impossible to start star message job"
+msgid "Impossible to start create team job"
+msgstr "تعذّر بدء مهمة تمييز الرسالة بنجمة"
+
 #: core/mcpserver/getmessage/getmessagetool.cpp:29
 #, fuzzy, kde-format
 #| msgctxt "@action"
@@ -902,48 +1051,27 @@ msgstr "متفرقات"
 msgid "Get Message"
 msgstr "انتقل إلى الرسالة"
 
-#: core/mcpserver/getmessage/getmessagetool.cpp:44
-#: core/mcpserver/getmystatus/getmystatustool.cpp:41
-#: core/mcpserver/getroominfo/getroominfotool.cpp:43
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:87
-#: core/mcpserver/getserverinfo/getserverinfotool.cpp:40
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:41
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:44
-#: core/mcpserver/listaccounts/listaccountstool.cpp:59
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:71
-#: core/mcpserver/listrooms/listroomstool.cpp:40
-#: core/mcpserver/markroomasread/markroomasreadtool.cpp:44
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:43
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:56
-#: core/mcpserver/searchrooms/searchroomstool.cpp:41
-#: core/mcpserver/searchusers/searchuserstool.cpp:41
-#: core/mcpserver/setmystatus/setmystatustool.cpp:42
-#: core/mcpserver/starmessage/starmessagetool.cpp:43
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:49
-#, kde-format
-msgid "No account found"
-msgstr "لم يُعثر على حساب"
-
-#: core/mcpserver/getmessage/getmessagetool.cpp:53
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
-#: core/mcpserver/starmessage/starmessagetool.cpp:52
+#: core/mcpserver/getmessage/getmessagetool.cpp:54
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:53
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:54
+#: core/mcpserver/starmessage/starmessagetool.cpp:53
 #, kde-format
 msgid "Missing message identifier"
 msgstr "معرّف الرسالة مفقود"
 
-#: core/mcpserver/getmessage/getmessagetool.cpp:65
+#: core/mcpserver/getmessage/getmessagetool.cpp:66
 #, fuzzy, kde-format
 #| msgid "Message not found."
 msgid "Message not found"
 msgstr "لم يُعثر على الرّسالة."
 
-#: core/mcpserver/getmessage/getmessagetool.cpp:91
+#: core/mcpserver/getmessage/getmessagetool.cpp:92
 #, fuzzy, kde-format
 #| msgid "Star message failed: %1"
 msgid "Get message failed: %1"
 msgstr "فشل تمييز الرسالة بنجمة: %1"
 
-#: core/mcpserver/getmessage/getmessagetool.cpp:94
+#: core/mcpserver/getmessage/getmessagetool.cpp:95
 #, fuzzy, kde-format
 #| msgid "Impossible to start pin message job"
 msgid "Impossible to get message"
@@ -959,24 +1087,15 @@ msgstr "احصل على حالتي"
 msgid "Get Room Info"
 msgstr "جلب معلومات الغرفة"
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:48
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:96
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:81
-#: core/mcpserver/markroomasread/markroomasreadtool.cpp:53
+#: core/mcpserver/getroominfo/getroominfotool.cpp:49
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:97
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:82
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:54
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:66
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:59
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:60
 #, kde-format
 msgid "Missing room identifier"
 msgstr "معرّف الغرفة مفقود"
-
-#: core/mcpserver/getroominfo/getroominfotool.cpp:53
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:101
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:86
-#: core/mcpserver/markroomasread/markroomasreadtool.cpp:58
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:64
-#, kde-format
-msgid "No room found with identifier \"%1\""
-msgstr "لم تُعثر على غرفة بالمعرّف \"%1\""
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:47
 #, kde-format
@@ -988,23 +1107,23 @@ msgstr "لم يُعثر على مستخدمين بأدوار"
 msgid "Get Room Roles"
 msgstr "جلب أدوار الغرفة"
 
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:130
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:131
 #, kde-format
 msgid "Direct conversations have no room roles"
 msgstr "لا أدوار غرفة في المحادثات المباشرة"
 
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:133
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:101
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:134
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:102
 #, kde-format
 msgid "Unknown room type"
 msgstr "نوع غرفة غير معروف"
 
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:139
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:140
 #, kde-format
 msgid "Getting room roles failed: %1"
 msgstr "فشل جلب أدوار الغرفة: %1"
 
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:142
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:143
 #, kde-format
 msgid "Impossible to start getting room roles"
 msgstr "تعذّر بدء جلب أدوار الغرفة"
@@ -1019,7 +1138,7 @@ msgstr "جلب معلومات الخادم"
 msgid "Get Unread Summary"
 msgstr "احصل على ملخص غير المقروء"
 
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:79
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:80
 #, kde-format
 msgid "No unread messages"
 msgstr "لا رسائل غير مقروءة"
@@ -1029,7 +1148,7 @@ msgstr "لا رسائل غير مقروءة"
 msgid "Get User Status"
 msgstr "احصل على حالة المستخدم"
 
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:52
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:53
 #, kde-format
 msgid "Missing user name"
 msgstr "اسم المستخدم مفقود"
@@ -1044,17 +1163,17 @@ msgstr "سرد الحسابات"
 msgid "List Room Members"
 msgstr "سرد أعضاء الغرفة"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:125
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:126
 #, kde-format
 msgid "No members found"
 msgstr "لم يُعثر على أعضاء"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:137
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:138
 #, kde-format
 msgid "Listing members failed: %1"
 msgstr "فشل سرد الأعضاء: %1"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:140
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:141
 #, kde-format
 msgid "Impossible to start listing members"
 msgstr "تعذّر بدء سرد الأعضاء"
@@ -1064,8 +1183,8 @@ msgstr "تعذّر بدء سرد الأعضاء"
 msgid "List Rooms"
 msgstr "سرد الغرف"
 
-#: core/mcpserver/listrooms/listroomstool.cpp:64
-#: core/mcpserver/searchrooms/searchroomstool.cpp:48
+#: core/mcpserver/listrooms/listroomstool.cpp:68
+#: core/mcpserver/searchrooms/searchroomstool.cpp:49
 #, kde-format
 msgid "No rooms found"
 msgstr "لم تُعثر على غرف"
@@ -1075,17 +1194,17 @@ msgstr "لم تُعثر على غرف"
 msgid "Mark Room as Read"
 msgstr "تعليم الغرفة كمقروءة"
 
-#: core/mcpserver/markroomasread/markroomasreadtool.cpp:75
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:76
 #, kde-format
 msgid "Mark room as read failed: %1"
 msgstr "فشل تعليم الغرفة كمقروءة: %1"
 
-#: core/mcpserver/markroomasread/markroomasreadtool.cpp:78
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:79
 #, kde-format
 msgid "Impossible to start mark room as read job"
 msgstr "تعذّر بدء مهمة تعليم الغرفة كمقروءة"
 
-#: core/mcpserver/mcpservermanager.cpp:47
+#: core/mcpserver/mcpservermanager.cpp:52
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "إدارة المعلومات من رُقولة"
@@ -1095,17 +1214,42 @@ msgstr "إدارة المعلومات من رُقولة"
 msgid "Pin Message"
 msgstr "تثبيت رسالة"
 
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:70
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:71
 #, kde-format
 msgid "Pin message failed: %1"
 msgstr "فشل تثبيت الرسالة: %1"
 
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:73
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:74
 #, kde-format
 msgid "Impossible to start pin message job"
 msgstr "تعذّر بدء مهمة تثبيت الرسالة"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:36
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:27
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create Sound Message"
+msgid "React on Message"
+msgstr "أنشئ رسالة صوتية"
+
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:65
+#, fuzzy, kde-format
+#| msgid "Missing user name"
+msgid "Missing emoji"
+msgstr "اسم المستخدم مفقود"
+
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:82
+#, fuzzy, kde-format
+#| msgid "Star message failed: %1"
+msgid "React on message failed: %1"
+msgstr "فشل تمييز الرسالة بنجمة: %1"
+
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:85
+#, fuzzy, kde-format
+#| msgid "Impossible to start pin message job"
+msgid "Impossible to start react on message job"
+msgstr "تعذّر بدء مهمة تثبيت الرسالة"
+
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:35
 #, kde-format
 msgid "Search Messages"
 msgstr "بحث في الرسائل"
@@ -1125,7 +1269,7 @@ msgstr "ابحث عن الغرف"
 msgid "Search Users"
 msgstr "ابحث في المستخدمين"
 
-#: core/mcpserver/searchusers/searchuserstool.cpp:48
+#: core/mcpserver/searchusers/searchuserstool.cpp:49
 #, kde-format
 msgid "No users found"
 msgstr "لم يعثر على مستخدمين"
@@ -1135,7 +1279,7 @@ msgstr "لم يعثر على مستخدمين"
 msgid "Set My Status"
 msgstr "عيّن حالتي"
 
-#: core/mcpserver/setmystatus/setmystatustool.cpp:51
+#: core/mcpserver/setmystatus/setmystatustool.cpp:52
 #, kde-format
 msgid "Invalid status"
 msgstr "حالة غير صالحة"
@@ -1145,12 +1289,12 @@ msgstr "حالة غير صالحة"
 msgid "Star Message"
 msgstr "تمييز رسالة بنجمة"
 
-#: core/mcpserver/starmessage/starmessagetool.cpp:67
+#: core/mcpserver/starmessage/starmessagetool.cpp:68
 #, kde-format
 msgid "Star message failed: %1"
 msgstr "فشل تمييز الرسالة بنجمة: %1"
 
-#: core/mcpserver/starmessage/starmessagetool.cpp:70
+#: core/mcpserver/starmessage/starmessagetool.cpp:71
 #, kde-format
 msgid "Impossible to start star message job"
 msgstr "تعذّر بدء مهمة تمييز الرسالة بنجمة"
@@ -1160,17 +1304,17 @@ msgstr "تعذّر بدء مهمة تمييز الرسالة بنجمة"
 msgid "Update Room Settings"
 msgstr "تحديث إعدادات الغرفة"
 
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:68
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:69
 #, kde-format
 msgid "Settings of a direct room cannot be changed"
 msgstr "لا يمكن تغيير إعدادات غرفة مباشرة"
 
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:79
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:80
 #, kde-format
 msgid "Room name cannot be empty"
 msgstr "لا يمكن أن يكون اسم الغرفة فارغًا"
 
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:102
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:103
 #, kde-format
 msgid ""
 "Nothing to change: give at least one of name, topic, description or "
@@ -1178,12 +1322,12 @@ msgid ""
 msgstr ""
 "لا شيء للتغيير: أعطِ على الأقل واحدًا من الاسم أو الموضوع أو الوصف أو الإعلان"
 
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:116
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:117
 #, kde-format
 msgid "Update room settings failed: %1"
 msgstr "فشل تحديث إعدادات الغرفة: %1"
 
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:119
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:120
 #, kde-format
 msgid "Impossible to start update room settings job"
 msgstr "تعذّر بدء مهمة تحديث إعدادات الغرفة"
@@ -2274,12 +2418,12 @@ msgstr "غير متّصل"
 msgid "Not connected yet"
 msgstr "غير متّصل حتى الآن"
 
-#: core/rocketchataccount.cpp:3334
+#: core/rocketchataccount.cpp:3336
 #, kde-format
 msgid "Room Added"
 msgstr "أُضيفت الغرفة"
 
-#: core/rocketchataccount.cpp:3335
+#: core/rocketchataccount.cpp:3337
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "أضيف غرفة جديدة في '%1'."
@@ -8090,12 +8234,28 @@ msgctxt "@info:tooltip"
 msgid "Remove Category"
 msgstr "أزل الفئة"
 
-#: widgets/category/managecategorieswidget.cpp:173
+#: widgets/category/managecategorieswidget.cpp:150
+#: widgets/category/managecategorieswidget.cpp:180
+#, fuzzy, kde-format
+#| msgid "Team already exists."
+msgid "This name %1 already exists."
+msgstr "الفريق موجود مسبقًا."
+
+#: widgets/category/managecategorieswidget.cpp:150
+#: widgets/category/managecategorieswidget.cpp:180
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "Category"
+msgctxt "@title:window"
+msgid "Category"
+msgstr "الفئة"
+
+#: widgets/category/managecategorieswidget.cpp:196
 #, kde-format
 msgid "Do you want to remove this category (%1)?"
 msgstr "هل تريد إزالة هذه الفئة (%1)؟"
 
-#: widgets/category/managecategorieswidget.cpp:174
+#: widgets/category/managecategorieswidget.cpp:197
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Category"

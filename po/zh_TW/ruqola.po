@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-23 01:03+0000\n"
+"POT-Creation-Date: 2026-11-25 01:25+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -842,15 +842,20 @@ msgid "Reject"
 msgstr "拒絕"
 
 #: core/mcpserver/common/toolbase.cpp:159
-#: core/mcpserver/getmessage/getmessagetool.cpp:48
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:91
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:75
-#: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:47
+#: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:50
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:58
+#: core/mcpserver/createroom/createroomtool.cpp:55
+#: core/mcpserver/createteam/createteamtool.cpp:54
+#: core/mcpserver/getmessage/getmessagetool.cpp:49
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:92
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:76
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:49
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:48
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:49
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:60
-#: core/mcpserver/setmystatus/setmystatustool.cpp:46
-#: core/mcpserver/starmessage/starmessagetool.cpp:47
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:53
+#: core/mcpserver/setmystatus/setmystatustool.cpp:47
+#: core/mcpserver/starmessage/starmessagetool.cpp:48
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:54
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Account is not logged in"
@@ -910,57 +915,182 @@ msgstr "目前密碼"
 msgid "Misc"
 msgstr ""
 
+#: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:28
+#, fuzzy, kde-format
+#| msgid "Create Direct Messages…"
+msgid "Create Direct Message"
+msgstr "建立私訊…"
+
+#: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:46
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:54
+#: core/mcpserver/createroom/createroomtool.cpp:51
+#: core/mcpserver/createteam/createteamtool.cpp:50
+#: core/mcpserver/getmessage/getmessagetool.cpp:45
+#: core/mcpserver/getmystatus/getmystatustool.cpp:42
+#: core/mcpserver/getroominfo/getroominfotool.cpp:44
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:88
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:41
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:42
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
+#: core/mcpserver/listaccounts/listaccountstool.cpp:59
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:72
+#: core/mcpserver/listrooms/listroomstool.cpp:41
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:45
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:44
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:45
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:56
+#: core/mcpserver/searchrooms/searchroomstool.cpp:42
+#: core/mcpserver/searchusers/searchuserstool.cpp:42
+#: core/mcpserver/setmystatus/setmystatustool.cpp:43
+#: core/mcpserver/starmessage/starmessagetool.cpp:44
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:50
+#, fuzzy, kde-format
+#| msgid "No Attachment found"
+msgid "No account found"
+msgstr "未找到附件"
+
+#: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:55
+#, fuzzy, kde-format
+#| msgid "Enter username"
+msgid "Missing user names"
+msgstr "輸入使用者名稱"
+
+#: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:70
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create Direct Messages - %1"
+msgid "Create direct message failed: %1"
+msgstr "建立私訊 - %1"
+
+#: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:73
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start create direct message job"
+msgstr "無法匯出資料。"
+
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:30
+#, fuzzy, kde-format
+#| msgid "Create Discussion…"
+msgid "Create Discussion"
+msgstr "建立討論…"
+
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:64
+#, fuzzy, kde-format
+#| msgid "Enter username"
+msgid "Missing parent room identifier"
+msgstr "輸入使用者名稱"
+
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:69
+#: core/mcpserver/getroominfo/getroominfotool.cpp:54
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:102
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:87
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:59
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:65
+#, kde-format
+msgid "No room found with identifier \"%1\""
+msgstr ""
+
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:74
+#, fuzzy, kde-format
+#| msgid "Enter username"
+msgid "Missing discussion name"
+msgstr "輸入使用者名稱"
+
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:108
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create Discussion - %1"
+msgid "Create discussion failed: %1"
+msgstr "建立討論區 - %1"
+
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:111
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start create discussion job"
+msgstr "無法匯出資料。"
+
+#: core/mcpserver/createroom/createroomtool.cpp:29
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Create Room"
+msgid "Create Room"
+msgstr "建立聊天室"
+
+#: core/mcpserver/createroom/createroomtool.cpp:63
+#, fuzzy, kde-format
+#| msgid "Enter username"
+msgid "Missing room name"
+msgstr "輸入使用者名稱"
+
+#: core/mcpserver/createroom/createroomtool.cpp:79
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgid "Create room failed: %1"
+msgstr "下載影像"
+
+#: core/mcpserver/createroom/createroomtool.cpp:92
+#: core/mcpserver/createroom/createroomtool.cpp:103
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start create room job"
+msgstr "無法匯出資料。"
+
+#: core/mcpserver/createteam/createteamtool.cpp:28
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create Team"
+msgid "Create Team"
+msgstr "建立團隊"
+
+#: core/mcpserver/createteam/createteamtool.cpp:62
+#, fuzzy, kde-format
+#| msgid "Enter username"
+msgid "Missing team name"
+msgstr "輸入使用者名稱"
+
+#: core/mcpserver/createteam/createteamtool.cpp:84
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgid "Create team failed: %1"
+msgstr "下載影像"
+
+#: core/mcpserver/createteam/createteamtool.cpp:87
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start create team job"
+msgstr "無法匯出資料。"
+
 #: core/mcpserver/getmessage/getmessagetool.cpp:29
 #, fuzzy, kde-format
 #| msgid "Go to Message"
 msgid "Get Message"
 msgstr "跳到訊息"
 
-#: core/mcpserver/getmessage/getmessagetool.cpp:44
-#: core/mcpserver/getmystatus/getmystatustool.cpp:41
-#: core/mcpserver/getroominfo/getroominfotool.cpp:43
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:87
-#: core/mcpserver/getserverinfo/getserverinfotool.cpp:40
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:41
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:44
-#: core/mcpserver/listaccounts/listaccountstool.cpp:59
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:71
-#: core/mcpserver/listrooms/listroomstool.cpp:40
-#: core/mcpserver/markroomasread/markroomasreadtool.cpp:44
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:43
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:56
-#: core/mcpserver/searchrooms/searchroomstool.cpp:41
-#: core/mcpserver/searchusers/searchuserstool.cpp:41
-#: core/mcpserver/setmystatus/setmystatustool.cpp:42
-#: core/mcpserver/starmessage/starmessagetool.cpp:43
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:49
-#, fuzzy, kde-format
-#| msgid "No Attachment found"
-msgid "No account found"
-msgstr "未找到附件"
-
-#: core/mcpserver/getmessage/getmessagetool.cpp:53
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
-#: core/mcpserver/starmessage/starmessagetool.cpp:52
+#: core/mcpserver/getmessage/getmessagetool.cpp:54
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:53
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:54
+#: core/mcpserver/starmessage/starmessagetool.cpp:53
 #, fuzzy, kde-format
 #| msgid "Enter username"
 msgid "Missing message identifier"
 msgstr "輸入使用者名稱"
 
-#: core/mcpserver/getmessage/getmessagetool.cpp:65
+#: core/mcpserver/getmessage/getmessagetool.cpp:66
 #, fuzzy, kde-format
 #| msgid "Message not found."
 msgid "Message not found"
 msgstr "找不到訊息。"
 
-#: core/mcpserver/getmessage/getmessagetool.cpp:91
+#: core/mcpserver/getmessage/getmessagetool.cpp:92
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Download Image"
 msgid "Get message failed: %1"
 msgstr "下載影像"
 
-#: core/mcpserver/getmessage/getmessagetool.cpp:94
+#: core/mcpserver/getmessage/getmessagetool.cpp:95
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to get message"
@@ -979,23 +1109,14 @@ msgstr "編輯使用者狀態"
 msgid "Get Room Info"
 msgstr "找不到聊天室"
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:48
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:96
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:81
-#: core/mcpserver/markroomasread/markroomasreadtool.cpp:53
+#: core/mcpserver/getroominfo/getroominfotool.cpp:49
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:97
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:82
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:54
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:66
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:59
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:60
 #, kde-format
 msgid "Missing room identifier"
-msgstr ""
-
-#: core/mcpserver/getroominfo/getroominfotool.cpp:53
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:101
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:86
-#: core/mcpserver/markroomasread/markroomasreadtool.cpp:58
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:64
-#, kde-format
-msgid "No room found with identifier \"%1\""
 msgstr ""
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:47
@@ -1010,26 +1131,26 @@ msgstr "找不到使用者"
 msgid "Get Room Roles"
 msgstr "找不到聊天室"
 
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:130
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:131
 #, kde-format
 msgid "Direct conversations have no room roles"
 msgstr ""
 
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:133
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:101
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:134
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:102
 #, fuzzy, kde-format
 #| msgid "Unknown state"
 msgid "Unknown room type"
 msgstr "未知狀態"
 
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:139
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:140
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Download Image"
 msgid "Getting room roles failed: %1"
 msgstr "下載影像"
 
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:142
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:143
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start getting room roles"
@@ -1047,7 +1168,7 @@ msgstr "伺服器資訊"
 msgid "Get Unread Summary"
 msgstr "隱私權摘要"
 
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:79
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:80
 #, fuzzy, kde-format
 #| msgid "%1 Unread Message"
 #| msgid_plural "%1 Unread Messages"
@@ -1061,7 +1182,7 @@ msgstr "%1 個未讀訊息"
 msgid "Get User Status"
 msgstr "編輯使用者狀態"
 
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:52
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:53
 #, fuzzy, kde-format
 #| msgid "Enter username"
 msgid "Missing user name"
@@ -1080,20 +1201,20 @@ msgstr "帳戶"
 msgid "List Room Members"
 msgstr "編輯聊天室"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:125
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:126
 #, fuzzy, kde-format
 #| msgid "No user found"
 msgid "No members found"
 msgstr "找不到使用者"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:137
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:138
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Download Image"
 msgid "Listing members failed: %1"
 msgstr "下載影像"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:140
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:141
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start listing members"
@@ -1106,8 +1227,8 @@ msgstr "無法匯出資料。"
 msgid "List Rooms"
 msgstr "編輯聊天室"
 
-#: core/mcpserver/listrooms/listroomstool.cpp:64
-#: core/mcpserver/searchrooms/searchroomstool.cpp:48
+#: core/mcpserver/listrooms/listroomstool.cpp:68
+#: core/mcpserver/searchrooms/searchroomstool.cpp:49
 #, fuzzy, kde-format
 #| msgid "No room found"
 msgid "No rooms found"
@@ -1120,20 +1241,20 @@ msgstr "找不到聊天室"
 msgid "Mark Room as Read"
 msgstr "標記為已讀"
 
-#: core/mcpserver/markroomasread/markroomasreadtool.cpp:75
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:76
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Download Image"
 msgid "Mark room as read failed: %1"
 msgstr "下載影像"
 
-#: core/mcpserver/markroomasread/markroomasreadtool.cpp:78
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:79
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start mark room as read job"
 msgstr "無法匯出資料。"
 
-#: core/mcpserver/mcpservermanager.cpp:47
+#: core/mcpserver/mcpservermanager.cpp:52
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""
@@ -1145,20 +1266,46 @@ msgstr ""
 msgid "Pin Message"
 msgstr "置頂訊息"
 
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:70
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:71
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Download Image"
 msgid "Pin message failed: %1"
 msgstr "下載影像"
 
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:73
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:74
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start pin message job"
 msgstr "無法匯出資料。"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:36
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:27
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create Sound Message"
+msgid "React on Message"
+msgstr "建立語音訊息"
+
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:65
+#, fuzzy, kde-format
+#| msgid "Enter username"
+msgid "Missing emoji"
+msgstr "輸入使用者名稱"
+
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:82
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgid "React on message failed: %1"
+msgstr "下載影像"
+
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:85
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start react on message job"
+msgstr "無法匯出資料。"
+
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:35
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -1185,7 +1332,7 @@ msgstr "搜尋聊天室"
 msgid "Search Users"
 msgstr "搜尋使用者…"
 
-#: core/mcpserver/searchusers/searchuserstool.cpp:48
+#: core/mcpserver/searchusers/searchuserstool.cpp:49
 #, fuzzy, kde-format
 #| msgid "No user found"
 msgid "No users found"
@@ -1198,7 +1345,7 @@ msgstr "找不到使用者"
 msgid "Set My Status"
 msgstr "編輯使用者狀態"
 
-#: core/mcpserver/setmystatus/setmystatustool.cpp:51
+#: core/mcpserver/setmystatus/setmystatustool.cpp:52
 #, fuzzy, kde-format
 #| msgid "Invalid user"
 msgid "Invalid status"
@@ -1210,14 +1357,14 @@ msgstr "無效使用者"
 msgid "Star Message"
 msgstr "收藏的訊息"
 
-#: core/mcpserver/starmessage/starmessagetool.cpp:67
+#: core/mcpserver/starmessage/starmessagetool.cpp:68
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Download Image"
 msgid "Star message failed: %1"
 msgstr "下載影像"
 
-#: core/mcpserver/starmessage/starmessagetool.cpp:70
+#: core/mcpserver/starmessage/starmessagetool.cpp:71
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start star message job"
@@ -1228,29 +1375,29 @@ msgstr "無法匯出資料。"
 msgid "Update Room Settings"
 msgstr ""
 
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:68
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:69
 #, kde-format
 msgid "Settings of a direct room cannot be changed"
 msgstr ""
 
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:79
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:80
 #, kde-format
 msgid "Room name cannot be empty"
 msgstr ""
 
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:102
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:103
 #, kde-format
 msgid ""
 "Nothing to change: give at least one of name, topic, description or "
 "announcement"
 msgstr ""
 
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:116
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:117
 #, kde-format
 msgid "Update room settings failed: %1"
 msgstr ""
 
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:119
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:120
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start update room settings job"
@@ -2322,13 +2469,13 @@ msgstr "未連線"
 msgid "Not connected yet"
 msgstr "尚未連線"
 
-#: core/rocketchataccount.cpp:3334
+#: core/rocketchataccount.cpp:3336
 #, fuzzy, kde-format
 #| msgid "Account Added"
 msgid "Room Added"
 msgstr "帳戶已新增"
 
-#: core/rocketchataccount.cpp:3335
+#: core/rocketchataccount.cpp:3337
 #, fuzzy, kde-format
 #| msgid "A new account was added."
 msgid "A new room was added in '%1'."
@@ -8001,13 +8148,28 @@ msgctxt "@info:tooltip"
 msgid "Remove Category"
 msgstr "移除歷史"
 
-#: widgets/category/managecategorieswidget.cpp:173
+#: widgets/category/managecategorieswidget.cpp:150
+#: widgets/category/managecategorieswidget.cpp:180
+#, fuzzy, kde-format
+#| msgid "Team already exists."
+msgid "This name %1 already exists."
+msgstr "團隊已存在。"
+
+#: widgets/category/managecategorieswidget.cpp:150
+#: widgets/category/managecategorieswidget.cpp:180
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgctxt "@title:window"
+msgid "Category"
+msgstr "分類"
+
+#: widgets/category/managecategorieswidget.cpp:196
 #, fuzzy, kde-format
 #| msgid "Do you want to remove this user \"%1\"?"
 msgid "Do you want to remove this category (%1)?"
 msgstr "您確定要將這個使用者「%1」移除嗎？"
 
-#: widgets/category/managecategorieswidget.cpp:174
+#: widgets/category/managecategorieswidget.cpp:197
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Remove History"

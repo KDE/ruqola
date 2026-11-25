@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-23 01:03+0000\n"
+"POT-Creation-Date: 2026-11-25 01:25+0000\n"
 "PO-Revision-Date: 2026-11-09 07:05+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -835,15 +835,20 @@ msgid "Reject"
 msgstr "Zavrni"
 
 #: core/mcpserver/common/toolbase.cpp:159
-#: core/mcpserver/getmessage/getmessagetool.cpp:48
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:91
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:75
-#: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:47
+#: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:50
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:58
+#: core/mcpserver/createroom/createroomtool.cpp:55
+#: core/mcpserver/createteam/createteamtool.cpp:54
+#: core/mcpserver/getmessage/getmessagetool.cpp:49
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:92
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:76
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:49
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:48
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:49
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:60
-#: core/mcpserver/setmystatus/setmystatustool.cpp:46
-#: core/mcpserver/starmessage/starmessagetool.cpp:47
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:53
+#: core/mcpserver/setmystatus/setmystatustool.cpp:47
+#: core/mcpserver/starmessage/starmessagetool.cpp:48
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:54
 #, kde-format
 msgid "Account is not logged in"
 msgstr "Račun ni prijavljen"
@@ -897,54 +902,177 @@ msgstr "Trenutni uporabnik"
 msgid "Misc"
 msgstr "Razno"
 
+#: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:28
+#, fuzzy, kde-format
+#| msgid "Create Direct Messages…"
+msgid "Create Direct Message"
+msgstr "Ustvari neposredna sporočila…"
+
+#: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:46
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:54
+#: core/mcpserver/createroom/createroomtool.cpp:51
+#: core/mcpserver/createteam/createteamtool.cpp:50
+#: core/mcpserver/getmessage/getmessagetool.cpp:45
+#: core/mcpserver/getmystatus/getmystatustool.cpp:42
+#: core/mcpserver/getroominfo/getroominfotool.cpp:44
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:88
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:41
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:42
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
+#: core/mcpserver/listaccounts/listaccountstool.cpp:59
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:72
+#: core/mcpserver/listrooms/listroomstool.cpp:41
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:45
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:44
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:45
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:56
+#: core/mcpserver/searchrooms/searchroomstool.cpp:42
+#: core/mcpserver/searchusers/searchuserstool.cpp:42
+#: core/mcpserver/setmystatus/setmystatustool.cpp:43
+#: core/mcpserver/starmessage/starmessagetool.cpp:44
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:50
+#, kde-format
+msgid "No account found"
+msgstr "Ni najdenega računa"
+
+#: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:55
+#, fuzzy, kde-format
+#| msgid "Missing user name"
+msgid "Missing user names"
+msgstr "Manjka ime uporabnika"
+
+#: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:70
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create Direct Messages - %1"
+msgid "Create direct message failed: %1"
+msgstr "Ustvari neposredna sporočila - %1"
+
+#: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:73
+#, fuzzy, kde-format
+#| msgid "Impossible to start star message job"
+msgid "Impossible to start create direct message job"
+msgstr "Ni mogoče začeti naloge odlikovanja sporočil z zvezdico"
+
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:30
+#, fuzzy, kde-format
+#| msgid "Create Discussion…"
+msgid "Create Discussion"
+msgstr "Ustvari razpravo…"
+
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:64
+#, fuzzy, kde-format
+#| msgid "Missing room identifier"
+msgid "Missing parent room identifier"
+msgstr "Manjka določilnik sobe"
+
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:69
+#: core/mcpserver/getroominfo/getroominfotool.cpp:54
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:102
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:87
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:59
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:65
+#, kde-format
+msgid "No room found with identifier \"%1\""
+msgstr "Sobe z določilnikom \"%1\" ni bilo mogoče najti"
+
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:74
+#, fuzzy, kde-format
+#| msgid "Missing user name"
+msgid "Missing discussion name"
+msgstr "Manjka ime uporabnika"
+
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:108
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create Discussion - %1"
+msgid "Create discussion failed: %1"
+msgstr "Ustvari razpravo - %1"
+
+#: core/mcpserver/creatediscussion/creatediscussiontool.cpp:111
+#, fuzzy, kde-format
+#| msgid "Impossible to start update room settings job"
+msgid "Impossible to start create discussion job"
+msgstr "Ni mogoče začeti opravila posodabljanja nastavitev sobe"
+
+#: core/mcpserver/createroom/createroomtool.cpp:29
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Create Room"
+msgid "Create Room"
+msgstr "Ustvari sobo"
+
+#: core/mcpserver/createroom/createroomtool.cpp:63
+#, fuzzy, kde-format
+#| msgid "Missing user name"
+msgid "Missing room name"
+msgstr "Manjka ime uporabnika"
+
+#: core/mcpserver/createroom/createroomtool.cpp:79
+#, fuzzy, kde-format
+#| msgid "Search failed: %1"
+msgid "Create room failed: %1"
+msgstr "Neuspelo iskanje: %1"
+
+#: core/mcpserver/createroom/createroomtool.cpp:92
+#: core/mcpserver/createroom/createroomtool.cpp:103
+#, fuzzy, kde-format
+#| msgid "Impossible to start update room settings job"
+msgid "Impossible to start create room job"
+msgstr "Ni mogoče začeti opravila posodabljanja nastavitev sobe"
+
+#: core/mcpserver/createteam/createteamtool.cpp:28
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create Team"
+msgid "Create Team"
+msgstr "Ustvari ekipo"
+
+#: core/mcpserver/createteam/createteamtool.cpp:62
+#, fuzzy, kde-format
+#| msgid "Missing user name"
+msgid "Missing team name"
+msgstr "Manjka ime uporabnika"
+
+#: core/mcpserver/createteam/createteamtool.cpp:84
+#, fuzzy, kde-format
+#| msgid "Star message failed: %1"
+msgid "Create team failed: %1"
+msgstr "Odlikovanje sporočila z zvezdico ni uspelo: %1"
+
+#: core/mcpserver/createteam/createteamtool.cpp:87
+#, fuzzy, kde-format
+#| msgid "Impossible to start star message job"
+msgid "Impossible to start create team job"
+msgstr "Ni mogoče začeti naloge odlikovanja sporočil z zvezdico"
+
 #: core/mcpserver/getmessage/getmessagetool.cpp:29
 #, fuzzy, kde-format
 #| msgid "Go to Message"
 msgid "Get Message"
 msgstr "Sporočilo"
 
-#: core/mcpserver/getmessage/getmessagetool.cpp:44
-#: core/mcpserver/getmystatus/getmystatustool.cpp:41
-#: core/mcpserver/getroominfo/getroominfotool.cpp:43
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:87
-#: core/mcpserver/getserverinfo/getserverinfotool.cpp:40
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:41
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:44
-#: core/mcpserver/listaccounts/listaccountstool.cpp:59
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:71
-#: core/mcpserver/listrooms/listroomstool.cpp:40
-#: core/mcpserver/markroomasread/markroomasreadtool.cpp:44
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:43
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:56
-#: core/mcpserver/searchrooms/searchroomstool.cpp:41
-#: core/mcpserver/searchusers/searchuserstool.cpp:41
-#: core/mcpserver/setmystatus/setmystatustool.cpp:42
-#: core/mcpserver/starmessage/starmessagetool.cpp:43
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:49
-#, kde-format
-msgid "No account found"
-msgstr "Ni najdenega računa"
-
-#: core/mcpserver/getmessage/getmessagetool.cpp:53
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
-#: core/mcpserver/starmessage/starmessagetool.cpp:52
+#: core/mcpserver/getmessage/getmessagetool.cpp:54
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:53
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:54
+#: core/mcpserver/starmessage/starmessagetool.cpp:53
 #, kde-format
 msgid "Missing message identifier"
 msgstr "Manjka določilnik sobe"
 
-#: core/mcpserver/getmessage/getmessagetool.cpp:65
+#: core/mcpserver/getmessage/getmessagetool.cpp:66
 #, fuzzy, kde-format
 #| msgid "Message not found."
 msgid "Message not found"
 msgstr "Sporočila ni mogoče najti."
 
-#: core/mcpserver/getmessage/getmessagetool.cpp:91
+#: core/mcpserver/getmessage/getmessagetool.cpp:92
 #, fuzzy, kde-format
 #| msgid "Star message failed: %1"
 msgid "Get message failed: %1"
 msgstr "Odlikovanje sporočila z zvezdico ni uspelo: %1"
 
-#: core/mcpserver/getmessage/getmessagetool.cpp:94
+#: core/mcpserver/getmessage/getmessagetool.cpp:95
 #, fuzzy, kde-format
 #| msgid "Impossible to start pin message job"
 msgid "Impossible to get message"
@@ -960,24 +1088,15 @@ msgstr "Pridobi moje stanje"
 msgid "Get Room Info"
 msgstr "Pridobi podatke o sobi"
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:48
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:96
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:81
-#: core/mcpserver/markroomasread/markroomasreadtool.cpp:53
+#: core/mcpserver/getroominfo/getroominfotool.cpp:49
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:97
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:82
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:54
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:66
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:59
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:60
 #, kde-format
 msgid "Missing room identifier"
 msgstr "Manjka določilnik sobe"
-
-#: core/mcpserver/getroominfo/getroominfotool.cpp:53
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:101
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:86
-#: core/mcpserver/markroomasread/markroomasreadtool.cpp:58
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:64
-#, kde-format
-msgid "No room found with identifier \"%1\""
-msgstr "Sobe z določilnikom \"%1\" ni bilo mogoče najti"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:47
 #, kde-format
@@ -989,23 +1108,23 @@ msgstr "Ni najdenih uporabnikov z vlogami"
 msgid "Get Room Roles"
 msgstr "Pridobi vloge sobe"
 
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:130
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:131
 #, kde-format
 msgid "Direct conversations have no room roles"
 msgstr "Neposredni pogovori nimajo vlog v sobi"
 
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:133
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:101
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:134
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:102
 #, kde-format
 msgid "Unknown room type"
 msgstr "Neznana zvrst sobe"
 
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:139
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:140
 #, kde-format
 msgid "Getting room roles failed: %1"
 msgstr "Pridobivanje vlog sob ni uspelo: %1"
 
-#: core/mcpserver/getroomroles/getroomrolestool.cpp:142
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:143
 #, kde-format
 msgid "Impossible to start getting room roles"
 msgstr "Nemogoče je začeti dobivati ​​vloge sobe"
@@ -1020,7 +1139,7 @@ msgstr "Pridobi podatke o strežniku"
 msgid "Get Unread Summary"
 msgstr "Pridobi neprebran povzetek"
 
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:79
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:80
 #, kde-format
 msgid "No unread messages"
 msgstr "Ni neprebranih sporočil"
@@ -1030,7 +1149,7 @@ msgstr "Ni neprebranih sporočil"
 msgid "Get User Status"
 msgstr "Pridobi stanje uporabnika"
 
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:52
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:53
 #, kde-format
 msgid "Missing user name"
 msgstr "Manjka ime uporabnika"
@@ -1045,17 +1164,17 @@ msgstr "Seznam računov"
 msgid "List Room Members"
 msgstr "Seznam članov sob"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:125
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:126
 #, kde-format
 msgid "No members found"
 msgstr "Ni najdenih članov"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:137
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:138
 #, kde-format
 msgid "Listing members failed: %1"
 msgstr "Seznam članov ni uspel: %1"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:140
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:141
 #, kde-format
 msgid "Impossible to start listing members"
 msgstr "Seznama članov ni mogoče začeti izpisovati"
@@ -1065,8 +1184,8 @@ msgstr "Seznama članov ni mogoče začeti izpisovati"
 msgid "List Rooms"
 msgstr "Seznam sob"
 
-#: core/mcpserver/listrooms/listroomstool.cpp:64
-#: core/mcpserver/searchrooms/searchroomstool.cpp:48
+#: core/mcpserver/listrooms/listroomstool.cpp:68
+#: core/mcpserver/searchrooms/searchroomstool.cpp:49
 #, kde-format
 msgid "No rooms found"
 msgstr "Ni najdenih sob"
@@ -1076,17 +1195,17 @@ msgstr "Ni najdenih sob"
 msgid "Mark Room as Read"
 msgstr "Označi sobo kot prebrano"
 
-#: core/mcpserver/markroomasread/markroomasreadtool.cpp:75
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:76
 #, kde-format
 msgid "Mark room as read failed: %1"
 msgstr "Označevanje sobe kot prebrane ni uspelo: %1"
 
-#: core/mcpserver/markroomasread/markroomasreadtool.cpp:78
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:79
 #, kde-format
 msgid "Impossible to start mark room as read job"
 msgstr "Ni mogoče začeti označevanja sobe kot bralnega opravila"
 
-#: core/mcpserver/mcpservermanager.cpp:47
+#: core/mcpserver/mcpservermanager.cpp:52
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "Upravljaj informacije od Ruqole"
@@ -1096,17 +1215,42 @@ msgstr "Upravljaj informacije od Ruqole"
 msgid "Pin Message"
 msgstr "Pripni sporočilo"
 
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:70
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:71
 #, kde-format
 msgid "Pin message failed: %1"
 msgstr "Pripenjanje sporočila ni uspelo: %1"
 
-#: core/mcpserver/pinmessage/pinmessagetool.cpp:73
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:74
 #, kde-format
 msgid "Impossible to start pin message job"
 msgstr "Opravila za pripenjanje sporočila ni mogoče zagnati"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:36
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:27
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create Sound Message"
+msgid "React on Message"
+msgstr "Ustvari zvočno sporočilo"
+
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:65
+#, fuzzy, kde-format
+#| msgid "Missing user name"
+msgid "Missing emoji"
+msgstr "Manjka ime uporabnika"
+
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:82
+#, fuzzy, kde-format
+#| msgid "Star message failed: %1"
+msgid "React on message failed: %1"
+msgstr "Odlikovanje sporočila z zvezdico ni uspelo: %1"
+
+#: core/mcpserver/reactonmessage/reactonmessagetool.cpp:85
+#, fuzzy, kde-format
+#| msgid "Impossible to start pin message job"
+msgid "Impossible to start react on message job"
+msgstr "Opravila za pripenjanje sporočila ni mogoče zagnati"
+
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:35
 #, kde-format
 msgid "Search Messages"
 msgstr "Išči sporočila"
@@ -1126,7 +1270,7 @@ msgstr "Išči sobe"
 msgid "Search Users"
 msgstr "Išči uporabnike"
 
-#: core/mcpserver/searchusers/searchuserstool.cpp:48
+#: core/mcpserver/searchusers/searchuserstool.cpp:49
 #, kde-format
 msgid "No users found"
 msgstr "Ni najdenih uporabnikov"
@@ -1136,7 +1280,7 @@ msgstr "Ni najdenih uporabnikov"
 msgid "Set My Status"
 msgstr "Nastavi moje stanje"
 
-#: core/mcpserver/setmystatus/setmystatustool.cpp:51
+#: core/mcpserver/setmystatus/setmystatustool.cpp:52
 #, kde-format
 msgid "Invalid status"
 msgstr "Neveljavno stanje"
@@ -1146,12 +1290,12 @@ msgstr "Neveljavno stanje"
 msgid "Star Message"
 msgstr "Odlikuj sporočilo z zvezdico"
 
-#: core/mcpserver/starmessage/starmessagetool.cpp:67
+#: core/mcpserver/starmessage/starmessagetool.cpp:68
 #, kde-format
 msgid "Star message failed: %1"
 msgstr "Odlikovanje sporočila z zvezdico ni uspelo: %1"
 
-#: core/mcpserver/starmessage/starmessagetool.cpp:70
+#: core/mcpserver/starmessage/starmessagetool.cpp:71
 #, kde-format
 msgid "Impossible to start star message job"
 msgstr "Ni mogoče začeti naloge odlikovanja sporočil z zvezdico"
@@ -1161,17 +1305,17 @@ msgstr "Ni mogoče začeti naloge odlikovanja sporočil z zvezdico"
 msgid "Update Room Settings"
 msgstr "Posodobi nastavitve sobe"
 
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:68
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:69
 #, kde-format
 msgid "Settings of a direct room cannot be changed"
 msgstr "Nastavitev neposredne sobe ni mogoče spremeniti"
 
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:79
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:80
 #, kde-format
 msgid "Room name cannot be empty"
 msgstr "Ime sobe ne sme biti prazno"
 
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:102
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:103
 #, kde-format
 msgid ""
 "Nothing to change: give at least one of name, topic, description or "
@@ -1180,12 +1324,12 @@ msgstr ""
 "Ničesar za spremeniti: navedite vsaj eno od naslednjega: ime, tema, opis ali "
 "objava"
 
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:116
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:117
 #, kde-format
 msgid "Update room settings failed: %1"
 msgstr "Posodobitev nastavitev sobe ni uspela: %1"
 
-#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:119
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:120
 #, kde-format
 msgid "Impossible to start update room settings job"
 msgstr "Ni mogoče začeti opravila posodabljanja nastavitev sobe"
@@ -2264,12 +2408,12 @@ msgstr "Brez povezave"
 msgid "Not connected yet"
 msgstr "Še ne povezan"
 
-#: core/rocketchataccount.cpp:3334
+#: core/rocketchataccount.cpp:3336
 #, kde-format
 msgid "Room Added"
 msgstr "Soba je bila dodana"
 
-#: core/rocketchataccount.cpp:3335
+#: core/rocketchataccount.cpp:3337
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "Novi soba je bila dodana v '%1'."
@@ -8081,12 +8225,28 @@ msgctxt "@info:tooltip"
 msgid "Remove Category"
 msgstr "Odstrani kategorijo"
 
-#: widgets/category/managecategorieswidget.cpp:173
+#: widgets/category/managecategorieswidget.cpp:150
+#: widgets/category/managecategorieswidget.cpp:180
+#, fuzzy, kde-format
+#| msgid "Team already exists."
+msgid "This name %1 already exists."
+msgstr "Ekipa že obstaja."
+
+#: widgets/category/managecategorieswidget.cpp:150
+#: widgets/category/managecategorieswidget.cpp:180
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "Category"
+msgctxt "@title:window"
+msgid "Category"
+msgstr "Katagorija"
+
+#: widgets/category/managecategorieswidget.cpp:196
 #, kde-format
 msgid "Do you want to remove this category (%1)?"
 msgstr "Ali želite odstraniti to kategorijo (%1)?"
 
-#: widgets/category/managecategorieswidget.cpp:174
+#: widgets/category/managecategorieswidget.cpp:197
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Category"
