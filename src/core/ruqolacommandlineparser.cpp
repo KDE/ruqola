@@ -35,6 +35,8 @@ QString RuqolaCommandLineParser::commandLineFromEnum(CommandLineName e)
         return u"debug"_s;
     case CommandLineName::CleanDatabase:
         return u"clean-database"_s;
+    case CommandLineName::ListTools:
+        return u"list-tools"_s;
     }
     return {};
 }
@@ -54,4 +56,6 @@ void RuqolaCommandLineParser::initializeCommandLine(QCommandLineParser *parser)
 #endif
     parser->addOption(QCommandLineOption(commandLineFromEnum(CommandLineName::Debug), i18nc("@info:shell", "Activate Debug Mode")));
     parser->addOption(QCommandLineOption(commandLineFromEnum(CommandLineName::CleanDatabase), i18nc("@info:shell", "Clean Database (Use with caution)")));
+    parser->addOption(
+        QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::ListTools), i18nc("@info:shell", "List supported MCP tools and exit.")));
 }

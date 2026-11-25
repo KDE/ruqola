@@ -25,6 +25,7 @@ public:
 #endif
         CleanDatabase,
         Debug,
+        ListTools,
     };
 
     explicit RuqolaCommandLineParser(QCommandLineParser *parser);

@@ -90,14 +90,14 @@ int main(int argc, char *argv[])
     parser.process(app);
     aboutData.processCommandLine(&parser);
 #if HAVE_KUSERFEEDBACK
-    if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::FeedBack))) {
-        RuqolaUserFeedbackProvider userFeedback;
+    if (parser.isSet(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::FeedBack))) {
+        const RuqolaUserFeedbackProvider userFeedback;
         QTextStream(stdout) << userFeedback.describeDataSources() << '\n';
         return 0;
     }
 #endif
 
-    if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::ListAccount))) {
+    if (parser.isSet(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::ListAccount))) {
         const QString configPath = ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
         QDirIterator it(configPath, QStringList{u"ruqola.conf"_s}, QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
         std::cout << qPrintable(i18n("The following accounts are available:")) << '\n';
@@ -110,7 +110,7 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::CleanDatabase))) {
+    if (parser.isSet(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::CleanDatabase))) {
         const QStringList lst = {LocalDatabaseUtils::localDatabasePath()};
         qWarning() << " Delete database : " << lst;
         for (const QString &path : std::as_const(lst)) {
@@ -128,7 +128,7 @@ int main(int argc, char *argv[])
     (void)Ruqola::self();
 
 #if ADD_OFFLINE_SUPPORT
-    if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::Offline))) {
+    if (parser.isSet(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::Offline))) {
         Ruqola::self()->setOfflineMode(true);
     }
 #endif
