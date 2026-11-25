@@ -75,7 +75,6 @@ McpServerManager::McpServerManager(AccountManager *accountManager, QObject *pare
     addTool(std::make_unique<CreateRoomTool>(mAccountManager));
     addTool(std::make_unique<CreateTeamTool>(mAccountManager));
     addTool(std::make_unique<CreateDiscussionTool>(mAccountManager));
-    loadConfig();
 }
 
 McpServerManager::~McpServerManager() = default;

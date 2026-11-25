@@ -6,9 +6,10 @@
 
 #pragma once
 
+#include "libruqolacore_export.h"
 #include <TextAutoGenerateTextMcpProtocolCore/McpProtocolServerProtocolManager>
 class AccountManager;
-class McpServerManager : public TextAutoGenerateTextMcpProtocolCore::McpProtocolServerProtocolManager
+class LIBRUQOLACORE_EXPORT McpServerManager : public TextAutoGenerateTextMcpProtocolCore::McpProtocolServerProtocolManager
 {
     Q_OBJECT
 public:

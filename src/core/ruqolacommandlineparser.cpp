@@ -7,6 +7,11 @@
 #include "ruqolacommandlineparser.h"
 
 #include <KLocalizedString>
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
+#include <QTextStream>
+#include <TextAutoGenerateTextMcpProtocolCore/McpProtocolTool>
+#include <algorithm>
+#endif
 
 using namespace Qt::Literals::StringLiterals;
 RuqolaCommandLineParser::RuqolaCommandLineParser(QCommandLineParser *parser)
@@ -35,8 +40,10 @@ QString RuqolaCommandLineParser::commandLineFromEnum(CommandLineName e)
         return u"debug"_s;
     case CommandLineName::CleanDatabase:
         return u"clean-database"_s;
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
     case CommandLineName::ListTools:
         return u"list-tools"_s;
+#endif
     }
     return {};
 }
@@ -56,6 +63,23 @@ void RuqolaCommandLineParser::initializeCommandLine(QCommandLineParser *parser)
 #endif
     parser->addOption(QCommandLineOption(commandLineFromEnum(CommandLineName::Debug), i18nc("@info:shell", "Activate Debug Mode")));
     parser->addOption(QCommandLineOption(commandLineFromEnum(CommandLineName::CleanDatabase), i18nc("@info:shell", "Clean Database (Use with caution)")));
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
     parser->addOption(
         QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::ListTools), i18nc("@info:shell", "List supported MCP tools and exit.")));
+#endif
 }
+
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
+void RuqolaCommandLineParser::printTools(const QList<TextAutoGenerateTextMcpProtocolCore::McpProtocolTool> &lst)
+{
+    qsizetype nameWidth = 0;
+    for (const auto &tool : lst) {
+        nameWidth = std::max(nameWidth, tool.name().size());
+    }
+    QTextStream out(stdout);
+    out << i18n("List of Tools:") << '\n';
+    for (const auto &tool : lst) {
+        out << "   " << tool.name().leftJustified(nameWidth) << "   " << tool.description().value_or(tool.title().value_or({})) << '\n';
+    }
+}
+#endif

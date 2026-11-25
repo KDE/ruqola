@@ -27,7 +27,9 @@ void RuqolaCommandLineParserTest::shouldVerifyCommandLineFromEnumValues()
 #endif
     QCOMPARE(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::Debug), u"debug"_s);
     QCOMPARE(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::CleanDatabase), u"clean-database"_s);
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
     QCOMPARE(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::ListTools), u"list-tools"_s);
+#endif
 }
 
 #include "moc_ruqolacommandlineparsertest.cpp"

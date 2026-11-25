@@ -62,6 +62,9 @@ AccountManager::AccountManager(QObject *parent)
     , mMcpServerManager(new McpServerManager(this, this))
 #endif
 {
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
+    mMcpServerManager->reloadConfig();
+#endif
 #if HAVE_ACTIVITY_SUPPORT
     mRocketChatAccountProxyModel->setActivitiesManager(mActivitiesManager);
     // TODO disable/enable account

@@ -10,6 +10,9 @@
 #include "ruqola.h"
 #include "ruqolacommandlineparser.h"
 #include "ruqolaglobalconfig.h"
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
+#include "mcpserver/mcpservermanager.h"
+#endif
 #include <KCrash>
 #include <KLocalizedString>
 #include <QApplication>
@@ -125,6 +128,13 @@ int main(int argc, char *argv[])
         qWarning() << " Delete database was deleted. Quit";
         return 0;
     }
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
+    if (parser.isSet(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::ListTools))) {
+        const McpServerManager manager(nullptr);
+        RuqolaCommandLineParser::printTools(manager.tools());
+        return 0;
+    }
+#endif
     (void)Ruqola::self();
 
 #if ADD_OFFLINE_SUPPORT

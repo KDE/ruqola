@@ -9,6 +9,13 @@
 #include "libruqolacore_export.h"
 #include <QCommandLineParser>
 #include <QString>
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
+#include <QList>
+namespace TextAutoGenerateTextMcpProtocolCore
+{
+class McpProtocolTool;
+}
+#endif
 
 class LIBRUQOLACORE_EXPORT RuqolaCommandLineParser
 {
@@ -25,12 +32,17 @@ public:
 #endif
         CleanDatabase,
         Debug,
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
         ListTools,
+#endif
     };
 
     explicit RuqolaCommandLineParser(QCommandLineParser *parser);
 
     [[nodiscard]] static QString commandLineFromEnum(CommandLineName e);
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
+    static void printTools(const QList<TextAutoGenerateTextMcpProtocolCore::McpProtocolTool> &lst);
+#endif
 
 private:
     static LIBRUQOLACORE_NO_EXPORT void initializeCommandLine(QCommandLineParser *parser);
