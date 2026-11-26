@@ -68,7 +68,7 @@ public:
     void parseUserRestApi(const QJsonObject &object, const QList<RoleInfo> &roleInfo);
 
     [[nodiscard]] static QList<User> parseUsersList(const QJsonObject &object, const QList<RoleInfo> &roleInfo);
-    void parseUser(const QVariantList &list);
+    void parseUser(const QVariantList &list, const QList<RoleInfo> &roleInfo);
 
     [[nodiscard]] QStringList roles() const;
     void setRoles(const QStringList &roles, const QList<RoleInfo> &roleInfo);

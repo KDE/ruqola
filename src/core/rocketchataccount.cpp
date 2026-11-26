@@ -1432,7 +1432,7 @@ void RocketChatAccount::setUserStatusChanged(const QJsonArray &array)
     for (const auto &var : list) {
         const auto userListArguments = var.toJsonArray().toVariantList();
         User user;
-        user.parseUser(userListArguments);
+        user.parseUser(userListArguments, roleInfo());
         if (user.isValid()) {
             userStatusChanged(user);
         }

@@ -171,10 +171,11 @@ void User::parseUserRestApi(const QJsonObject &object, const QList<RoleInfo> &ro
     // qDebug() << " object "  << object;
 }
 
-void User::parseUser(const QVariantList &list)
+void User::parseUser(const QVariantList &list, const QList<RoleInfo> &roleInfo)
 {
-    if (list.count() != 4) {
-        qCDebug(RUQOLA_SPECIALWARNING_LOG) << " List argument different of 4! It's a bug: " << list;
+    if (list.count() < 3) {
+        qCDebug(RUQOLA_SPECIALWARNING_LOG) << " List argument too short! It's a bug: " << list;
+        return;
     }
     setUserId(list.at(0).toString().toLatin1());
     setUserName(list.at(1).toString());
@@ -191,10 +192,20 @@ void User::parseUser(const QVariantList &list)
         qCWarning(RUQOLA_LOG) << " Invalid status value" << valueStatus;
         return;
     }
-    const QVariant &customText = list.at(3);
-    if (customText.isValid()) {
-        setStatusText(customText.toString());
+    if (list.count() > 3) {
+        if (const QVariant &customText = list.at(3); customText.isValid()) {
+            setStatusText(customText.toString());
+        }
     }
+    if (list.count() > 4) {
+        setName(list.at(4).toString());
+    }
+    if (list.count() > 5) {
+        const QStringList roles = list.at(5).toStringList();
+        setRoles(roles, roleInfo);
+    }
+    // qDebug() << " XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" << list;
+    // TODO add statusSource (6), statusExpiresAt (7)
 }
 
 QStringList User::roles() const
