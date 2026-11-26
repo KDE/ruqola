@@ -55,7 +55,7 @@ bool User::operator==(const User &other) const
     return (mName == other.mName) && (mUserId == other.mUserId) && (mStatus == other.mStatus) && (mUserName == other.mUserName)
         && (mUtcOffset == other.mUtcOffset) && (mStatusText == other.mStatusText) && (mRoles == other.mRoles) && (mCreatedAt == other.mCreatedAt)
         && (mLastLogin == other.mLastLogin) && (mActive == other.mActive) && (mRequirePasswordChange == other.mRequirePasswordChange) && (mBio == other.mBio)
-        && (mNickName == other.mNickName) && (mType == other.mType);
+        && (mNickName == other.mNickName) && (mType == other.mType) && (mStatusExpiresAt == other.statusExpiresAt());
 }
 
 bool User::operator!=(const User &other) const
@@ -122,6 +122,7 @@ QDebug operator<<(QDebug d, const User &t)
     d.space() << "mBio " << t.bio();
     d.space() << "mNickName " << t.nickName();
     d.space() << "mType " << t.type();
+    d.space() << "mStatusExpiresAt " << t.statusExpiresAt();
     return d;
 }
 
@@ -138,6 +139,7 @@ void User::parseUserRestApi(const QJsonObject &object, const QList<RoleInfo> &ro
     setBio(object.value("bio"_L1).toString());
     setNickName(object.value("nickname"_L1).toString());
     setType(object.value("type"_L1).toString());
+    setStatusExpiresAt(Utils::parseIsoDate(u"statusExpiresAt"_s, object));
     const QJsonArray rolesArray = object.value("roles"_L1).toArray();
     QStringList roles;
     const int total = rolesArray.size();
@@ -204,8 +206,20 @@ void User::parseUser(const QVariantList &list, const QList<RoleInfo> &roleInfo)
         const QStringList roles = list.at(5).toStringList();
         setRoles(roles, roleInfo);
     }
+
+    // statusExpiresAt (7)
+    if (list.count() > 7) {
+        const QVariant &expires = list.at(7);
+        if (expires.typeId() == QMetaType::QVariantMap) {
+            setStatusExpiresAt(expires.toMap().value(u"$date"_s, -1).toLongLong());
+        } else if (expires.typeId() == QMetaType::QString) {
+            setStatusExpiresAt(Utils::parseIsoDate(expires.toString()));
+        } else if (!expires.isNull() && expires.canConvert<qint64>()) {
+            setStatusExpiresAt(expires.toLongLong());
+        }
+    }
     // qDebug() << " XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" << list;
-    // TODO add statusSource (6), statusExpiresAt (7)
+    // TODO add statusSource (6)
 }
 
 QStringList User::roles() const
@@ -261,6 +275,7 @@ QJsonObject User::serialize(const User &user)
     o["active"_L1] = user.active();
     o["status"_L1] = Utils::presenceStatusToString(user.status());
     o["utcOffset"_L1] = user.utcOffset();
+    // TODO statusExpiresAt
     return o;
 }
 
@@ -277,6 +292,7 @@ User User::deserialize(const QJsonObject &o)
     user.setBio(o.value("bio"_L1).toString());
     user.setNickName(o.value("nickname"_L1).toString());
     user.setType(o.value("type"_L1).toString());
+    // TODO statusExpiresAt
     return user;
 }
 
@@ -298,6 +314,16 @@ QString User::type() const
 void User::setType(const QString &newType)
 {
     mType = newType;
+}
+
+qint64 User::statusExpiresAt() const
+{
+    return mStatusExpiresAt;
+}
+
+void User::setStatusExpiresAt(qint64 newStatusExpiresAt)
+{
+    mStatusExpiresAt = newStatusExpiresAt;
 }
 
 void User::setRoles(const QStringList &roles, const QList<RoleInfo> &roleInfo)

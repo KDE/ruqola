@@ -106,6 +106,9 @@ public:
     [[nodiscard]] QString type() const;
     void setType(const QString &newType);
 
+    [[nodiscard]] qint64 statusExpiresAt() const;
+    void setStatusExpiresAt(qint64 newStatusExpiresAt);
+
 private:
     UserEmailsInfo mUserEmailsInfo;
     QDateTime mCreatedAt;
@@ -121,6 +124,7 @@ private:
     QString mType;
     QStringList mRoles;
     QStringList mI18nRoles;
+    qint64 mStatusExpiresAt = -1;
     double mUtcOffset = 0.0;
     bool mActive = true;
     bool mRequirePasswordChange = false;
