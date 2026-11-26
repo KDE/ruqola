@@ -7,15 +7,12 @@
 #include "ruqolacommandlineparser.h"
 
 #include <KLocalizedString>
-#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
-#include "textautogeneratetextmcpprotocolcore_version.h"
-#if TEXTAUTOGENERATETEXTMCPPROTOCOLCORE_VERSION >= QT_VERSION_CHECK(2, 3, 47)
+#if HAVE_MCP_TOOL_LIST
 #include <TextAutoGenerateTextMcpProtocolCore/McpProtocolServerUtils>
 #else
 #include <QTextStream>
 #include <TextAutoGenerateTextMcpProtocolCore/McpProtocolTool>
 #include <algorithm>
-#endif
 #endif
 
 using namespace Qt::Literals::StringLiterals;
@@ -77,7 +74,7 @@ void RuqolaCommandLineParser::initializeCommandLine(QCommandLineParser *parser)
 #if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
 void RuqolaCommandLineParser::printTools(const QList<TextAutoGenerateTextMcpProtocolCore::McpProtocolTool> &lst)
 {
-#if TEXTAUTOGENERATETEXTMCPPROTOCOLCORE_VERSION >= QT_VERSION_CHECK(2, 3, 47)
+#if HAVE_MCP_TOOL_LIST
     TextAutoGenerateTextMcpProtocolCore::McpProtocolServerUtils::printTools(lst);
 #else
     qsizetype nameWidth = 0;
