@@ -461,9 +461,9 @@ void RoomModel::updateSubscription(const QJsonArray &array)
         const QByteArray roomId = roomData.value("rid"_L1).toString().toLatin1();
         removeRoom(roomId);
     } else if (actionName == "inserted"_L1) {
-        const QByteArray roomId = roomData.value("rid"_L1).toString().toLatin1();
+        const QByteArray rId = roomData.value("rid"_L1).toString().toLatin1();
         const QByteArray subscriptionId = roomData.value("_id"_L1).toString().toLatin1();
-        qCDebug(RUQOLA_ROOMS_LOG) << "INSERT ROOM  name " << roomData.value("name"_L1) << " subscriptionId " << subscriptionId << " roomId " << roomId;
+        qCDebug(RUQOLA_ROOMS_LOG) << "INSERT ROOM  name " << roomData.value("name"_L1) << " subscriptionId " << subscriptionId << " roomId " << rId;
 
         if (const auto roomId = addRoom(roomData); roomId.isEmpty()) {
             qCWarning(RUQOLA_ROOMS_LOG) << "Impossible to add room";

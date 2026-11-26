@@ -10,6 +10,7 @@
 #include "roles/roleinfo.h"
 #include <QDateTime>
 #include <QString>
+#include <QStringList>
 class QDebug;
 
 class LIBRUQOLACORE_EXPORT User
