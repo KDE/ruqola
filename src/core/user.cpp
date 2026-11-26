@@ -372,7 +372,11 @@ void User::parseUser(const QJsonObject &object)
 
 QString User::generateStatusStr() const
 {
-    return Utils::displaytextFromPresenceStatus(mStatus);
+    QString statusStr = Utils::displaytextFromPresenceStatus(mStatus);
+    if (!mStatusText.isEmpty()) {
+        statusStr += u" - "_s + mStatusText;
+    }
+    return statusStr;
 }
 
 bool User::requirePasswordChange() const
