@@ -97,8 +97,8 @@ public:
     [[nodiscard]] QString bio() const;
     void setBio(const QString &newBio);
 
-    static QJsonObject serialize(const User &user);
-    static User deserialize(const QJsonObject &o);
+    [[nodiscard]] static QJsonObject serialize(const User &user);
+    [[nodiscard]] static User deserialize(const QJsonObject &o);
 
     [[nodiscard]] QString nickName() const;
     void setNickName(const QString &newNickName);
