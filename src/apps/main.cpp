@@ -25,7 +25,7 @@
 #include "userfeedback/ruqolauserfeedbackprovider.h"
 #endif
 
-#include <iostream>
+#include <QTextStream>
 
 #include <KAboutData>
 #include <QDirIterator>
@@ -103,12 +103,13 @@ int main(int argc, char *argv[])
     if (parser.isSet(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::ListAccount))) {
         const QString configPath = ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
         QDirIterator it(configPath, QStringList{u"ruqola.conf"_s}, QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
-        std::cout << qPrintable(i18n("The following accounts are available:")) << '\n';
+        QTextStream out(stdout);
+        out << i18n("The following accounts are available:") << '\n';
         while (it.hasNext()) {
             QString result = it.next();
             result.remove(configPath + u'/');
             result.remove("/ruqola.conf"_L1);
-            std::cout << "   " << result.toLocal8Bit().data() << '\n';
+            out << "   " << result << '\n';
         }
         return 0;
     }
