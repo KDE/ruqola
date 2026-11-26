@@ -157,10 +157,10 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mMemoryManager(new MemoryManager(this))
     , mActionButtonsManager(new ActionButtonsManager(this, this))
 {
-    qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)"
-                        << accountFileName;
     // create an unique file for each account
     loadSettings(accountFileName);
+    qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)"
+                        << accountFileName;
 #if 0 // Disable it  otherwise autotests failed
     if (!mSettings->isValid()) {
         return;
