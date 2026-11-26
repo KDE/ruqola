@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/ruqola/ruqola.pot\n"
-"X-Crowdin-File-ID: 49360\n"
+"X-Crowdin-File: /kf6-stable/messages/ruqola/ruqola.pot\n"
+"X-Crowdin-File-ID: 53692\n"
 
 #: apps/main.cpp:60
 #, kde-format
@@ -5240,16 +5240,12 @@ msgid "Accepted Media Types"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Comma-separated list of media types. This setting has priority over the "
-#| "Accepted Media Types."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
 "Blocked Media Types."
-msgstr "以逗号分隔的媒体类型列表。此设置优先于接受的媒体类型。"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
