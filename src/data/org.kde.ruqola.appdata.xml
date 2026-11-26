@@ -1374,6 +1374,7 @@
     <release version="3.0.0" type="snapshot">
       <description>
         <ul>
+          <li>Show status custom text</li>
           <li>Minimum RC server support 7.0.</li>
           <li xml:lang="ar">الحد الأدنى لإصدار خادم RC هو 7.0.</li>
           <li xml:lang="ca">Implementació mínima de servidor RC 7.0.</li>
