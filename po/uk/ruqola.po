@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-25 01:25+0000\n"
-"PO-Revision-Date: 2026-11-20 08:15+0200\n"
+"POT-Creation-Date: 2026-11-26 01:04+0000\n"
+"PO-Revision-Date: 2026-11-25 13:46+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -20,159 +20,159 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 25.12.1\n"
 
-#: apps/main.cpp:60
+#: apps/main.cpp:63
 #, kde-format
 msgid "Copyright © 2020-2026 Ruqola authors"
 msgstr "© Автори Ruqola, 2020–2026"
 
-#: apps/main.cpp:64
+#: apps/main.cpp:67
 #, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: apps/main.cpp:64
+#: apps/main.cpp:67
 #, kde-format
 msgid "Maintainer"
 msgstr "Супровідник"
 
-#: apps/main.cpp:65
+#: apps/main.cpp:68
 #, kde-format
 msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
 
-#: apps/main.cpp:65
+#: apps/main.cpp:68
 #, kde-format
 msgid "Original Author"
 msgstr "Початковий автор"
 
-#: apps/main.cpp:69
+#: apps/main.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
-#: apps/main.cpp:69
+#: apps/main.cpp:72
 #, kde-format
 msgid "Bug fixing, delegates etc."
 msgstr "Виправлення вад, делегування тощо."
 
-#: apps/main.cpp:70
+#: apps/main.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kevin Funk"
 msgstr "Kevin Funk"
 
-#: apps/main.cpp:70 apps/main.cpp:71 apps/main.cpp:72 apps/main.cpp:74
-#: apps/main.cpp:75
+#: apps/main.cpp:73 apps/main.cpp:74 apps/main.cpp:75 apps/main.cpp:77
+#: apps/main.cpp:78
 #, kde-format
 msgid "Bug fixing"
 msgstr "Виправлення вад"
 
-#: apps/main.cpp:71
+#: apps/main.cpp:74
 #, kde-format
 msgctxt "@info:credit"
 msgid "Olivier JG"
 msgstr "Olivier JG"
 
-#: apps/main.cpp:72
+#: apps/main.cpp:75
 #, kde-format
 msgctxt "@info:credit"
 msgid "Milian Wolff"
 msgstr "Milian Wolff"
 
-#: apps/main.cpp:73
+#: apps/main.cpp:76
 #, kde-format
 msgctxt "@info:credit"
 msgid "Till Adam"
 msgstr "Till Adam"
 
-#: apps/main.cpp:73
+#: apps/main.cpp:76
 #, kde-format
 msgid "Windows compile bug fixing"
 msgstr "Виправлення вад компіляції у Windows"
 
-#: apps/main.cpp:74
+#: apps/main.cpp:77
 #, kde-format
 msgctxt "@info:credit"
 msgid "Shantanu Tushar"
 msgstr "Shantanu Tushar"
 
-#: apps/main.cpp:75
+#: apps/main.cpp:78
 #, kde-format
 msgctxt "@info:credit"
 msgid "Alessandro Ambrosano"
 msgstr "Alessandro Ambrosano"
 
-#: apps/main.cpp:76
+#: apps/main.cpp:79
 #, kde-format
 msgctxt "@info:credit"
 msgid "Hannah von Reth"
 msgstr "Hannah von Reth"
 
-#: apps/main.cpp:76
+#: apps/main.cpp:79
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
 msgstr "Виправлення вад у Windows/Mac"
 
-#: apps/main.cpp:77
+#: apps/main.cpp:80
 #, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: apps/main.cpp:77
+#: apps/main.cpp:80
 #, kde-format
 msgid "Packaging"
 msgstr "Пакування"
 
-#: apps/main.cpp:78
+#: apps/main.cpp:81
 #, kde-format
 msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr "Waqar Ahmed"
 
-#: apps/main.cpp:78
+#: apps/main.cpp:81
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
 msgstr ""
 "Виправлення вад (компіляція, аварійне завершення роботи, пов'язане із "
 "мережею…)"
 
-#: apps/main.cpp:79
+#: apps/main.cpp:82
 #, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: apps/main.cpp:79
+#: apps/main.cpp:82
 #, kde-format
 msgid "Optimization, fix windows/mac support"
 msgstr "Оптимізація, виправлення підтримки Windows/Mac"
 
-#: apps/main.cpp:80
+#: apps/main.cpp:83
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniele E. Domenichelli"
 msgstr "Daniele E. Domenichelli"
 
-#: apps/main.cpp:80
+#: apps/main.cpp:83
 #, kde-format
 msgid "New feature"
 msgstr "Нова можливість"
 
-#: apps/main.cpp:103
+#: apps/main.cpp:106
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Доступні такі облікові записи:"
 
-#: core/accountmanager.cpp:351
+#: core/accountmanager.cpp:354
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Некоректний жетон запрошення"
 
-#: core/accountmanager.cpp:352
+#: core/accountmanager.cpp:355
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Жетон запрошення є некоректним. Створення облікового запису скасовано."
@@ -905,8 +905,7 @@ msgid "Misc"
 msgstr "Інше"
 
 #: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:28
-#, fuzzy, kde-format
-#| msgid "Create Direct Messages…"
+#, kde-format
 msgid "Create Direct Message"
 msgstr "Створити безпосередні повідомлення…"
 
@@ -938,35 +937,30 @@ msgid "No account found"
 msgstr "Не знайдено жодного облікового запису"
 
 #: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:55
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#, kde-format
 msgid "Missing user names"
-msgstr "Пропущено ім'я користувача"
+msgstr "Пропущено імена користувачів"
 
 #: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Direct Messages - %1"
+#, kde-format
 msgid "Create direct message failed: %1"
-msgstr "Створення безпосередніх повідомлень – %1"
+msgstr "Не вдалося створити безпосереднє повідомлення: %1"
 
 #: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:73
-#, fuzzy, kde-format
-#| msgid "Impossible to start star message job"
+#, kde-format
 msgid "Impossible to start create direct message job"
-msgstr "Не вдалося розпочати завдання з позначення повідомлення зіркою"
+msgstr ""
+"Не вдалося розпочати завдання зі створення безпосереднього повідомлення"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:30
-#, fuzzy, kde-format
-#| msgid "Create Discussion…"
+#, kde-format
 msgid "Create Discussion"
-msgstr "Створити обговорення…"
+msgstr "Створити обговорення"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:64
-#, fuzzy, kde-format
-#| msgid "Missing room identifier"
+#, kde-format
 msgid "Missing parent room identifier"
-msgstr "Не вистачає ідентифікатора кімнати"
+msgstr "Не вистачає ідентифікатора батьківської кімнати"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:69
 #: core/mcpserver/getroominfo/getroominfotool.cpp:54
@@ -979,74 +973,60 @@ msgid "No room found with identifier \"%1\""
 msgstr "Не знайдено кімнати з ідентифікатором «%1»"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:74
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#, kde-format
 msgid "Missing discussion name"
-msgstr "Пропущено ім'я користувача"
+msgstr "Не вказано назви обговорення"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:108
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Discussion - %1"
+#, kde-format
 msgid "Create discussion failed: %1"
-msgstr "Створення обговорення – %1"
+msgstr "Не вдалося створити обговорення: %1"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:111
-#, fuzzy, kde-format
-#| msgid "Impossible to start update room settings job"
+#, kde-format
 msgid "Impossible to start create discussion job"
-msgstr "Не вдалося розпочати завдання з оновлення параметрів кімнати"
+msgstr "Не вдалося розпочати завдання зі створення обговорення"
 
 #: core/mcpserver/createroom/createroomtool.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Create Room"
+#, kde-format
 msgid "Create Room"
 msgstr "Створити кімнату"
 
 #: core/mcpserver/createroom/createroomtool.cpp:63
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#, kde-format
 msgid "Missing room name"
-msgstr "Пропущено ім'я користувача"
+msgstr "Не вказано назви кімнати"
 
 #: core/mcpserver/createroom/createroomtool.cpp:79
-#, fuzzy, kde-format
-#| msgid "Search failed: %1"
+#, kde-format
 msgid "Create room failed: %1"
-msgstr "Помилка пошуку: %1"
+msgstr "Не вдалося створити кімнату: %1"
 
 #: core/mcpserver/createroom/createroomtool.cpp:92
 #: core/mcpserver/createroom/createroomtool.cpp:103
-#, fuzzy, kde-format
-#| msgid "Impossible to start update room settings job"
+#, kde-format
 msgid "Impossible to start create room job"
-msgstr "Не вдалося розпочати завдання з оновлення параметрів кімнати"
+msgstr "Не вдалося розпочати завдання зі створення кімнати"
 
 #: core/mcpserver/createteam/createteamtool.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Team"
+#, kde-format
 msgid "Create Team"
-msgstr "Створення команди"
+msgstr "Створити команду"
 
 #: core/mcpserver/createteam/createteamtool.cpp:62
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#, kde-format
 msgid "Missing team name"
-msgstr "Пропущено ім'я користувача"
+msgstr "Не вказано назви команди"
 
 #: core/mcpserver/createteam/createteamtool.cpp:84
-#, fuzzy, kde-format
-#| msgid "Get message failed: %1"
+#, kde-format
 msgid "Create team failed: %1"
-msgstr "Не вдалося отримати повідомлення: %1"
+msgstr "Не вдалося створити команду: %1"
 
 #: core/mcpserver/createteam/createteamtool.cpp:87
-#, fuzzy, kde-format
-#| msgid "Impossible to start star message job"
+#, kde-format
 msgid "Impossible to start create team job"
-msgstr "Не вдалося розпочати завдання з позначення повідомлення зіркою"
+msgstr "Не вдалося розпочати завдання зі створення команди"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:29
 #, kde-format
@@ -1224,29 +1204,24 @@ msgid "Impossible to start pin message job"
 msgstr "Не вдалося розпочати завдання з пришпилення повідомлення"
 
 #: core/mcpserver/reactonmessage/reactonmessagetool.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Sound Message"
+#, kde-format
 msgid "React on Message"
-msgstr "Створення звукового повідомлення"
+msgstr "Відреагувати на повідомлення"
 
 #: core/mcpserver/reactonmessage/reactonmessagetool.cpp:65
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#, kde-format
 msgid "Missing emoji"
-msgstr "Пропущено ім'я користувача"
+msgstr "Пропущено емоційку"
 
 #: core/mcpserver/reactonmessage/reactonmessagetool.cpp:82
-#, fuzzy, kde-format
-#| msgid "Get message failed: %1"
+#, kde-format
 msgid "React on message failed: %1"
-msgstr "Не вдалося отримати повідомлення: %1"
+msgstr "Не вдалося додати реакцію на повідомлення: %1"
 
 #: core/mcpserver/reactonmessage/reactonmessagetool.cpp:85
-#, fuzzy, kde-format
-#| msgid "Impossible to start pin message job"
+#, kde-format
 msgid "Impossible to start react on message job"
-msgstr "Не вдалося розпочати завдання з пришпилення повідомлення"
+msgstr "Не вдалося розпочати завдання з додавання реакції на повідомлення"
 
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:35
 #, kde-format
@@ -2489,57 +2464,69 @@ msgstr "Безпосереднє повідомлення"
 msgid "Omnichannel"
 msgstr "Омніканал"
 
-#: core/ruqolacommandlineparser.cpp:44
+#: core/ruqolacommandlineparser.cpp:58
 #, kde-format
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "Повернути список облікових записів"
 
-#: core/ruqolacommandlineparser.cpp:46
+#: core/ruqolacommandlineparser.cpp:60
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Запустити із вказаним обліковим записом"
 
-#: core/ruqolacommandlineparser.cpp:46
+#: core/ruqolacommandlineparser.cpp:60
 #, kde-format
 msgid "Account Name"
 msgstr "Назва запису"
 
-#: core/ruqolacommandlineparser.cpp:47
+#: core/ruqolacommandlineparser.cpp:61
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Показати повідомлення"
 
-#: core/ruqolacommandlineparser.cpp:47
+#: core/ruqolacommandlineparser.cpp:61
 #, kde-format
 msgid "Message Url"
 msgstr "Адреса повідомлення"
 
-#: core/ruqolacommandlineparser.cpp:50
+#: core/ruqolacommandlineparser.cpp:64
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Показати доступні варіанти для відгуків користувача"
 
-#: core/ruqolacommandlineparser.cpp:53
+#: core/ruqolacommandlineparser.cpp:67
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr "Запуск в автономному режимі"
 
-#: core/ruqolacommandlineparser.cpp:55
+#: core/ruqolacommandlineparser.cpp:69
 #, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
 msgstr "Задіяти діагностичний режим"
 
-#: core/ruqolacommandlineparser.cpp:56
+#: core/ruqolacommandlineparser.cpp:70
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
 msgstr "Очистити базу даних (обережно!)"
+
+#: core/ruqolacommandlineparser.cpp:73
+#, kde-format
+msgctxt "@info:shell"
+msgid "List supported MCP tools and exit."
+msgstr ""
+
+#: core/ruqolacommandlineparser.cpp:88
+#, fuzzy, kde-format
+#| msgid "List Rooms"
+msgid "List of Tools:"
+msgstr "Вивести список кімнат"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:57
 #, kde-format
@@ -8273,16 +8260,13 @@ msgstr "Вилучити категорію"
 
 #: widgets/category/managecategorieswidget.cpp:150
 #: widgets/category/managecategorieswidget.cpp:180
-#, fuzzy, kde-format
-#| msgid "Team already exists."
+#, kde-format
 msgid "This name %1 already exists."
-msgstr "Така команда вже існує."
+msgstr "Така назва, %1, вже існує."
 
 #: widgets/category/managecategorieswidget.cpp:150
 #: widgets/category/managecategorieswidget.cpp:180
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "Category"
+#, kde-format
 msgctxt "@title:window"
 msgid "Category"
 msgstr "Категорія"

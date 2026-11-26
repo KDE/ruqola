@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-25 01:25+0000\n"
-"PO-Revision-Date: 2026-11-17 08:45+0100\n"
+"POT-Creation-Date: 2026-11-26 01:04+0000\n"
+"PO-Revision-Date: 2026-11-25 10:57+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -21,157 +21,157 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Generator: Lokalize 25.04.0\n"
 
-#: apps/main.cpp:60
+#: apps/main.cpp:63
 #, kde-format
 msgid "Copyright © 2020-2026 Ruqola authors"
 msgstr "Drets d'autoria © 2020-2026, els autors de Ruqola"
 
-#: apps/main.cpp:64
+#: apps/main.cpp:67
 #, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: apps/main.cpp:64
+#: apps/main.cpp:67
 #, kde-format
 msgid "Maintainer"
 msgstr "Mantenidor"
 
-#: apps/main.cpp:65
+#: apps/main.cpp:68
 #, kde-format
 msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
 
-#: apps/main.cpp:65
+#: apps/main.cpp:68
 #, kde-format
 msgid "Original Author"
 msgstr "Autor original"
 
-#: apps/main.cpp:69
+#: apps/main.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
-#: apps/main.cpp:69
+#: apps/main.cpp:72
 #, kde-format
 msgid "Bug fixing, delegates etc."
 msgstr "Esmena d'errors, delegats, etc."
 
-#: apps/main.cpp:70
+#: apps/main.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kevin Funk"
 msgstr "Kevin Funk"
 
-#: apps/main.cpp:70 apps/main.cpp:71 apps/main.cpp:72 apps/main.cpp:74
-#: apps/main.cpp:75
+#: apps/main.cpp:73 apps/main.cpp:74 apps/main.cpp:75 apps/main.cpp:77
+#: apps/main.cpp:78
 #, kde-format
 msgid "Bug fixing"
 msgstr "Esmena d'errors"
 
-#: apps/main.cpp:71
+#: apps/main.cpp:74
 #, kde-format
 msgctxt "@info:credit"
 msgid "Olivier JG"
 msgstr "Olivier JG"
 
-#: apps/main.cpp:72
+#: apps/main.cpp:75
 #, kde-format
 msgctxt "@info:credit"
 msgid "Milian Wolff"
 msgstr "Milian Wolff"
 
-#: apps/main.cpp:73
+#: apps/main.cpp:76
 #, kde-format
 msgctxt "@info:credit"
 msgid "Till Adam"
 msgstr "Till Adam"
 
-#: apps/main.cpp:73
+#: apps/main.cpp:76
 #, kde-format
 msgid "Windows compile bug fixing"
 msgstr "Esmena de l'error de compilació a Windows"
 
-#: apps/main.cpp:74
+#: apps/main.cpp:77
 #, kde-format
 msgctxt "@info:credit"
 msgid "Shantanu Tushar"
 msgstr "Shantanu Tushar"
 
-#: apps/main.cpp:75
+#: apps/main.cpp:78
 #, kde-format
 msgctxt "@info:credit"
 msgid "Alessandro Ambrosano"
 msgstr "Alessandro Ambrosano"
 
-#: apps/main.cpp:76
+#: apps/main.cpp:79
 #, kde-format
 msgctxt "@info:credit"
 msgid "Hannah von Reth"
 msgstr "Hannah von Reth"
 
-#: apps/main.cpp:76
+#: apps/main.cpp:79
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
 msgstr "Esmena d'errors per a Windows/Mac"
 
-#: apps/main.cpp:77
+#: apps/main.cpp:80
 #, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: apps/main.cpp:77
+#: apps/main.cpp:80
 #, kde-format
 msgid "Packaging"
 msgstr "Empaquetament"
 
-#: apps/main.cpp:78
+#: apps/main.cpp:81
 #, kde-format
 msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr "Waqar Ahmed"
 
-#: apps/main.cpp:78
+#: apps/main.cpp:81
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
 msgstr "Esmena d'errors (compilació, fallada de la xarxa…)"
 
-#: apps/main.cpp:79
+#: apps/main.cpp:82
 #, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: apps/main.cpp:79
+#: apps/main.cpp:82
 #, kde-format
 msgid "Optimization, fix windows/mac support"
 msgstr "Optimització, corregir la implementació de Windows/Mac"
 
-#: apps/main.cpp:80
+#: apps/main.cpp:83
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniele E. Domenichelli"
 msgstr "Daniele E. Domenichelli"
 
-#: apps/main.cpp:80
+#: apps/main.cpp:83
 #, kde-format
 msgid "New feature"
 msgstr "Característica nova"
 
-#: apps/main.cpp:103
+#: apps/main.cpp:106
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Estan disponibles els comptes següents:"
 
-#: core/accountmanager.cpp:351
+#: core/accountmanager.cpp:354
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Testimoni d'invitació no vàlid"
 
-#: core/accountmanager.cpp:352
+#: core/accountmanager.cpp:355
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -379,7 +379,7 @@ msgstr "Interactuar amb la IU"
 #: core/apps/appsmarketplaceinfo.cpp:675
 #, kde-format
 msgid "Store internal data in the database"
-msgstr "Emmagatzemar la dades internes a la base de dades"
+msgstr "Emmagatzemar les dades internes a la base de dades"
 
 #: core/apps/appsmarketplaceinfo.cpp:677
 #, kde-format
@@ -909,10 +909,9 @@ msgid "Misc"
 msgstr "Miscel·lània"
 
 #: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:28
-#, fuzzy, kde-format
-#| msgid "Create Direct Messages…"
+#, kde-format
 msgid "Create Direct Message"
-msgstr "Crea missatges directes…"
+msgstr "Crea un missatge directe"
 
 #: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:46
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:54
@@ -942,35 +941,29 @@ msgid "No account found"
 msgstr "No s'ha trobat cap compte"
 
 #: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:55
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#, kde-format
 msgid "Missing user names"
-msgstr "Falta el nom d'usuari"
+msgstr "Falten els noms d'usuari"
 
 #: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Direct Messages - %1"
+#, kde-format
 msgid "Create direct message failed: %1"
-msgstr "Crea missatges directes – %1"
+msgstr "Ha fallat mentre es creava un missatge directe: %1"
 
 #: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:73
-#, fuzzy, kde-format
-#| msgid "Impossible to start star message job"
+#, kde-format
 msgid "Impossible to start create direct message job"
-msgstr "Impossible iniciar el treball de posar una estrela"
+msgstr "Impossible iniciar el treball de creació de missatge directe"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:30
-#, fuzzy, kde-format
-#| msgid "Create Discussion…"
+#, kde-format
 msgid "Create Discussion"
-msgstr "Crea un debat…"
+msgstr "Crea un debat"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:64
-#, fuzzy, kde-format
-#| msgid "Missing room identifier"
+#, kde-format
 msgid "Missing parent room identifier"
-msgstr "Falta l'identificador de la sala"
+msgstr "Falta l'identificador de sala pare"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:69
 #: core/mcpserver/getroominfo/getroominfotool.cpp:54
@@ -983,83 +976,65 @@ msgid "No room found with identifier \"%1\""
 msgstr "No s'ha trobat cap sala amb l'identificador «%1»"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:74
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#, kde-format
 msgid "Missing discussion name"
-msgstr "Falta el nom d'usuari"
+msgstr "Falta el nom de debat"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:108
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Discussion - %1"
+#, kde-format
 msgid "Create discussion failed: %1"
-msgstr "Crea un debat – %1"
+msgstr "No s'ha pogut crear debat: %1"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:111
-#, fuzzy, kde-format
-#| msgid "Impossible to start update room settings job"
+#, kde-format
 msgid "Impossible to start create discussion job"
-msgstr ""
-"Impossible iniciar el treball d'actualització de la configuració de la sala"
+msgstr "Impossible iniciar el treball de creació de debat"
 
 #: core/mcpserver/createroom/createroomtool.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Create Room"
+#, kde-format
 msgid "Create Room"
 msgstr "Crea una sala"
 
 #: core/mcpserver/createroom/createroomtool.cpp:63
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#, kde-format
 msgid "Missing room name"
-msgstr "Falta el nom d'usuari"
+msgstr "Falta el nom de sala"
 
 #: core/mcpserver/createroom/createroomtool.cpp:79
-#, fuzzy, kde-format
-#| msgid "Search failed: %1"
+#, kde-format
 msgid "Create room failed: %1"
-msgstr "No s'ha pogut fer la busca: %1"
+msgstr "No s'ha pogut crear sala: %1"
 
 #: core/mcpserver/createroom/createroomtool.cpp:92
 #: core/mcpserver/createroom/createroomtool.cpp:103
-#, fuzzy, kde-format
-#| msgid "Impossible to start update room settings job"
+#, kde-format
 msgid "Impossible to start create room job"
-msgstr ""
-"Impossible iniciar el treball d'actualització de la configuració de la sala"
+msgstr "Impossible iniciar el treball de creació de sala"
 
 #: core/mcpserver/createteam/createteamtool.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Team"
+#, kde-format
 msgid "Create Team"
-msgstr "Creeu un equip"
+msgstr "Crea un equip"
 
 #: core/mcpserver/createteam/createteamtool.cpp:62
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#, kde-format
 msgid "Missing team name"
-msgstr "Falta el nom d'usuari"
+msgstr "Falta el nom d'equip"
 
 #: core/mcpserver/createteam/createteamtool.cpp:84
-#, fuzzy, kde-format
-#| msgid "Star message failed: %1"
+#, kde-format
 msgid "Create team failed: %1"
-msgstr "No s'ha pogut posar una estrela al missatge: %1"
+msgstr "Ha fallat mentre es creava l'equip: %1"
 
 #: core/mcpserver/createteam/createteamtool.cpp:87
-#, fuzzy, kde-format
-#| msgid "Impossible to start star message job"
+#, kde-format
 msgid "Impossible to start create team job"
-msgstr "Impossible iniciar el treball de posar una estrela"
+msgstr "Impossible iniciar el treball de crear l'equip"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Go to Message"
+#, kde-format
 msgid "Get Message"
-msgstr "Ves fins al missatge"
+msgstr "Obté un missatge"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:54
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:53
@@ -1070,22 +1045,19 @@ msgid "Missing message identifier"
 msgstr "Falta l'identificador del missatge"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:66
-#, fuzzy, kde-format
-#| msgid "Message not found."
+#, kde-format
 msgid "Message not found"
-msgstr "No s'ha trobat el missatge."
+msgstr "No s'ha trobat el missatge"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:92
-#, fuzzy, kde-format
-#| msgid "Star message failed: %1"
+#, kde-format
 msgid "Get message failed: %1"
-msgstr "No s'ha pogut posar una estrela al missatge: %1"
+msgstr "Ha fallat mentre s'obtenia un missatge: %1"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:95
-#, fuzzy, kde-format
-#| msgid "Impossible to start pin message job"
+#, kde-format
 msgid "Impossible to get message"
-msgstr "Impossible iniciar el treball de fixació del missatge"
+msgstr "Impossible obtindre un missatge"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:27
 #, kde-format
@@ -1235,29 +1207,24 @@ msgid "Impossible to start pin message job"
 msgstr "Impossible iniciar el treball de fixació del missatge"
 
 #: core/mcpserver/reactonmessage/reactonmessagetool.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Sound Message"
+#, kde-format
 msgid "React on Message"
-msgstr "Crea un missatge de so"
+msgstr "Reacciona a un missatge"
 
 #: core/mcpserver/reactonmessage/reactonmessagetool.cpp:65
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#, kde-format
 msgid "Missing emoji"
-msgstr "Falta el nom d'usuari"
+msgstr "Falta l'emoji"
 
 #: core/mcpserver/reactonmessage/reactonmessagetool.cpp:82
-#, fuzzy, kde-format
-#| msgid "Star message failed: %1"
+#, kde-format
 msgid "React on message failed: %1"
-msgstr "No s'ha pogut posar una estrela al missatge: %1"
+msgstr "No s'ha pogut reaccionar a un missatge: %1"
 
 #: core/mcpserver/reactonmessage/reactonmessagetool.cpp:85
-#, fuzzy, kde-format
-#| msgid "Impossible to start pin message job"
+#, kde-format
 msgid "Impossible to start react on message job"
-msgstr "Impossible iniciar el treball de fixació del missatge"
+msgstr "Impossible iniciar el treball de reacció a un missatge"
 
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:35
 #, kde-format
@@ -1312,7 +1279,7 @@ msgstr "Impossible iniciar el treball de posar una estrela"
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:30
 #, kde-format
 msgid "Update Room Settings"
-msgstr "Actualització de la configuració de la sala"
+msgstr "Actualitzeu la configuració de la sala"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:69
 #, kde-format
@@ -1857,7 +1824,7 @@ msgstr "enllaç"
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:42
 #, kde-format
 msgid "Host"
-msgstr "Amfitrió"
+msgstr "Servidor"
 
 #: core/model/deviceinfomodel.cpp:34
 #, kde-format
@@ -2488,57 +2455,69 @@ msgstr "Missatge directe"
 msgid "Omnichannel"
 msgstr "Omnicanal"
 
-#: core/ruqolacommandlineparser.cpp:44
+#: core/ruqolacommandlineparser.cpp:58
 #, kde-format
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "Retorna la llista de comptes"
 
-#: core/ruqolacommandlineparser.cpp:46
+#: core/ruqolacommandlineparser.cpp:60
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Comença amb un compte específic"
 
-#: core/ruqolacommandlineparser.cpp:46
+#: core/ruqolacommandlineparser.cpp:60
 #, kde-format
 msgid "Account Name"
 msgstr "Nom del compte"
 
-#: core/ruqolacommandlineparser.cpp:47
+#: core/ruqolacommandlineparser.cpp:61
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Mostra el missatge"
 
-#: core/ruqolacommandlineparser.cpp:47
+#: core/ruqolacommandlineparser.cpp:61
 #, kde-format
 msgid "Message Url"
 msgstr "URL del missatge"
 
-#: core/ruqolacommandlineparser.cpp:50
+#: core/ruqolacommandlineparser.cpp:64
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Llista les opcions disponibles per als comentaris dels usuaris"
 
-#: core/ruqolacommandlineparser.cpp:53
+#: core/ruqolacommandlineparser.cpp:67
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr "Inicia en desconnexió"
 
-#: core/ruqolacommandlineparser.cpp:55
+#: core/ruqolacommandlineparser.cpp:69
 #, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
 msgstr "Activa el mode de depuració"
 
-#: core/ruqolacommandlineparser.cpp:56
+#: core/ruqolacommandlineparser.cpp:70
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
 msgstr "Neteja la base de dades (utilitzeu amb precaució)"
+
+#: core/ruqolacommandlineparser.cpp:73
+#, kde-format
+msgctxt "@info:shell"
+msgid "List supported MCP tools and exit."
+msgstr ""
+
+#: core/ruqolacommandlineparser.cpp:88
+#, fuzzy, kde-format
+#| msgid "List Rooms"
+msgid "List of Tools:"
+msgstr "Llista de sales"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:57
 #, kde-format
@@ -5972,7 +5951,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:66
 #, kde-format
 msgid "Json Web Token Secret"
-msgstr "Secret de testimonio web JSON"
+msgstr "Secret de testimoni web JSON"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:70
 #, kde-format
@@ -6707,7 +6686,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:108
 #, kde-format
 msgid "Message Erasure Type"
-msgstr "Tipus d'esborrat de missatges"
+msgstr "Tipus d'esborrament de missatges"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:112
 #, kde-format
@@ -6845,7 +6824,7 @@ msgstr "Dies de venciment de la memòria cau incrustada"
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow Save Media to Gallery"
-msgstr "Permet guardar els fitxers multimèdia a la galleria"
+msgstr "Permet guardar els fitxers multimèdia a la galeria"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:20
 #, kde-format
@@ -8237,16 +8216,13 @@ msgstr "Elimina una categoria"
 
 #: widgets/category/managecategorieswidget.cpp:150
 #: widgets/category/managecategorieswidget.cpp:180
-#, fuzzy, kde-format
-#| msgid "Team already exists."
+#, kde-format
 msgid "This name %1 already exists."
-msgstr "L'equip ja existix."
+msgstr "El nom %1 ja existix."
 
 #: widgets/category/managecategorieswidget.cpp:150
 #: widgets/category/managecategorieswidget.cpp:180
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "Category"
+#, kde-format
 msgctxt "@title:window"
 msgid "Category"
 msgstr "Categoria"
@@ -10633,7 +10609,7 @@ msgstr "Guarda el so"
 #, kde-format
 msgctxt "@title:window"
 msgid "Download Image"
-msgstr "Baixada d'imatge"
+msgstr "Baixeu la imatge"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:85
 #, kde-format

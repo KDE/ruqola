@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-25 01:25+0000\n"
+"POT-Creation-Date: 2026-11-26 01:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Irish Gaelic <kde-i18n-doc@kde.org>\n"
@@ -18,157 +18,157 @@ msgstr ""
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
 
-#: apps/main.cpp:60
+#: apps/main.cpp:63
 #, kde-format
 msgid "Copyright © 2020-2026 Ruqola authors"
 msgstr ""
 
-#: apps/main.cpp:64
+#: apps/main.cpp:67
 #, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr ""
 
-#: apps/main.cpp:64
+#: apps/main.cpp:67
 #, kde-format
 msgid "Maintainer"
 msgstr ""
 
-#: apps/main.cpp:65
+#: apps/main.cpp:68
 #, kde-format
 msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
 msgstr ""
 
-#: apps/main.cpp:65
+#: apps/main.cpp:68
 #, kde-format
 msgid "Original Author"
-msgstr ""
-
-#: apps/main.cpp:69
-#, kde-format
-msgctxt "@info:credit"
-msgid "David Faure"
-msgstr ""
-
-#: apps/main.cpp:69
-#, kde-format
-msgid "Bug fixing, delegates etc."
-msgstr ""
-
-#: apps/main.cpp:70
-#, kde-format
-msgctxt "@info:credit"
-msgid "Kevin Funk"
-msgstr ""
-
-#: apps/main.cpp:70 apps/main.cpp:71 apps/main.cpp:72 apps/main.cpp:74
-#: apps/main.cpp:75
-#, kde-format
-msgid "Bug fixing"
-msgstr ""
-
-#: apps/main.cpp:71
-#, kde-format
-msgctxt "@info:credit"
-msgid "Olivier JG"
 msgstr ""
 
 #: apps/main.cpp:72
 #, kde-format
 msgctxt "@info:credit"
-msgid "Milian Wolff"
+msgid "David Faure"
+msgstr ""
+
+#: apps/main.cpp:72
+#, kde-format
+msgid "Bug fixing, delegates etc."
 msgstr ""
 
 #: apps/main.cpp:73
 #, kde-format
 msgctxt "@info:credit"
-msgid "Till Adam"
+msgid "Kevin Funk"
 msgstr ""
 
-#: apps/main.cpp:73
+#: apps/main.cpp:73 apps/main.cpp:74 apps/main.cpp:75 apps/main.cpp:77
+#: apps/main.cpp:78
 #, kde-format
-msgid "Windows compile bug fixing"
+msgid "Bug fixing"
 msgstr ""
 
 #: apps/main.cpp:74
 #, kde-format
 msgctxt "@info:credit"
-msgid "Shantanu Tushar"
+msgid "Olivier JG"
 msgstr ""
 
 #: apps/main.cpp:75
 #, kde-format
 msgctxt "@info:credit"
-msgid "Alessandro Ambrosano"
+msgid "Milian Wolff"
 msgstr ""
 
 #: apps/main.cpp:76
+#, kde-format
+msgctxt "@info:credit"
+msgid "Till Adam"
+msgstr ""
+
+#: apps/main.cpp:76
+#, kde-format
+msgid "Windows compile bug fixing"
+msgstr ""
+
+#: apps/main.cpp:77
+#, kde-format
+msgctxt "@info:credit"
+msgid "Shantanu Tushar"
+msgstr ""
+
+#: apps/main.cpp:78
+#, kde-format
+msgctxt "@info:credit"
+msgid "Alessandro Ambrosano"
+msgstr ""
+
+#: apps/main.cpp:79
 #, kde-format
 msgctxt "@info:credit"
 msgid "Hannah von Reth"
 msgstr ""
 
-#: apps/main.cpp:76
+#: apps/main.cpp:79
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
 msgstr ""
 
-#: apps/main.cpp:77
+#: apps/main.cpp:80
 #, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr ""
 
-#: apps/main.cpp:77
+#: apps/main.cpp:80
 #, kde-format
 msgid "Packaging"
 msgstr ""
 
-#: apps/main.cpp:78
+#: apps/main.cpp:81
 #, kde-format
 msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr ""
 
-#: apps/main.cpp:78
+#: apps/main.cpp:81
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
 msgstr ""
 
-#: apps/main.cpp:79
+#: apps/main.cpp:82
 #, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr ""
 
-#: apps/main.cpp:79
+#: apps/main.cpp:82
 #, kde-format
 msgid "Optimization, fix windows/mac support"
 msgstr ""
 
-#: apps/main.cpp:80
+#: apps/main.cpp:83
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniele E. Domenichelli"
 msgstr ""
 
-#: apps/main.cpp:80
+#: apps/main.cpp:83
 #, kde-format
 msgid "New feature"
 msgstr ""
 
-#: apps/main.cpp:103
+#: apps/main.cpp:106
 #, kde-format
 msgid "The following accounts are available:"
 msgstr ""
 
-#: core/accountmanager.cpp:351
+#: core/accountmanager.cpp:354
 #, kde-format
 msgid "Invalid invite token"
 msgstr ""
 
-#: core/accountmanager.cpp:352
+#: core/accountmanager.cpp:355
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -2441,56 +2441,67 @@ msgstr ""
 msgid "Omnichannel"
 msgstr ""
 
-#: core/ruqolacommandlineparser.cpp:44
+#: core/ruqolacommandlineparser.cpp:58
 #, kde-format
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr ""
 
-#: core/ruqolacommandlineparser.cpp:46
+#: core/ruqolacommandlineparser.cpp:60
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr ""
 
-#: core/ruqolacommandlineparser.cpp:46
+#: core/ruqolacommandlineparser.cpp:60
 #, kde-format
 msgid "Account Name"
 msgstr ""
 
-#: core/ruqolacommandlineparser.cpp:47
+#: core/ruqolacommandlineparser.cpp:61
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr ""
 
-#: core/ruqolacommandlineparser.cpp:47
+#: core/ruqolacommandlineparser.cpp:61
 #, kde-format
 msgid "Message Url"
 msgstr ""
 
-#: core/ruqolacommandlineparser.cpp:50
+#: core/ruqolacommandlineparser.cpp:64
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr ""
 
-#: core/ruqolacommandlineparser.cpp:53
+#: core/ruqolacommandlineparser.cpp:67
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr ""
 
-#: core/ruqolacommandlineparser.cpp:55
+#: core/ruqolacommandlineparser.cpp:69
 #, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
 msgstr ""
 
-#: core/ruqolacommandlineparser.cpp:56
+#: core/ruqolacommandlineparser.cpp:70
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
+msgstr ""
+
+#: core/ruqolacommandlineparser.cpp:73
+#, kde-format
+msgctxt "@info:shell"
+msgid "List supported MCP tools and exit."
+msgstr ""
+
+#: core/ruqolacommandlineparser.cpp:88
+#, kde-format
+msgid "List of Tools:"
 msgstr ""
 
 #: core/timestamp/timestampinmessagesconverter.cpp:57

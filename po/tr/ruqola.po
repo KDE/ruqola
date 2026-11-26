@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-25 01:25+0000\n"
-"PO-Revision-Date: 2026-11-23 18:16+0300\n"
+"POT-Creation-Date: 2026-11-26 01:04+0000\n"
+"PO-Revision-Date: 2026-11-25 18:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,157 +18,157 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 26.08.2\n"
 
-#: apps/main.cpp:60
+#: apps/main.cpp:63
 #, kde-format
 msgid "Copyright © 2020-2026 Ruqola authors"
 msgstr "© 2020–2026 Ruqola yazarları"
 
-#: apps/main.cpp:64
+#: apps/main.cpp:67
 #, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: apps/main.cpp:64
+#: apps/main.cpp:67
 #, kde-format
 msgid "Maintainer"
 msgstr "Bakımcı"
 
-#: apps/main.cpp:65
+#: apps/main.cpp:68
 #, kde-format
 msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
 
-#: apps/main.cpp:65
+#: apps/main.cpp:68
 #, kde-format
 msgid "Original Author"
 msgstr "Özgün Yazar"
 
-#: apps/main.cpp:69
+#: apps/main.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
-#: apps/main.cpp:69
+#: apps/main.cpp:72
 #, kde-format
 msgid "Bug fixing, delegates etc."
 msgstr "Hata düzeltme, vekilleme vb."
 
-#: apps/main.cpp:70
+#: apps/main.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kevin Funk"
 msgstr "Kevin Funk"
 
-#: apps/main.cpp:70 apps/main.cpp:71 apps/main.cpp:72 apps/main.cpp:74
-#: apps/main.cpp:75
+#: apps/main.cpp:73 apps/main.cpp:74 apps/main.cpp:75 apps/main.cpp:77
+#: apps/main.cpp:78
 #, kde-format
 msgid "Bug fixing"
 msgstr "Hata düzeltme"
 
-#: apps/main.cpp:71
+#: apps/main.cpp:74
 #, kde-format
 msgctxt "@info:credit"
 msgid "Olivier JG"
 msgstr "Olivier JG"
 
-#: apps/main.cpp:72
+#: apps/main.cpp:75
 #, kde-format
 msgctxt "@info:credit"
 msgid "Milian Wolff"
 msgstr "Milian Wolff"
 
-#: apps/main.cpp:73
+#: apps/main.cpp:76
 #, kde-format
 msgctxt "@info:credit"
 msgid "Till Adam"
 msgstr "Till Adam"
 
-#: apps/main.cpp:73
+#: apps/main.cpp:76
 #, kde-format
 msgid "Windows compile bug fixing"
 msgstr "Windows derleme hata düzeltmeleri"
 
-#: apps/main.cpp:74
+#: apps/main.cpp:77
 #, kde-format
 msgctxt "@info:credit"
 msgid "Shantanu Tushar"
 msgstr "Shantanu Tushar"
 
-#: apps/main.cpp:75
+#: apps/main.cpp:78
 #, kde-format
 msgctxt "@info:credit"
 msgid "Alessandro Ambrosano"
 msgstr "Alessandro Ambrosano"
 
-#: apps/main.cpp:76
+#: apps/main.cpp:79
 #, kde-format
 msgctxt "@info:credit"
 msgid "Hannah von Reth"
 msgstr "Hannah von Reth"
 
-#: apps/main.cpp:76
+#: apps/main.cpp:79
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
 msgstr "Windows/Mac için hata düzeltmeler"
 
-#: apps/main.cpp:77
+#: apps/main.cpp:80
 #, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: apps/main.cpp:77
+#: apps/main.cpp:80
 #, kde-format
 msgid "Packaging"
 msgstr "Paketleme"
 
-#: apps/main.cpp:78
+#: apps/main.cpp:81
 #, kde-format
 msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr "Waqar Ahmed"
 
-#: apps/main.cpp:78
+#: apps/main.cpp:81
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
 msgstr "Hata düzeltmeleri (derleme, ağ çökmeleri…)"
 
-#: apps/main.cpp:79
+#: apps/main.cpp:82
 #, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: apps/main.cpp:79
+#: apps/main.cpp:82
 #, kde-format
 msgid "Optimization, fix windows/mac support"
 msgstr "Eniyileme, Windows/Mac desteğini onarma"
 
-#: apps/main.cpp:80
+#: apps/main.cpp:83
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniele E. Domenichelli"
 msgstr "Daniele E. Domenichelli"
 
-#: apps/main.cpp:80
+#: apps/main.cpp:83
 #, kde-format
 msgid "New feature"
 msgstr "Yeni özellik"
 
-#: apps/main.cpp:103
+#: apps/main.cpp:106
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Aşağıdaki hesaplar kullanılabilir:"
 
-#: core/accountmanager.cpp:351
+#: core/accountmanager.cpp:354
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Geçersiz Davet Jetonu"
 
-#: core/accountmanager.cpp:352
+#: core/accountmanager.cpp:355
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Geçersiz davet jetonu. Hesap oluşturma iptal ediliyor."
@@ -903,10 +903,9 @@ msgid "Misc"
 msgstr "Çeşitli"
 
 #: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:28
-#, fuzzy, kde-format
-#| msgid "Create Direct Messages…"
+#, kde-format
 msgid "Create Direct Message"
-msgstr "Doğrudan İleti Oluştur…"
+msgstr "Doğrudan İleti Oluştur"
 
 #: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:46
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:54
@@ -936,35 +935,29 @@ msgid "No account found"
 msgstr "Bulunan hesap yok"
 
 #: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:55
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#, kde-format
 msgid "Missing user names"
-msgstr "Eksik kullanıcı adı"
+msgstr "Eksik kullanıcı adları"
 
 #: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Direct Messages - %1"
+#, kde-format
 msgid "Create direct message failed: %1"
-msgstr "Doğrudan İletiler Oluştur — %1"
+msgstr "Doğrudan ileti oluşturulamadı: %1"
 
 #: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:73
-#, fuzzy, kde-format
-#| msgid "Impossible to start star message job"
+#, kde-format
 msgid "Impossible to start create direct message job"
-msgstr "İletiye yıldız koyma işi olanaksız"
+msgstr "Doğrudan ileti oluştur işini başlatmak olanaksız"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:30
-#, fuzzy, kde-format
-#| msgid "Create Discussion…"
+#, kde-format
 msgid "Create Discussion"
-msgstr "Tartışma Oluştur…"
+msgstr "Tartışma Oluştur"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:64
-#, fuzzy, kde-format
-#| msgid "Missing room identifier"
+#, kde-format
 msgid "Missing parent room identifier"
-msgstr "Eksik oda tanımlayıcısı"
+msgstr "Eksik üst oda tanımlayıcısı"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:69
 #: core/mcpserver/getroominfo/getroominfotool.cpp:54
@@ -977,74 +970,60 @@ msgid "No room found with identifier \"%1\""
 msgstr "“%1” tanımlayıcısı ile bir oda bulunamadı"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:74
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#, kde-format
 msgid "Missing discussion name"
-msgstr "Eksik kullanıcı adı"
+msgstr "Eksik tartışma adı"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:108
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Discussion - %1"
+#, kde-format
 msgid "Create discussion failed: %1"
-msgstr "Tartışma Oluştur — %1"
+msgstr "Tartışma oluşturulamadı: %1"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:111
-#, fuzzy, kde-format
-#| msgid "Impossible to start update room settings job"
+#, kde-format
 msgid "Impossible to start create discussion job"
-msgstr "Oda ayarlarını güncelleme işi olanaksız"
+msgstr "Tartışma oluştur işini başlatmak olanaksız"
 
 #: core/mcpserver/createroom/createroomtool.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Create Room"
+#, kde-format
 msgid "Create Room"
 msgstr "Oda Oluştur"
 
 #: core/mcpserver/createroom/createroomtool.cpp:63
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#, kde-format
 msgid "Missing room name"
-msgstr "Eksik kullanıcı adı"
+msgstr "Eksik oda adı"
 
 #: core/mcpserver/createroom/createroomtool.cpp:79
-#, fuzzy, kde-format
-#| msgid "Search failed: %1"
+#, kde-format
 msgid "Create room failed: %1"
-msgstr "Arama başarısız: %1"
+msgstr "Oda oluşturulamadı: %1"
 
 #: core/mcpserver/createroom/createroomtool.cpp:92
 #: core/mcpserver/createroom/createroomtool.cpp:103
-#, fuzzy, kde-format
-#| msgid "Impossible to start update room settings job"
+#, kde-format
 msgid "Impossible to start create room job"
-msgstr "Oda ayarlarını güncelleme işi olanaksız"
+msgstr "Oda oluştur işini başlatmak olanaksız"
 
 #: core/mcpserver/createteam/createteamtool.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Team"
+#, kde-format
 msgid "Create Team"
 msgstr "Takım Oluştur"
 
 #: core/mcpserver/createteam/createteamtool.cpp:62
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#, kde-format
 msgid "Missing team name"
-msgstr "Eksik kullanıcı adı"
+msgstr "Eksik takım adı"
 
 #: core/mcpserver/createteam/createteamtool.cpp:84
-#, fuzzy, kde-format
-#| msgid "Get message failed: %1"
+#, kde-format
 msgid "Create team failed: %1"
-msgstr "İleti alınamadı: %1"
+msgstr "Takım oluşturulamadı: %1"
 
 #: core/mcpserver/createteam/createteamtool.cpp:87
-#, fuzzy, kde-format
-#| msgid "Impossible to start star message job"
+#, kde-format
 msgid "Impossible to start create team job"
-msgstr "İletiye yıldız koyma işi olanaksız"
+msgstr "Takım oluştur işini başlatmak olanaksız"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:29
 #, kde-format
@@ -1222,29 +1201,24 @@ msgid "Impossible to start pin message job"
 msgstr "İletiyi sabitlemeye başlamak olanaksız"
 
 #: core/mcpserver/reactonmessage/reactonmessagetool.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Sound Message"
+#, kde-format
 msgid "React on Message"
-msgstr "Ses İletisi Oluştur"
+msgstr "İletiye Tepki Ver"
 
 #: core/mcpserver/reactonmessage/reactonmessagetool.cpp:65
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#, kde-format
 msgid "Missing emoji"
-msgstr "Eksik kullanıcı adı"
+msgstr "Eksik emoji"
 
 #: core/mcpserver/reactonmessage/reactonmessagetool.cpp:82
-#, fuzzy, kde-format
-#| msgid "Get message failed: %1"
+#, kde-format
 msgid "React on message failed: %1"
-msgstr "İleti alınamadı: %1"
+msgstr "İletiye tepki verilemedi: %1"
 
 #: core/mcpserver/reactonmessage/reactonmessagetool.cpp:85
-#, fuzzy, kde-format
-#| msgid "Impossible to start pin message job"
+#, kde-format
 msgid "Impossible to start react on message job"
-msgstr "İletiyi sabitlemeye başlamak olanaksız"
+msgstr "İletiye tepki ver işini başlatmak olanaksız"
 
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:35
 #, kde-format
@@ -2474,57 +2448,69 @@ msgstr "Doğrudan ileti"
 msgid "Omnichannel"
 msgstr "Tek Kanal"
 
-#: core/ruqolacommandlineparser.cpp:44
+#: core/ruqolacommandlineparser.cpp:58
 #, kde-format
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "Hesaplar listesini döndür"
 
-#: core/ruqolacommandlineparser.cpp:46
+#: core/ruqolacommandlineparser.cpp:60
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Belirli bir hesapla başlat"
 
-#: core/ruqolacommandlineparser.cpp:46
+#: core/ruqolacommandlineparser.cpp:60
 #, kde-format
 msgid "Account Name"
 msgstr "Hesap Adı"
 
-#: core/ruqolacommandlineparser.cpp:47
+#: core/ruqolacommandlineparser.cpp:61
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "İletiyi göster"
 
-#: core/ruqolacommandlineparser.cpp:47
+#: core/ruqolacommandlineparser.cpp:61
 #, kde-format
 msgid "Message Url"
 msgstr "İleti URL’si"
 
-#: core/ruqolacommandlineparser.cpp:50
+#: core/ruqolacommandlineparser.cpp:64
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Kullanıcı bildirimi için kullanılabilir seçenekleri liste"
 
-#: core/ruqolacommandlineparser.cpp:53
+#: core/ruqolacommandlineparser.cpp:67
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr "Çevrim dışı olarak başla"
 
-#: core/ruqolacommandlineparser.cpp:55
+#: core/ruqolacommandlineparser.cpp:69
 #, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
 msgstr "Hata ayıklama kipini etkinleştir"
 
-#: core/ruqolacommandlineparser.cpp:56
+#: core/ruqolacommandlineparser.cpp:70
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
 msgstr "Veritabanını temizle (Dikkatli kullanın)"
+
+#: core/ruqolacommandlineparser.cpp:73
+#, kde-format
+msgctxt "@info:shell"
+msgid "List supported MCP tools and exit."
+msgstr ""
+
+#: core/ruqolacommandlineparser.cpp:88
+#, fuzzy, kde-format
+#| msgid "List Rooms"
+msgid "List of Tools:"
+msgstr "Odaları Listele"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:57
 #, kde-format
@@ -8166,16 +8152,13 @@ msgstr "Kategoriyi Kaldır"
 
 #: widgets/category/managecategorieswidget.cpp:150
 #: widgets/category/managecategorieswidget.cpp:180
-#, fuzzy, kde-format
-#| msgid "Team already exists."
+#, kde-format
 msgid "This name %1 already exists."
-msgstr "Takım hâlihazırda var."
+msgstr "%1 adı hâlihazırda var."
 
 #: widgets/category/managecategorieswidget.cpp:150
 #: widgets/category/managecategorieswidget.cpp:180
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "Category"
+#, kde-format
 msgctxt "@title:window"
 msgid "Category"
 msgstr "Kategori"
