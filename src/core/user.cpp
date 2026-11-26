@@ -275,7 +275,9 @@ QJsonObject User::serialize(const User &user)
     o["active"_L1] = user.active();
     o["status"_L1] = Utils::presenceStatusToString(user.status());
     o["utcOffset"_L1] = user.utcOffset();
-    // TODO statusExpiresAt
+    if (const qint64 statusExpiresAt = user.statusExpiresAt(); statusExpiresAt != -1) {
+        o["statusExpiresAt"_L1] = statusExpiresAt;
+    }
     return o;
 }
 
@@ -292,7 +294,7 @@ User User::deserialize(const QJsonObject &o)
     user.setBio(o.value("bio"_L1).toString());
     user.setNickName(o.value("nickname"_L1).toString());
     user.setType(o.value("type"_L1).toString());
-    // TODO statusExpiresAt
+    user.setStatusExpiresAt(o.value("statusExpiresAt"_L1).toInteger(-1));
     return user;
 }
 
