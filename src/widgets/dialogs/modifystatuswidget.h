@@ -12,6 +12,7 @@
 #include "user.h"
 class QLineEdit;
 class StatusCombobox;
+class ClearAfterCombobox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ModifyStatusWidget : public QWidget
 {
     Q_OBJECT
@@ -28,4 +29,5 @@ public:
 private:
     StatusCombobox *const mStatusCombobox;
     QLineEdit *const mStatusLineEdit;
+    ClearAfterCombobox *const mClearAfterCombobox;
 };

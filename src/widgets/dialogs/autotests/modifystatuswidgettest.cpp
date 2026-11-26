@@ -7,6 +7,7 @@
 #include "modifystatuswidgettest.h"
 
 #include "dialogs/modifystatuswidget.h"
+#include "misc/clearaftercombobox.h"
 #include "misc/statuscombobox.h"
 #include <QFormLayout>
 #include <QLineEdit>
@@ -36,6 +37,9 @@ void ModifyStatusWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mStatusLineEdit->isClearButtonEnabled());
 
     QVERIFY(w.messageStatus().isEmpty());
+
+    auto mClearAfterCombobox = w.findChild<ClearAfterCombobox *>(u"mClearAfterCombobox"_s);
+    QVERIFY(mClearAfterCombobox);
 }
 
 void ModifyStatusWidgetTest::changeStatusMessage()

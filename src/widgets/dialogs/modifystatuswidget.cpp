@@ -6,6 +6,7 @@
 
 #include "modifystatuswidget.h"
 
+#include "misc/clearaftercombobox.h"
 #include "misc/statuscombobox.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
@@ -17,12 +18,14 @@ ModifyStatusWidget::ModifyStatusWidget(QWidget *parent)
     : QWidget(parent)
     , mStatusCombobox(new StatusCombobox(this))
     , mStatusLineEdit(new QLineEdit(this))
+    , mClearAfterCombobox(new ClearAfterCombobox(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     mStatusCombobox->setObjectName(u"mStatusCombobox"_s);
+    mClearAfterCombobox->setObjectName(u"mClearAfterCombobox"_s);
 
     mStatusCombobox->setUseOnlyStandardStatus();
 
@@ -32,6 +35,7 @@ ModifyStatusWidget::ModifyStatusWidget(QWidget *parent)
 
     mainLayout->addRow(i18n("Message Status:"), mStatusLineEdit);
     mainLayout->addRow(i18n("Status:"), mStatusCombobox);
+    mainLayout->addRow(i18n("Clear Status After:"), mClearAfterCombobox);
 }
 
 ModifyStatusWidget::~ModifyStatusWidget() = default;
