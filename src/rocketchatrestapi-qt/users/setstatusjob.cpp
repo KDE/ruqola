@@ -13,6 +13,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
+#include <QTimeZone>
 
 using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
@@ -39,6 +40,16 @@ void SetStatusJob::onPostRequestResponse(const QString &replyErrorString, const 
     if (checkResponse("SetStatusJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT setStatusDone();
     }
+}
+
+qint64 SetStatusJob::expireAt() const
+{
+    return mExpireAt;
+}
+
+void SetStatusJob::setExpireAt(qint64 newExpireAt)
+{
+    mExpireAt = newExpireAt;
 }
 
 QString SetStatusJob::statusUserId() const
@@ -124,6 +135,9 @@ QJsonDocument SetStatusJob::json() const
     }
     jsonObj["status"_L1] = statusType;
     jsonObj["message"_L1] = mStatusMessage;
+    if (mExpireAt != -1) {
+        jsonObj["expiresAt"_L1] = QDateTime::fromMSecsSinceEpoch(mExpireAt, QTimeZone::UTC).toString(Qt::ISODateWithMs);
+    }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

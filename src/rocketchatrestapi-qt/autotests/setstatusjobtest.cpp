@@ -31,6 +31,7 @@ void SetStatusJobTest::shouldHaveDefaultValue()
     QCOMPARE(job.status(), SetStatusJob::StatusType::Unknown);
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
+    QCOMPARE(job.expireAt(), -1);
 }
 
 void SetStatusJobTest::shouldGenerateRequest()
@@ -49,11 +50,15 @@ void SetStatusJobTest::shouldGenerateJson()
     job.setStatusUserId(userId);
     job.setStatusMessage(QString());
     job.setStatus(SetStatusJob::StatusType::Away);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"message":"","status":"away","userId":"foo1"})"_s.arg(userId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"message":"","status":"away","userId":"%1"})"_s.arg(userId).toLatin1());
     job.setStatusMessage(u"bla"_s);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"message":"bla","status":"away","userId":"foo1"})"_s.arg(userId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"message":"bla","status":"away","userId":"%1"})"_s.arg(userId).toLatin1());
     job.setStatus(SetStatusJob::StatusType::Offline);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"message":"bla","status":"offline","userId":"foo1"})"_s.arg(userId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"message":"bla","status":"offline","userId":"%1"})"_s.arg(userId).toLatin1());
+    const QDateTime t(QDate(2026, 11, 26), QTime(10, 10, 0), QTimeZone::UTC);
+    job.setExpireAt(t.toMSecsSinceEpoch());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             uR"({"expiresAt":"2026-11-26T10:10:00.000Z","message":"bla","status":"offline","userId":"%1"})"_s.arg(userId).toLatin1());
 }
 
 void SetStatusJobTest::shouldNotStarting()

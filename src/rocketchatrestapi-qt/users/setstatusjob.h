@@ -40,6 +40,9 @@ public:
     [[nodiscard]] QString statusUserId() const;
     void setStatusUserId(const QString &statusUserId);
 
+    [[nodiscard]] qint64 expireAt() const;
+    void setExpireAt(qint64 newExpireAt);
+
 Q_SIGNALS:
     void setStatusDone();
 
@@ -51,5 +54,6 @@ private:
     QString mStatusUserId;
     QString mStatusMessage;
     StatusType mStatus = StatusType::Unknown;
+    qint64 mExpireAt = -1;
 };
 }
