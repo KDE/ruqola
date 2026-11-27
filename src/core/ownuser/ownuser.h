@@ -62,6 +62,9 @@ public:
     [[nodiscard]] const OwnUserPreferences &ownUserPreferences() const;
     void setOwnUserPreferences(const OwnUserPreferences &ownUserPreferences);
 
+    [[nodiscard]] qint64 statusExpiresAt() const;
+    void setStatusExpiresAt(qint64 newStatusExpiresAt);
+
 private:
     QByteArray mUserId;
     QString mUserName;
@@ -73,6 +76,7 @@ private:
     QString mStatusDefault;
     QString mNickName;
     QStringList mRoles;
+    qint64 mStatusExpiresAt = -1;
     ServicePassword mServicePassword;
     OwnUserPreferences mOwnUserPreferences;
     double mUtcOffset = 0.0;

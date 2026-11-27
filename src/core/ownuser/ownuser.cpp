@@ -10,13 +10,14 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(OwnUser, Ruqola_OwnUser)
 #include "utils.h"
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QTimeZone>
 
 using namespace Qt::Literals::StringLiterals;
 OwnUser::OwnUser() = default;
 
 void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
 {
-    // qDebug() << "replyObject " << replyObject;
+    // qDebug() << "parseOwnUserInfo replyObject " << replyObject;
     mUserId = replyObject.value("_id"_L1).toString().toLatin1();
     mUserName = replyObject.value("username"_L1).toString();
     mStatus = replyObject.value("status"_L1).toString();
@@ -26,6 +27,7 @@ void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
     mAvatarUrl = replyObject.value("avatarUrl"_L1).toString();
     mUtcOffset = replyObject.value("utcOffset"_L1).toDouble();
     mStatusDefault = replyObject.value("statusDefault"_L1).toString();
+    mStatusExpiresAt = Utils::parseIsoDate(u"statusExpiresAt"_s, replyObject);
     mNickName = replyObject.value("nickname"_L1).toString();
     const QJsonArray array = replyObject.value("roles"_L1).toArray();
     const QVariantList rolesLst = array.toVariantList();
@@ -61,6 +63,16 @@ const OwnUserPreferences &OwnUser::ownUserPreferences() const
 void OwnUser::setOwnUserPreferences(const OwnUserPreferences &ownUserPreferences)
 {
     mOwnUserPreferences = ownUserPreferences;
+}
+
+qint64 OwnUser::statusExpiresAt() const
+{
+    return mStatusExpiresAt;
+}
+
+void OwnUser::setStatusExpiresAt(qint64 newStatusExpiresAt)
+{
+    mStatusExpiresAt = newStatusExpiresAt;
 }
 
 QByteArray OwnUser::userId() const
@@ -100,6 +112,7 @@ QDebug operator<<(QDebug d, const OwnUser &t)
     d.space() << "UserName" << t.userName();
     d.space() << "Email" << t.email();
     d.space() << "StatusText" << t.statusText();
+    d.space() << "statusExpiresAt" << t.statusExpiresAt();
     d.space() << "Name" << t.name();
     d.space() << "AvatarUrl" << t.avatarUrl();
     d.space() << "utcOffset" << t.utcOffset();
@@ -178,6 +191,7 @@ User OwnUser::user() const
     user.setUserName(mUserName);
     user.setStatus(Utils::presenceStatusFromString(mStatus));
     user.setStatusText(mStatusText);
+    user.setStatusExpiresAt(mStatusExpiresAt);
     return user;
 }
 

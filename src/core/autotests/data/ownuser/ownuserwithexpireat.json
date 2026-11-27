@@ -1,0 +1,200 @@
+{
+    "_id": "YbwG4T2uB3wZSZSKB",
+    "_updatedAt": "2026-11-27T10:00:55.759Z",
+    "active": true,
+    "avatarETag": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+    "avatarOrigin": "rest",
+    "avatarUrl": "https://open.rocket.chat/avatar/foo-bla",
+    "banners": {
+        "alert-5fcc1f02f5204d09050943d2": {
+            "id": "alert-5fcc1f02f5204d09050943d2",
+            "link": "https://github.com/RocketChat/Rocket.Chat/releases/tag/3.9.1",
+            "modifiers": [],
+            "priority": 10,
+            "read": true,
+            "text": "For all installations using SAML Please upgrade as soon as possible.  3.9.1 / 3.8.3 / 3.7.3 / 2.4.13 / 1.3.4 / 0.74.4",
+            "textArguments": [],
+            "title": "Attn: Important Security fix"
+        },
+        "alert-5fd28c50f5204d0905439c78": {
+            "id": "alert-5fd28c50f5204d0905439c78",
+            "link": "https://docs.rocket.chat/rocket.chat-saas/faq#cloud-accounts",
+            "modifiers": [],
+            "priority": 10,
+            "read": true,
+            "text": "Please note that mobile push limit took place on December 1st 2020. See mobile push limit and usage [here], and check our forum for more details.",
+            "textArguments": [],
+            "title": "Warning"
+        },
+        "alert-5fdd5b24f5204d0905f9bd4d": {
+            "id": "alert-5fdd5b24f5204d0905f9bd4d",
+            "link": "https://github.com/RocketChat/Rocket.Chat/releases/tag/3.9.3",
+            "modifiers": [],
+            "priority": 10,
+            "read": true,
+            "text": "Important Cross-Site-Scripting (XSS) security fix. Please upgrade as soon as possible. 3.9.3 / 3.8.4 / 3.7.4 / 2.4.14 / 1.3.5",
+            "textArguments": [],
+            "title": "Security Alert"
+        },
+        "alert-601374b9f5204d0905527cc5": {
+            "id": "alert-601374b9f5204d0905527cc5",
+            "link": "https://github.com/RocketChat/Rocket.Chat/releases/tag/3.10.5",
+            "modifiers": [],
+            "priority": 10,
+            "read": true,
+            "text": "Critical security hotfix for Live Chat available in our latest releases 3.10.5, 3.9.7, 3.8.8. Please upgrade as soon as possible.",
+            "textArguments": [],
+            "title": "Security Alert"
+        },
+        "alert-62b0e435907d6ac39e2a2d8f": {
+            "id": "alert-62b0e435907d6ac39e2a2d8f",
+            "link": "https://docs.rocket.chat/guides/security/security-updates/cve-2022-32211",
+            "modifiers": [],
+            "priority": 10,
+            "read": true,
+            "text": "A critical security vulnerability has been identified which may affect your workspace. Please ensure that your workspace is running version 4.4 or higher. READ MORE",
+            "textArguments": [],
+            "title": "Important!"
+        },
+        "versionUpdate-9_0_0": {
+            "id": "versionUpdate-9_0_0",
+            "link": "https://github.com/RocketChat/Rocket.Chat/releases/tag/9.0.0",
+            "modifiers": [],
+            "priority": 10,
+            "read": true,
+            "text": "New_version_available_(s)",
+            "textArguments": [
+                "9.0.0"
+            ],
+            "title": "Update_your_RocketChat"
+        }
+    },
+    "bio": "bio!!!",
+    "customFields": {},
+    "email": "bla@kde.org",
+    "emails": [
+        {
+            "address": "bla@kde.org",
+            "verified": true
+        }
+    ],
+    "isOAuthUser": true,
+    "name": "foo-name",
+    "nickname": "tests",
+    "requirePasswordChange": false,
+    "roles": [
+        "user",
+        "admin",
+        "leader",
+        "moderator"
+    ],
+    "services": {
+        "email2fa": {
+            "enabled": true
+        },
+        "password": {
+            "exists": true
+        }
+    },
+    "settings": {
+        "calendar": {},
+        "preferences": {
+            "alsoSendThreadToChannel": "default",
+            "autoImageLoad": true,
+            "collapseMediaByDefault": false,
+            "convertAsciiEmoji": true,
+            "desktopNotificationRequireInteraction": false,
+            "desktopNotificationVoiceCalls": true,
+            "desktopNotifications": "mentions",
+            "displayAvatars": true,
+            "dontAskAgainList": [
+                {
+                    "action": "hideRoom",
+                    "label": "Hide"
+                }
+            ],
+            "emailNotificationMode": "mentions",
+            "enableAutoAway": false,
+            "enableMobileRinging": true,
+            "featuresPreview": [
+                {
+                    "name": "secondarySidebar",
+                    "value": false
+                },
+                {
+                    "name": "aiSearch",
+                    "value": false
+                },
+                {
+                    "name": "roomToolboxLayout",
+                    "value": true
+                },
+                {
+                    "name": "realtimeMessageComposer",
+                    "value": false
+                },
+                {
+                    "name": "sidebarRail",
+                    "value": false
+                }
+            ],
+            "hideAvatars": false,
+            "hideFlexTab": false,
+            "hideRoles": false,
+            "hideUsernames": false,
+            "highlights": [
+                "ff"
+            ],
+            "idleTimeLimit": 301,
+            "masterVolume": 100,
+            "mergeChannels": false,
+            "messageViewMode": 0,
+            "muteFocusedConversations": true,
+            "newMessageNotification": "chelle",
+            "newRoomNotification": "beep",
+            "notificationsSoundVolume": 19,
+            "notifyCalendarEvents": true,
+            "omnichannelTranscriptEmail": false,
+            "omnichannelTranscriptPDF": false,
+            "pushNotifications": "nothing",
+            "roomsListExhibitionMode": "category",
+            "saveMobileBandwidth": true,
+            "sendOnEnter": "normal",
+            "showThreadsInMainChannel": false,
+            "sidebarDisplayAvatar": true,
+            "sidebarGroupByType": true,
+            "sidebarSectionsOrder": [
+                "Incoming_Calls",
+                "Incoming_Livechats",
+                "Open_Livechats",
+                "On_Hold_Chats",
+                "Unread",
+                "Favorites",
+                "Teams",
+                "Discussions",
+                "Channels",
+                "Direct_Messages",
+                "Conversations"
+            ],
+            "sidebarShowFavorites": true,
+            "sidebarShowUnread": false,
+            "sidebarSortby": "activity",
+            "sidebarViewMode": "condensed",
+            "themeAppearence": "high-contrast",
+            "unreadAlert": true,
+            "useEmojis": true,
+            "viewMode": 0,
+            "voipRingerVolume": 100
+        },
+        "profile": {}
+    },
+    "status": "online",
+    "statusConnection": "online",
+    "statusDefault": "online",
+    "statusExpiresAt": "2026-11-27T10:58:50.337Z",
+    "statusSource": "manual",
+    "statusText": "Busy",
+    "success": true,
+    "username": "foo-bla",
+    "utcOffset": 1
+}
