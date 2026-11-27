@@ -33,8 +33,8 @@ ModifyStatusWidget::ModifyStatusWidget(QWidget *parent)
     mStatusLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mStatusLineEdit);
 
-    mainLayout->addRow(i18n("Message Status:"), mStatusLineEdit);
     mainLayout->addRow(i18n("Status:"), mStatusCombobox);
+    mainLayout->addRow(i18n("Message Status:"), mStatusLineEdit);
     mainLayout->addRow(i18n("Clear Status After:"), mClearAfterCombobox);
 }
 
