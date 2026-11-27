@@ -177,6 +177,7 @@ User OwnUser::user() const
     user.setUserId(mUserId);
     user.setUserName(mUserName);
     user.setStatus(Utils::presenceStatusFromString(mStatus));
+    user.setStatusText(mStatusText);
     return user;
 }
 

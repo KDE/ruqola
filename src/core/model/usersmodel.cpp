@@ -146,6 +146,8 @@ void UsersModel::addUser(const User &newuser)
             found = true;
             User &user = mUsers[i];
             user.setStatus(newuser.status());
+            user.setStatusText(newuser.statusText());
+            user.setStatusExpiresAt(newuser.statusExpiresAt());
             const QModelIndex idx = createIndex(i, 0);
             Q_EMIT userStatusChanged(user);
             Q_EMIT dataChanged(idx, idx);
