@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-26 01:04+0000\n"
+"POT-Creation-Date: 2026-11-27 01:04+0000\n"
 "PO-Revision-Date: 2026-11-20 14:03+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -158,7 +158,7 @@ msgstr "Daniele E. Domenichelli"
 msgid "New feature"
 msgstr "Nuova funzionalità"
 
-#: apps/main.cpp:106
+#: apps/main.cpp:107
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Sono disponibili i seguenti account:"
@@ -2481,65 +2481,65 @@ msgstr "Messaggio diretto"
 msgid "Omnichannel"
 msgstr "Omnicanale"
 
-#: core/ruqolacommandlineparser.cpp:58
+#: core/ruqolacommandlineparser.cpp:55
 #, kde-format
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "Restituisce elenchi di account"
 
-#: core/ruqolacommandlineparser.cpp:60
+#: core/ruqolacommandlineparser.cpp:57
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Inizia con un account specifico"
 
-#: core/ruqolacommandlineparser.cpp:60
+#: core/ruqolacommandlineparser.cpp:57
 #, kde-format
 msgid "Account Name"
 msgstr "Nome dell'account"
 
-#: core/ruqolacommandlineparser.cpp:61
+#: core/ruqolacommandlineparser.cpp:58
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Mostra messaggio"
 
-#: core/ruqolacommandlineparser.cpp:61
+#: core/ruqolacommandlineparser.cpp:58
 #, kde-format
 msgid "Message Url"
 msgstr "URL messaggio"
 
-#: core/ruqolacommandlineparser.cpp:64
+#: core/ruqolacommandlineparser.cpp:61
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Elenca le opzioni disponibili per le segnalazioni degli utenti"
 
-#: core/ruqolacommandlineparser.cpp:67
+#: core/ruqolacommandlineparser.cpp:64
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr "Avvia in modalità non in linea"
 
-#: core/ruqolacommandlineparser.cpp:69
+#: core/ruqolacommandlineparser.cpp:66
 #, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
 msgstr "Attiva la modalità di debug"
 
-#: core/ruqolacommandlineparser.cpp:70
+#: core/ruqolacommandlineparser.cpp:67
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
 msgstr "Pulisci la banca dati (da usare con cautela)"
 
-#: core/ruqolacommandlineparser.cpp:73
+#: core/ruqolacommandlineparser.cpp:70
 #, kde-format
 msgctxt "@info:shell"
 msgid "List supported MCP tools and exit."
 msgstr ""
 
-#: core/ruqolacommandlineparser.cpp:88
+#: core/ruqolacommandlineparser.cpp:85
 #, fuzzy, kde-format
 #| msgid "List Rooms"
 msgid "List of Tools:"
@@ -2609,17 +2609,17 @@ msgid "Translation was interrupted as the translator engine changed."
 msgstr ""
 "La traduzione è stata interrotta a causa del cambio del motore di traduzione."
 
-#: core/user.cpp:209
+#: core/user.cpp:234
 #, kde-format
 msgid "User"
 msgstr "Utente"
 
-#: core/user.cpp:211
+#: core/user.cpp:236
 #, kde-format
 msgid "Administrator"
 msgstr "Amministratore"
 
-#: core/user.cpp:213
+#: core/user.cpp:238
 #, kde-format
 msgid "Bot"
 msgstr "Bot"
@@ -3515,7 +3515,7 @@ msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr ""
 "Errore nella gestione delle impostazioni dell'avatar dall'URL %1 per %2"
 
-#: rocketchatrestapi-qt/users/setstatusjob.cpp:135
+#: rocketchatrestapi-qt/users/setstatusjob.cpp:149
 #, kde-format
 msgid "Invisible status is disabled"
 msgstr "Lo stato Invisibile è disabilitato"
@@ -3759,7 +3759,7 @@ msgstr "Modifica stato utente"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:31
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:52
 #: widgets/dialogs/directchannelinfowidget.cpp:117
-#: widgets/dialogs/modifystatuswidget.cpp:34
+#: widgets/dialogs/modifystatuswidget.cpp:37
 #, kde-format
 msgid "Status:"
 msgstr "Stato:"
@@ -9508,10 +9508,16 @@ msgctxt "@title:window"
 msgid "Modify Status"
 msgstr "Modifica stato"
 
-#: widgets/dialogs/modifystatuswidget.cpp:33
+#: widgets/dialogs/modifystatuswidget.cpp:36
 #, kde-format
 msgid "Message Status:"
 msgstr "Stato del messaggio:"
+
+#: widgets/dialogs/modifystatuswidget.cpp:38
+#, fuzzy, kde-format
+#| msgid "Status text:"
+msgid "Clear Status After:"
+msgstr "Testo di stato:"
 
 #: widgets/dialogs/playsounddialog.cpp:19
 #, kde-format
@@ -10621,6 +10627,29 @@ msgstr "Aumenta il carattere"
 msgctxt "@action"
 msgid "Decrease Font"
 msgstr "Riduci il carattere"
+
+#: widgets/misc/clearaftercombobox.cpp:23
+#, kde-format
+msgid "Do Not Clear"
+msgstr ""
+
+#: widgets/misc/clearaftercombobox.cpp:24
+#, fuzzy, kde-format
+#| msgid "%1 minute"
+#| msgid_plural "%1 minutes"
+msgid "30 Minutes"
+msgstr "%1 minuto"
+
+#: widgets/misc/clearaftercombobox.cpp:25
+#, kde-format
+msgid "1 Hour"
+msgstr ""
+
+#: widgets/misc/clearaftercombobox.cpp:26
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgid "Custom…"
+msgstr "Personalizzato"
 
 #: widgets/misc/clickablewidget.cpp:76
 #, kde-format

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-26 01:04+0000\n"
-"PO-Revision-Date: 2026-11-25 13:52+0100\n"
+"POT-Creation-Date: 2026-11-27 01:04+0000\n"
+"PO-Revision-Date: 2026-11-26 06:23+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -158,7 +158,7 @@ msgstr "Daniele E. Domenichelli"
 msgid "New feature"
 msgstr "ახალი ფუნქცია"
 
-#: apps/main.cpp:106
+#: apps/main.cpp:107
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "ხელმისაწვდომია შემდეგი ანგარიშები:"
@@ -2446,69 +2446,68 @@ msgstr "პირადი შეტყობინება"
 msgid "Omnichannel"
 msgstr "ომნიარხი"
 
-#: core/ruqolacommandlineparser.cpp:58
+#: core/ruqolacommandlineparser.cpp:55
 #, kde-format
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "ანგარიშების სიის დაბრუნება"
 
-#: core/ruqolacommandlineparser.cpp:60
+#: core/ruqolacommandlineparser.cpp:57
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "მითითებული ანგარიშით გაშვება"
 
-#: core/ruqolacommandlineparser.cpp:60
+#: core/ruqolacommandlineparser.cpp:57
 #, kde-format
 msgid "Account Name"
 msgstr "ანგარიშის სახელი"
 
-#: core/ruqolacommandlineparser.cpp:61
+#: core/ruqolacommandlineparser.cpp:58
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "შეტყობინების ჩვენება"
 
-#: core/ruqolacommandlineparser.cpp:61
+#: core/ruqolacommandlineparser.cpp:58
 #, kde-format
 msgid "Message Url"
 msgstr "შეტყობინების URL"
 
-#: core/ruqolacommandlineparser.cpp:64
+#: core/ruqolacommandlineparser.cpp:61
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "მომხმარებლის უკუკავშირის ხელმისაწვდომი ვარიანტები"
 
-#: core/ruqolacommandlineparser.cpp:67
+#: core/ruqolacommandlineparser.cpp:64
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr "გაშვება ინტერნეტგარეშე რეჟიმში"
 
-#: core/ruqolacommandlineparser.cpp:69
+#: core/ruqolacommandlineparser.cpp:66
 #, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
 msgstr "გამართვის რეჟიმის გააქტიურება"
 
-#: core/ruqolacommandlineparser.cpp:70
+#: core/ruqolacommandlineparser.cpp:67
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
 msgstr "მონაცემთა ბაზის გასუფთავება (გამოიყენეთ სიფრთხილით)"
 
-#: core/ruqolacommandlineparser.cpp:73
+#: core/ruqolacommandlineparser.cpp:70
 #, kde-format
 msgctxt "@info:shell"
 msgid "List supported MCP tools and exit."
-msgstr ""
+msgstr "მხარდაჭერილი MCP-ის ხელსაწყოების ჩამოთვალ და გასვლა."
 
-#: core/ruqolacommandlineparser.cpp:88
-#, fuzzy, kde-format
-#| msgid "List Rooms"
+#: core/ruqolacommandlineparser.cpp:85
+#, kde-format
 msgid "List of Tools:"
-msgstr "ოთახების სია"
+msgstr "ხელსაწყოების ჩამონათვალი:"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:57
 #, kde-format
@@ -2573,17 +2572,17 @@ msgstr "მთარგმნელის ინფორმაცია ვე�
 msgid "Translation was interrupted as the translator engine changed."
 msgstr "თარგმანი შეწყდა თარგმანის ძრავის ცვლილების გამო."
 
-#: core/user.cpp:209
+#: core/user.cpp:234
 #, kde-format
 msgid "User"
 msgstr "User"
 
-#: core/user.cpp:211
+#: core/user.cpp:236
 #, kde-format
 msgid "Administrator"
 msgstr "ადმინისტრატორი"
 
-#: core/user.cpp:213
+#: core/user.cpp:238
 #, kde-format
 msgid "Bot"
 msgstr "ბოტი"
@@ -3472,7 +3471,7 @@ msgstr "არასწორი ავატარის URL: %1"
 msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr "შეცდომა ავატარის პარამეტრის დამუშავებისას URL-დან \"%1\" %2-სთვის"
 
-#: rocketchatrestapi-qt/users/setstatusjob.cpp:135
+#: rocketchatrestapi-qt/users/setstatusjob.cpp:149
 #, kde-format
 msgid "Invisible status is disabled"
 msgstr "უხილავის სტატუსი გათიშულია"
@@ -3715,7 +3714,7 @@ msgstr "მომხმარებლის სტატუსის ჩას�
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:31
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:52
 #: widgets/dialogs/directchannelinfowidget.cpp:117
-#: widgets/dialogs/modifystatuswidget.cpp:34
+#: widgets/dialogs/modifystatuswidget.cpp:37
 #, kde-format
 msgid "Status:"
 msgstr "სტატუსი:"
@@ -9419,10 +9418,16 @@ msgctxt "@title:window"
 msgid "Modify Status"
 msgstr "სტატუსის შეცვლა"
 
-#: widgets/dialogs/modifystatuswidget.cpp:33
+#: widgets/dialogs/modifystatuswidget.cpp:36
 #, kde-format
 msgid "Message Status:"
 msgstr "სტატუსის შეტყობინება:"
+
+#: widgets/dialogs/modifystatuswidget.cpp:38
+#, fuzzy, kde-format
+#| msgid "Status text:"
+msgid "Clear Status After:"
+msgstr "სტატუსის ტექსტი:"
 
 #: widgets/dialogs/playsounddialog.cpp:19
 #, kde-format
@@ -10525,6 +10530,29 @@ msgstr "ფონტის გაზრდა"
 msgctxt "@action"
 msgid "Decrease Font"
 msgstr "ფონტის შემცირება"
+
+#: widgets/misc/clearaftercombobox.cpp:23
+#, kde-format
+msgid "Do Not Clear"
+msgstr ""
+
+#: widgets/misc/clearaftercombobox.cpp:24
+#, fuzzy, kde-format
+#| msgid "%1 minute"
+#| msgid_plural "%1 minutes"
+msgid "30 Minutes"
+msgstr "%1 წუთი"
+
+#: widgets/misc/clearaftercombobox.cpp:25
+#, kde-format
+msgid "1 Hour"
+msgstr ""
+
+#: widgets/misc/clearaftercombobox.cpp:26
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgid "Custom…"
+msgstr "ხელით მითითებული"
 
 #: widgets/misc/clickablewidget.cpp:76
 #, kde-format
