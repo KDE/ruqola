@@ -6,8 +6,8 @@
 
 #include "modifystatuswidgettest.h"
 
-#include "dialogs/modifystatuswidget.h"
 #include "misc/clearaftercombobox.h"
+#include "misc/modifystatuswidget.h"
 #include "misc/statuscombobox.h"
 #include <QFormLayout>
 #include <QLineEdit>

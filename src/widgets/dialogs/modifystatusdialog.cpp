@@ -6,7 +6,7 @@
 
 #include "modifystatusdialog.h"
 
-#include "modifystatuswidget.h"
+#include "misc/modifystatuswidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>

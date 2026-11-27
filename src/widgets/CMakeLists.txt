@@ -370,8 +370,6 @@ target_sources(
         dialogs/messagetexteditor.h
         dialogs/modifystatusdialog.cpp
         dialogs/modifystatusdialog.h
-        dialogs/modifystatuswidget.cpp
-        dialogs/modifystatuswidget.h
         dialogs/playsounddialog.cpp
         dialogs/playsounddialog.h
         dialogs/playsoundwidget.cpp
@@ -513,6 +511,8 @@ target_sources(
         misc/emoticonmenuwidget.h
         misc/messagelistviewbase.h
         misc/messagelistviewbase.cpp
+        misc/modifystatuswidget.cpp
+        misc/modifystatuswidget.h
         misc/passwordconfirmwidget.cpp
         misc/passwordconfirmwidget.h
         misc/passwordlineeditwidget.cpp

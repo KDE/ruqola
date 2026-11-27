@@ -7,7 +7,7 @@
 #include "modifystatusdialogtest.h"
 
 #include "dialogs/modifystatusdialog.h"
-#include "dialogs/modifystatuswidget.h"
+#include "misc/modifystatuswidget.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>
