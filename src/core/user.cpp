@@ -404,6 +404,9 @@ QString User::generateStatusStr() const
     if (!mStatusText.isEmpty()) {
         statusStr += u" - "_s + mStatusText;
     }
+    if (mStatusExpiresAt != -1) {
+        statusStr += u" - "_s + i18n("Until:%1", QDateTime::fromMSecsSinceEpoch(mStatusExpiresAt, QTimeZone::utc()).toString());
+    }
     return statusStr;
 }
 
