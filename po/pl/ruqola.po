@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-27 01:04+0000\n"
+"POT-Creation-Date: 2026-11-28 01:09+0000\n"
 "PO-Revision-Date: 2025-11-08 10:02+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -2725,6 +2725,12 @@ msgstr "Administrator"
 msgid "Bot"
 msgstr "Bot"
 
+#: core/user.cpp:408
+#, fuzzy, kde-format
+#| msgid "File Uploaded: %1"
+msgid "Until: %1"
+msgstr "Wysłano plik: %1"
+
 #: core/utils.cpp:94 core/utils.cpp:369
 #, kde-format
 msgid "Online"
@@ -3868,7 +3874,7 @@ msgstr "Zmień dostępność użytkownika"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:31
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:52
 #: widgets/dialogs/directchannelinfowidget.cpp:117
-#: widgets/dialogs/modifystatuswidget.cpp:37
+#: widgets/misc/modifystatuswidget.cpp:36
 #, kde-format
 msgid "Status:"
 msgstr "Dostępność:"
@@ -9674,17 +9680,6 @@ msgctxt "@title:window"
 msgid "Modify Status"
 msgstr "Zmiana dostępności"
 
-#: widgets/dialogs/modifystatuswidget.cpp:36
-#, kde-format
-msgid "Message Status:"
-msgstr "Wiadomość dostępności:"
-
-#: widgets/dialogs/modifystatuswidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Status text:"
-msgid "Clear Status After:"
-msgstr "Tekst dostępności:"
-
 #: widgets/dialogs/playsounddialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
@@ -10919,6 +10914,17 @@ msgstr "Normalny"
 msgctxt "Message Style"
 msgid "Compact"
 msgstr "Zwarty"
+
+#: widgets/misc/modifystatuswidget.cpp:37
+#, kde-format
+msgid "Message Status:"
+msgstr "Wiadomość dostępności:"
+
+#: widgets/misc/modifystatuswidget.cpp:38
+#, fuzzy, kde-format
+#| msgid "Status text:"
+msgid "Clear Status After:"
+msgstr "Tekst dostępności:"
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, fuzzy, kde-format

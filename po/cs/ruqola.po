@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-27 01:04+0000\n"
+"POT-Creation-Date: 2026-11-28 01:09+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -2695,6 +2695,13 @@ msgstr "Administrátor"
 msgid "Bot"
 msgstr ""
 
+#: core/user.cpp:408
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Video: %1"
+msgid "Until: %1"
+msgstr "Video: %1"
+
 #: core/utils.cpp:94 core/utils.cpp:369
 #, kde-format
 msgid "Online"
@@ -3829,7 +3836,7 @@ msgstr "Upravit stav uživatele"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:31
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:52
 #: widgets/dialogs/directchannelinfowidget.cpp:117
-#: widgets/dialogs/modifystatuswidget.cpp:37
+#: widgets/misc/modifystatuswidget.cpp:36
 #, kde-format
 msgid "Status:"
 msgstr "Stav:"
@@ -9383,17 +9390,6 @@ msgctxt "@title:window"
 msgid "Modify Status"
 msgstr "Upravit stav"
 
-#: widgets/dialogs/modifystatuswidget.cpp:36
-#, kde-format
-msgid "Message Status:"
-msgstr "Stav zprávy:"
-
-#: widgets/dialogs/modifystatuswidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Status text:"
-msgid "Clear Status After:"
-msgstr "Text stavu:"
-
 #: widgets/dialogs/playsounddialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
@@ -10588,6 +10584,17 @@ msgstr "Normální"
 msgctxt "Message Style"
 msgid "Compact"
 msgstr "Kompaktní"
+
+#: widgets/misc/modifystatuswidget.cpp:37
+#, kde-format
+msgid "Message Status:"
+msgstr "Stav zprávy:"
+
+#: widgets/misc/modifystatuswidget.cpp:38
+#, fuzzy, kde-format
+#| msgid "Status text:"
+msgid "Clear Status After:"
+msgstr "Text stavu:"
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format

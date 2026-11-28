@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-27 01:04+0000\n"
+"POT-Creation-Date: 2026-11-28 01:09+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -2721,6 +2721,13 @@ msgstr "प्रशासक"
 msgid "Bot"
 msgstr "बीओटी"
 
+#: core/user.cpp:408
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Video: %1"
+msgid "Until: %1"
+msgstr "वीडियो: %1"
+
 #: core/utils.cpp:94 core/utils.cpp:369
 #, kde-format
 msgid "Online"
@@ -3856,7 +3863,7 @@ msgstr "उपयोगकर्ता स्थिति संपादित 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:31
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:52
 #: widgets/dialogs/directchannelinfowidget.cpp:117
-#: widgets/dialogs/modifystatuswidget.cpp:37
+#: widgets/misc/modifystatuswidget.cpp:36
 #, kde-format
 msgid "Status:"
 msgstr "स्थिति:"
@@ -9643,17 +9650,6 @@ msgctxt "@title:window"
 msgid "Modify Status"
 msgstr "स्थिति संशोधित करें"
 
-#: widgets/dialogs/modifystatuswidget.cpp:36
-#, kde-format
-msgid "Message Status:"
-msgstr "संदेश स्थिति:"
-
-#: widgets/dialogs/modifystatuswidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Status text:"
-msgid "Clear Status After:"
-msgstr "स्थिति पाठ:"
-
 #: widgets/dialogs/playsounddialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
@@ -10887,6 +10883,17 @@ msgstr "सामान्य"
 msgctxt "Message Style"
 msgid "Compact"
 msgstr "सघन"
+
+#: widgets/misc/modifystatuswidget.cpp:37
+#, kde-format
+msgid "Message Status:"
+msgstr "संदेश स्थिति:"
+
+#: widgets/misc/modifystatuswidget.cpp:38
+#, fuzzy, kde-format
+#| msgid "Status text:"
+msgid "Clear Status After:"
+msgstr "स्थिति पाठ:"
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-27 01:04+0000\n"
+"POT-Creation-Date: 2026-11-28 01:09+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2695,6 +2695,12 @@ msgstr "管理員"
 msgid "Bot"
 msgstr "機器人"
 
+#: core/user.cpp:408
+#, fuzzy, kde-format
+#| msgid "File Uploaded: %1"
+msgid "Until: %1"
+msgstr "已上傳檔案：%1"
+
 #: core/utils.cpp:94 core/utils.cpp:369
 #, kde-format
 msgid "Online"
@@ -3808,7 +3814,7 @@ msgstr "編輯使用者狀態"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:31
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:52
 #: widgets/dialogs/directchannelinfowidget.cpp:117
-#: widgets/dialogs/modifystatuswidget.cpp:37
+#: widgets/misc/modifystatuswidget.cpp:36
 #, kde-format
 msgid "Status:"
 msgstr "狀態："
@@ -9416,17 +9422,6 @@ msgctxt "@title:window"
 msgid "Modify Status"
 msgstr "修改狀態"
 
-#: widgets/dialogs/modifystatuswidget.cpp:36
-#, kde-format
-msgid "Message Status:"
-msgstr "訊息狀態："
-
-#: widgets/dialogs/modifystatuswidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Status text:"
-msgid "Clear Status After:"
-msgstr "狀態文字："
-
 #: widgets/dialogs/playsounddialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
@@ -10620,6 +10615,17 @@ msgstr "一般"
 msgctxt "Message Style"
 msgid "Compact"
 msgstr "簡潔"
+
+#: widgets/misc/modifystatuswidget.cpp:37
+#, kde-format
+msgid "Message Status:"
+msgstr "訊息狀態："
+
+#: widgets/misc/modifystatuswidget.cpp:38
+#, fuzzy, kde-format
+#| msgid "Status text:"
+msgid "Clear Status After:"
+msgstr "狀態文字："
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, fuzzy, kde-format

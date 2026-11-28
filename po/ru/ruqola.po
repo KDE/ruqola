@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-27 01:04+0000\n"
-"PO-Revision-Date: 2026-11-20 07:36+0200\n"
+"POT-Creation-Date: 2026-11-28 01:09+0000\n"
+"PO-Revision-Date: 2026-11-27 07:59+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -909,10 +909,9 @@ msgid "Misc"
 msgstr "Разное"
 
 #: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:28
-#, fuzzy, kde-format
-#| msgid "Create Direct Messages…"
+#, kde-format
 msgid "Create Direct Message"
-msgstr "Создать личные сообщения…"
+msgstr "Создать личное сообщение"
 
 #: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:46
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:54
@@ -942,35 +941,29 @@ msgid "No account found"
 msgstr "Учётная запись не найдена"
 
 #: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:55
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#, kde-format
 msgid "Missing user names"
-msgstr "Не указано имя пользователя."
+msgstr "Не указаны имена пользователей"
 
 #: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Direct Messages - %1"
+#, kde-format
 msgid "Create direct message failed: %1"
-msgstr "Создание личных сообщений — %1"
+msgstr "Не удалось создать личное сообщение: %1"
 
 #: core/mcpserver/createdirectmessage/createdirectmessagetool.cpp:73
-#, fuzzy, kde-format
-#| msgid "Impossible to start star message job"
+#, kde-format
 msgid "Impossible to start create direct message job"
-msgstr "Не удалось начать отметку сообщения звёздочкой"
+msgstr "Не удалось начать создание личного сообщения"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:30
-#, fuzzy, kde-format
-#| msgid "Create Discussion…"
+#, kde-format
 msgid "Create Discussion"
-msgstr "Создать обсуждение…"
+msgstr "Создать обсуждение"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:64
-#, fuzzy, kde-format
-#| msgid "Missing room identifier"
+#, kde-format
 msgid "Missing parent room identifier"
-msgstr "Не указан идентификатор комнаты"
+msgstr "Не указан идентификатор родительской комнаты"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:69
 #: core/mcpserver/getroominfo/getroominfotool.cpp:54
@@ -983,74 +976,60 @@ msgid "No room found with identifier \"%1\""
 msgstr "Комната с идентификатором «%1» не найдена"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:74
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#, kde-format
 msgid "Missing discussion name"
-msgstr "Не указано имя пользователя."
+msgstr "Не указано название обсуждения"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:108
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Discussion - %1"
+#, kde-format
 msgid "Create discussion failed: %1"
-msgstr "Создание обсуждения — %1"
+msgstr "Не удалось создать обсуждение: %1"
 
 #: core/mcpserver/creatediscussion/creatediscussiontool.cpp:111
-#, fuzzy, kde-format
-#| msgid "Impossible to start update room settings job"
+#, kde-format
 msgid "Impossible to start create discussion job"
-msgstr "Не удалось начать изменение параметров комнаты"
+msgstr "Не удалось начать создание обсуждения"
 
 #: core/mcpserver/createroom/createroomtool.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Create Room"
+#, kde-format
 msgid "Create Room"
 msgstr "Создать комнату"
 
 #: core/mcpserver/createroom/createroomtool.cpp:63
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#, kde-format
 msgid "Missing room name"
-msgstr "Не указано имя пользователя."
+msgstr "Не указано название комнаты"
 
 #: core/mcpserver/createroom/createroomtool.cpp:79
-#, fuzzy, kde-format
-#| msgid "Search failed: %1"
+#, kde-format
 msgid "Create room failed: %1"
-msgstr "Ошибка поиска: %1"
+msgstr "Не удалось создать комнату: %1"
 
 #: core/mcpserver/createroom/createroomtool.cpp:92
 #: core/mcpserver/createroom/createroomtool.cpp:103
-#, fuzzy, kde-format
-#| msgid "Impossible to start update room settings job"
+#, kde-format
 msgid "Impossible to start create room job"
-msgstr "Не удалось начать изменение параметров комнаты"
+msgstr "Не удалось начать создание комнаты"
 
 #: core/mcpserver/createteam/createteamtool.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Team"
+#, kde-format
 msgid "Create Team"
-msgstr "Создание команды"
+msgstr "Создать команду"
 
 #: core/mcpserver/createteam/createteamtool.cpp:62
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#, kde-format
 msgid "Missing team name"
-msgstr "Не указано имя пользователя."
+msgstr "Не указано название команды"
 
 #: core/mcpserver/createteam/createteamtool.cpp:84
-#, fuzzy, kde-format
-#| msgid "Get message failed: %1"
+#, kde-format
 msgid "Create team failed: %1"
-msgstr "Не удалось получить сообщение: %1"
+msgstr "Не удалось создать команду: %1"
 
 #: core/mcpserver/createteam/createteamtool.cpp:87
-#, fuzzy, kde-format
-#| msgid "Impossible to start star message job"
+#, kde-format
 msgid "Impossible to start create team job"
-msgstr "Не удалось начать отметку сообщения звёздочкой"
+msgstr "Не удалось начать создание команды"
 
 #: core/mcpserver/getmessage/getmessagetool.cpp:29
 #, kde-format
@@ -1228,29 +1207,24 @@ msgid "Impossible to start pin message job"
 msgstr "Не удалось начать закрепление сообщения"
 
 #: core/mcpserver/reactonmessage/reactonmessagetool.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Sound Message"
+#, kde-format
 msgid "React on Message"
-msgstr "Создание аудиосообщения"
+msgstr "Отреагировать на сообщение"
 
 #: core/mcpserver/reactonmessage/reactonmessagetool.cpp:65
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#, kde-format
 msgid "Missing emoji"
-msgstr "Не указано имя пользователя."
+msgstr "Не указан смайлик"
 
 #: core/mcpserver/reactonmessage/reactonmessagetool.cpp:82
-#, fuzzy, kde-format
-#| msgid "Get message failed: %1"
+#, kde-format
 msgid "React on message failed: %1"
-msgstr "Не удалось получить сообщение: %1"
+msgstr "Не удалось отреагировать на сообщение: %1"
 
 #: core/mcpserver/reactonmessage/reactonmessagetool.cpp:85
-#, fuzzy, kde-format
-#| msgid "Impossible to start pin message job"
+#, kde-format
 msgid "Impossible to start react on message job"
-msgstr "Не удалось начать закрепление сообщения"
+msgstr "Не удалось начать добавление реакции на сообщение"
 
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:35
 #, kde-format
@@ -2550,13 +2524,12 @@ msgstr "Очистить базу данных (используйте с ост
 #, kde-format
 msgctxt "@info:shell"
 msgid "List supported MCP tools and exit."
-msgstr ""
+msgstr "Показать список поддерживаемых инструментов MCP и выйти."
 
 #: core/ruqolacommandlineparser.cpp:85
-#, fuzzy, kde-format
-#| msgid "List Rooms"
+#, kde-format
 msgid "List of Tools:"
-msgstr "Список комнат"
+msgstr "Список инструментов:"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:57
 #, kde-format
@@ -2647,6 +2620,13 @@ msgstr "Администратор"
 #, kde-format
 msgid "Bot"
 msgstr "Бот"
+
+#: core/user.cpp:408
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Failed: %1"
+msgid "Until: %1"
+msgstr "Ошибка: %1"
 
 #: core/utils.cpp:94 core/utils.cpp:369
 #, kde-format
@@ -3786,7 +3766,7 @@ msgstr "Изменение статуса пользователя"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:31
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:52
 #: widgets/dialogs/directchannelinfowidget.cpp:117
-#: widgets/dialogs/modifystatuswidget.cpp:37
+#: widgets/misc/modifystatuswidget.cpp:36
 #, kde-format
 msgid "Status:"
 msgstr "Статус:"
@@ -8296,16 +8276,13 @@ msgstr "Удалить категорию"
 
 #: widgets/category/managecategorieswidget.cpp:150
 #: widgets/category/managecategorieswidget.cpp:180
-#, fuzzy, kde-format
-#| msgid "Team already exists."
+#, kde-format
 msgid "This name %1 already exists."
-msgstr "Команда уже существует."
+msgstr "Название «%1» уже существует."
 
 #: widgets/category/managecategorieswidget.cpp:150
 #: widgets/category/managecategorieswidget.cpp:180
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "Category"
+#, kde-format
 msgctxt "@title:window"
 msgid "Category"
 msgstr "Категория"
@@ -9568,17 +9545,6 @@ msgctxt "@title:window"
 msgid "Modify Status"
 msgstr "Изменение статуса"
 
-#: widgets/dialogs/modifystatuswidget.cpp:36
-#, kde-format
-msgid "Message Status:"
-msgstr "Состояние сообщения:"
-
-#: widgets/dialogs/modifystatuswidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Status text:"
-msgid "Clear Status After:"
-msgstr "Текст статуса:"
-
 #: widgets/dialogs/playsounddialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
@@ -10784,6 +10750,17 @@ msgstr "Обычный"
 msgctxt "Message Style"
 msgid "Compact"
 msgstr "Компактный"
+
+#: widgets/misc/modifystatuswidget.cpp:37
+#, kde-format
+msgid "Message Status:"
+msgstr "Состояние сообщения:"
+
+#: widgets/misc/modifystatuswidget.cpp:38
+#, fuzzy, kde-format
+#| msgid "Status text:"
+msgid "Clear Status After:"
+msgstr "Текст статуса:"
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
